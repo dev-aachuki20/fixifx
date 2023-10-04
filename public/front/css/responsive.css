@@ -1,0 +1,356 @@
+@media (min-width: 992px) {
+    .platform-devices-img {
+        margin-right: -250px;
+    }
+    .meta-trader-logo {
+        margin-left: -100px;
+    }
+}
+
+@media (min-width: 1366px) {
+    .platform-devices-img {
+        margin-right: -250px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .platform-devices-img {
+        margin-right: -340px;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-navbar-container,
+    .custom-navbar-container .uk-navbar {
+        position: static;
+    }
+    .custom-navbar .uk-navbar-dropdown {
+        width: 100%;
+        left: 0 !important;
+        background: #004040;
+        border: none;
+    }
+    .menu-dropdown-col:not(.dropdown-pf-wrap .menu-dropdown-col), .dropdown-pf-wrap {
+        padding: 25px 0px;
+    }
+}
+
+@media (max-width: 1250.98px) {
+    .financial-account-widget .in-slideshow-button .uk-button {
+        width: 220px;
+    }
+    .economic-calendar iframe {
+        height: 670px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .uk-navbar-item,
+    .uk-navbar-nav>li>a,
+    .uk-navbar-toggle {
+        font-size: 14px;
+        padding: 0 8px;
+    }
+    .tickerwidget-slider .uk-forex-trading {
+        margin: 5px 10px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .home-banner-right {
+        max-width: 450px;
+    }
+    .account_type_info .most_suitable_account_detail{
+          padding-left: 0px !important; 
+    }
+    .uk-modal-close-full {
+        right: 32px;
+        font-size: 29px;
+        background-color: transparent;
+        border: none;
+        padding: 1px 13px;
+    }
+    .menu-part .custom-navbar {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -340px;
+        width: 320px;
+        background-color: #004040;
+        height: 100%;
+        z-index: 999;
+        padding: 40px 0;
+        padding-top: 60px;
+        overflow-y: auto;
+        transition: all 0.5s ease;
+        box-shadow: 5px 0px 35px rgb(255 255 255 / 25%);
+    }
+    .header-navbar .uk-navbar-right .mobile_menu {
+        display: block;
+    }
+    .header-navbar .uk-navbar-right .desktop_menu {
+        display: none;
+    }
+    .menu-part .sidemenu-open {
+        right: 0px;
+    }
+    .menu-part .uk-navbar-nav {
+        flex-direction: column;
+    }
+    .menu-part .uk-navbar-nav>li>a {
+        display: flex;
+        min-height: auto !important;
+        color: #ffffff;
+        padding: 14px 15px;
+        justify-content: space-between;
+        font-weight: 700;
+    }
+    .menu-part .mobile_menu .menu-dropdown-col .uk-nav li a{
+        padding: 10px 0px;
+    }
+    .menu-part .menu-dropdown-info {
+        border: none;
+    }
+    .menu-part .uk-navbar-nav>li {
+        border-top: 1px solid #385858;
+    }
+    .menu-part .uk-navbar-nav>li:last-child {
+        border-bottom: 1px solid #385858;
+    }
+    .menu-part .uk-navbar-dropdown {
+        width: 100%;
+        position: relative;
+        top: 0px !important;
+        box-shadow: none !important;
+        border: none;
+        background: transparent;
+    }
+    .menu-part .menu-toggle {
+        padding: 0 12px;
+        color: #ffffff;
+    }
+    .menu-part a.close-menu {
+        display: block;
+    }
+    .forex-table-tab ul {
+        overflow-y: hidden;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        cursor: pointer;
+        /* Hiddem scroll bar */
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+    }
+    .forex-table-tab .uk-tab li {
+        min-width: auto;
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .forex-table-tab ul::-webkit-scrollbar {
+        display: none;
+    }
+    .home-user-counter p {
+        font-size: 13px;
+    }
+    .home-user-counter .uk-heading {
+        font-size: 26px;
+    }
+    .platform-devices-img {
+        text-align: center;
+        margin-right: 0px;
+    }
+    .tp-blck .in-icon-wrap {
+        width: 60px;
+        height: 60px;
+    }
+    .home-partner-programs .in-icon-wrap.large {
+        width: 70px;
+        height: 70px;
+    }
+    .home-partner-programs .in-icon-wrap img {
+        width: 40px;
+    }
+    .in-profit-15 .in-icon-wrap:after {
+        top: 12px;
+        right: -155px;
+    }
+    .platform-download-icon img {
+        width: 44px;
+    }
+    .trading_start_guide .step_info_count {
+        font-size: 120px;
+        line-height: 0.6;
+        bottom: unset;
+        right: 0px;
+        top: 0px;
+    }
+    .step_info_box {
+        margin-bottom: 30px;
+    }
+}
+@media (min-width: 960px) {
+    .spread-list-tabs.my-4 {
+        min-height: 977px;
+    }
+}
+@media (max-width: 959.98px) {
+    footer .uk-grid>div {
+        margin-bottom: 30px;
+    }
+    .innare-page-banner {
+        padding: 100px 0px;
+    }
+    .financial-account-widget .uk-button {
+        max-width: 220px;
+    }
+    /* .sidebar_wrapper{
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        width: 320px;
+        background-color: #ffffff;
+        padding: 60px 10px;
+        overflow-y: auto;
+        max-height: 100vh;
+        left: -340px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+    }
+    .sidebar_wrapper.is_sidebar_open{
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    .sidebar-toggle, .is_sidebar_open .sidebar-close-toggle{
+        display: block;
+    } */
+    .newsletter-section {
+        display: block;
+        padding-top: 0px;
+    }
+    .sidebar_wrapper .financial-account-widget,
+    .sidebar_wrapper .newsletter-widget {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .account_type_info .uk-tab.acconut_type_tab{
+          flex-direction: row !important;
+          width: 100%;
+          flex-wrap: wrap;
+          justify-content: space-between;
+    }
+    .account_type_info .uk-tab.acconut_type_tab li{
+        width:calc(33% - 12px);
+    }
+    .account_type_info .uk-tab.acconut_type_tab li.btn_wrapper{
+         width: calc(50% - 12px);
+    }
+    .forex-table-tab ul {
+        margin-left: 0px;
+    }
+    .meta-trader-logo img {
+        flex-shrink: 0;
+        height: 50px;
+    }
+    .meta-trader-logo h6 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 639.98px) {
+    .home-partner-programs .programs-box a {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+    .home-partner-programs .programs-box:last-child {
+        margin-bottom: 0px;
+    }
+    .home-partner-programs .in-icon-wrap.large {
+        width: 60px;
+        height: 60px;
+    }
+    .home-partner-programs .in-icon-wrap img {
+        width: 36px;
+    }
+    .home-partner-programs .programs-box .uk-margin-top {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        margin-left: 16px;
+    }
+    .innare-page-banner {
+        padding: 80px 0px;
+    }
+    .safety-funds-info .in-icon-wrap {
+        width: 54px;
+        height: 54px;
+    }
+    .sitemap-wrapper .sitemap_widget {
+        width: 50%;
+    }
+    .economic-calendar iframe {
+        height: 500px;
+    }
+    .footer_banner {
+        min-height: auto;
+    }
+    .footer_banner .footer_banner_bg {
+        padding: 60px 14px 16px;
+    }
+    .forex-instruments-info .custom_box {
+        /* flex-wrap: wrap-reverse; */
+        padding: 24px 14px;
+    }
+    .forex-instruments-info .custom_box .uk-margin-left {
+        margin-left: 0px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* .platform-download-icon img {
+        width: 34px;
+    } */
+    .tndices-table-main table th {
+        min-width: 100px;
+    }
+    .footer_banner .footer_banner_bg h1 {
+        letter-spacing: 1.5px;
+    }
+    .author-info-sections .author-image-div {
+        width: 60px;
+        height: 60px;
+    }
+    .account_type_info .uk-tab.acconut_type_tab{
+          flex-direction: column !important;
+    }
+    .account_type_info .uk-tab.acconut_type_tab li{
+         width: 100% !important;
+    }
+    .account_type_info .uk-tab.acconut_type_tab li.btn_wrrapper{
+         width: 100% !important;
+    }
+    .account_type_info .accout_types_list_wrapper{
+        padding: 0px 24px;
+    }
+}
+
+@media (max-width: 479.98px) {
+    .meta-trader-logo h6 {
+        font-size: 28px;
+    }
+    .meta-trader-logo img {
+        height: 44px;
+    }
+    .trading-tools-wrap .in-icon-wrap {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+    .sitemap-wrapper .sitemap_widget {
+        width: 100%;
+    }
+}

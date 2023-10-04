@@ -1,0 +1,74 @@
+
+
+.table>thead{
+    color: var(--vz-body-color);
+    background-color: rgba(var(--vz-light-rgb),.75);
+}
+
+table.dataTable.no-footer,
+table.dataTable thead th, table.dataTable thead td {
+    border: 1px solid var(--vz-border-color)
+}
+
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td{
+    border-bottom-width: 1px ;
+}
+
+.profile-image-remove-btn{
+    border: none;
+    background-color: #ef2f2f;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    margin: 0px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 7px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+.profile-img-det{
+    margin: 0 auto 35px;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+.profile-prev-img {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+    background-color: #000000;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-prev-img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.profile-prev-input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.profile-icon{
+    color: #fff;
+}
+.profile-icon i{
+    font-size: 24px;
+}

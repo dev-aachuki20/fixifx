@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0"
+    viewBox="0 0 64 64" style="enable-background:new 0 0 512 512"
+    xml:space="preserve" class="">
+    <g>
+    <path fill="#3a8c3d" d="M55 2h2v43h-2z" data-original="#3a8c3d"></path>
+    <path fill="#cc5256" d="M39 26h2v24h-2z" data-original="#cc5256"></path>
+    <path fill="#3a8c3d" d="M23 9h2v34h-2z" data-original="#3a8c3d"></path>
+    <path fill="#cc5256" d="M7 34h2v28H7z" data-original="#cc5256"></path>
+    <path fill="#e65c62" d="M4 37h8v22H4z" data-original="#e65c62"></path>
+    <path fill="#44a649" d="M20 12h8v28h-8z" data-original="#44a649" class="">
+    </path>
+    <path fill="#e65c62" d="M36 29h8v18h-8z" data-original="#e65c62"></path>
+    <path fill="#44a649" d="M52 5h8v37h-8z" data-original="#44a649" class="">
+    </path>
+    </g>
+</svg>
