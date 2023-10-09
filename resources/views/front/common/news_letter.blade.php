@@ -1,86 +1,25 @@
-<div class="uk-card uk-card-primary uk-card-body uk-border-rounded uk-background-bottom-left uk-background-cover" style="background-image: url('{{ asset('front/img/fixi_fx-news_letter.webp') }}');"
- loading="lazy">
-    <div class="uk-flex uk-flex-center">
-        <div class="uk-text-center">
-            <h3 class="mt-0 mb-3">{{ getSettingValue('newsletter_title_'.config('app.locale')) }}</h3>
-            <p class="m-0 mb-4">{{ getSettingValue('newsletter_detail_'.config('app.locale')) }}</p>
-            <form class="uk-search uk-search-default uk-width-1-1 uk-margin-bottom uk-inline" id="news_form">
-                @csrf
-                <div class="position-relative">
-                   <input class="uk-search-input uk-border-pill" type="text" placeholder="{{__('message.email_placeholder')}}" name="email">
-                   <span class="uk-form-icon uk-form-icon-absolute fas fa-envelope " style="display: block;position: absolute;top: 44%;left: 20px;transform: translateY(-50%);"></span>
-                </div>
-                @if($errors->has('email'))
-                <span style="color: red;">{{ $errors->first('email') }}</span>
-                @endif
-                <div id="email_error"></div>
-               <button id="news_submit" class="uk-button uk-button-primary uk-border-rounded uk-text-white mt-3" type="submit">{{__('message.submit')}}</button>
-            </form>
-        </div>
-    </div>
+<div class="stayIcon-box">
+    <img class="img-fluid" src="{{asset('fixifx/images/Isolation_Mode.png')}}" alt="">
 </div>
-
-@push('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script>
-<script>
-    $('#news_form').validate({
-        errorClass: 'invalid-feedback animated fadeInDown error',
-        errorElement: 'div',
-        rules: {
-            email: {
-                required: true,
-            }
-        },
-        highlight: function(element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-            $(element).parents("div.form-control").addClass(errorClass).removeClass(validClass);
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-            $(element).parents(".error").removeClass(errorClass).addClass(validClass);
-        },
-        submitHandler: function(form) {
-            $('.error').html("");
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('newsletter') }}",
-                data: new FormData(form),
-                processData: false,
-                contentType: false,
-                success: function(data) {
-
-                    if (data) {
-                        success = msg = "";
-                        if ('{{config("app.locale")}}' == 'en') {
-                            msg = 'You have successfully subscribed to our newsletter.';
-                            success = 'Success';
-                        } else {
-                            msg = 'ニュースレターの購読に成功しました。';
-                            success = '成功';
-                        }
-                        swal(
-                            success,
-                            msg,
-                            'success'
-                        );
-                        $('#news_form').trigger("reset");
-
-                    }
-                },
-                error: function(data) {
-                    var errors = $.parseJSON(data.responseText);
-                    $.each(errors.errors, function(key, value) {
-                        $('#news_form').find('input[name=' + key + ']').after('<span class="error" style="color: red;">' + value + '</span>');
-                    });
-
-                }
-            });
-        },
-    });
-
-
-
-    // 
-</script>
-@endpush
+<div class="stayTitle-box">
+    <h4>
+        {{ getSettingValue('newsletter_title_'.config('app.locale')) }}
+    </h4>
+    <p>{{ getSettingValue('newsletter_detail_'.config('app.locale')) }}</p>
+</div>
+<form id="news_form">
+    @csrf
+    <div class="form-group">
+        <div class="newsletter-test">
+            <img class="input-icon" src="{{asset('fixifx/images/form-icon/email.svg')}}" alt="bank">
+            <input type="text" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="{{__('message.email_placeholder')}}">
+        </div>
+        
+        <div id="email_error" class="error-message"></div>
+        <button id="news_submit" type="submit" class="sendBtn-Box">
+            <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.45544 11.0186L7.14115 15.4394C7.59082 15.4394 7.78558 15.2462 8.01912 15.0143L10.1274 12.9994L14.4959 16.1986C15.2971 16.6451 15.8616 16.41 16.0777 15.4616L18.9452 2.02508L18.946 2.02429C19.2001 0.839926 18.5177 0.37679 17.7371 0.667339L0.882079 7.12037C-0.268241 7.56688 -0.250824 8.20814 0.686532 8.49869L4.99568 9.83902L15.005 3.57599C15.476 3.26407 15.9043 3.43666 15.552 3.74858L7.45544 11.0186Z" fill="white" />
+            </svg>
+        </button>
+    </div>
+</form>

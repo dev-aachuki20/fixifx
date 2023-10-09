@@ -37,6 +37,7 @@ return [
     'too'                => 'To',
     'result'            => 'Result',
     'blogs'             => 'Blogs',
+    'recent_posts'      => 'Recent Posts',
     'author'            => 'Author',
     'click_here'        => 'Click here',
     'learn_forex'       => 'Learn Forex',

@@ -41,9 +41,9 @@ Route::group(['middleware' => 'localization'], function () {
     });
 
     Route::get('{locale}/{slug}', 'HomeController@page')->name('page');
-    
+
     Route::get('{locale}/{slug}/{article_id?}/detail', 'HomeController@page')->name('detail');
-    Route::get('{slug}/{category_id?}/category-list', 'HomeController@list')->name('list'); 
+    Route::get('{slug}/{category_id?}/category-list', 'HomeController@list')->name('list');
 
     Route::get('download/{file?}', function ($file) {
         $path = public_path('storage/Section/' . $file);
@@ -58,12 +58,11 @@ Route::group(['middleware' => 'localization'], function () {
     Route::post('post-comment', 'HomeController@postComment')->name('post_comment');
     Route::post('newsletter', 'HomeController@newsLetter')->name('newsletter');
     Route::post('get_media', 'HomeController@getMedia')->name('get_media');
-    
-    Route::get('search-faqs', 'HomeController@searchFaqs')->name('search_faqs');
 
+    Route::get('search-faqs', 'HomeController@searchFaqs')->name('search_faqs');
 });
 
 Route::post('get_rate', 'HomeController@getChangeRate')->name('getChangeRate');
-Route::get('get_flag/{currency_code}/flag', function($currency_code){
+Route::get('get_flag/{currency_code}/flag', function ($currency_code) {
     return getCurrencyFlag($currency_code);
 })->name('get_flag');

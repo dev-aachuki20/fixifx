@@ -21,9 +21,9 @@ function onChangeCallback(ctr){
 }
 
 $(document).ready(function () {
-  $(".niceCountryInputSelector").each(function(i,e){
-      new NiceCountryInput(e).init();
-  });
+  // $(".niceCountryInputSelector").each(function(i,e){
+  //     new NiceCountryInput(e).init();
+  // });
 
   $("#phone").intlTelInput({
     initialCountry: "in",

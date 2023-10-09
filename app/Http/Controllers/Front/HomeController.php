@@ -44,12 +44,13 @@ class HomeController extends Controller
         } else {
             $newUrl  = str_replace('/en/', '/ja/', $thisUrl);
         }
-     
+
         return redirect($newUrl);
     }
 
-    public function page($locale, $slug, $article_id = NULL, SpreadDataTable $spreadTable, ShareDataTable $shareDataTable,ForexDataTable $forexDataTable,CfdDataTable $cfdDataTable)
+    public function page($locale, $slug, SpreadDataTable $spreadTable, ShareDataTable $shareDataTable, ForexDataTable $forexDataTable, CfdDataTable $cfdDataTable, $article_id = NULL)
     {
+
         $home_articles = Article::where('page_id', 0)->where('status', 1)->orderBy('id', 'DESC')->get();
         $common = Section::where('page_id', '-1')->get();
 
@@ -85,12 +86,17 @@ class HomeController extends Controller
             $payments = PaymentType::where('page_id', $page->id)->where('status', 1)->get();
             $countries = Country::all();
             $categories = ArticleCategory::all();
-
             $contacts = ContactPage::where('page_id', $page->id)->get();
-
+            $currency_changes = getAllChangeCurrency();
             if ($article_id) {
                 $article = Article::where('id', $article_id)->where('page_id', $page->id)->first();
-                if($article) {
+
+                if ($article) {
+                    $totalViews = $article->views + 1;
+                    $article->update(['views' => $totalViews]);
+                }
+
+                if ($article) {
                     if (($slug == 'event-news') || ($slug == 'company-news')) {
                         return view('front.page.event_detail', compact('slug', 'section', 'page', 'menu', 'articles', 'article', 'tags', 'common'));
                     }
@@ -118,7 +124,8 @@ class HomeController extends Controller
                 return $cfdDataTable->render('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'tags', 'faqs', 'countries', 'contacts', 'common'));
             }
 
-            return view('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories'));
+
+            return view('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories', 'currency_changes'));
         } else {
             abort(404);
         }
@@ -211,14 +218,14 @@ class HomeController extends Controller
         $access_key = env('CURRENCY_KEY');
         $response  = Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->get('https://api.currencylayer.com/change?access_key='.$access_key.'&source='.$request->source.'&currencies='.$request->currencies);
+        ])->get('https://api.currencylayer.com/change?access_key=' . $access_key . '&source=' . $request->source . '&currencies=' . $request->currencies);
         $response = json_decode($response->body());
         $data = [];
         $currency = (array) $response->quotes;
-        
+
         foreach ($currency as $key => $value) {
-            $data[$key]['start_rate'] = number_format($value->start_rate, 6-(strlen((int)$value->start_rate)));
-            $data[$key]['end_rate'] = number_format($value->end_rate, 6-(strlen((int)$value->end_rate)));
+            $data[$key]['start_rate'] = number_format($value->start_rate, 6 - (strlen((int)$value->start_rate)));
+            $data[$key]['end_rate'] = number_format($value->end_rate, 6 - (strlen((int)$value->end_rate)));
             $data[$key]['change_pct'] = number_format($value->change_pct, 2);
             $data[$key]['flag_1'] = getCurrencyFlag(substr($key, 0, 3));
             $data[$key]['flag_2'] = getCurrencyFlag(substr($key, 3, 6));
@@ -226,31 +233,31 @@ class HomeController extends Controller
 
         return $data;
     }
-    
-    
+
+
     public function searchFaqs(Request $request)
     {
         $searchTerm = $request->query('keyword');
-        
+
         // Get the first few letters of the search term.
         $firstFewLetters = mb_substr($searchTerm, 0, 3);
 
-        $relatedFaqs = Faq::with('menuPage', 'section')->where(config('app.locale').'_question', 'LIKE', '%'.$firstFewLetters.'%')->get();
+        $relatedFaqs = Faq::with('menuPage', 'section')->where(config('app.locale') . '_question', 'LIKE', '%' . $firstFewLetters . '%')->get();
 
         // $relatedFaqs = Faq::with('menuPage', 'section')->where(config('app.locale').'_question', 'LIKE', "{$request->query('keyword')}%")
         // ->get();
-        
+
         // Order the results by the position of the search term in the results.
         $relatedFaqs->sortBy(function ($relatedFaqs, $searchTerm) {
             return mb_strpos($relatedFaqs->name, $searchTerm);
         });
 
-       $relatedFaqsHtml = view('front.layouts.partials.related_faqs', compact('relatedFaqs'))->render();
+        $relatedFaqsHtml = view('front.layouts.partials.related_faqs', compact('relatedFaqs'))->render();
 
         return response()->json([
-        'success' => true,
-        'relatedFaqs' =>  $relatedFaqs,
-        'relatedFaqsHtml' => $relatedFaqsHtml,
+            'success' => true,
+            'relatedFaqs' =>  $relatedFaqs,
+            'relatedFaqsHtml' => $relatedFaqsHtml,
         ]);
     }
 }

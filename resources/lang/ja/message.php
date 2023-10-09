@@ -37,6 +37,7 @@ return [
     'result'            => '結果',
     'too'                => '希望通貨',
     'blogs'             => 'ブログ',
+    'recent_posts'      => '最近の投稿',
     'author'            => '著者',
     'click_here'        => 'ここをクリック',
     'learn_forex'       => '外国為替を学ぶ',

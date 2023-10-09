@@ -21,8 +21,8 @@ function NiceCountryInput(domElement) {
     this.i18nall = this.escapeHTML($(domElement).data("i18nall") || 'All');
     this.i18nnofilter = this.escapeHTML($(domElement).data("i18nnofilter") || "None");
     /*create DOM elements only when not already initialized */
-    $(domElement).append("<div class='niceCountryInputMenu'><span class='niceCountryInputMenuDefaultText'><a><img class='niceCountryInputMenuCountryFlag' src='' /><span>"+this.i18nwait+"…</span></a></span><div class='niceCountryInputMenuDropdown'><span style='font-size: 10px;'>▼</span></div></div>");
-    $(domElement).append("<div class='niceCountryInputMenuFilter' style='display: none;'><input placeholder='"+this.i18nfilter+"…'/></div>");
+    $(domElement).append("<div class='niceCountryInputMenu'><span class='niceCountryInputMenuDefaultText'><a><img class='niceCountryInputMenuCountryFlag' src='' /><span>" + this.i18nwait + "…</span></a></span><div class='niceCountryInputMenuDropdown'><span style='font-size: 10px;'>▼</span></div></div>");
+    $(domElement).append("<div class='niceCountryInputMenuFilter' style='display: none;'><input placeholder='" + this.i18nfilter + "…'/></div>");
     $(domElement).append("<div class='niceCountryInputMenuDropdownContent' style='display: none;' />");
     $(domElement).append("<input class='niceCountryInputMenuInputHidden' type='hidden'/>");
     /*Data attributes (selectors)*/
@@ -47,11 +47,11 @@ function NiceCountryInput(domElement) {
     this.defaultPreferred = ["de", "at", "ch", "fr", "it", "us", "gb", "es", "ru", "jp", "cn", "kr", "tr", "hr", "br"];
 }
 
-NiceCountryInput.prototype.log = function(value) {
+NiceCountryInput.prototype.log = function (value) {
     //console.log("NiceCountryInput | " + value);
 };
 
-NiceCountryInput.prototype.init = function() {
+NiceCountryInput.prototype.init = function () {
     var _this = this;
     _this.log("init");
 
@@ -62,17 +62,17 @@ NiceCountryInput.prototype.init = function() {
     }
 
     //bind handlers
-    _this.selectOneMenu.click(function() {
+    _this.selectOneMenu.click(function () {
         _this.log("selectOneMenu.click");
         _this.openSelection();
     });
-    _this.selectOneFilter.find("input").keydown(function(event) {
+    _this.selectOneFilter.find("input").keydown(function (event) {
         if (event.keyCode === 13) {
             event.preventDefault();
             return false;
         }
     });
-    _this.selectOneFilter.find("input").keyup(function(event) {
+    _this.selectOneFilter.find("input").keyup(function (event) {
         if (event.keyCode === 13) {
             _this.selectByFilterReturn();
             event.preventDefault();
@@ -80,19 +80,19 @@ NiceCountryInput.prototype.init = function() {
         }
         _this.filterCountries(this);
     });
-   
+
     _this.updateSelectedCountry();
 
     /*Init country list*/
 
-    var countryIterationFunc = function(index, el) {
+    var countryIterationFunc = function (index, el) {
         //check only country list
         if (_this.onlyCountries !== undefined && $.inArray(el.i, _this.onlyCountries) === -1) {
             return;
         }
         _this.selectOneContent.append("<a title='" + el.n + "' data-countryname='" + el.n + "' data-countryiso='" + el.i + "'>" + _this.getFlagHtml(el.i.toUpperCase()) + "<span>" + el.n + "</span></a>");
         //bind on click handler to appended element
-        _this.selectOneContent.children().last().click(function() {
+        _this.selectOneContent.children().last().click(function () {
             _this.selectCountry(this);
         });
 
@@ -127,15 +127,15 @@ NiceCountryInput.prototype.init = function() {
     $(_this.domElement).data("initialized", "true");
 };
 
-NiceCountryInput.prototype.getCountryNameForIso = function(iso) {
+NiceCountryInput.prototype.getCountryNameForIso = function (iso) {
     this.log("getCountryNameForIso");
     var cname = "";
-    $(this.allIsoCountries).each(function() {
+    $(this.allIsoCountries).each(function () {
         if (this.i === iso.toLowerCase()) {
             cname = this.n;
         }
     });
-    $(this.specialCountries).each(function() {
+    $(this.specialCountries).each(function () {
         if (this.i === iso.toLowerCase()) {
             cname = this.n;
         }
@@ -144,7 +144,7 @@ NiceCountryInput.prototype.getCountryNameForIso = function(iso) {
     return cname;
 };
 
-NiceCountryInput.prototype.getFlagHtml = function(iso) {
+NiceCountryInput.prototype.getFlagHtml = function (iso) {
     if (this.showFlags !== false) {
         return "<img class='niceCountryInputMenuCountryFlag' data-flagiso='" + iso + "'/>";
     } else {
@@ -152,21 +152,21 @@ NiceCountryInput.prototype.getFlagHtml = function(iso) {
     }
 };
 
-NiceCountryInput.prototype.getFlagJSON = function() {
+NiceCountryInput.prototype.getFlagJSON = function () {
     var _this = this;
-    $(".niceCountryInputMenuCountryFlag").each(function(i, d) {
+    $(".niceCountryInputMenuCountryFlag").each(function (i, d) {
         var iso = $(d).data("flagiso");
         $(d).attr("src", "data:image/png;base64," + NiceCountryInput.niceCountryFlags[iso.toLowerCase()])
     });
 };
 
-NiceCountryInput.prototype.openSelection = function() {
+NiceCountryInput.prototype.openSelection = function () {
     this.selectOneContent.toggle();
     this.selectOneFilter.toggle();
     this.selectOneFilter.find("input").focus();
 };
 
-NiceCountryInput.prototype.updateSelectedCountry = function() {
+NiceCountryInput.prototype.updateSelectedCountry = function () {
     this.log("updateSelectedCountry");
     var countryiso = this.selectedCountry;
     var countryname = this.getCountryNameForIso(countryiso);
@@ -176,7 +176,7 @@ NiceCountryInput.prototype.updateSelectedCountry = function() {
     this.getFlagJSON();
 };
 
-NiceCountryInput.prototype.selectCountry = function(e) {
+NiceCountryInput.prototype.selectCountry = function (e) {
     this.log("selectCountry");
     var countryname = $(e).data("countryname");
     var countryiso = $(e).data("countryiso");
@@ -188,17 +188,17 @@ NiceCountryInput.prototype.selectCountry = function(e) {
     this.selectOneFilter.hide();
     //set the hidden input
     this.selectOneHiddenInput.val(countryiso.toUpperCase());
-    if(this.onChangeCallback !== undefined && this.onChangeCallback !== ""){
+    if (this.onChangeCallback !== undefined && this.onChangeCallback !== "") {
         window[this.onChangeCallback](countryiso.toUpperCase());
-    }    
+    }
     //reload flags
     this.getFlagJSON();
 };
 
-NiceCountryInput.prototype.selectByFilterReturn = function() {
+NiceCountryInput.prototype.selectByFilterReturn = function () {
     var allAnchors = this.selectOneContent.children("a");
     var firstVisible;
-    allAnchors.each(function() {
+    allAnchors.each(function () {
         if ($(this).is(":visible")) {
             firstVisible = this;
             return false;
@@ -209,11 +209,11 @@ NiceCountryInput.prototype.selectByFilterReturn = function() {
     }
 };
 
-NiceCountryInput.prototype.filterCountries = function(elem) {
+NiceCountryInput.prototype.filterCountries = function (elem) {
     this.log("filterCountries");
     var filterVal = $(elem).val().toLowerCase();
     var allAnchors = this.selectOneContent.children("a");
-    allAnchors.each(function() {
+    allAnchors.each(function () {
         if ($(this).data("countryname").toLowerCase().indexOf(filterVal) !== -1) {
             $(this).show();
         } else {
@@ -223,7 +223,7 @@ NiceCountryInput.prototype.filterCountries = function(elem) {
 };
 
 
-NiceCountryInput.prototype.escapeHTML = function(str) {
+NiceCountryInput.prototype.escapeHTML = function (str) {
     var entityMap = {
         '&': '&amp;',
         '<': '&lt;',
@@ -233,12 +233,11 @@ NiceCountryInput.prototype.escapeHTML = function(str) {
         '/': '&#x2F;',
         '`': '&#x60;',
         '=': '&#x3D;'
-      };
-      return String(str).replace(/[&<>"'`=\/]/g, function (s) {
+    };
+    return String(str).replace(/[&<>"'`=\/]/g, function (s) {
         return entityMap[s];
-      });
+    });
 };
-
 NiceCountryInput.niceCountryFlags = {
     "ab": "iVBORw0KGgoAAAANSUhEUgAAABsAAAAUCAYAAAB8gkaAAAAA3klEQVR4XmNgGAXUAAvcdN+j4yW+Jh/QxQwaLE8zzLLdTxE+Yaj1H4YvBnr/P21nDqYvRQTBxUHYpM7yP8NMO8owzLBrqfFg+npW6v8H3e1wy884WoPZF/au/3/p7V2KMNiyy9GhcB+82rj+/4cTx+A+g8l9PHXiP6UAbNlJE124ZS9Xr/j/683r/2dd7MB8mJxHu8d/6SVBFGGUOAMHl58Hik9hmCpx9uXLh//E4G8/v/3/9vsHRZgBXYCWmAHDq7TE6JFIS8yAnjxpCRjQMx4tMX3jDEgcoBseBdQAAKVT61W+yMy5AAAAAElFTkSuQmCC",
     "ad": "iVBORw0KGgoAAAANSUhEUgAAABsAAAAUCAYAAAB8gkaAAAABeUlEQVR4Xu3TzSuDAQDH8ecP8LLFspXmZRShRLPSis1IRLs4qKHNbSUpYnkJa4bnEQfLUl62npmXlXBYRLOthmS2wjzeS3JwcHRQ++Hmwi7PDrTD9/y5/H6EsMAUJvjL+KnymgGE74mI3SjyEOCU/tY9EcMi9fex620B3hgOguuC6GEeqxQ+ey0cpAKkugI75irsz8th6y9kH7PrS+FSV8FvaIRTJ8bpYBaOJ4sx11XELuZeyMd0Wx0ueuvxfqVFkCzBU3sSQuPpMHcqsTWRxR62SYkw1iLDoa4MwR4FvAYpzmZz4Z+TwNgkx8kyjz3swRUPSiMBM8THs46LG0c2XqyJYGghRpvEYJxx7GFeSz5MHUqESBEuu1PgM+eAmeHhzibCiKocR0tp7GGvgTgs9imxSrVihdLAolfBbmwGPayCZaABj55k9rCvtd3ucnBAZ3yushJT2mrQgzK45zNxu5fA7hq/n/d0jYuAIxXnG4nRO3WkYtj/xD4AnmOmmt/O4U8AAAAASUVORK5CYII=",
@@ -508,4 +507,3 @@ NiceCountryInput.niceCountryFlags = {
     "_wo": "iVBORw0KGgoAAAANSUhEUgAAABsAAAAUCAYAAAB8gkaAAAAEjUlEQVR4Xp1Va1CUZRR+px/VTJM1Tc30J6dodCZLy7BSASklYiYcsqxJp5ou1gzJKMRFua2OyEUigTUVb4ADErCVslEEOg43gQWXhV1dgQUXQUwuiihUYvp0zvv5sZfP6Uc/Dt/yXs5zznOec17RNAa0jbusanACqS31MPQOwdg/ijzrGegt7agcuIqWKwCfb72qfNmaydT103Tfeh3oIDPdXXM34fgb2G87i+KuPuy32rD88FYCsGF9dTnENy+RLYQI98Fui0U6YyA+3zEBdJLThpFb+G1wHH3kJ9/eg4+NB+luGRpHb6OX1rr+BHr+AuyTBLYkPxEL9kbioe1hCDmSjpf3RSOsLBsF9m6EV5VAxCxC1ImfcdBml2B8+dPKQjyd8wV2UcZrjuZhRdF2zEpdBRH3GsSmJYpFvYj7t70NETEHs9Leg++BWIhH099XNpPegIh9FcMAPjEewg5TI06N3kGpYxD2Kc7gH9QNTyOD1lcZcvDAtlB5Xmz2g0gIoPvLIXRvQmwJVox/x/shtPQ7vFWSQT7zIbrIkUhe4bL4ADySvhoPU6QlPf1on1D4ttA35mQF/At1eCzjA4jEQE/n3pYcJJOovHAFRVSis0xjN9GyIC+KolumHOIIKdJyx0UpGLW4XKNoAgs+kob5ezdSRkuV4LxB1Kw2LcbKsp045hxG+7W7ArHQj5TmWsmxjHb9HGS2NePMpKeSmMp3DXr4FySjg+5UDVxTwDjIxNc9wSijpPpq6NvNqOgfm1Gr4D+smiAq8vN7NqBm6IbcZEmrQCzj2ss3SQCLiWZ/GTXX6vHMD7GscAvm7gpX6s77zMzGF6QiOUAVaAaMjWu3lJSZUFeFCufITOpqveJqKxVBqDQRC8HFaZJOOoJnctchq60F920NQTz5cO8/DRgb90NmaxMSiYKIGgPO31TWuXZFXedlv4nYV1wC0AWhuNspi69rPC6p/7HvEnaaW+k7BJNb82vA2JwEMDv7c4gNzyGoOBV/3HFl9wspiyeLiPZV6rXZX+5xBtyDbKxYrnlKU61sHduN/wDj7Fj+0hnVgfuJI+c9nh4O3ufMqIFjThplk6t3mwmUezGp/ndS86CUPddUVbUGjGfbul+LFGknBMIn90sPhzzeHkxZKcFW//Q9fnAMaGYljzHONqw8h9Q4IjO+JxjbwC0orUCCSDc1eIiFgZ/K/owUN09SuqfTqgFjY6HI2UrsmMeVNQ0Yy7zu8rScaQtpTjqnPfc56rXH9uFZ/VeyZdyBVDAeACJirpyf4msfGRBnpwHjRb3FLGvGWbj3m2o8CLiHvNdnAClgrjMzFFqaJUXCr4AGjCmLPHEUWadNHvT9X1OfpcPnerVgXFjjhTGaJJOapryXcRbe99UJ5D6JuDzCfZGjYJlaKW0eW95OWKlMCVPENLIy+R43/7kp5YHk/+tJ/pK6kduyFDzszcSSqL54neQ5iuOXpvBt6yns7uyErqEGgfRiqw0ps6WB+o4hFyElOxBAz8yiA3F4InMNROR8qTi/giQaBPNcr7v8ksX44smsj+Qo+xcctXkZpj12GwAAAABJRU5ErkJggg=="
 };
 
- 

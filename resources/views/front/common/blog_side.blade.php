@@ -4,9 +4,7 @@
         <p class="mb-3 p-from-h3">{{config('app.locale')=='ja'?'人気記事':'Most Popular'}}</p>
         <div class="title_divider_dot"></div>
         <ul class="uk-list uk-list-divider">
-            @for($i=4; $i<=7; $i++)
-            @if(isset($random_articles[$i]) && $random_articles[$i])
-            <li class="media-widget-card">
+            @for($i=4; $i<=7; $i++) @if(isset($random_articles[$i]) && $random_articles[$i]) <li class="media-widget-card">
                 <div class="uk-flex uk-grid-column-small uk-grid-row-large uk-flex-between@s align-items-center my-3" uk-grid>
                     <div class="uk-margin-left@s">
                         <div class="media-img">
@@ -14,18 +12,20 @@
                         </div>
                     </div>
                     <div class="uk-width-expand mt-0">
-                        <p class="m-0 p-from-h5"><a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->id]) }}">{{ $random_articles[$i]->{config('app.locale').'_title'} }}</a></p>
+                        <p class="m-0 p-from-h5">
+                            <a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->id]) }}">{{ $random_articles[$i]->{config('app.locale').'_title'} }}</a>
+                        </p>
                         <span class="mb-1 fs-14 d-block"><i class="fas fa-calendar-alt mr-1"></i>{{ $random_articles[$i]->created_at ?(config('app.locale')=='ja'? $random_articles[$i]->created_at->locale('ja_JP')->translatedFormat('Y年m月d日'): date('M d, Y', strtotime($random_articles[$i]->created_at))) : ''}}</span>
                     </div>
                 </div>
-            </li>
-            @endif
-            @endfor
+                </li>
+                @endif
+                @endfor
         </ul>
     </div>
     @endif
     <div class="sidebar-widget newsletter-widget in-content-10 uk-margin-medium-bottom">
-    @include('front.common.news_letter')
+        @include('front.common.news_letter')
     </div>
     @if(count($tags))
     <div class="sidebar-widget sidebar-media-box uk-margin-medium-bottom">
@@ -89,7 +89,7 @@
                         <span id="from_currency">USD</span>
                         <span>=</span>
                         <b><span id="result">0.67</span>
-                        <span id="to_currency">GBP</span></b>
+                            <span id="to_currency">GBP</span></b>
                     </p>
                 </div>
             </div>
@@ -104,13 +104,14 @@
 
 @push('css')
 <style>
-    .p-from-h3{
+    .p-from-h3 {
         font-size: 1.5rem;
         line-height: 1.2;
         color: #001e32;
         font-weight: 700;
     }
-    .p-from-h5{
+
+    .p-from-h5 {
         font-size: 16px;
         font-weight: 700;
         line-height: 1.2;
@@ -128,9 +129,9 @@
         addAriaLabel('ss-btn-telegram', 'Telegram');
     });
 
-    function addAriaLabel(className, label){
+    function addAriaLabel(className, label) {
         let ariaTarget = document.getElementsByClassName(className);
-        for(let i = 0, len = ariaTarget.length; i < len; i++){
+        for (let i = 0, len = ariaTarget.length; i < len; i++) {
             ariaTarget[i].setAttribute('aria-label', label);
         }
     }
