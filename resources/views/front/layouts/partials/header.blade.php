@@ -180,7 +180,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
           @endif
           @endforeach
 
-          <li class="{{ ($route_param == 'prex-blogs') ? 'active' : '' }}">
+          <li class="nav-item {{ ($route_param == 'prex-blogs') ? 'active' : '' }}">
             <a href="{{ route('page', [config('app.locale'),'prex-blogs']) }}" class="nav-link {{($route_param == 'prex-blogs') ? 'active' : '' }}">{{__('message.fixi_blog', [], config('app.locale'))}}</a>
           </li>
         </ul>
