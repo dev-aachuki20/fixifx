@@ -1185,7 +1185,7 @@ span.select2.select2-container.select2-container--default {
     align-items: center;
     /* justify-content: space-between; */
     height: 60px;
-    width: 100%;
+    width: 100% !important;
     border: solid 1px #D2E4E9;
     outline: none;
     box-shadow: none !important;
@@ -1196,6 +1196,17 @@ span.select2.select2-container.select2-container--default {
     font-size: 14px;
     line-height: normal;
 }
+
+span.select2.select2-container.select2-container--default:focus,.select2-container--focus {
+    border-color: #11edd0;
+}
+
+.select2-container--focus{
+  border-color: #11edd0 !important;   
+}
+
+
+
 input.select2-search__field:focus-visible {
     border: 1px solid #2EEECD !important;
     border-radius: 5px;
@@ -2791,6 +2802,11 @@ a.blogBox-wrap:hover .blogTitle h6{
     border-radius: 5px;
     overflow: hidden;
 }
+
+.latestBlog-gridList-box .latestBlog-gridList-box-link-tab .rightBox {
+    width: 100%;
+}
+
 .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .left-imgBox img{
     width: 100%;
     height: 100%;
@@ -2799,6 +2815,10 @@ a.blogBox-wrap:hover .blogTitle h6{
 
 .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .blogTitle h6 {
     margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .recentPost-wrapper {
@@ -3049,6 +3069,7 @@ a.blogBox-wrap:hover .blogTitle h6{
 .stayWith-wrap form .form-group {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     position: relative;
 }
@@ -6020,4 +6041,22 @@ input.amount_input.form-control {
 }
 span.select2-selection.select2-selection--single:focus-visible {
     outline: none;
+}
+
+.newsletter-test {
+    position: relative;
+}
+
+span.error {
+    position: absolute;
+    left: 0;
+    text-align: left;
+    margin: 0;
+    font-size: .875em;
+}
+.img-flag {
+    max-width: 18px;
+}
+span.select2-container.select2-container--default.select2-container--open {
+    z-index: 9;
 }

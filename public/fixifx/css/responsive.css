@@ -1592,6 +1592,16 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .form-group input, .form-group select, .form-group textarea{
         height: 50px;
     }
+    
+    .stayWith-wrap form .sendBtn-Box {
+        width: 50px;
+        height: 50px;
+        padding: 0 12px;
+    }
+    
+    .stayWith-wrap form .form-group {
+        gap: 5px;
+    }
 
     .tardingBanner-gridBox .broker-content{
         text-align: center;
