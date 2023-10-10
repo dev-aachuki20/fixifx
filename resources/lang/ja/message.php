@@ -94,11 +94,22 @@ return [
     'Account_Type' => '取引口座の種類',
     'Standard' => 'スタンダード',
     'Premier' => 'プレミア',
-    
+
     'c_trader' => 'cトレーダー',
     'meta_trader' => 'メタトレーダー 5',
     'advan_trade' => 'アドバン貿易',
-    
+
     'ask_a_question' => '質問してください',
-    'no_record_found' => '記録は見つかりませんでした。'
+    'no_record_found' => '記録は見つかりませんでした。',
+    'you_might_be_like_also' => 'あなたもそうかもしれません',
+    'post_your_comment' => 'コメントを投稿する',
+
+    'first_name' => 'ファーストネーム',
+    'last_name' => '苗字',
+    'enter_email' => 'メールアドレスを入力',
+    'enter_comment' => 'コメントを入力してください',
+    'submit_now' => '今提出',
+    'prev_post' => '前の投稿',
+    'next_post' => '次の投稿',
+
 ];

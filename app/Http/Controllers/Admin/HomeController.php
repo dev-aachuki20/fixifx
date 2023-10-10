@@ -36,7 +36,7 @@ use App\Models\ShareCategory;
 
 class HomeController extends Controller
 {
-    public function page(ArticleDataTable $dataTable, $slug, SpreadDataTable $spreadTable, ArticleCategoryDataTable $articleCategoryDataTable, ShareDataTable $shareDataTable, ShareCategoryDataTable $shareCategoryDataTable, ForexDataTable $forexDataTable,CfdDataTable $cfdDataTable)
+    public function page(ArticleDataTable $dataTable, $slug, SpreadDataTable $spreadTable, ArticleCategoryDataTable $articleCategoryDataTable, ShareDataTable $shareDataTable, ShareCategoryDataTable $shareCategoryDataTable, ForexDataTable $forexDataTable, CfdDataTable $cfdDataTable)
     {
         if ($slug == 'home') {
             $section = Section::where('page_id', 0)->get();
@@ -163,11 +163,11 @@ class HomeController extends Controller
         if (isset($request->remove_subsec_ids)) {
             SubSection::whereIn('id', explode(',', $request->remove_subsec_ids))->delete();
         }
-        
+
         if (isset($request->remove_legel_document_id)) {
             SubSection::whereIn('id', explode(',', $request->remove_legel_document_id))->delete();
         }
-        
+
         if (isset($request->legel_document) && count($request->legel_document)) {
 
             foreach ($request->legel_document as $key => $value) {
@@ -189,7 +189,7 @@ class HomeController extends Controller
                 $sub->save();
             }
         }
-        
+
         if (isset($request->sub_section) && count($request->sub_section)) {
             foreach ($request->sub_section as $key => $value) {
                 // if($value['en_desc'] || $value['ja_desc']) {
@@ -199,7 +199,7 @@ class HomeController extends Controller
                 }
                 if (isset($value['image']) && (getType($value['image']) == "object")) {
                     $sub->image = uploadFile($value['image'], 'SubSection');
-                } else if(isset($value['image'])) {
+                } else if (isset($value['image'])) {
                     $sub->image = $value['image'];
                 }
                 if (isset($value['ja_image'])) {
@@ -322,7 +322,7 @@ class HomeController extends Controller
                     'ja_title'      =>  $request->ja_title,
                 ]
             );
-            
+
             foreach ($request->faq as $key => $value) {
 
                 $faq = new Faq();
@@ -674,7 +674,7 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
-    
+
     public function addUpdateShare(ShareRequest $request)
     {
         $share = new Share();

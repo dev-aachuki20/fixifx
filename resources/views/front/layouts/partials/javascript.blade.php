@@ -10,7 +10,7 @@
   swiperTabsNav = new Swiper('.tabs-buttons', {
     spaceBetween: 0,
     slidesPerView: 5,
-    loop: false,
+    loop: true,
     loopedSlides: 5,
     autoHeight: false,
     resistanceRatio: 0,

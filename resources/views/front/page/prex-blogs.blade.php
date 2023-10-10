@@ -40,7 +40,6 @@ return $target;
 @extends('front.layouts.base')
 
 @section('css')
-<!-- <link rel="stylesheet" href="{{ asset('fixifx/css/intlTelInput.css')}}"> -->
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('fixifx/css/niceCountryInput.css')}}">
 
@@ -469,6 +468,26 @@ return $target;
                                             {{ $random_articles[0]->authors->name ?? '' }}
                                         </span>
                                     </li>
+                                    <li class="bioData-blog-link">
+                                        <span>
+                                            <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.66683 2.33337H2.25016C1.7439 2.33337 1.3335 2.74378 1.3335 3.25004V9.66671C1.3335 10.173 1.7439 10.5834 2.25016 10.5834H8.66683C9.17309 10.5834 9.5835 10.173 9.5835 9.66671V3.25004C9.5835 2.74378 9.17309 2.33337 8.66683 2.33337Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M7.2915 1.41675V3.25008" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M3.62549 1.41675V3.25008" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M1.3335 5.08337H9.5835" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            {{ $random_articles[0]->created_at ?(config('app.locale')=='ja'? $random_articles[0]->created_at->locale('ja_JP')->translatedFormat('Y年m月d日'): date('M d, Y', strtotime($random_articles[0]->created_at))) : ''}}
+                                        </span>
+                                    </li>
+                                    <li class="bioData-blog-link">
+                                        <span>
+                                            <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0.583496 5.00004C0.583496 5.00004 2.41683 1.33337 5.62516 1.33337C8.8335 1.33337 10.6668 5.00004 10.6668 5.00004C10.6668 5.00004 8.8335 8.66671 5.62516 8.66671C2.41683 8.66671 0.583496 5.00004 0.583496 5.00004Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M5.62549 6.375C6.38488 6.375 7.00049 5.75939 7.00049 5C7.00049 4.24061 6.38488 3.625 5.62549 3.625C4.8661 3.625 4.25049 4.24061 4.25049 5C4.25049 5.75939 4.8661 6.375 5.62549 6.375Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            {{ $random_articles[0]->views ?? '' }}
+                                        </span>
+                                    </li>
                                 </ul>
                                 @endif
                                 @endfor
@@ -685,7 +704,6 @@ return $target;
 
 
 @section('javascript')
-<!-- <script src="{{asset('fixifx/js/niceCountryInput.js')}}"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script>
 
@@ -698,6 +716,7 @@ return $target;
         rules: {
             email: {
                 required: true,
+                email: true,
             }
         },
         highlight: function(element, errorClass, validClass) {
@@ -746,6 +765,22 @@ return $target;
                 }
             });
         },
+    });
+
+
+    // SOCIAL SHARE
+    $(document).on('click', '.ss-btn-share', function(e) {
+        e.preventDefault();
+        if (navigator.share) {
+            navigator.share({
+                    url: this.getAttribute("data-ss-link")
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+        } else {
+            console.log('This brownser dont support native web share!');
+        }
     });
 </script>
 <script>
@@ -803,6 +838,7 @@ return $target;
 
 <script>
     $('.from_code').select2({
+        // placeholder: 'Select an option',
         templateResult: formatState,
         templateSelection: formatStateSelection
     });

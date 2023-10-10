@@ -2,7 +2,7 @@
 
 return [
     'submit'            => 'Submit',
-    'email_placeholder' => 'Enter your email',
+    'email_placeholder' => 'Enter Your Email',
     'full_name_placeholder' => 'Enter your full name',
     'website_placeholder' => 'Enter your website url',
     'comment_placeholder' => 'Comment',
@@ -30,12 +30,12 @@ return [
     'event_date'        => 'Event Date',
     'post_date'         => 'Post Date',
     'tags'              => 'Tags',
-    'stay_with_us'      => 'Stay with us',
+    'stay_with_us'      => 'Stay With Us',
     'currency_exchange' => 'Currency Exchange',
-    'amount'            => 'Amount',
-    'from'              => 'From',
-    'too'                => 'To',
-    'result'            => 'Result',
+    'amount'            => 'AMOUNT',
+    'from'              => 'FROM',
+    'too'                => 'TO',
+    'result'            => 'RESULT',
     'blogs'             => 'Blogs',
     'recent_posts'      => 'Recent Posts',
     'author'            => 'Author',
@@ -94,11 +94,21 @@ return [
     'Account_Type' => 'Types Of Trading Accounts',
     'Standard' => 'Standard',
     'Premier' => 'Premier',
-    
+
     'c_trader' => 'cTrader',
     'meta_trader' => 'MetaTrader 5',
-    'advan_trade' => 'Advan Trade',    
-    
+    'advan_trade' => 'Advan Trade',
+
     'ask_a_question' => 'Ask a question',
-    'no_record_found' => 'No records were found.'
+    'no_record_found' => 'No records were found.',
+    'you_might_be_like_also' => 'You Might Be like also',
+    'post_your_comment' => 'Post Your Comment',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'enter_email' => 'Enter your email',
+    'enter_comment' => 'Enter comment',
+    'submit_now' => 'Submit Now',
+    'prev_post' => 'Prev Post',
+    'next_post' => 'Next Post',
+
 ];

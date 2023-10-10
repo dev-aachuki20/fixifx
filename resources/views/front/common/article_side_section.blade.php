@@ -1,4 +1,4 @@
-@php 
+@php
 $s_page = App\Models\MenuPage::where('slug', 'trading-strategy')->first();
 $tranding_strategies = App\Models\Article::where('page_id', $s_page->id)->where('status', 1)->orderBy('id', 'DESC')->get()->take(3);
 
@@ -26,14 +26,14 @@ $tutorials = App\Models\Article::where('page_id', $t_page->id)->where('status', 
                 <div class="uk-flex uk-grid-column-small uk-grid-row-large uk-flex-between@s align-items-center my-3" uk-grid>
                     <div class="uk-margin-left@s">
                         <div class="media-img">
-                            <img src="{{ $strategy->image ? $strategy->image : asset('front/img/default.png')}}" loading="lazy"  data-src="{{ $strategy->image }}" alt="profit-icon" data-uk-img>
+                            <img src="{{ $strategy->image ? $strategy->image : asset('front/img/default.png')}}" loading="lazy" data-src="{{ $strategy->image }}" alt="profit-icon" data-uk-img>
                         </div>
                     </div>
                     <div class="uk-width-expand mt-0">
                         <span class="mb-1 fs-14 d-block"><i class="fas fa-calendar-alt mr-1"></i>{{config('app.locale')=='en'?($strategy->event_date!=''?date('d-m-Y', strtotime($strategy->event_date)): date('d-m-Y', strtotime($strategy->created_at))):($strategy->event_date!=''?$strategy->event_date->locale('ja_JP')->translatedFormat('Y年m月d日'): $strategy->created_at->locale('ja_JP')->translatedFormat('Y年m月d日')) }}</span>
                         <h5 class="m-0"><a href="{{ route('detail', ['locale' => config('app.locale'), 'slug' => $s_page->slug, 'article_id' => $strategy->id]) }}">{{ $strategy->{config('app.locale').'_title'} }}</a></h5>
                     </div>
-                </div> 
+                </div>
             </li>
             @endforeach
         </ul>
@@ -53,7 +53,7 @@ $tutorials = App\Models\Article::where('page_id', $t_page->id)->where('status', 
                     <div class="uk-width-expand mt-0">
                         <h5 class="m-0"><a href="{{ route('detail', ['locale' => config('app.locale'), 'slug' => $t_page->slug, 'article_id' => $tutorial->id]) }}">{{ $tutorial->{config('app.locale').'_title'} }}</a></h5>
                     </div>
-                </div> 
+                </div>
             </li>
             @endforeach
         </ul>

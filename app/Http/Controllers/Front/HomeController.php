@@ -155,11 +155,11 @@ class HomeController extends Controller
     {
         $comment = new PostComment();
 
-        $comment->name = $request->name;
+        $comment->name = $request->fname . ' ' . $request->lname;
         $comment->email = $request->email;
-        $comment->url = $request->url;
+        // $comment->url = $request->url;
         $comment->message = $request->message;
-
+        $comment->article_id = $request->article_id;
         $comment->save();
 
         return redirect()->back()->with('success', 'Post comment add successfully..');
