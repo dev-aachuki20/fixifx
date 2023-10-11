@@ -897,12 +897,12 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
 @endsection
 
 @section('javascript')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script> -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.0/js/select2.min.js"></script>
-<script>
+<!-- <script>
     $('#news_form').validate({
         errorClass: 'invalid-feedback animated fadeInDown error',
         errorElement: 'div',
@@ -958,7 +958,23 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
             });
         },
     });
-</script>
+
+
+    // SOCIAL SHARE
+    $(document).on('click', '.ss-btn-share', function(e) {
+        e.preventDefault();
+        if (navigator.share) {
+            navigator.share({
+                    url: this.getAttribute("data-ss-link")
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+        } else {
+            console.log('This brownser dont support native web share!');
+        }
+    });
+</script> -->
 <script>
     window.addEventListener('load', () => {
         addAriaLabel('ss-btn-facebook', 'Facebook');

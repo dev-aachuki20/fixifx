@@ -168,7 +168,7 @@ class HomeController extends Controller
     public function newsLetter(Request $request)
     {
         $request->validate([
-            'email' => 'required|email'
+            'email' => 'required|email|unique:news_letters'
             // 'email' => 'required|regex:/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/'
         ]);
         $data = new NewsLetter();

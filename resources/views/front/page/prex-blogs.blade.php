@@ -705,12 +705,12 @@ return $target;
 
 
 @section('javascript')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script> -->
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.0/js/select2.min.js"></script>
-<script>
+<!-- <script>
     $('#news_form').validate({
         errorClass: 'invalid-feedback animated fadeInDown error',
         errorElement: 'div',
@@ -783,7 +783,7 @@ return $target;
             console.log('This brownser dont support native web share!');
         }
     });
-</script>
+</script> -->
 <script>
     window.addEventListener('load', () => {
         addAriaLabel('ss-btn-facebook', 'Facebook');
