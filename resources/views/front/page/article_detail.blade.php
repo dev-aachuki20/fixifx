@@ -282,7 +282,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                     <div class="authorBox-main">
                                         <div class="authorBox-wrapper">
                                             <div class="authorIcon">
-                                                <img class="img-fluid" src="{{$article->author->profile_attribute ?? asset('fixifx/images/Authoricon.png')}}" alt="">
+                                                <img class="img-fluid" src="{{$article->authors->profile ?? asset('fixifx/images/Authoricon.png')}}" alt="">
                                             </div>
                                             <div class="authorContent">
                                                 <div class="title">
@@ -957,22 +957,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                 }
             });
         },
-    });
-
-
-    // SOCIAL SHARE
-    $(document).on('click', '.ss-btn-share', function(e) {
-        e.preventDefault();
-        if (navigator.share) {
-            navigator.share({
-                    url: this.getAttribute("data-ss-link")
-                }).then(() => {
-                    console.log('Thanks for sharing!');
-                })
-                .catch(console.error);
-        } else {
-            console.log('This brownser dont support native web share!');
-        }
     });
 </script>
 <script>

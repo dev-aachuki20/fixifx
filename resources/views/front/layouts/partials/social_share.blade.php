@@ -79,3 +79,21 @@
     </div>
 </div>
 <!-- social share end -->
+@section('javascript')
+<script>
+    // SOCIAL SHARE
+    $(document).on('click', '.ss-btn-share', function(e) {
+        e.preventDefault();
+        if (navigator.share) {
+            navigator.share({
+                    url: this.getAttribute("data-ss-link")
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+        } else {
+            console.log('This brownser dont support native web share!');
+        }
+    });
+</script>
+@endsection
