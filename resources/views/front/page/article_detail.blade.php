@@ -410,10 +410,10 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                                     </ul>
                                                     <div class="description">
                                                         <p>
-                                                            @if(strlen(utf8_decode(strip_tags(randarticle->{config('app.locale').'_desc'}))) > 100)
-                                                            {!! Illuminate\Support\Str::limit(strip_tags(randarticle->{config('app.locale').'_desc'}), 150) !!}
+                                                            @if(strlen(utf8_decode(strip_tags($randarticle->{config('app.locale').'_desc'}))) > 100)
+                                                            {!! Illuminate\Support\Str::limit(strip_tags($randarticle->{config('app.locale').'_desc'}), 150) !!}
                                                             @else
-                                                            {!! randarticle->{config('app.locale').'_desc'} !!}
+                                                            {!! $randarticle->{config('app.locale').'_desc'} !!}
                                                             @endif
                                                         </p>
                                                     </div>
