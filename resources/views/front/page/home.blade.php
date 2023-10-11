@@ -58,14 +58,16 @@
 @section('javascript')
 @parent
 <script>
-$(".showDetails-more").click(function () {
-  var $wrapper =$('.showMore-wrapper');
-  if($wrapper.hasClass("showDetails-height")) {
-    $(".showDetails-more").text("{{__('message.show_less')}}");
-  } else {
-    $(".showDetails-more").text("{{__('message.show_more')}}");
-  }
-  $wrapper.toggleClass("showDetails-height");
+$(document).ready(function () {
+    $(".showDetails-more").click(function () {
+      var $wrapper =$('.showMore-wrapper');
+      if($wrapper.hasClass("showDetails-height")) {
+        $(".showDetails-more").text("{{__('message.show_less')}}");
+      } else {
+        $(".showDetails-more").text("{{__('message.show_more')}}");
+      }
+      $wrapper.toggleClass("showDetails-height");
+    });
 });
 </script>
 

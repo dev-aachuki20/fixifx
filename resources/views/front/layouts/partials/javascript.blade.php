@@ -12,10 +12,67 @@
 
 
 <script>
+
+$(document).ready(function () {
+  let SwiperTop = new Swiper('.marketData-slide', {
+    direction: 'horizontal',
+    freeMode: true,
+    spaceBetween: 0,
+    centeredSlides: false,
+    speed: 5000,
+    touchDrag: false,
+    mouseDrag: false,
+    clickable: false,
+    allowTouchMove: false,
+    preventClicksPropagation: false,
+    preventClicks: false,
+    shortSwipes: false,
+    shortClick: false,
+    simulateTouch:false,
+    loop:true,
+    slidesToShow: 7.5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    speed: 8000,
+    pauseOnHover: false,
+    cssEase: 'linear',
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter:false,
+        reverseDirection:false,
+    },
+    slidesPerView:'auto',
+    breakpoints: {
+      320: {
+        direction: 'horizontal',
+        freeMode: true,
+        spaceBetween: 0,
+        centeredSlides: false,
+        speed: 5000,
+        touchDrag: false,
+        mouseDrag: false,
+        clickable: false,
+        allowTouchMove: false,
+        preventClicksPropagation: false,
+        preventClicks: false,
+        shortSwipes: false,
+        shortClick: false,
+        simulateTouch:false,
+        loop:true,
+      }
+  }
+    
+});
+
+});
+
+
   swiperTabsNav = new Swiper('.tabs-buttons', {
     spaceBetween: 0,
     slidesPerView: 5,
-    loop: true,
+    loop: false,
     loopedSlides: 5,
     autoHeight: false,
     resistanceRatio: 0,

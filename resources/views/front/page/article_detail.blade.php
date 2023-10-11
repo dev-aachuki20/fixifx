@@ -256,7 +256,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
 
 
 
-                                    <div class="tagsBox-wrapper d-flex align-items-center justify-content-between">
+                                    <div class="tagsBox-wrapper d-flex align-items-start justify-content-between">
                                         <div class="tagListing-main d-flex align-items-center">
                                             <div class="tagTitle-wrap">
                                                 <h6>

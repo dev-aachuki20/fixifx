@@ -34,6 +34,53 @@ $(document).ready(function () {
     separateDialCode: true,
   });
 
+//   let SwiperTop = new Swiper('.marketData-slide', {
+//     direction: 'horizontal',
+//     freeMode: true,
+//     spaceBetween: 0,
+//     centeredSlides: false,
+//     speed: 5000,
+//     touchDrag: false,
+//     mouseDrag: false,
+//     clickable: false,
+//     allowTouchMove: false,
+//     preventClicksPropagation: false,
+//     preventClicks: false,
+//     shortSwipes: false,
+//     shortClick: false,
+//     simulateTouch:false,
+//     loop:true,
+//     autoplay: {
+//         delay: 0,
+//         disableOnInteraction: false,
+//         pauseOnMouseEnter:false,
+//         reverseDirection:false,
+//     },
+//     slidesPerView:'auto',
+//      breakpoints: {
+//       320: {
+//         direction: 'horizontal',
+//         freeMode: true,
+//         spaceBetween: 0,
+//         centeredSlides: false,
+//         speed: 5000,
+//         touchDrag: false,
+//         mouseDrag: false,
+//         clickable: false,
+//         allowTouchMove: false,
+//         preventClicksPropagation: false,
+//         preventClicks: false,
+//         shortSwipes: false,
+//         shortClick: false,
+//         simulateTouch:false,
+//         loop:true,
+//       }
+//   }
+
+
+    
+// });
+
   let SwiperTop = new Swiper('.marketData-slide', {
     direction: 'horizontal',
     freeMode: true,
@@ -50,6 +97,13 @@ $(document).ready(function () {
     shortClick: false,
     simulateTouch:false,
     loop:true,
+    slidesToShow: 7.5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    speed: 8000,
+    pauseOnHover: false,
+    cssEase: 'linear',
     autoplay: {
         delay: 0,
         disableOnInteraction: false,
@@ -57,6 +111,25 @@ $(document).ready(function () {
         reverseDirection:false,
     },
     slidesPerView:'auto',
+    breakpoints: {
+      320: {
+        direction: 'horizontal',
+        freeMode: true,
+        spaceBetween: 0,
+        centeredSlides: false,
+        speed: 5000,
+        touchDrag: false,
+        mouseDrag: false,
+        clickable: false,
+        allowTouchMove: false,
+        preventClicksPropagation: false,
+        preventClicks: false,
+        shortSwipes: false,
+        shortClick: false,
+        simulateTouch:false,
+        loop:true,
+      }
+  }
     
 });
 
@@ -109,7 +182,7 @@ var swiper = new Swiper('.traders_slides', {
 
   // dataTable 
 
-  let table = new DataTable('#spreadTable');
+  var table = new DataTable('#spreadTable');
 
   // dropdown-menu 
 
@@ -210,4 +283,22 @@ function scrolltoId(){
 var access = document.getElementById("ques_202");
 access.scrollIntoView({behavior: 'smooth'}, true);
 }
+
+// blog select
+
+$(document).on('focus', '.select2-selection.select2-selection--single', function (e) {
+  $(this).closest(".select2-container").siblings('select:enabled').select2('open');
+});
+
+$(document).ready(function () {
+    $(".showDetails-more").click(function () {
+      var $wrapper =$('.showMore-wrapper');
+      if($wrapper.hasClass("showDetails-height")) {
+        $(".showDetails-more").text("{{__('message.show_less')}}");
+      } else {
+        $(".showDetails-more").text("{{__('message.show_more')}}");
+      }
+      $wrapper.toggleClass("showDetails-height");
+    });
+});
 

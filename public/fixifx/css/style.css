@@ -2713,6 +2713,8 @@ a.blogBox-wrap:hover .blogTitle h6{
     display: flex;
     align-items: center;
     gap:12px;
+    flex-wrap: wrap;
+    row-gap: 4px;
 }
 
 .blog-detail .bioData-blog .bioData-blog-link span{
@@ -2737,6 +2739,7 @@ a.blogBox-wrap:hover .blogTitle h6{
 .blog-detail .blogRead-more a {
     font-size: 13px;
     font-weight: 600;
+    width: fit-content;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -2813,8 +2816,22 @@ a.blogBox-wrap:hover .blogTitle h6{
     object-fit: cover;
 }
 
-.latestBlog-gridList-box .latestBlog-gridList-box-link-tab .blogTitle h6 {
+.latestBlog-gridList-box .latestBlog-gridList-box-link-tab .blogTitle h6{
     margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blog-detail .blogTitle h6{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blogRight-box .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .rightBox .blogTitle h6 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -3355,6 +3372,10 @@ body.darkHeader header {
     background-image: url("data:image/svg+xml,%3Csvg width='115' height='100' viewBox='0 0 115 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.15'%3E%3Cpath d='M0 49.6914V99.3829H49.1712V49.6914H16.3905C16.3905 31.4253 31.0963 16.5639 49.1712 16.5639V0C22.0566 0 0 22.2899 0 49.6914Z' fill='%232EEECE'/%3E%3Cpath d='M114.999 16.5639V0C87.8847 0 65.8281 22.2899 65.8281 49.6914V99.3829H114.999V49.6914H82.2186C82.2186 31.4253 96.9244 16.5639 114.999 16.5639Z' fill='%232EEECE'/%3E%3C/g%3E%3C/svg%3E%0A");
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .noteBox_wrap>div>i{
@@ -3524,6 +3545,35 @@ body.modal-open{
     border-radius: 5px;
 }
 
+.swiper.bloggird_slides.blog_slider_box.swiper-initialized.swiper-horizontal .swiper-wrapper {
+    height: fit-content;
+}
+
+.swiper.bloggird_slides.blog_slider_box.swiper-initialized.swiper-horizontal .swiper-wrapper .img-box {
+    max-width: 320px;
+    height: 200px;
+}
+
+.swiper.bloggird_slides.blog_slider_box.swiper-initialized.swiper-horizontal .swiper-wrapper .img-box img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.swiper.bloggird_slides.blog_slider_box.swiper-initialized.swiper-horizontal .swiper-wrapper .description p{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.swiper.bloggird_slides.blog_slider_box.swiper-initialized.swiper-horizontal .swiper-wrapper .blogTitle h6{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .blog_slider_box .swiper-button-next,
 .blog_slider_box .swiper-button-prev{
     position: inherit;
@@ -3578,6 +3628,7 @@ body.modal-open{
 
 .next-prev-post{
     margin: 40px 0 0 0;
+    gap:10px;
 }
 
 .next-prev-post .pre-title {
@@ -4288,12 +4339,6 @@ body.search_open.darkHeader .dark-header{
 
 body.search_open .header-main
 
-.showDetails-height {
-    height: 300px;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-    background: linear-gradient(to bottom, #ffffff 40%, transparent 100%);
-}
 
 body.search_open.header_hover .dark-header {
     background-color: #ffffff !important;
@@ -4805,7 +4850,18 @@ body.darkHeader .dark-header .mobile_logo {
     line-height: normal;
 }
 
+.showDetails-height {
+    height: 300px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    background: linear-gradient(to bottom, #ffffff 40%, transparent 100%);
+}
+
 .reward-wrapper .showDetails-height{
+    height: 300px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    background: linear-gradient(to bottom, #ffffff 40%, transparent 100%);
     background:none ;
 }
 
@@ -6059,4 +6115,12 @@ span.error {
 }
 span.select2-container.select2-container--default.select2-container--open {
     z-index: 9;
+}
+
+.tagsBox-wrapper .socialBox_ChatBox_wrap{
+    margin-top:0;
+}
+
+html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
+    margin-top: 2px;
 }
