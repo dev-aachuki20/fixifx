@@ -110,5 +110,7 @@ return [
     'submit_now' => 'Submit Now',
     'prev_post' => 'Prev Post',
     'next_post' => 'Next Post',
+    'comments' => 'Comments',
+    'comment' => 'Comment',
 
 ];

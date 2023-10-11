@@ -111,5 +111,7 @@ return [
     'submit_now' => '今提出',
     'prev_post' => '前の投稿',
     'next_post' => '次の投稿',
+    'comments' => 'コメント',
+    'comment' => 'コメント',
 
 ];

@@ -115,18 +115,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                         @endif
                                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
                                     <!-- <div class="projectConcept_box">
                                         <div class="title">
                                             <h6>
@@ -320,14 +308,10 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                             <!-- next and prev post -->
                             @if($article)
                             @php
-
                             $prevPost = App\Models\Article::where('id', '<', $article->id)->orderBy('id', 'desc')->first();
 
                                 $nextPost = App\Models\Article::where('id', '>', $article->id)->orderBy('id', 'desc')->first();
-
                                 @endphp
-
-
                                 <div class="col-12">
                                     <div class="next-prev-post d-flex align-items-center justify-content-between">
                                         <div class="prev-post">
@@ -357,9 +341,9 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 @endif
                                 <!--end next and prev post -->
 
-                                @if($slug=='prex-blogs')
                                 <div class="con-12">
                                     <div class="swiper bloggird_slides blog_slider_box">
+                                        @if($slug=='prex-blogs')
                                         <div class="bloggird_arrow d-flex align-items-center justify-content-between">
                                             <div class="title">
                                                 <h6>
@@ -437,22 +421,24 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                             </div>
                                             @endforeach
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
-                                @endif
 
-
-
-
-                                @if($article->comments->count());
                                 <div class="col-12">
                                     <div class="commentBox-wrapper">
                                         <div class="commentBox-inner">
                                             <div class="titile">
                                                 <h6>
-                                                    Comments <span>({{$article->comments->count()}})</span>
+                                                    @if($article->comments->count() > 1)
+                                                    {{ __('message.comments') }}
+                                                    @else
+                                                    {{ __('message.comment') }}
+                                                    @endif
+                                                    <span>({{$article->comments->count()}})</span>
                                                 </h6>
                                             </div>
+                                            @if($article->comments->count())
                                             <div class="commentBox-listing">
                                                 <ul class="parent_listing">
 
@@ -598,10 +584,10 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                                     @endforeach
                                                 </ul>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
-                                @endif
 
                                 @include('front.common.leave_reply')
                                 <!-- <div class="col-12">
