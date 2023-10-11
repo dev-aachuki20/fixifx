@@ -182,11 +182,12 @@ return $target;
                                             </ul>
                                             <div class="description">
                                                 <p>
-                                                    @if(strlen(utf8_decode($random_articles[0]->{config('app.locale').'_desc'})) > 100)
-                                                    {!! strip_tags(Illuminate\Support\Str::limit($random_articles[0]->{config('app.locale').'_desc'}, 100)) !!}
+                                                    @if(strlen(utf8_decode(strip_tags($random_articles[0]->{config('app.locale').'_desc'}))) > 100)
+                                                    {!! Illuminate\Support\Str::limit(strip_tags($random_articles[0]->{config('app.locale').'_desc'}), 150) !!}
                                                     @else
                                                     {!! $random_articles[0]->{config('app.locale').'_desc'} !!}
                                                     @endif
+
                                                 </p>
                                             </div>
                                             <div class="blogRead-more">
@@ -318,8 +319,8 @@ return $target;
                                                             </ul>
                                                             <div class="description">
                                                                 <p>
-                                                                    @if(strlen(utf8_decode($article->{config('app.locale').'_desc'})) > 150)
-                                                                    {!! Illuminate\Support\Str::limit($article->{config('app.locale').'_desc'}, 150) !!}
+                                                                    @if(strlen(utf8_decode(strip_tags($article->{config('app.locale').'_desc'}))) > 150)
+                                                                    {!! Illuminate\Support\Str::limit(strip_tags($article->{config('app.locale').'_desc'}), 150) !!}
                                                                     @else
                                                                     {!! $article->{config('app.locale').'_desc'} !!}
                                                                     @endif
