@@ -1,39 +1,72 @@
-<div class="uk-margin-medium-top uk-margin-medium-bottom">
-    <h2 class="uk-margin-bottom">{{__('message.leave_reply')}}</h2>
-    <form class="uk-form uk-grid-small" data-uk-grid id="reply" method="post">
-        @csrf
+<div class="col-12">
+    <div class="postComment-box">
+        <div class="title">
+            <h4>
+                {{__('message.post_your_comment')}}
+            </h4>
+        </div>
+        <form id="reply" method="post">
+            @csrf
+            <input type="hidden" value="{{$article->id}}" id="article_id" name="article_id" type="text">
 
-        <div class="uk-width-1-2@s">
-            <input class="uk-input uk-border-rounded" id="name" name="name" type="text" placeholder="{{__('message.full_name_placeholder')}}">
-            @if($errors->has('name'))
-            <span style="color: red;">{{ $errors->first('name') }}</span>
-            @endif
-        </div>
-        <div class="uk-width-1-2@s">
-            <input class="uk-input uk-border-rounded" id="email" name="email" type="text" placeholder="{{__('message.email_placeholder')}}">
-            @if($errors->has('email'))
-            <span style="color: red;">{{ $errors->first('email') }}</span>
-            @endif
-        </div>
-        <div class="uk-width-1-1">
-            <input class="uk-input uk-border-rounded" id="url" name="url" type="url" placeholder="{{__('message.website_placeholder')}}">
-            @if($errors->has('url'))
-            <span style="color: red;">{{ $errors->first('url') }}</span>
-            @endif
-        </div>
-        <div class="uk-width-1-1">
-            <textarea class="uk-textarea uk-border-rounded" id="message" name="message" rows="6" placeholder="{{__('message.comment_placeholder')}}"></textarea>
-            @if($errors->has('message'))
-            <span style="color: red;">{{ $errors->first('message') }}</span>
-            @endif
-        </div>
-        <div class="uk-width-1-3@s">
-            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" type="submit">{{__('message.post_comment')}}</button>
-        </div>
-    </form>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="form-group position-relative">
+                        <img class="input-icon" src="{{asset('fixifx/images/form-icon/user.svg')}}" alt="user">
+                        <input type="text" placeholder="{{__('message.first_name')}}" class="form-control" id="fname" name="fname" type="text">
+                        @if($errors->has('fname'))
+                        <span style="color: red;">{{ $errors->first('fname') }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="form-group position-relative">
+                        <img class="input-icon" src="{{asset('fixifx/images/form-icon/user.svg')}}" alt="user">
+                        <input type="text" placeholder="{{__('message.last_name')}}" class="form-control" id="lname" name="lname">
+                        @if($errors->has('lname'))
+                        <span style="color: red;">{{ $errors->first('lname') }}</span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-group position-relative">
+                        <img class="input-icon" src="{{asset('fixifx/images/form-icon/email.svg')}}" alt="email">
+                        <input type="email" placeholder="{{__('message.enter_email')}}" class="form-control" name="email" id="email">
+                        @if($errors->has('email'))
+                        <span style="color: red;">{{ $errors->first('email') }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-group position-relative">
+                        <textarea placeholder="{{__('message.enter_comment')}}" class="form-control" id="message" name="message"></textarea>
+                        @if($errors->has('message'))
+                        <span style="color: red;">{{ $errors->first('message') }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="submit-form">
+                    <input type="submit" class="custom-btn fill-btn-1" value="{{__('message.submit_now')}}">
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
-@push('scripts')
+
+
+
+
+
+
+
+
+
+
+
+@section('javascript')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script>
 <script>
     $(document).ready(function() {
@@ -41,14 +74,20 @@
             errorClass: 'invalid-feedback animated fadeInDown error',
             errorElement: 'div',
             rules: {
-                'name': {
+                'fname': {
                     required: true,
+                    minlength: 4,
+                    maxlength: 20,
+                    // pattern: /^[A-Za-z\s]+$/,
                 },
-                'url': {
+                'lname': {
                     required: true,
+                    minlength: 4,
+                    maxlength: 40
                 },
                 'email': {
                     required: true,
+                    email: true,
                 },
                 'message': {
                     required: true,
@@ -64,10 +103,13 @@
             },
             submitHandler: function(form) {
                 $('.error').html("");
+                var article_id = $('#article_id').val();
+                var formData = new FormData(form);
+                formData.append('article_id', article_id);
                 $.ajax({
                     type: 'POST',
                     url: "{{ route('post_comment') }}",
-                    data: new FormData(form),
+                    data: formData,
                     processData: false,
                     contentType: false,
                     success: function(data) {
@@ -102,4 +144,4 @@
         });
     });
 </script>
-@endpush
+@endsection

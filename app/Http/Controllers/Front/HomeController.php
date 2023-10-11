@@ -76,7 +76,7 @@ class HomeController extends Controller
             if (request()->category) {
                 $articles = $articles->where('category_id', request()->category);
             }
-            $articles = $articles->paginate(5)->onEachSide(1);
+            $articles = $articles->paginate(10)->onEachSide(1);
             $random_articles = Article::where('page_id', $page->id)->where('status', 1)->inRandomOrder()->take(8)->get();
 
             $article_tag = Article::where('page_id', $page->id)->where('status', 1)->select(DB::raw("group_concat(tags SEPARATOR ',') as all_tags"))->pluck('all_tags');
@@ -168,7 +168,8 @@ class HomeController extends Controller
     public function newsLetter(Request $request)
     {
         $request->validate([
-            'email' => 'required|regex:/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/'
+            'email' => 'required|email'
+            // 'email' => 'required|regex:/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/'
         ]);
         $data = new NewsLetter();
 
