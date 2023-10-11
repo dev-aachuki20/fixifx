@@ -12,6 +12,26 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('fixifx/css/niceCountryInput.css')}}">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.0/css/select2.min.css" rel="stylesheet" />
+
+
+<style>
+    .avtar_icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .initials {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 700;
+        color: #00000075;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -421,17 +441,22 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 </div>
                                 @endif
 
+
+
+
+                                @if($article->comments->count());
                                 <div class="col-12">
                                     <div class="commentBox-wrapper">
                                         <div class="commentBox-inner">
                                             <div class="titile">
                                                 <h6>
-                                                    Comments <span>(3)</span>
+                                                    Comments <span>({{$article->comments->count()}})</span>
                                                 </h6>
                                             </div>
                                             <div class="commentBox-listing">
                                                 <ul class="parent_listing">
-                                                    <li>
+
+                                                    <!-- <li>
                                                         <div class="commentBox-content d-flex align-items-start">
                                                             <div class="commentLeft">
                                                                 <div class="avtar_icon">
@@ -530,44 +555,53 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                                                 </div>
                                                             </li>
                                                         </ul>
-                                                    </li>
+                                                    </li> -->
+
+
+                                                    @foreach($article->comments as $comment)
                                                     <li>
                                                         <div class="commentBox-content d-flex align-items-start">
                                                             <div class="commentLeft">
                                                                 <div class="avtar_icon">
-                                                                    <img class="img-fluid" src="{{asset('fixifx/images/Authoricon04.png')}}" alt="">
+                                                                    @php
+                                                                    $name = $comment->name;
+                                                                    $initials = getInitials($name);
+                                                                    $color = getRandomColor();
+                                                                    @endphp
+                                                                    <div class="initials" style="background-color: #faf8f6;">
+                                                                        {{$initials}}
+                                                                    </div>
+
+                                                                    {{-- <img class="img-fluid" src="{{asset('fixifx/images/Authoricon04.png')}}" alt=""> --}}
                                                                 </div>
                                                             </div>
                                                             <div class="commentRight">
                                                                 <div class="avtar_title">
                                                                     <h6>
-                                                                        Mellisa Doe
+                                                                        {{ucwords($comment->name) ?? ''}}
                                                                     </h6>
                                                                     <span class="date">
-                                                                        Aug 07, 2023
+                                                                        {{ $comment->created_at ?(config('app.locale')=='ja'? $comment->created_at->locale('ja_JP')->translatedFormat('Y年m月d日'): date('M d, Y', strtotime($comment->created_at))) : ''}}
                                                                     </span>
                                                                 </div>
                                                                 <div class="description">
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur
-                                                                        adipiscing elit, sed do eiusmod tempor
-                                                                        incididunt ut labore et dolore magna aliqua enim
-                                                                        ad minim veniam, quis nostrud.
-                                                                    </p>
+                                                                    <p>{{ucwords($comment->message)}}</p>
                                                                 </div>
-                                                                <div class="replybtn">
+                                                                <!-- <div class="replybtn">
                                                                     <a href="">
                                                                         Reply
                                                                     </a>
-                                                                </div>
+                                                                </div> -->
                                                             </div>
                                                         </div>
                                                     </li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endif
 
                                 @include('front.common.leave_reply')
                                 <!-- <div class="col-12">
@@ -614,24 +648,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                     <!-- end latestData -->
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="col-12 col-lg-4">
                 <div class="blogRight-box">
@@ -955,6 +971,22 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                 }
             });
         },
+    });
+
+
+    // SOCIAL SHARE
+    $(document).on('click', '.ss-btn-share', function(e) {
+        e.preventDefault();
+        if (navigator.share) {
+            navigator.share({
+                    url: this.getAttribute("data-ss-link")
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+        } else {
+            console.log('This brownser dont support native web share!');
+        }
     });
 </script>
 <script>

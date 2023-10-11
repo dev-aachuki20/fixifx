@@ -29,27 +29,26 @@ function getYouTubeUniqueString($full_link)
 function uploadFile($file, $dir)
 {
     if ($file) {
-        if($dir == "ArticleThumb") {    
-            $media_image = time().'.'.$file->getClientOriginalExtension();
-            
+        if ($dir == "ArticleThumb") {
+            $media_image = time() . '.' . $file->getClientOriginalExtension();
+
             $destinationPath = storage_path('app/public') . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR;
-            
+
             if (!is_dir($destinationPath)) {
                 mkdir($destinationPath, 0775, true);
             }
             Image::make($file->getRealPath())->resize(610, 400, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($destinationPath.$media_image);
-            
-            return $media_image;
+            })->save($destinationPath . $media_image);
 
-        }  else {
+            return $media_image;
+        } else {
             $destinationPath =  storage_path('app/public') . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR;
 
             $media_image = $file->hashName();
 
             $file->move($destinationPath, $media_image);
-            
+
             return $media_image;
         }
 
@@ -82,10 +81,10 @@ function getSettingValue($key)
 
 function timeDiff($date)
 {
-   $str= config('app.locale') == 'en' ? 'ago' : '前';
+    $str = config('app.locale') == 'en' ? 'ago' : '前';
     $now = Carbon::now();
     $created_at = Carbon::parse($date);
-    $diffHuman = $created_at->diffForHumans($now, true) .$str  ;
+    $diffHuman = $created_at->diffForHumans($now, true) . $str;
 
     return $diffHuman;
 }
@@ -93,7 +92,7 @@ function timeDiff($date)
 function getCurrencyFlag($currency_code)
 {
     // return Country::where('currency_code', $currency_code)->pluck('flag')->first();
-    return asset('front/img/flag/'.strtolower($currency_code).'.svg') ?: Country::where('currency_code', $currency_code)->pluck('flag')->first();
+    return asset('front/img/flag/' . strtolower($currency_code) . '.svg') ?: Country::where('currency_code', $currency_code)->pluck('flag')->first();
 }
 
 function getAllChangeCurrency()
@@ -105,34 +104,34 @@ function getAllChangeCurrency()
         $result[] = getChangeRate($source);
     }
 
-    return array_merge($result[0],$result[1],$result[2],$result[3],$result[4]);
+    return array_merge($result[0], $result[1], $result[2], $result[3], $result[4]);
 }
 
 
 function getChangeRate($source)
 {
     $access_key = env('CURRENCY_KEY');
-    if($source == 'EUR') {
+    if ($source == 'EUR') {
         $currencies = 'USD,JPY,GBP';
-    } else if($source == 'USD') {
+    } else if ($source == 'USD') {
         $currencies = 'JPY,CAD,CHF,CNY';
-    } else if($source == 'GBP') {
+    } else if ($source == 'GBP') {
         $currencies = 'USD,JPY';
-    } else if($source == 'AUD') {
+    } else if ($source == 'AUD') {
         $currencies = 'USD';
-    } else if($source == 'NZD') {
+    } else if ($source == 'NZD') {
         $currencies = 'USD';
     }
 
     $response  = Http::withHeaders([
         'Content-Type' => 'application/json',
-    ])->get('https://api.currencylayer.com/change?access_key='.$access_key.'&source='.$source.'&currencies='.$currencies);
+    ])->get('https://api.currencylayer.com/change?access_key=' . $access_key . '&source=' . $source . '&currencies=' . $currencies);
 
     $response = json_decode($response->body());
-    
+
     $data = [];
     $currency = (array) $response->quotes;
-    
+
     foreach ($currency as $key => $value) {
         $data[$key]['start_rate'] = $value->start_rate;
         $data[$key]['end_rate'] = $value->end_rate;
@@ -142,4 +141,21 @@ function getChangeRate($source)
     }
 
     return $data;
+}
+
+
+// avtar with initials
+function getInitials($name)
+{
+    $words = explode(' ', $name);
+    $initials = '';
+    foreach ($words as $word) {
+        $initials .= strtoupper($word[0]);
+    }
+    return $initials;
+}
+
+function getRandomColor()
+{
+    return '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
 }
