@@ -25,7 +25,7 @@ body {
     font-weight: 400;
     padding: 0;
     /*font-family: var(--inter-font);*/
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
     color: var(--color-marble-blue);
     overflow-x: hidden;
 }
@@ -74,7 +74,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--inter-font);
+    font-family: var(--inter-font) !important;
     font-weight: 700;
     color: var(--color-dark-jungle-green);
     line-height: normal;
@@ -166,7 +166,7 @@ h6 {
 
 .custom-btn {
     padding: 14px 30px;
-    font-family: var(--inter-font);
+    font-family: var(--inter-font) !important;
     border-radius: 7px;
     border: solid 1px transparent;
     transition: all 0.35s ease-in-out;
@@ -2812,7 +2812,7 @@ a.blogBox-wrap:hover .blogTitle h6{
 
 .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .left-imgBox img{
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     object-fit: cover;
 }
 
@@ -2829,6 +2829,17 @@ a.blogBox-wrap:hover .blogTitle h6{
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.blog-detail .blogTitle h6 a{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--color-dark-jungle-green);
+}
+.blog-detail .blogTitle h6 a:hover{
+    color: var(--color-aqua-marine);
 }
 
 .blogRight-box .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .rightBox .blogTitle h6 {
@@ -3326,6 +3337,10 @@ body.darkHeader header {
     margin: 0;
 }
 
+.socialBox_ChatBox_wrap .socialBox_ChatBox_wrap {
+    margin: 0;
+}
+
 .projectConcept_box{
     margin-top: 40px;
 }
@@ -3513,7 +3528,7 @@ body.modal-open{
 }
 
 .authorContent .title h6 {
-    margin-bottom: 0;
+    margin-bottom: 5px;
     line-height: normal;
     font-size: 14px;
 }
@@ -3523,6 +3538,7 @@ body.modal-open{
     font-weight: 600;
     line-height: normal;
     color: var(--color-aqua-marine);
+    margin-bottom: 5px;
 }
 
 .authorContent .description p {
@@ -3550,7 +3566,7 @@ body.modal-open{
 }
 
 .swiper.bloggird_slides.blog_slider_box.swiper-initialized.swiper-horizontal .swiper-wrapper .img-box {
-    max-width: 320px;
+    max-width: 100%;
     height: 200px;
 }
 
@@ -3629,6 +3645,9 @@ body.modal-open{
 .next-prev-post{
     margin: 40px 0 0 0;
     gap:10px;
+    grid-template-columns: 1fr 1fr;
+    display: grid !important;
+    align-items: flex-start !important;
 }
 
 .next-prev-post .pre-title {
@@ -3665,6 +3684,11 @@ body.modal-open{
     margin-bottom: 24px;
 }
 
+.postComment-box .form-group .invalid-feedback{
+    position: absolute;
+    bottom: -20px;
+}
+
 .postComment-box {
     margin: 0 0 40px;
     padding-top: 40px;
@@ -3694,6 +3718,7 @@ body.modal-open{
 .commentBox-content .commentLeft .avtar_icon {
     width: 100%;
     max-width: 85px;
+    height: 55px;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -3739,6 +3764,10 @@ body.modal-open{
 .commentBox-content .commentLeft {
     width: 100%;
     max-width: 55px;
+}
+
+.commentBox-listing ul li .commentBox-content .commentRight {
+    width: 100%;
 }
 
 .searchbox-container {
@@ -6123,4 +6152,51 @@ span.select2-container.select2-container--default.select2-container--open {
 
 html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
     margin-top: 2px;
+}
+
+.blogDetail-wrapper .description h1,
+.blogDetail-wrapper .description h2,
+.blogDetail-wrapper .description h3,
+.blogDetail-wrapper .description h4,
+.blogDetail-wrapper .description h5,
+.blogDetail-wrapper .description h6{
+    font-size: 18px; 
+}
+
+.blogDetail-wrapper .description img{
+    width:100%;
+}
+
+.blogDetail-wrapper .description  strong {
+    color: var(--color-dark-jungle-green);
+}
+
+.tagListing-main {
+    align-items: flex-start !important;
+}
+
+.commentBox-inner.showDetails-height {
+    height: auto;
+}
+
+.commentBox-wrapper.show-comment .commentBox-inner.showDetails-height {
+    height: 400px;
+}
+
+.commentBox-inner.showDetails-height~.showDetails-more {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.commentBox-inner ~ .showDetails-more {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.commentBox-wrapper .showDetails-more {
+    display: none;
+}
+
+.commentBox-wrapper.show-comment .showDetails-more {
+    display: block;
 }

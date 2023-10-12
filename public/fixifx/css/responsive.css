@@ -140,7 +140,9 @@
 }
 
 @media(max-width:1199px){
-    
+    html[lang="ja"] dd.menu-dropdown-col.row.g-1 dl.col-lg-4{
+        padding:0;
+    }
     
     .searchbox-container input{
         padding: 16px 60px 18px 15px;
@@ -1601,6 +1603,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 
     .form-group input, .form-group select, .form-group textarea{
         height: 50px;
+        font-size: 13px;
     }
     
     .stayWith-wrap form .sendBtn-Box {

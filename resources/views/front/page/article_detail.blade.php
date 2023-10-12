@@ -426,8 +426,8 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 </div>
 
                                 <div class="col-12">
-                                    <div class="commentBox-wrapper">
-                                        <div class="commentBox-inner">
+                                    <div class="commentBox-wrapper {{($article->comments->count() > 3) ? 'show-comment' : '' }}">
+                                        <div class="commentBox-inner textDetails showDetails-height">
                                             <div class="titile">
                                                 <h6>
                                                     @if($article->comments->count() > 1)
@@ -586,6 +586,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                             </div>
                                             @endif
                                         </div>
+                                        <a href="javascript:void(0)" class="showDetails-more">Show more</a>
                                     </div>
                                 </div>
 

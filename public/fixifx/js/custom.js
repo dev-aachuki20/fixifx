@@ -300,3 +300,14 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $(".showDetails-more").click(function () {
+      var $wrapper =$('.commentBox-inner');
+      if($wrapper.hasClass("showDetails-height")) {
+        $(".showDetails-more").text("Show less");
+      } else {
+        $(".showDetails-more").text("Show more"); 
+      }
+      $wrapper.toggleClass("showDetails-height");
+    });
+});
