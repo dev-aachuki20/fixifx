@@ -372,48 +372,7 @@ return $target;
                                     @endif
                                     <!-- end banner  -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     <!-- one more div class 12 ul li -->
-
-                                    <!-- <div class="col-12 text-center">
-                                        <nav class="paginationBox" aria-label="Page navigation example">
-                                            <ul class="pagination">
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#">
-                                                        <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M-7.78848e-08 6.49988C-7.6074e-08 6.651 0.058649 6.80227 0.175799 6.91765L6.17578 12.8267C6.41023 13.0576 6.78988 13.0576 7.02418 12.8267C7.25848 12.5958 7.25863 12.2219 7.02418 11.9912L1.44839 6.49988L7.02418 1.00859C7.25863 0.777695 7.25863 0.403798 7.02418 0.17305C6.78973 -0.0576991 6.41008 -0.057847 6.17578 0.17305L0.175799 6.08211C0.058649 6.19748 -7.96956e-08 6.34875 -7.78848e-08 6.49988ZM4.97578 6.08211L10.9758 0.17305C11.2102 -0.057847 11.5899 -0.057847 11.8242 0.17305C12.0585 0.403946 12.0586 0.777843 11.8242 1.00859L6.24838 6.49988L11.8242 11.9912C12.0586 12.2221 12.0586 12.596 11.8242 12.8267C11.5897 13.0575 11.2101 13.0576 10.9758 12.8267L4.97578 6.91765C4.85863 6.80227 4.79999 6.651 4.79999 6.49988C4.79999 6.34875 4.85863 6.19748 4.97578 6.08211Z" fill="#1E1F1F" />
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                                <li class="page-item"><a class="page-link" href="#">01</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                                <li class="page-item"><a class="page-link active" href="#">03</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">04</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#">
-                                                        <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M12 6.49988C12 6.651 11.9414 6.80227 11.8242 6.91765L5.82422 12.8267C5.58977 13.0576 5.21012 13.0576 4.97582 12.8267C4.74152 12.5958 4.74137 12.2219 4.97582 11.9912L10.5516 6.49988L4.97582 1.00859C4.74137 0.777695 4.74137 0.403798 4.97582 0.17305C5.21027 -0.0576991 5.58992 -0.057847 5.82422 0.17305L11.8242 6.08211C11.9414 6.19748 12 6.34875 12 6.49988ZM7.02422 6.08211L1.02423 0.17305C0.789785 -0.057847 0.410136 -0.057847 0.175837 0.17305C-0.0584622 0.403946 -0.0586122 0.777843 0.175837 1.00859L5.75162 6.49988L0.175837 11.9912C-0.0586123 12.2221 -0.0586123 12.596 0.175837 12.8267C0.410286 13.0575 0.789935 13.0576 1.02423 12.8267L7.02422 6.91765C7.14137 6.80227 7.20001 6.651 7.20001 6.49988C7.20001 6.34875 7.14137 6.19748 7.02422 6.08211Z" fill="#1E1F1F" />
-                                                        </svg>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div> -->
-                                    <!-- end pagination  -->
 
                                     <!-- one more banner div  -->
                                     <!-- end banner  -->
@@ -614,7 +573,6 @@ return $target;
                                 </h6>
                             </div>
                             <div class="currencyExchange-form">
-                                <!-- <form id="currency_form"> -->
                                 <div class="form-group">
                                     <label for="">{{ __('message.amount') }}</label>
                                     <input type="number" class="amount_input form-control" name="amount" id="currency_amount" placeholder="{{__('message.amount')}}">
@@ -630,8 +588,6 @@ return $target;
                                         @endforeach
                                     </select>
                                 </div>
-                                <!-- </div> -->
-
 
 
                                 <div class="form-group position-relative">
@@ -657,7 +613,6 @@ return $target;
                                             <span id="to_currency">GBP</span></b></b>
                                     </div>
                                 </div>
-                                <!-- </form> -->
                             </div>
                         </div>
                     </div>
@@ -705,85 +660,9 @@ return $target;
 
 
 @section('javascript')
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script> -->
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.0/js/select2.min.js"></script>
-<!-- <script>
-    $('#news_form').validate({
-        errorClass: 'invalid-feedback animated fadeInDown error',
-        errorElement: 'div',
-        rules: {
-            email: {
-                required: true,
-                email: true,
-            }
-        },
-        highlight: function(element, errorClass, validClass) {
-            console.log(element);
-            $(element).addClass('is-invalid');
-            $(element).parents("div.form-control").addClass(errorClass).removeClass(validClass);
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-            $(element).parents(".error").removeClass(errorClass).addClass(validClass);
-        },
-        submitHandler: function(form) {
-            $('.error').html("");
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('newsletter') }}",
-                data: new FormData(form),
-                processData: false,
-                contentType: false,
-                success: function(data) {
 
-                    if (data) {
-                        success = msg = "";
-                        if ('{{config("app.locale")}}' == 'en') {
-                            msg = 'You have successfully subscribed to our newsletter.';
-                            success = 'Success';
-                        } else {
-                            msg = 'ニュースレターの購読に成功しました。';
-                            success = '成功';
-                        }
-                        swal(
-                            success,
-                            msg,
-                            'success'
-                        );
-                        $('#news_form').trigger("reset");
-
-                    }
-                },
-                error: function(data) {
-                    var errors = $.parseJSON(data.responseText);
-                    $.each(errors.errors, function(key, value) {
-                        $('#news_form').find('input[name=' + key + ']').after('<span class="error" style="color: red;">' + value + '</span>');
-                    });
-
-                }
-            });
-        },
-    });
-
-
-    // SOCIAL SHARE
-    $(document).on('click', '.ss-btn-share', function(e) {
-        e.preventDefault();
-        if (navigator.share) {
-            navigator.share({
-                    url: this.getAttribute("data-ss-link")
-                }).then(() => {
-                    console.log('Thanks for sharing!');
-                })
-                .catch(console.error);
-        } else {
-            console.log('This brownser dont support native web share!');
-        }
-    });
-</script> -->
 <script>
     window.addEventListener('load', () => {
         addAriaLabel('ss-btn-facebook', 'Facebook');

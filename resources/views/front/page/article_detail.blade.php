@@ -311,9 +311,11 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                             $prevPost = App\Models\Article::where('id', '<', $article->id)->orderBy('id', 'desc')->first();
 
                                 $nextPost = App\Models\Article::where('id', '>', $article->id)->orderBy('id', 'desc')->first();
+
                                 @endphp
                                 <div class="col-12">
                                     <div class="next-prev-post d-flex align-items-center justify-content-between">
+                                        @if($prevPost)
                                         <div class="prev-post">
                                             <p class="pre-title heading-typo">
                                                 <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -324,7 +326,9 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                             </p>
                                             <p class="title heading-typo"><a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $prevPost->id]) }}" rel="prev">{{ $prevPost->{config('app.locale').'_title'} }}</a></p>
                                         </div>
+                                        @endif
 
+                                        @if($nextPost)
                                         <div class="next-post">
                                             <p class="pre-title heading-typo">
                                                 {{__('message.next_post')}}
@@ -335,6 +339,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                             </p>
                                             <p class="title heading-typo"><a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $nextPost->id]) }}" rel="next">{{ $nextPost->{config('app.locale').'_title'} }}</a></p>
                                         </div>
+                                        @endif
 
                                     </div>
                                 </div>
@@ -811,7 +816,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 </h6>
                             </div>
                             <div class="currencyExchange-form">
-                                <!-- <form id="currency_form"> -->
                                 <div class="form-group">
                                     <label for="">{{ __('message.amount') }}</label>
                                     <input type="number" class="amount_input form-control" name="amount" id="currency_amount" placeholder="{{__('message.amount')}}">
@@ -827,8 +831,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                         @endforeach
                                     </select>
                                 </div>
-                                <!-- </div> -->
-
 
 
                                 <div class="form-group position-relative">
@@ -854,7 +856,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                             <span id="to_currency">GBP</span></b></b>
                                     </div>
                                 </div>
-                                <!-- </form> -->
                             </div>
                         </div>
                     </div>
@@ -897,84 +898,8 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
 @endsection
 
 @section('javascript')
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script> -->
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.0/js/select2.min.js"></script>
-<!-- <script>
-    $('#news_form').validate({
-        errorClass: 'invalid-feedback animated fadeInDown error',
-        errorElement: 'div',
-        rules: {
-            email: {
-                required: true,
-            }
-        },
-        highlight: function(element, errorClass, validClass) {
-            console.log(element);
-            $(element).addClass('is-invalid');
-            $(element).parents("div.form-control").addClass(errorClass).removeClass(validClass);
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-            $(element).parents(".error").removeClass(errorClass).addClass(validClass);
-        },
-        submitHandler: function(form) {
-            $('.error').html("");
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('newsletter') }}",
-                data: new FormData(form),
-                processData: false,
-                contentType: false,
-                success: function(data) {
-
-                    if (data) {
-                        success = msg = "";
-                        if ('{{config("app.locale")}}' == 'en') {
-                            msg = 'You have successfully subscribed to our newsletter.';
-                            success = 'Success';
-                        } else {
-                            msg = 'ニュースレターの購読に成功しました。';
-                            success = '成功';
-                        }
-                        swal(
-                            success,
-                            msg,
-                            'success'
-                        );
-                        $('#news_form').trigger("reset");
-
-                    }
-                },
-                error: function(data) {
-                    var errors = $.parseJSON(data.responseText);
-                    $.each(errors.errors, function(key, value) {
-                        $('#news_form').find('input[name=' + key + ']').after('<span class="error" style="color: red;">' + value + '</span>');
-                    });
-
-                }
-            });
-        },
-    });
-
-
-    // SOCIAL SHARE
-    $(document).on('click', '.ss-btn-share', function(e) {
-        e.preventDefault();
-        if (navigator.share) {
-            navigator.share({
-                    url: this.getAttribute("data-ss-link")
-                }).then(() => {
-                    console.log('Thanks for sharing!');
-                })
-                .catch(console.error);
-        } else {
-            console.log('This brownser dont support native web share!');
-        }
-    });
-</script> -->
 <script>
     window.addEventListener('load', () => {
         addAriaLabel('ss-btn-facebook', 'Facebook');
