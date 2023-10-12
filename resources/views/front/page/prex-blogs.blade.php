@@ -407,7 +407,9 @@ return $target;
                                 </div>
                                 <div class="blogTitle">
                                     <h6>
-                                        {{ $random_articles[$i]->{config('app.locale').'_title'} }}
+                                        <a class="latestBlog-gridList-box-link-tab" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->id]) }}">
+                                            {{ $random_articles[$i]->{config('app.locale').'_title'} }}
+                                        </a>
                                     </h6>
                                 </div>
                                 <ul class="bioData-blog">
