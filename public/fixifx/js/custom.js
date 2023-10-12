@@ -181,9 +181,7 @@ var swiper = new Swiper('.traders_slides', {
   });
 
   // dataTable 
-
-  var table = new DataTable('#spreadTable');
-
+  // var table = new DataTable('#spreadTable');
   // dropdown-menu 
 
 //   $(".nav-item .dropdown").hover(function () {
