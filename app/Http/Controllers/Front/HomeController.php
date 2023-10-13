@@ -141,7 +141,7 @@ class HomeController extends Controller
         $contact->email         = $request->email;
         $contact->already_customer = $request->already_customer;
         $contact->account_no    = $request->account_no;
-        $contact->country       = $request->country;
+        $contact->country       = $request->from_country;
         $contact->phone_no      = $request->phone_no;
         $contact->question      = $request->question;
         $contact->message       = $request->message;

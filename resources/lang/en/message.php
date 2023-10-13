@@ -112,5 +112,6 @@ return [
     'next_post' => 'Next Post',
     'comments' => 'Comments',
     'comment' => 'Comment',
+    'call_us' => 'Call Us',
 
 ];

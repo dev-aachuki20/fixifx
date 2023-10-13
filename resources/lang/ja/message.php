@@ -113,5 +113,7 @@ return [
     'next_post' => '次の投稿',
     'comments' => 'コメント',
     'comment' => 'コメント',
+    'call_us' => 'お電話ください',
+
 
 ];
