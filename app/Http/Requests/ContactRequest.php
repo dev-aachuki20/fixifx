@@ -24,15 +24,15 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name'  => 'required',
+            'first_name' => 'required|regex:/^[\pL\s\-]+$/u|string|max:100',
+            'last_name'  => 'required|regex:/^[\pL\s\-]+$/u|string|max:100',
             // 'company_name' => 'required',
             'email' =>  'required|email',
             // 'email' =>  'required|regex:/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/',
-            'already_customer' => 'required',
+            'already_customer' => 'required|in:yes,no',
             // 'account_no' => 'required',
             'from_country' => 'required',
-            'phone_no' => 'required',
+            'phone_no' => 'required|string|between:10,20',
             'question'  =>  'required',
             'message'   => 'required',
             'captcha'   =>  'required|captcha'
@@ -42,7 +42,8 @@ class ContactRequest extends FormRequest
     public function messages()
     {
         return [
-            'captcha.captcha' => 'Enter valid captcha code.',
+            'already_customer.required' => 'This field is required.',
+            'captcha.captcha'           => 'Enter valid captcha code.',
         ];
     }
 }
