@@ -29,7 +29,7 @@ class ContactRequest extends FormRequest
             // 'company_name' => 'required',
             'email' =>  'required|email',
             // 'email' =>  'required|regex:/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/',
-            'already_customer' => 'required|in:yes,no',
+            'already_customer' => 'required',
             // 'account_no' => 'required',
             'from_country' => 'required',
             'phone_no' => 'required|string|between:10,20',
