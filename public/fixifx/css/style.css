@@ -6139,6 +6139,19 @@ span.error {
     margin: 0;
     font-size: .875em;
 }
+
+.form-group .iti.iti--allow-dropdown.iti--separate-dial-code span.error {
+    bottom: -24px;
+}
+
+.form-footer .captcha-box{
+    position: relative;
+}
+
+.form-footer .captcha-box span.error {
+    bottom: -24px;
+}
+
 .img-flag {
     max-width: 18px;
 }
@@ -6199,4 +6212,11 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
 
 .commentBox-wrapper.show-comment .showDetails-more {
     display: block;
+}
+
+.refresh-cpatcha svg {
+    width: 25px;
+    height: 25px;
+    stroke: #11edd0;
+    stroke-width: 2px;
 }

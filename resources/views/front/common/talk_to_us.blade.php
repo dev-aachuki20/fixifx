@@ -83,8 +83,14 @@
         <div class="form-footer button-group">
             <div class="captcha-box form-group">
                 <input type="text" name="captcha" type="text" placeholder="{{__('message.text_type')}}">
-                <span class="captcha ml-2">{!! captcha_img() !!}</span>
-                <a type="button" class="p-2 refresh-cpatcha"><i class="fas fa-redo"></i></a>
+                <span class="captcha ml-2 captcha-img">{!! captcha_img() !!}</span>
+                <a type="button" class="p-2 refresh-cpatcha">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-reload" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" />
+                      <path d="M20 4v5h-5" />
+                    </svg>
+                </a>
 
                 {{-- <div class="captcha-img" id="captcha">
                     <img src="{{asset('fixifx/images/captcha.png')}}" alt="captcha">

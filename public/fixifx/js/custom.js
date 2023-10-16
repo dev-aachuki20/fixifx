@@ -205,6 +205,10 @@ function myFunction(x) {
   x.classList.toggle("change");
 }
 
+$('.dropdown-menu .container').on('click', function(event){
+         event.stopPropagation();
+   });
+
 $(".navbar-toggler").on("click", function (params) {
   $("body").toggleClass("openSidebar");
 });
@@ -213,7 +217,7 @@ $(".navbar-toggler").on("click", function (params) {
 //   $("body").removeClass("openSidebar");
 // });
 
-$("body").on("click", '.back_btn', function (params) {
+$("body").on("click", '.back_btn', function (event) {
   $("body").find('.mega-menu').removeClass('show');
 });
 
@@ -311,3 +315,9 @@ $(document).ready(function () {
       $wrapper.toggleClass("showDetails-height");
     });
 });
+
+// document.getElementsByClassName('dropdown-menu')[0].addEventListener('click', function (e) {
+//   e.stopPropagation();
+// });
+
+

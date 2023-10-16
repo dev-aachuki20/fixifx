@@ -140,8 +140,38 @@
 }
 
 @media(max-width:1199px){
+    
+    .navbar .dropdown>.mega-menu .container {
+        padding: 0 15px;
+    }
+    
+    ul.navbar-nav>li{
+      padding: 0 15px !important;  
+    }
+    
+    .header-blog-box .blogs-disc .discription {
+        font-size: 12px;
+    }
+    
+    
+    .header-blog-box .blogs-disc h6 {
+    font-size: 12px;
+}
+    
+    .header-btns ul li .custom-btn {
+        font-size: 13px;
+    }
+    
+    html[lang="ja"] .mega-menu-outer .mega-menu-box>a {
+        font-size: 12px;
+    }
+    
     html[lang="ja"] dd.menu-dropdown-col.row.g-1 dl.col-lg-4{
         padding:0;
+    }
+    
+    html[lang="ja"] ul.navbar-nav>li.nav-item>a{
+        font-size:13px;
     }
     
     .searchbox-container input{
@@ -166,6 +196,7 @@
     
     .header-pf-name h3 a{
         color:#ffffff;
+        font-size:13px;
     }
     
     .overviewtext{
@@ -178,6 +209,11 @@
     
     .header-pf-name h3{
         color:#ffffff;
+        font-size:13px;
+    }
+    
+    html[lang="ja"] .header-pf-name h3{
+         font-size:13px;
     }
     
     .desktop-mlogo{
@@ -279,7 +315,7 @@
         line-height: normal;
         transition: all 0.35s ease-in-out;
         color: #ffffff;
-        padding: 0 12px 18px;
+        padding: 0 17px 18px;
         margin-bottom: 22px;
         display: flex;
         align-items: center;
@@ -329,7 +365,7 @@
         padding-bottom: 5rem;
         left: auto;
         right: 0;
-        animation: .3s ease-in-out slide-right;
+        /*animation: .3s ease-in-out slide-right;*/
     }
 
     @keyframes slide-right {
@@ -503,7 +539,7 @@
     ul.navbar-nav>li:not(:last-child) {
         margin-right: 0;
         /*border-top: 1px solid #d4f6ff1f;*/
-        padding: 0 20px;
+        padding: 0 15px;
     }
     
     .header-main ul .home_menu{
@@ -1130,9 +1166,12 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     }
 
     .loaction-flag{
-        width: 100%;
-        max-width: fit-content;
-        height: auto;
+        /*width: 100%;*/
+        /*max-width: fit-content;*/
+        /*height: auto;*/
+            width: fit-content;
+    max-width: 57px;
+    height: 36px;
     }
 
     .contact-information-inner{
@@ -1434,6 +1473,14 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 }
 
 @media(max-width:575px){
+    
+    .form-footer .captcha-box span.error {
+    bottom: -20px;
+}
+
+.form-group .iti.iti--allow-dropdown.iti--separate-dial-code span.error {
+    bottom: -20px;
+}
     
     .swiper.bloggird_slides.blog_slider_box.swiper-initialized.swiper-horizontal .swiper-wrapper .img-box {
         max-width: 100%;
