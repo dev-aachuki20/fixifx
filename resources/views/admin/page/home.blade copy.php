@@ -808,14 +808,11 @@
     @php isset($section) ? $section29 = $section->where('section_no', 29)->first() : '' @endphp
     <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="home29">
         <div class="accordion-item">
-            <!-- main section name -->
             <h2 class="accordion-header" id="HomeSection29">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#home_section_29" aria-expanded="true" aria-controls="home_section_29">
                     <i class="ri-global-line me-2"></i>{{ isset($section29->en_title) ? $section29->en_title : 'Section 29'}}
                 </button>
             </h2>
-            <!-- end main section name -->
-
             <div id="home_section_29" class="accordion-collapse collapse" aria-labelledby="HomeSection29" data-bs-parent="#home29">
                 <div class="accordion-body">
                     <form action="{{ route('admin.save_section', ['sec_no' => 29]) }}" method="post" enctype="multipart/form-data">
@@ -824,7 +821,6 @@
                         @if(isset($section29))
                         <input type="hidden" name="section_id" value="{{ $section29->id }}">
                         @endif
-                        <!-- main status btn -->
                         <div class="row">
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
@@ -833,24 +829,54 @@
                                 </div>
                             </div>
                         </div>
-                        <!--end main status btn -->
+                        <div class="row">
+                            <div class="col-xxl-6 col-md-6 mb-3">
+                                <label for="title" class="form-label mx-2">Image</label>
+                                <div class="s-preview-img my-product-img">
+                                    @if(isset($section29->image))
+                                    <input type="hidden" name="image" value="{{$section29->getRawOriginal('image')}}">
+                                    @endif
+                                    <input type="file" name="image" class="form-control custom_img">
 
+                                    <img src="{{ isset($section29->image) ? $section29->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
+                                    <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="p-upload-icon">
+                                        <i class="ri-upload-cloud-2-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row gy-4">
                             <div class="col-xxl-6 col-md-6">
                                 <div>
                                     <label for="title" class="form-label">Title (English)</label>
-                                    <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section1->en_title) ? $section1->en_title : '') }}">
+                                    <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section29->en_title) ? $section29->en_title : '') }}">
                                 </div>
                             </div>
                             <div class="col-xxl-6 col-md-6">
                                 <div>
                                     <label for="title" class="form-label">Title (Japanese)</label>
-                                    <input type="text" class="form-control" id="title" name="ja_title" value="{{ old('ja_title', isset($section1->ja_title) ? $section1->ja_title : '') }}">
+                                    <input type="text" class="form-control" id="ja_title" name="ja_title" value="{{ old('ja_title', isset($section29) ? $section29->ja_title : '') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Description (English)</label>
+                                    <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section29) ? $section29->en_desc : '') }}</textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Description (Japanese)</label>
+                                    <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section29) ? $section29->ja_desc : '') }}</textarea>
                                 </div>
                             </div>
                         </div>
 
-                        @for($i=1; $i<=9; $i++) @php $sub_section29=$section29->subSection[$i-1] ?? ''; @endphp
+                        @for($i=1; $i<=4; $i++) @php $sub_section29=$section29->subSection[$i-1] ?? '' @endphp
 
                             @if($sub_section29)
                             <input type="hidden" name="sub_section[{{$i}}][sub_section_id]" value="{{ $sub_section29->id }}">
@@ -860,35 +886,15 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="sub_sec_{{$i}}">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub_sec{{$i}}" aria-expanded="false" aria-controls="sub_sec{{$i}}">
-                                            <i class="ri-global-line me-2"></i>{{ $sub_section29 ? $sub_section29->en_title : 'Sub Section '.$i }}
+                                            <i class="ri-global-line me-2"></i> Sub Section {{$i}}
                                         </button>
                                     </h2>
                                     <div id="sub_sec{{$i}}" class="accordion-collapse collapse" aria-labelledby="sub_sec_{{$i}}" data-bs-parent="#sub_sec_{{$i}}">
                                         <div class="accordion-body">
-
                                             <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
                                                 <label for="dropdown-base-example" class="form-label text-muted">Status</label>
-                                                <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="sub_section[{{$i}}][status]" {{ isset($sub_section29->status) ? (($sub_section29->status == 1) ? "checked" : "") : "checked" }}>
+                                                <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="sub_section[{{$i}}][status]" checked="{{ $sub_section29 ? (($sub_section29->status == 1) ? true : false) : true }}">
                                             </div>
-
-                                            <div class="row">
-                                                <div class="col-xxl-6 col-md-6 mb-3">
-                                                    <label for="title" class="form-label mx-2">Image</label>
-                                                    <div class="s-preview-img my-product-img">
-                                                        @if(isset($sub_section29->image))
-                                                        <input type="hidden" name="sub_section[{{$i}}][image]" value="{{$sub_section29->getRawOriginal('image')}}">
-                                                        @endif
-                                                        <input type="file" name="sub_section[{{$i}}][image]" class="form-control custom_img">
-
-                                                        <img src="{{ isset($sub_section29->image) ? $sub_section29->image : '' }}" class="img-fluid" id="main_image_{{$i}}" alt="" loading="lazy" />
-                                                        <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
-                                                        <div class="p-upload-icon">
-                                                            <i class="ri-upload-cloud-2-fill"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <div class="row gy-4">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
@@ -903,18 +909,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="row gy-4 mt-1">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="dec" class="form-label">Description (English)</label>
-                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', $sub_section29 ? $sub_section29->en_desc : '') }}</textarea>
+                                                        <label for="title" class="form-label">Description (English)</label>
+                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="form-control" cols="100" rows="5">{{ old('en_desc', $sub_section29 ? $sub_section29->en_desc : '') }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Description (Japanese)</label>
-                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="ckeditor_custom" cols="30" rows="10">{{ old('ja_desc', $sub_section29 ? $sub_section29->ja_desc : '') }}</textarea>
+                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="form-control" cols="100" rows="5">{{ old('ja_desc', $sub_section29 ? $sub_section29->ja_desc : '') }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -930,6 +935,9 @@
             </div>
         </div>
     </div>
+
+
+
 </div>
 
 

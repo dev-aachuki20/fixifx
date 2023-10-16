@@ -90,7 +90,6 @@ class HomeController extends Controller
         if (!$section) {
             $section = new Section();
         }
-
         if ($request->section_id) {
             $section = Section::where('id', $request->section_id)->first();
         }
@@ -107,11 +106,14 @@ class HomeController extends Controller
         $section->ja_short_text =  $request->ja_short_text;
         $section->status        =  isset($request->status) ? 1 : 0;
 
+
+
         if ($request->image && ($request->hasFile('image'))) {
             $section->image = uploadFile($request->image, 'Section');
         } else if ($request->image == null) {
             $section->image = NULL;
         }
+
         //for ja_image in copy trading
         if ($request->ja_image && ($request->hasFile('ja_image'))) {
             $section->ja_image = uploadFile($request->ja_image, 'Section');
@@ -123,7 +125,6 @@ class HomeController extends Controller
         } else if ($request->video && ($request->hasFile('video'))) {
             $section->video_url = uploadFile($request->video, 'Video');
         }
-
         $section->save();
 
         if ($request->spread && count($request->spread)) {
@@ -202,6 +203,7 @@ class HomeController extends Controller
                 } else if (isset($value['image'])) {
                     $sub->image = $value['image'];
                 }
+
                 if (isset($value['ja_image'])) {
                     $sub->ja_image = uploadFile($value['ja_image'], 'SubSection');
                 }

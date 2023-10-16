@@ -113,5 +113,6 @@ return [
     'comments' => 'Comments',
     'comment' => 'Comment',
     'call_us' => 'Call Us',
+    'fixi_banner' => 'Fixi Banner',
 
 ];

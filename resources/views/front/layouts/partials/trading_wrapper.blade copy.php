@@ -1,8 +1,8 @@
     <!-- trading-wrapper  -->
-
-    @php
-    $newSection = $section->where('section_no', 29)->first();
-    $bannerSection = $common->where('section_no', 1)->first();
+    
+    @php 
+        $newSection = $section->where('section_no', 29)->first();
+        $bannerSection = $common->where('section_no', 1)->first();
     @endphp
 
     <section class="trading-acc-type trading-wrapper bg-light-lightgray padding-b-120">
@@ -15,48 +15,38 @@
                   <!-- Swiper -->
                   <div class="swiper-container mySwiper">
                     <div class="swiper-wrapper">
-                      @if($newSection && $newSection->subSection)
-                      @foreach($newSection->subSection->where('status', 1)->where('page_id', 0) as $key => $value)
-                      @if($value->id == 120 || $value->id == 121 || $value->id == 122 || $value->id == 127 || $value->id == 128)
+                      @foreach($bannerSection->subSection->where('status', 1)->where('page_id', 0) as $key => $value)  
                       <div class="swiper-slide">
-                        <div class="broker-slide-box" style="background-image: url({{ $value->image ? asset($value->image) : asset('fixifx/images/broker-slide.png') }});">
+                        <div class="broker-slide-box"  style="background-image: url({{ asset('fixifx/images/broker-slide.png') }});">
                           <div class="broker-content">
                             <div class="broker-slide-title">
-                              <h2>{{ ucfirst($value->{config('app.locale').'_title'}) }}</h2>
+                              <h2>{{ $newSection->{config('app.locale').'_title'} }}</h2>
                             </div>
                             <div class="broker-discription">
                               <p>
-                                {!! ucfirst($value->{config('app.locale').'_desc'}) !!}
+                                {{ $newSection->{config('app.locale').'_desc'} }}
                               </p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      @endif
                       @endforeach
-                      @endif
                     </div>
-
                   </div>
                   <div class="listing-broker swiper-container tabs-buttons">
                     <ul class="swiper-wrapper">
-                      @if($newSection && $newSection->subSection)
-                      @foreach($newSection->subSection->where('status', 1)->where('page_id', 0) as $key => $value)
-                      @if($value->id == 120 || $value->id == 121 || $value->id == 122 || $value->id == 127 || $value->id == 128)
-
+                      @foreach($bannerSection->subSection->where('status', 1)->where('page_id', 0) as $key => $value)
                       <li class="broker-link swiper-slide {{ $loop->iteration == 1 ? 'active' : '' }}">
                         <div class="broker-list">
                           <div class="broker-list-title">
                             <h6>
-                              {{ __('message.fixi_banner') }} {{ str_pad($key - 3, 2, '0', STR_PAD_LEFT) }}
+                              {{ $value->{config('app.locale').'_title'} }}
                             </h6>
                           </div>
                         </div>
                       </li>
-                      @endif
                       @endforeach
-                      @endif
-
+                      
 
                     </ul>
                   </div>
@@ -65,30 +55,27 @@
             </div>
           </div>
           @if($newSection && count($newSection->subSection))
-          <div class="broker-grid-box">
+            <div class="broker-grid-box">
             <div class="row">
               <div class="col-lg-12 col-12">
                 <div class="broker-grid">
-                  @foreach($newSection->subSection->where('status', 1) as $key => $value)
-                  @if($value->id == 116 || $value->id == 117 || $value->id == 118 || $value->id == 119)
-                  <div class="broker-grid-item">
+                   @foreach($newSection->subSection->where('status', 1) as $key => $value)  
+                   <div class="broker-grid-item">
                     <div class="broker-icon">
-                      {{-- <img src="{{ asset('fixifx/images').'/'. $value->icon}}" alt=""> --}}
-                      <img src="{{ $value->image ? $value->image : asset('fixifx/images/broker-icon-1.svg')}}" alt="">
+                        <img src="{{ asset('fixifx/images').'/'. $value->icon}}" alt="">
                     </div>
                     <div class="broker-title">
                       <h6>
-                        {{ $value->{config('app.locale').'_title'} }}
+                       {{ $value->{config('app.locale').'_title'} }}
                       </h6>
                     </div>
                     <div class="broker-description">
                       <p>
-                        {!! ucfirst($value->{config('app.locale').'_desc'}) !!}
+                        {{ $value->{config('app.locale').'_desc'} }}
                       </p>
                     </div>
                   </div>
-                  @endif
-                  @endforeach
+                   @endforeach
                 </div>
               </div>
             </div>
@@ -96,6 +83,6 @@
           @endif
         </div>
       </div>
-      @include('front.layouts.partials.types_trading_accounts')
+       @include('front.layouts.partials.types_trading_accounts')
     </section>
     <!-- end  -->
