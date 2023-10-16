@@ -134,7 +134,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
                           <dd>
                             <div class="mega-menu-outer">
                               @foreach($submenu->menuPage->where('status', 1) as $page)
-                              <div class="{{ ($route_param == $page->slug) ? 'active' : '' }} mega-menu-box"><a href="{{ route('page', [config('app.locale'), $page->slug]) }}">{{
+                              <div class="{{ ($route_param == $page->slug) ? 'active' : '' }} mega-menu-box"><a class="{{ ($route_param == $page->slug) ? 'active' : '' }}" href="{{ route('page', [config('app.locale'), $page->slug]) }}">{{
                                   $page->{config('app.locale').'_name'} }}</a></div>
                               @endforeach
                             </div>
