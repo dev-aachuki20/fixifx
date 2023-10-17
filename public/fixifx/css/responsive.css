@@ -841,6 +841,14 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 }
 
 @media(max-width:991px){
+    
+    span.select2.select2-container.select2-container--default span.select2-selection__arrow {
+        right: 2.7%;
+    }
+    
+    .grid-outer .col-lg-12 select.form-control {
+        background-position: 95% center;
+    }
 
     .automate-trade{
         padding: 50px 20px;
@@ -1028,10 +1036,20 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 }
 
 @media(max-width:769px){
-    
+    span.select2.select2-container.select2-container--default span.select2-selection__arrow {
+        right: 2%;
+    }
 }
 
 @media(max-width:767px){
+    
+    span.select2.select2-container.select2-container--default span.select2-selection__arrow {
+        right: 2.5%;
+    }
+    
+    .grid-outer .col-lg-12 select.form-control {
+        background-position: 95% center;
+    }
 
     .automate-trade .imgbox {
         padding-top: 60px;

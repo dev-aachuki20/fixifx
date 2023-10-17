@@ -1197,6 +1197,15 @@ span.select2.select2-container.select2-container--default {
     line-height: normal;
 }
 
+span.select2.select2-container.select2-container--default span.select2-selection__arrow {
+    right: 10px;
+}
+
+
+.grid-outer .col-lg-12 select.form-control {
+    background-position: 97.5% center;
+}
+
 span.select2.select2-container.select2-container--default:focus,.select2-container--focus {
     border-color: #11edd0;
 }
@@ -1336,11 +1345,12 @@ color: var(--color-aqua-marine);
 .form-footer .captcha-box .captcha-img {
     width: 140px;
     padding-left: 20px;
+    
 }
 
 .form-footer .captcha-box .captcha-img img {
     width: 100%;
-    height: 100%;
+    height: 45px;
 }
 
 .submit-form .custom-btn {
