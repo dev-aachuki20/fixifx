@@ -4193,6 +4193,12 @@ body.modal-open{
     vertical-align: middle;
     padding: 17px 20px !important;
 }
+.spreadTable-box#spread-table thead tr th {
+    padding: 0px !important;
+    height: 0px !important;
+    visibility: hidden;
+    opacity: 0;
+}
 
 .spreadTable-box thead tr th .title h6{
     color: #ffffff;
@@ -4230,7 +4236,7 @@ body.modal-open{
 }
 
 .table_wrapper tbody tr td{
-    padding: 18px;
+    padding: 18px !important;
     color: var(--Secondary, #5B687A);
     font-size: 16px;
     font-weight: 500;
@@ -4264,7 +4270,7 @@ body.modal-open{
 }
 
 .table_wrapper .flag_data .uk-flag span {
-    display: block;
+    display: inline-flex;
     width: 22px;
 }
 
@@ -6233,3 +6239,4 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
 .trading-wrapper  .hidebg-trade {
     background-image: none;
 }
+

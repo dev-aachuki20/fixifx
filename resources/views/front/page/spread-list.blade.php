@@ -208,11 +208,13 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             </div>
         </div>
         <div class="col-12">
+
             <div class="blog-tab spreadList_tab">
-                <ul class="tab-listing nav  nav-tabs" id="nav-tab">
-                    @foreach($spread_categories as $spread_cat)
-                    <li>
-                        <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" value="{{ $spread_cat->id }}">{{ $spread_cat->{config('app.locale').'_name'} }}</button>
+                <ul class="tab-listing nav nav-tabs" id="nav-tab">
+                    @foreach($spread_categories as $key => $spread_cat)
+
+                    <li class="nav-item @if($key == 0) active @endif">
+                        <a class="nav-link @if($key == 0) active @endif" id="nav-{{ $spread_cat->id }}-tab" data-bs-toggle="tab" href="#nav-{{ $spread_cat->id }}" role="tab" aria-controls="nav-{{ $spread_cat->id }}" aria-selected="true" value="{{ $spread_cat->id }}">{{ $spread_cat->{config('app.locale').'_name'} }}</a>
                     </li>
                     @endforeach
                 </ul>
@@ -220,135 +222,22 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             </div>
 
 
+            {{-- <li>
+                        <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" value="{{ $spread_cat->id }}">{{ $spread_cat->{config('app.locale').'_name'} }}</button>
+
+            </li> --}}
+
+
 
             {{-- {!! $dataTable->table(['class' => 'table dt-responsive uk-table uk-table-striped nowrap table-wrapper uk-overflow-auto','style' => 'width: 100%']) !!} --}}
 
 
-
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                    <div class="table_wrapper">
+                    <div class="table_wrapper 1111111">
 
                         {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%']) !!}
-                        <!--<table class="table spreadTable-box" id="spreadTable">
-                              <thead>
-                                <tr>
-                                    <th>
-                                        <div class="heading_table">
-                                            <div class="title">
-                                                <h6>
-                                                    Symbol
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="heading_table">
-                                            <div class="title">
-                                                <h6>
-                                                    Ultimate Account
-                                                </h6>
-                                            </div>
-                                            <div class="subtext_table">
-                                                <span>
-                                                    As Low As
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="heading_table">
-                                            <div class="title">
-                                                <h6>
-                                                    Premium Account
-                                                </h6>
-                                            </div>
-                                            <div class="subtext_table">
-                                                <span>
-                                                    As Low As
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="heading_table">
-                                            <div class="title">
-                                                <h6>
-                                                    Starter Account
-                                                </h6>
-                                            </div>
-                                            <div class="subtext_table">
-                                                <span>
-                                                    As Low As
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th>
-                                        <div class="heading_table">
-                                            <div class="title">
-                                                <h6>
-                                                    04 Starter Account
-                                                </h6>
-                                            </div>
-                                            <div class="subtext_table">
-                                                <span>
-                                                    As Low As
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                          <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="flag_data">
-                                            <div class="uk-flag">
-                                                <span>
-                                                    <img class="img-fluid" src="images/flag-list/eur.svg" alt="">
-                                                </span>
-                                                <span>
-                                                    <img class="img-fluid" src="images/flag-list/usd.svg" alt="">
-                                                </span>
-                                            </div>
-                                            <div class="title">
-                                                <span>
-                                                    EURUSD
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>0.0</td>
-                                    <td>2.0</td>
-                                    <td>0.0</td>
-                                    <td>0.0</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="flag_data">
-                                            <div class="uk-flag">
-                                                <span>
-                                                    <img class="img-fluid" src="images/flag-list/aud.svg" alt="">
-                                                </span>
-                                                <span>
-                                                    <img class="img-fluid" src="images/flag-list/usd.svg" alt="">
-                                                </span>
-                                            </div>
-                                            <div class="title">
-                                                <span>
-                                                    AUDUSD
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>0.0</td>
-                                    <td>2.0</td>
-                                    <td>0.0</td>
-                                    <td>0.0</td>
-                                </tr>
-                            </tbody> 
-                        </table>-->
+
                     </div>
                 </div>
             </div>
@@ -372,13 +261,13 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 <!-- <script src="{{asset('assets/libs/jquery/dataTables.min.js')}}"></script> -->
 {!! $dataTable->scripts() !!}
 <script>
-    $("#spreadTable").on('preXhr.dt', function(e, settings, data) {
+    $("#spread-table").on('preXhr.dt', function(e, settings, data) {
         data.category_id = $("#cat_val").val();
     });
     $('.nav-link').on('click', function(e) {
         value = $(this).attr('value');
         $('#cat_val').val(value);
-        window.LaravelDataTables["spreadTable"].draw();
+        window.LaravelDataTables["spread-table"].draw();
         // e.preventDefault();
     });
 </script>

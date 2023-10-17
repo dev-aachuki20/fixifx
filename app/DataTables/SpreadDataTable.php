@@ -19,12 +19,15 @@ class SpreadDataTable extends DataTable
             ->editColumn('category_id', function ($data) {
                 return $data->category->en_name ?? "";
             })
+            ->editColumn('symbol', function ($data) {
+                return '<div class="flag_data"><div class="uk-flag"><span><img class="img-fluid" src="https://wajid.hipl-staging5.com/fixifix/images/flag-list/usd.svg" alt=""></span><span><img class="img-fluid" src="https://wajid.hipl-staging5.com/fixifix/images/flag-list/usd.svg" alt=""></span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
+            })
             ->addIndexColumn()
             ->addColumn('action', function ($data) {
                 return '<button type="button" class="btn btn-sm btn-success edit_spread" spread_id=' . $data->id . ' data-bs-toggle="modal" data-bs-target="#spreadModal">Edit</button>
                 <button type="button" class="btn btn-sm btn-danger delete_spread" spread_id=' . $data->id . '>Delete</button>';
             })
-            ->rawColumns(['category_id', 'action']);
+            ->rawColumns(['category_id', 'action', 'symbol']);
     }
 
     public function query(Spread $model, Request $request)
@@ -38,7 +41,7 @@ class SpreadDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('spreadTable')
+            ->setTableId('spread-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Blfrtip')
