@@ -117,4 +117,9 @@ return [
     'entries' => 'entries',
     'accountFunding_msg' => 'Instant account opening & funding',
 
+    'contact_details' => 'Global office contact details',
+    'contact_desc' => 'We support clients in more than 180 countries from offices in major financial hubs. Find contact details for all our offices below.',
+
+
+
 ];

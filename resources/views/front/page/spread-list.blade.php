@@ -221,13 +221,13 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 
 
+            {{-- {!! $dataTable->table(['class' => 'table dt-responsive uk-table uk-table-striped nowrap table-wrapper uk-overflow-auto','style' => 'width: 100%']) !!} --}}
 
 
 
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                     <div class="table_wrapper">
-                        {{-- {!! $dataTable->table(['class' => 'table dt-responsive uk-table uk-table-striped nowrap table-wrapper uk-overflow-auto','style' => 'width: 100%']) !!} --}}
 
                         {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%']) !!}
                         <!--<table class="table spreadTable-box" id="spreadTable">

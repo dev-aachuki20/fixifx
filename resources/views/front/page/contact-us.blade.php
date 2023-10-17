@@ -42,10 +42,9 @@ return $target;
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-12">
                 <div class="section-head text-center">
-                    <h2>Global office contact details</h2>
+                    <h2>{{__('message.contact_details')}}</h2>
                     <div class="discription">
-                        <p>We support clients in more than 180 countries from offices in major financial hubs. Find contact
-                            details for all our offices below.</p>
+                        <p>{{__('message.contact_desc')}}</p>
                     </div>
                 </div>
             </div>

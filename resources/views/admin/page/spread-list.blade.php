@@ -222,12 +222,8 @@
                             </div>
                         </div>
                         @for($i=1; $i<=3; $i++) @php $sub_section4=$section4->subSection[$i-1] ?? false @endphp
-
-                            @if($sub_section4)
-                            <input type="hidden" name="sub_section[{{$i}}][sub_section_id]" value="{{ $sub_section4->id }}">
-                            @endif
-
-                            <div class="accordion nesting4-accordion custom-accordionwithicon accordion-border-box mt-3" id="sub_sec_{{$i}}">
+[$i-1] ?? false @endphp
+             <div class="accordion nesting4-accordion custom-accordionwithicon accordion-border-box mt-3" id="sub_sec_{{$i}}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="sub_sec_{{$i}}">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub_sec{{$i}}" aria-expanded="false" aria-controls="sub_sec{{$i}}">
