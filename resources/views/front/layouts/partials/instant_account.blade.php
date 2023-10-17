@@ -16,21 +16,4 @@
     </section>
     <!-- end  -->
 
-    <!-- <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-sm-12">
-            <div class="instant-account-outer text-white">
-              <h2 class="text-white">Instant account opening & funding</h2>
-              <div class="discription">
-                <p>Trade within minutes!</p>
-              </div>
-              <div class="button-group">
-                <a href="javascript:void(0);" class="custom-btn fill-btn-1 text-white">Live account</a>
-                <a href="javascript:void(0);" class="custom-btn fill-btn text-white">Demo Account</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    

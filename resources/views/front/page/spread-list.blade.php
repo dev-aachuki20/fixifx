@@ -82,7 +82,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                         </h2>
                     </div>
                     <div class="discription">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                        {!! $section3->{config('app.locale').'_desc'} !!}
                     </div>
                 </div>
             </div>
@@ -177,7 +177,20 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 <!-- end  -->
 
 <!-- accountFunding -->
-@include('front.layouts.partials.instant_account')
+
+<section class="accountFunding">
+    <div class="container">
+        <div class="title">
+            <h2>
+                {{ __('message.accountFunding_msg') }}
+            </h2>
+        </div>
+        <div class="accountFunding-btn d-flex align-items-center">
+            <a href="{{ getSettingValue('live_link') }}" target="_blank" class="custom-btn fill-btn-1">{{ getSettingValue('foot_live_link_btn_'.config('app.locale')) }}</a>
+            <a href="{{ getSettingValue('demo_link') }}" target="_blank" class="custom-btn fill-btn">{{ getSettingValue('demo_link_btn_'.config('app.locale')) }}</a>
+        </div>
+    </div>
+</section>
 <!-- end  -->
 
 @php isset($section) ? $section5 = $section->where('section_no', 5)->first() : '' @endphp
@@ -217,8 +230,8 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                         {{-- {!! $dataTable->table(['class' => 'table dt-responsive uk-table uk-table-striped nowrap table-wrapper uk-overflow-auto','style' => 'width: 100%']) !!} --}}
 
                         {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%']) !!}
-                        <table class="table spreadTable-box" id="spreadTable">
-                            <!--   <thead>
+                        <!--<table class="table spreadTable-box" id="spreadTable">
+                              <thead>
                                 <tr>
                                     <th>
                                         <div class="heading_table">

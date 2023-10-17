@@ -116,4 +116,6 @@ return [
     'call_us' => 'お電話ください',
     'fixi_banner' => 'フィクシバナー',
     'entries' => 'エントリ',
+    'accountFunding_msg' => '即時口座開設と資金調達',
+
 ];

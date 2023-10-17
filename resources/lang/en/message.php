@@ -115,5 +115,6 @@ return [
     'call_us' => 'Call Us',
     'fixi_banner' => 'Fixi Banner',
     'entries' => 'entries',
+    'accountFunding_msg' => 'Instant account opening & funding',
 
 ];

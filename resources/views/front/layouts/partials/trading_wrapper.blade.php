@@ -6,7 +6,9 @@
     @endphp
 
     <section class="trading-acc-type trading-wrapper bg-light-lightgray padding-b-120">
-      <div class="broker-banner-wrap padding-tb-120">
+      @if($newSection && $newSection->subSection)
+      <div class="broker-banner-wrap padding-tb-120 hidebg-trade" style="background-image: url({{asset('fixifx/images/bg-glob2.svg')}}); background-repeat: no-repeat; background-position: top right;background-position: 86% 10%;">
+
         <div class="container">
           <div class="broker-slide">
             <div class="row">
@@ -15,7 +17,7 @@
                   <!-- Swiper -->
                   <div class="swiper-container mySwiper">
                     <div class="swiper-wrapper">
-                      @if($newSection && $newSection->subSection)
+                      <!-- @if($newSection && $newSection->subSection) -->
                       @foreach($newSection->subSection->where('status', 1)->where('page_id', 0) as $key => $value)
                       @if($value->id == 120 || $value->id == 121 || $value->id == 122 || $value->id == 127 || $value->id == 128)
                       <div class="swiper-slide">
@@ -34,7 +36,7 @@
                       </div>
                       @endif
                       @endforeach
-                      @endif
+                      <!-- @endif -->
                     </div>
 
                   </div>
@@ -96,6 +98,7 @@
           @endif
         </div>
       </div>
+      @endif
       @include('front.layouts.partials.types_trading_accounts')
     </section>
     <!-- end  -->
