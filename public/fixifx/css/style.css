@@ -4089,6 +4089,14 @@ body.modal-open{
     border-radius: 5px;
 }
 
+.tradersChoose_box .swiper .blogBox-wrap .description p {
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .tradersChoose_box .blogTitle h6 {
     margin: 17px 0 15px 0;
 }

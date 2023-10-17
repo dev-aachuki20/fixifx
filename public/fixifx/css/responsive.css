@@ -1474,8 +1474,22 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 
 @media(max-width:575px){
     
+    .form-group .iti__arrow{
+            margin: 6px 10px 10px;
+    }
+    
+    .form-group .iti__flag-container .iti__selected-flag {
+    height: 20px;
+    margin: 4px 0 0;
+}
+    
     .form-footer .captcha-box span.error {
-    bottom: -20px;
+    bottom: -15px;
+}
+
+.form-footer .captcha-box {
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .form-group .iti.iti--allow-dropdown.iti--separate-dial-code span.error {
@@ -1803,6 +1817,13 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 }
 
 @media(max-width:350px){
+    
+    .form-footer .captcha-box>input {
+        padding: 0 7px;
+        width: calc(100% - 130px);
+        font-size: 12px;
+    }
+    
     
     
     .listing-broker ul{
