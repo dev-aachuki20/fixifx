@@ -17,7 +17,6 @@
                   <!-- Swiper -->
                   <div class="swiper-container mySwiper">
                     <div class="swiper-wrapper">
-                      <!-- @if($newSection && $newSection->subSection) -->
                       @foreach($newSection->subSection->where('status', 1)->where('page_id', 0) as $key => $value)
                       @if($value->id == 120 || $value->id == 121 || $value->id == 122 || $value->id == 127 || $value->id == 128)
                       <div class="swiper-slide">
@@ -36,7 +35,6 @@
                       </div>
                       @endif
                       @endforeach
-                      <!-- @endif -->
                     </div>
 
                   </div>

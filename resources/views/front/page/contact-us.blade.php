@@ -175,7 +175,7 @@ return $target;
     </div>
 </section>
 
-<section class="padding-tb-120 bg-snow-drift" style="background-image:url(images/bg-glob.png);background-repeat: no-repeat; background-position: bottom left;">
+<section class="padding-tb-120 bg-snow-drift" style="background-image:url({{asset('fixifx/images/bg-glob.png')}});background-repeat: no-repeat; background-position: bottom left;">
     <div class="container">
         <div class="bg-white contact-information-inner">
             <div class="contact-information-left">
