@@ -216,9 +216,9 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                     <div class="table_wrapper">
                         {{-- {!! $dataTable->table(['class' => 'table dt-responsive uk-table uk-table-striped nowrap table-wrapper uk-overflow-auto','style' => 'width: 100%']) !!} --}}
 
-                        {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%', 'thead_class' => 'heading_table']) !!}
-                        <!-- <table class="table spreadTable-box" id="spreadTable">
-                            <thead>
+                        {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%']) !!}
+                        <table class="table spreadTable-box" id="spreadTable">
+                            <!--   <thead>
                                 <tr>
                                     <th>
                                         <div class="heading_table">
@@ -287,7 +287,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                          <tbody>
                                 <tr>
                                     <td>
                                         <div class="flag_data">
@@ -334,8 +334,8 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                                     <td>0.0</td>
                                     <td>0.0</td>
                                 </tr>
-                            </tbody>
-                        </table> -->
+                            </tbody> 
+                        </table>-->
                     </div>
                 </div>
             </div>
@@ -359,13 +359,13 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 <!-- <script src="{{asset('assets/libs/jquery/dataTables.min.js')}}"></script> -->
 {!! $dataTable->scripts() !!}
 <script>
-    $("#spread-table").on('preXhr.dt', function(e, settings, data) {
+    $("#spreadTable").on('preXhr.dt', function(e, settings, data) {
         data.category_id = $("#cat_val").val();
     });
     $('.nav-link').on('click', function(e) {
         value = $(this).attr('value');
         $('#cat_val').val(value);
-        window.LaravelDataTables["spread-table"].draw();
+        window.LaravelDataTables["spreadTable"].draw();
         // e.preventDefault();
     });
 </script>

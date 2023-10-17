@@ -115,4 +115,5 @@ return [
     'comment' => 'コメント',
     'call_us' => 'お電話ください',
     'fixi_banner' => 'フィクシバナー',
+    'entries' => 'エントリ',
 ];

@@ -16,13 +16,13 @@ class SpreadDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->editColumn('category_id', function($data){
+            ->editColumn('category_id', function ($data) {
                 return $data->category->en_name ?? "";
             })
             ->addIndexColumn()
-            ->addColumn('action', function($data){
-                return '<button type="button" class="btn btn-sm btn-success edit_spread" spread_id='.$data->id.' data-bs-toggle="modal" data-bs-target="#spreadModal">Edit</button>
-                <button type="button" class="btn btn-sm btn-danger delete_spread" spread_id='.$data->id.'>Delete</button>';
+            ->addColumn('action', function ($data) {
+                return '<button type="button" class="btn btn-sm btn-success edit_spread" spread_id=' . $data->id . ' data-bs-toggle="modal" data-bs-target="#spreadModal">Edit</button>
+                <button type="button" class="btn btn-sm btn-danger delete_spread" spread_id=' . $data->id . '>Delete</button>';
             })
             ->rawColumns(['category_id', 'action']);
     }
@@ -38,49 +38,49 @@ class SpreadDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('spread-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Blfrtip')
-                    ->orderBy(1)
-                    ->parameters([
-                        "sScrollX" => true,
-                        "scrollCollapse" => true,
-                        'autoWidth' => true,
-                        "scrollCollapse"=> true,
-                        'language' => [
-                            "sZeroRecords" => __('message.data_not_found'),
-                            "sLengthMenu" => __('message.show') . " _MENU_ " . __('message.record_per_page'),
-                            // "sInfo" => __('message.showing') . " _START_ " . __('message.to') . " _END_ " . __('message.of') . " _TOTAL_ " . __('message.records'),
-                            "sInfo" =>  config('app.locale') == 'en' ?
-                                __('message.showing') . " _START_ " . __('message.to') . " _END_ " . __('message.of') . " _TOTAL_ " . __('message.records') :
-                                __('message.showing') . "_TOTAL_" . __('message.to') . __('message.of') . "_START_-_END_" . __('message.records'),
-                            "sInfoEmpty" => __('message.showing') . " 0 " . __('message.to') . " 0 " . __('message.of') . " 0 " . __('message.records'),
-                            "search" => __('message.search'),
-                            "paginate" => [
-                                "first" => __('message.first'),
-                                "last" => __('message.last'),
-                                "next" =>  __('message.next'),
-                                "previous" =>  __('message.previous'),
-                            ],
-                            "autoFill" => [
-                                "cancel" => __('message.cancel'),
-                            ],
-        
-                        ],
-                    ])
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+            ->setTableId('spreadTable')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Blfrtip')
+            ->orderBy(1)
+            ->parameters([
+                "sScrollX" => true,
+                "scrollCollapse" => true,
+                'autoWidth' => true,
+                "scrollCollapse" => true,
+                'language' => [
+                    "sZeroRecords" => __('message.data_not_found'),
+                    "sLengthMenu" => __('message.show') . " _MENU_ " . __('message.entries'),
+                    // "sInfo" => __('message.showing') . " _START_ " . __('message.to') . " _END_ " . __('message.of') . " _TOTAL_ " . __('message.records'),
+                    "sInfo" =>  config('app.locale') == 'en' ?
+                        __('message.showing') . " _START_ " . __('message.to') . " _END_ " . __('message.of') . " _TOTAL_ " . __('message.records') :
+                        __('message.showing') . "_TOTAL_" . __('message.to') . __('message.of') . "_START_-_END_" . __('message.records'),
+                    "sInfoEmpty" => __('message.showing') . " 0 " . __('message.to') . " 0 " . __('message.of') . " 0 " . __('message.records'),
+                    "search" => __('message.search'),
+                    "paginate" => [
+                        "first" => __('message.first'),
+                        "last" => __('message.last'),
+                        "next" =>  __('message.next'),
+                        "previous" =>  __('message.previous'),
+                    ],
+                    "autoFill" => [
+                        "cancel" => __('message.cancel'),
+                    ],
+
+                ],
+            ])
+            ->buttons(
+                Button::make('create'),
+                Button::make('export'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            );
     }
 
     protected function getColumns()
     {
-        if(auth()->guard('admin')->check() && (request()->route()->getPrefix() == "PrexSecureCpanel/admin")) {
+        if (auth()->guard('admin')->check() && (request()->route()->getPrefix() == "PrexSecureCpanel/admin")) {
             return [
                 Column::make('no')->data('DT_RowIndex')->searchable(false)->orderable(false),
                 Column::make('category_id')->title("Category"),
@@ -90,10 +90,10 @@ class SpreadDataTable extends DataTable
                 Column::make('premium_account')->orderable(false),
                 Column::make('starter_account')->orderable(false),
                 Column::computed('action')
-                      ->exportable(false)
-                      ->printable(false)
-                      ->width(60)
-                      ->addClass('text-center'),
+                    ->exportable(false)
+                    ->printable(false)
+                    ->width(60)
+                    ->addClass('text-center'),
             ];
         }
         if (config("app.locale") == 'ja') {
@@ -112,16 +112,16 @@ class SpreadDataTable extends DataTable
         }
         return [
             // Column::make('category_id')->title('<p>Category</p>'),
-            Column::make('symbol')->title('<p>Symbol</p>')->orderable(false),
-            Column::make('ultimate_account')->title('<p>Ultimate Account<span>As low as</span></p>')->orderable(false),
-            Column::make('premium_account')->title('<p>premium Account<span>As low as</span></p>')->orderable(false),
-            Column::make('starter_account')->title('<p>Starter Account<span>As low as</span></p>')->orderable(false),
+            Column::make('symbol')->title('<div class="heading_table"><div class="title"><h6>Symbol</h6></div></div>')->orderable(true),
+            Column::make('ultimate_account')->title('<div class="heading_table"><div class="title"><h6>Ultimate Account</h6></div><div class="subtext_table"><span>As Low As</span></div></div>')->orderable(true),
+            Column::make('premium_account')->title('<div class="heading_table"><div class="title"><h6>Premium Account</h6></div><div class="subtext_table"><span>As Low As</span></div></div>')->orderable(false),
+            Column::make('starter_account')->title('<div class="heading_table"><div class="title"><h6>Starter Account</h6></div><div class="subtext_table"><span>As Low As</span></div></div>')->orderable(false),
             Column::computed('action')
-                  ->visible(false)
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+                ->visible(false)
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+            //   ->addClass('text-center'),
         ];
     }
 

@@ -114,5 +114,6 @@ return [
     'comment' => 'Comment',
     'call_us' => 'Call Us',
     'fixi_banner' => 'Fixi Banner',
+    'entries' => 'entries',
 
 ];
