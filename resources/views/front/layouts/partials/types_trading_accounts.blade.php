@@ -1,4 +1,5 @@
-<div class="container">
+<div class="broker-banner-wrap padding-t-120 hidebg-trade">
+    <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6 col-sm-12">
             <div class="section-head text-center">
@@ -134,3 +135,4 @@
           </div>
         </div>
       </div>
+</div>

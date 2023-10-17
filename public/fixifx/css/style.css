@@ -1318,7 +1318,7 @@ color: var(--color-aqua-marine);
 
 .form-footer {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: space-between;
 }
 
@@ -2095,6 +2095,7 @@ footer.footer-main h5:after {
 .broker-slide-box{
     width: 100%;
     min-height: 224px;
+    height: 224px;
     background-image: url(../images/broker-slide.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -6227,4 +6228,8 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
     height: 25px;
     stroke: #11edd0;
     stroke-width: 2px;
+}
+
+.trading-wrapper  .hidebg-trade {
+    background-image: none;
 }

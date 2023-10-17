@@ -7,7 +7,7 @@
 
     <section class="trading-acc-type trading-wrapper bg-light-lightgray padding-b-120">
       @if($newSection && $newSection->subSection)
-      <div class="broker-banner-wrap padding-tb-120 hidebg-trade" style="background-image: url({{asset('fixifx/images/bg-glob2.svg')}}); background-repeat: no-repeat; background-position: top right;background-position: 86% 10%;">
+      <div class="broker-banner-wrap padding-t-120 hidebg-trade" style="background-image: url({{asset('fixifx/images/bg-glob2.svg')}}); background-repeat: no-repeat; background-position: top right;background-position: 86% 10%;">
 
         <div class="container">
           <div class="broker-slide">

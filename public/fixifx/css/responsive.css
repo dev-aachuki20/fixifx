@@ -141,6 +141,18 @@
 
 @media(max-width:1199px){
     
+    .form-footer .captcha-box{
+        margin-bottom: 1rem;
+    }
+    
+    .form-footer .captcha-box span.error {
+        bottom: -18px;
+    }
+    
+    .form-group .iti.iti--allow-dropdown.iti--separate-dial-code span.error {
+        bottom: -18px;
+    }
+    
     .navbar .dropdown>.mega-menu .container {
         padding: 0 15px;
     }
