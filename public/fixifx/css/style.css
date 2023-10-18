@@ -4053,6 +4053,7 @@ body.modal-open{
     width: fit-content;
     display: flex;
     margin: 0;
+    display:none;
 }
 .tradersChoose_box .nextPrev-box>div {
     width: 40px;

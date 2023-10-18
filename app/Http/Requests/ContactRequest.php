@@ -27,7 +27,7 @@ class ContactRequest extends FormRequest
             'first_name' => 'required|regex:/^[\pL\s\-]+$/u|string|max:100',
             'last_name'  => 'required|regex:/^[\pL\s\-]+$/u|string|max:100',
             // 'company_name' => 'required',
-            'email' =>  'required|email',
+            'email' =>  'required|email:dns',
             // 'email' =>  'required|regex:/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/',
             'already_customer' => 'required',
             // 'account_no' => 'required',
