@@ -20,7 +20,16 @@ class SpreadDataTable extends DataTable
                 return $data->category->en_name ?? "";
             })
             ->editColumn('symbol', function ($data) {
-                return '<div class="flag_data"><div class="uk-flag"><span><img class="img-fluid" src="https://wajid.hipl-staging5.com/fixifix/images/flag-list/usd.svg" alt=""></span><span><img class="img-fluid" src="https://wajid.hipl-staging5.com/fixifix/images/flag-list/usd.svg" alt=""></span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
+                $html = '<div class="flag_data"><div class="uk-flag"><span>';
+                $currency_changes = getAllChangeCurrency();
+
+                $flags = $currency_changes[$data->symbol];
+
+                $html .= '<img class="img-fluid" src="' . $flags['flag_1'] . '" alt=""></span><span><img class="img-fluid" src="' . $flags['flag_2'] . '" alt="">';
+
+                $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
+
+                return $html;
             })
             ->addIndexColumn()
             ->addColumn('action', function ($data) {
