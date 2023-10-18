@@ -8,7 +8,7 @@ $link = "";
 
 
 
-<section class="other-pages-banner padding-tb-180 d-flex flex-wrap align-items-center" @if(($page && $page->slug == 'faqs' && $page->bg_img != null) || ($page && $page->slug == 'contact-us' && $page->bg_img != null) || ($page && $page->slug == 'spread-list' && $page->bg_img != null))
+<section class="other-pages-banner padding-tb-180 d-flex flex-wrap align-items-center" @if(($page && $page->slug == 'faqs' && $page->bg_img != null) || ($page && $page->slug == 'contact-us' && $page->bg_img != null) || ($page && $page->slug == 'spread-list' && $page->bg_img != null) || ($page && $page->slug == 'account-type' && $page->bg_img != null))
   style="background-image: url({{$page->bg_img}});"
   @else
   style="background-image: url({{ asset('fixifx/images/hero-bg.png') }});"
@@ -19,7 +19,7 @@ $link = "";
       <div class="col-12 col-xl-6 col-lg-12 col-md-12 col-sm-12">
         <div class="other-banner-text hero-wrapper">
           <h1>
-            @if($page->slug == 'contact-us' || $page->slug == 'spread-list')
+            @if($page->slug == 'contact-us' || $page->slug == 'spread-list' || $page->slug == 'account-type')
             {{ $page->{config('app.locale').'_name'} }}
             @else
             {{ $page->{config('app.locale').'_desc'} }}
@@ -28,7 +28,7 @@ $link = "";
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{{ route('page', [config('app.locale'), 'home']) }}">Home</a></li>
-              @for($i = 0; $i <= count(Request::segments()); $i++) @if($i==0 || $i==1) @continue; @endif @php $link .="/" . Request::segment($i); @endphp @if($i==count(Request::segments())) @if(Request::segment($i)=='faqs' || Request::segment($i)=='contact-us' || Request::segment($i)=='spread-list' ) <li class="breadcrumb-item"><a href="javascript:void();">{{ $page->menu->{config('app.locale').'_name'} }}</a></li>
+              @for($i = 0; $i <= count(Request::segments()); $i++) @if($i==0 || $i==1) @continue; @endif @php $link .="/" . Request::segment($i); @endphp @if($i==count(Request::segments())) @if(Request::segment($i)=='faqs' || Request::segment($i)=='contact-us' || Request::segment($i)=='spread-list' || Request::segment($i)=='account-type' ) <li class="breadcrumb-item"><a href="javascript:void();">{{ $page->menu->{config('app.locale').'_name'} }}</a></li>
                 @endif
 
                 <li class="breadcrumb-item active">{{ $page->{config('app.locale').'_name'} }}</li>

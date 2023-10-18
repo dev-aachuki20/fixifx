@@ -122,4 +122,12 @@ return [
 
 
 
+    'move_between_tiers' => 'How to move between tiers',
+    'move_between_tiers_para1' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.",
+    'move_between_tiers_para2' => "It to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+
+    'fixi_account_title'=> 'Open a Fixi account now',
+    'fixi_account_desc'=> 'Trade financial instruments with the FiXi MT5 client terminal. The MT5 platform is designed for traders looking for a trading edge, offering a rich, user-friendly interface in a highly customizable trading environment.',
+    'create_account'=> 'Create Account',
+
 ];

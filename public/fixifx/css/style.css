@@ -3926,15 +3926,15 @@ body.modal-open{
     width: fit-content;
 }
 
-.faqAccordion .accordion-item .accordion-button:not(.collapsed){
-    background-color: transparent;
-    font-weight: 700;
+.faqAccordion .accordion-item .accordion-button.collapsed{
+    font-weight: 500;
 }
 
 .faqAccordion .accordion-item .accordion-button{
+    background-color: transparent;
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     margin-top: 32px;
     padding: 0 0 32px 0;
     border-bottom: 1px solid #D2E4E9 !important;
@@ -4276,7 +4276,7 @@ body.modal-open{
 .table_wrapper tbody tr td .flag_data {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 10px;
 }
 
