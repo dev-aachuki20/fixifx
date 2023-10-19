@@ -5,36 +5,21 @@ $description_jp = 'FiXi FX（フィクシー）では、お客様のニーズに
 
 @extends('front.layouts.base')
 
-@section('css')
-
-<style>
-    .faqAccordion .accordion-item:first-child .accordion-button:not(.collapsed) {
-        background-color: transparent;
-        font-weight: 700;
-    }
-
-    /* .faqAccordion .accordion-button {
-        font-weight: normal;
-    } */
-</style>
-@endsection
-
 @section('content')
 
 @include('front.layouts.partials.common_hero')
 
 <!-- account type sub section -->
 @php
-
 $ids =['116','117','118','119'];
-$section = App\Models\SubSection::where('section_id', 305)->whereIn('id', $ids)->where('page_id', 0)->where('status', 1)->get();
+$subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $ids)->where('page_id', 0)->where('status', 1)->get();
 @endphp
 
-@if($section)
+@if($subsection)
 <section class="saxo-offering-sec bg-white padding-tb-120">
     <div class="container">
         <div class="row row-gap-24">
-            @foreach($section as $key => $value)
+            @foreach($subsection as $key => $value)
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="saxo-offering-box">
                     <div class="saxo-offering-icon bg-light-gray">
@@ -248,9 +233,9 @@ $section = App\Models\SubSection::where('section_id', 305)->whereIn('id', $ids)-
         $(".showDetails-more").click(function() {
             var $wrapper = $('.showMore-wrapper');
             if ($wrapper.hasClass("showDetails-height")) {
-                $(".showDetails-more").text("Show less");
+                $(".showDetails-more").text("{{__('message.show_less')}}");
             } else {
-                $(".showDetails-more").text("Show more");
+                $(".showDetails-more").text("{{__('message.show_more')}}");
             }
             $wrapper.toggleClass("showDetails-height");
         });
