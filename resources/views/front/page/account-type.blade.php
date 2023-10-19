@@ -8,7 +8,6 @@ $description_jp = 'FiXi FX（フィクシー）では、お客様のニーズに
 @section('content')
 
 @include('front.layouts.partials.common_hero')
-
 <!-- account type sub section -->
 @php
 $ids =['116','117','118','119'];
@@ -39,10 +38,7 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
 </section>
 @endif
 
-
 @include('front.layouts.partials.trading_wrapper')
-
-
 
 <section class="accountFunding">
     <div class="container text-center">
@@ -57,8 +53,6 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
         </div>
     </div>
 </section>
-
-
 
 <section class="auto-fix-wrapper padding-tb-120 bg-snow-drift">
     <div class="container">
@@ -143,7 +137,7 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
                         <p> {{ __('message.fixi_account_desc') }}</p>
                     </div>
                     <div class="button-group">
-                        <a href="#" class="custom-btn fill-btn text-white">{{ __('message.create_account') }}</a>
+                        <a href="{{ getSettingValue('demo_link') }}" class="custom-btn fill-btn text-white">{{ __('message.create_account') }}</a>
                     </div>
                 </div>
             </div>
@@ -151,9 +145,7 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
     </div>
 </section>
 
-
 <!-- faq-sub-page  -->
-
 <section class="faq-sub-page padding-top-120 padding-bottom-120">
     <div class="container">
         <div class="row justify-content-center">
@@ -174,19 +166,13 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
             </div>
         </div>
         <div class="row">
-
-
-
             <div class="col-12">
                 <div class="faqTab-content p-0">
-
                     @php
                     $faqData = App\Models\Faq::where('section_id', 31)->where('section_no', 3)->get();
                     @endphp
-
                     @if($faqData)
                     <div class="accordion faqAccordion" id="accordionExample">
-
                         @foreach($faqData as $index => $faqItem)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
@@ -195,7 +181,6 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
                                     {{ $faqItem->{config('app.locale').'_question'} }}
                                 </button>
                             </h2>
-
                             <div id="collapse{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <div class="description">
@@ -204,26 +189,15 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
                                     @include('front.layouts.partials.social_share')
                                 </div>
                             </div>
-
                         </div>
-
                         @endforeach
-
                     </div>
                     @endif
-
                 </div>
             </div>
-
-
-
-
-
-
         </div>
     </div>
 </section>
-
 <!-- end faq-sub-page  -->
 @endsection
 
