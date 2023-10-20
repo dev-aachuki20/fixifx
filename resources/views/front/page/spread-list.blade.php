@@ -96,7 +96,8 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                             </div>
                             <div class="title">
                                 <h6>
-                                    {{ $sub_sec->{config('app.locale').'_title'} }}</h6>
+                                    {{ $sub_sec->{config('app.locale').'_title'} }}
+                                </h6>
                             </div>
                         </div>
                         @endforeach
@@ -151,7 +152,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                         <div class="swiper-slide items_grid">
                             <div class="blogBox-wrap">
                                 <div class="img-box">
-                                    <img class="img-fluid" src="{{ $sub_sec->image }}" data-src="{{ $sub_sec->image }}" alt="profit-news">
+                                    <img class="img-fluid" src="{{ $sub_sec->image }}" alt="">
                                 </div>
                                 <div class="blogTitle">
                                     <h6>
