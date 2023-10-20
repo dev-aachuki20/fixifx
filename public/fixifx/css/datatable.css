@@ -620,7 +620,8 @@ table.dataTable td {
     text-align: center;
     text-decoration: none !important;
     cursor: pointer;
-    color: inherit !important;
+    /* color: inherit !important; */
+    color: rgb(31, 28, 28) !important;
     border: 1px solid transparent;
     border-radius: 2px;
     background: transparent

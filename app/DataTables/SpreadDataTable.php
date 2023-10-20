@@ -21,16 +21,16 @@ class SpreadDataTable extends DataTable
             })
             ->editColumn('symbol', function ($data) {
                 $html = '<div class="flag_data"><div class="uk-flag"><span>';
-                $currency_changes = getAllChangeCurrency();
-                if (isset($currency_changes[$data->symbol])) {
-                    $flags = $currency_changes[$data->symbol];
-                    $html .= '<img class="img-fluid" src="' . $flags['flag_1'] . '" alt=""></span><span><img class="img-fluid" src="' . $flags['flag_2'] . '" alt="">';
+                $currency_changes = getAllCurrency();
+                if (array_key_exists($data->symbol, $currency_changes)) {
+                    if (isset($currency_changes[$data->symbol])) {
+                        $flags = $currency_changes[$data->symbol];
+                        $html .= '<img class="img-fluid" src="' . $flags['flag_1'] . '" alt=""></span><span><img class="img-fluid" src="' . $flags['flag_2'] . '" alt="">';
 
-                    $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
-
-                    
+                        $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
+                    }
                 } else {
-                    $flags = null;
+                    $html .= $data->symbol;
                 }
 
                 return $html;

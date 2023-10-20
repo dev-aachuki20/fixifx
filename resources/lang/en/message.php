@@ -131,5 +131,9 @@ return [
     'create_account' => 'Create Account',
 
     'faq' => 'Frequently Asked Questions',
+    'ready_to_get_started' => 'Ready to get started?',
+    'ready_to_get_started_desc' => 'Open a FIXI account in just a few steps and gain access to all asset classes',
+    'open_account_btn' => 'Open Account',
+
 
 ];

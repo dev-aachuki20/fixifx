@@ -133,4 +133,8 @@ return [
 
     'faq' => 'よくある質問',
 
+    'ready_to_get_started' => '始める準備はできていますか?',
+    'ready_to_get_started_desc' => 'わずか数ステップで FIXI 口座を開設し、すべての資産クラスにアクセスできるようになります',
+    'open_account_btn' => 'オープンアカウント',
+
 ];
