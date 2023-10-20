@@ -803,7 +803,7 @@
         </div>
     </div>
 
-    <!-- by aachuki -->
+    <!-- forex trading broker banner section -->
     <!-- ----------- section  ------------------- -->
     @php isset($section) ? $section29 = $section->where('section_no', 29)->first() : '' @endphp
     <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="home29">
