@@ -499,6 +499,10 @@
         width: 100%;
         margin-bottom: 2rem;
     }
+    .dataTables_paginate:empty{
+        padding-top: 21px !important;
+        padding-bottom: 21px;
+    }
     
     
 
@@ -1222,9 +1226,12 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         flex-direction: column;
     }
 
-    .package-list-details ul li{
-        width: fit-content;
-        max-width: 100%;
+    /*.package-list-details ul li{*/
+    /*    width: fit-content;*/
+    /*    max-width: 100%;*/
+    /*}*/
+    .dataTables_wrapper .dataTables_info{
+        padding-right: 0;
     }
 
     .faqAccordion .accordion-item .accordion-button{
@@ -1824,7 +1831,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .dataTables_info {
         font-size: 12px;
         font-weight: 500;
-        padding-left: 12px;
+        padding-left: 8px;
         padding-right: 0 !important;
     }
 
@@ -1843,6 +1850,10 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     
     .broker-content .broker-discription p{
         font-size: 13px;
+    }
+    .package-list-details ul li{
+        width: 100%;
+        max-width: 220px;
     }
 }
 
@@ -1878,6 +1889,6 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 
     .dataTables_paginate {
         padding-top: 26px !important;
-        padding-bottom: 27px;
+        padding-bottom: 26px;
     }
 }

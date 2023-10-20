@@ -4302,6 +4302,9 @@ body.modal-open{
     font-size: 16px;
     font-weight: 500;
 }
+.spreadList-wrapper .tab-content .table_wrapper tbody tr td:first-child:after{
+    max-width: 100%;
+}
 
 .table_wrapper tbody tr td:nth-child(1),
 .table_wrapper tbody tr td:nth-child(3),
@@ -4312,6 +4315,9 @@ body.modal-open{
 
 .table_wrapper tbody tr:last-child td::after{
     display: none;
+}
+.spreadList-wrapper .tab-content .table_wrapper tbody tr td:last-child{
+    border-right: 1px solid #D2E4E9;
 }
 
 .dataTables_info {
@@ -4341,6 +4347,10 @@ body.modal-open{
     justify-content: flex-end;
     gap: 10px;
     border-bottom-right-radius: 5px;
+}
+.dataTables_paginate:empty{
+    padding-top: 24px !important;
+    padding-bottom: 24px;
 }
 
 .paginate_button.previous {
@@ -4943,6 +4953,7 @@ body.darkHeader .dark-header .mobile_logo {
     margin: 0 auto;
     outline: none;
     box-shadow: none;
+    font-weight: 600;
 }
 
 .expert-content .accordion-button:not(.collapsed){
