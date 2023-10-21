@@ -1,115 +1,150 @@
 @php
-    $keywords_jp = 'FX,MT5,MetaTrader5,iPhone,iOS';
-    $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)のiOS版に関するページです。';
+$keywords_jp = 'FX,MT5,MetaTrader5,iPhone,iOS';
+$description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)のiOS版に関するページです。';
 @endphp
 
-@extends('front.layouts.master')
+@extends('front.layouts.base')
 
 @section('content')
-    
-        @include('front.common.page_header')
-        <div class="uk-section">
-            <div class="uk-container">
-                <div class="uk-grid">
-                    @include('front.common.side_section')
-                    <div class="uk-width-2-3@m">
-                        <div class="inner-content">
-                            @include('front.common.sub_header')
-                            <!-- <hr class="my-4"> -->
-                            <div class="inner-features-wrap">
-                                @php $section1 = $section->where('section_no', 1)->where('status', 1)->first() @endphp
-                                <div class="in-margin-small-top@s in-margin-bottom@s">
-                                    @if($section1 && $section1->image)
-                                    <img loading="lazy" class="uk-align-center " src="{{ $section1->image }}" alt="Meta Trader 5 iOS">
-                                    @else
-                                    <img loading="lazy" class="uk-align-center " src="{{asset('front/img/mt5-desktop.webp')}}" alt="Meta Trader 5 (MT5) iOS">
-                                    @endif
-                                </div>
-                                <div class="uk-first-column uk-margin-medium-bottom">
-                                    @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
-                                    @if($section2)
-                                    <h3 class="">{{ $section2->{config('app.locale').'_title'} }}</h3>
-                                    <div class="title_divider_dot"></div>
-                                    {!! $section2->{config('app.locale').'_desc'} !!}
-                                    @endif
-                                    
-                                    @include('front.common.download_section')
-                                    @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
-                                    @if($section3)
-                                    <div class="uk-flex-middle" uk-grid>
-                                        <div class="uk-width-2-3@m">
-                                            <h3>{{ $section3->{config('app.locale').'_title'} }}</h3>
-                                            <p>{!! $section3->{config('app.locale').'_desc'} !!}</p>
-                                        </div>
-                                        <div class="uk-width-1-3@m uk-flex-first">
-                                            @if($section3)
-                                                <img loading="lazy" class="uk-align-center" src="{{ $section3->image ? $section3->image : asset('front/img/default.webp')}}" alt="Meta Trader 5 (MT5) iOS">
-                                            @endif    
-                                        </div>
-                                    </div>
-                                    <hr class="my-4" />
-                                    @endif
-                                    @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
-                                    @if($section4)
-                                    <div class="uk-flex-middle" uk-grid>
-                                        <div class="uk-width-2-3@m">
-                                            <h3>{{ $section4->{config('app.locale').'_title'} }}</h3>
-                                            <p>{!! $section4->{config('app.locale').'_desc'} !!}</p>
-                                        </div>
-                                        <div class="uk-width-1-3@m">
-                                            @if($section4)
-                                            <img loading="lazy" class="uk-align-center" src="{{ $section4->image  ? $section4->image : asset('front/img/default.webp')}}" alt="Meta Trader 5 (MT5) iOS">
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <hr class="my-4" />
-                                    @endif
 
-                                    @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-                                    @if($section5)
-                                    <div class="uk-flex-middle" uk-grid>
-                                        <div class="uk-width-2-3@m">
-                                            <h3>{{ $section5->{config('app.locale').'_title'} }}</h3>
-                                            <p>{!! $section5->{config('app.locale').'_desc'} !!}</p>
-                                            <div class="user-button-flex" data-uk-margin="">
-                                                <a href="#"><img loading="lazy" class="img-fluid" src="{{asset('front/img/appstore.svg')}}" alt="Download Meta Trader 5 (MT5) iOS"></a>
-                                            </div>
-                                        </div>
-                                        <div class="uk-width-1-3@m uk-flex-first">
-                                            @if($section5 && $section5->image)
-                                            <img loading="lazy" class="uk-align-center" src="{{ $section5->image }}" alt="Meta Trader 5 (MT5) iOS">
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <hr class="my-4" />
-                                    @endif
+<!-- Hero section  -->
+<section class="reward-wrapper mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+    <div class="container">
+        <div class="advan-trade-herobox">
+            <div class="row align-items-center justify-content-center">
+                <!-- main heading and desc  -->
+                @include('front.common.sub_header')
 
-                                    @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
-                                    @if($section6)
-                                    <div class="uk-margin-medium-bottom">
-                                        <h3 class="">{{ $section6->{config('app.locale').'_title'} }}</h3>
-                                        <div class="title_divider_dot"></div>
-                                        {!! $section6->{config('app.locale').'_desc'} !!}
-                                    </div>
-                                    @endif
+                @include('front.common.download_section')
+            </div>
+        </div>
+        <!-- end  -->
 
-                                    @php $section7 = $section->where('section_no', 7)->where('status', 1)->first() @endphp
-                                    @if($section7)
-                                    <div class="uk-margin-medium-bottom">
-                                        <h3 class="">{{ $section7->{config('app.locale').'_title'} }}</h3>
-                                        <div class="title_divider_dot"></div>
-                                        {!! $section7->{config('app.locale').'_desc'} !!}
-                                    </div>
-                                    @endif
+        <!-- High-function real-time quotes -->
+        @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
+        @if($section3)
+        <div class="fixi-features-herobox fixi-Benefits-herobox">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="section-head text-white">
+                        <h2 class="max-w-427 text-white">{{ $section3->{config('app.locale').'_title'} }}</h2>
+                        <div class="discription">
+                            <p>
+                                {!! $section3->{config('app.locale').'_desc'} !!}
+                            </p>
+                        </div>
+                        <div class="openAi-btn d-flex align-items-center justify-content-start">
+                            <a href="{{ getSettingValue('new_user_link') }}" class="custom-btn fill-btn-1">{{ getSettingValue('new_user_btn_'.config('app.locale')) }}</a>
+                            <a href="{{ getSettingValue('existing_user_link')  }}" class="custom-btn fill-btn">{{ getSettingValue('existing_user_btn_'.config('app.locale')) }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="side-by-side-img iphone-layer text-center">
+                        @if($section3)
+                        <img src="{{ $section3->image ? $section3->image : asset('fixifx/images/iphone.png')}}" alt="android">
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        <!-- end  -->
 
-                                    @include('front.common.mt4_faq')
-                                </div>
-                                
-                            </div>
+        <!-- Advanced Charting -->
+        @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
+        @if($section4)
+        <div class="risk-management-herobox">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="imgbox iphone-layer text-center">
+                        @if($section4)
+                        <img class="img-fluid" src="{{ $section4->image  ? $section4->image : asset('fixifx/images/iphone.png')}}" alt="">
+                        @endif
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="section-head">
+                        <h2>{{ $section4->{config('app.locale').'_title'} }}</h2>
+                        <div class="discription">
+                            <p>
+                                {!! $section4->{config('app.locale').'_desc'} !!}
+                            </p>
+                        </div>
+                        <div class="openAi-btn d-flex align-items-center justify-content-start">
+                            <a href="{{ getSettingValue('new_user_link') }}" class="custom-btn fill-btn-1">{{ getSettingValue('new_user_btn_'.config('app.locale')) }}</a>
+                            <a href="{{ getSettingValue('existing_user_link')  }}" class="custom-btn fill-btn">{{ getSettingValue('existing_user_btn_'.config('app.locale')) }}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+        @endif
+        <!-- end  -->
+
+        <!-- Download the FiXi MT5 Trading App® for iPhone -->
+        @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
+        @if($section5)
+        <div class="risk-management-herobox">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="section-head">
+                        <h2> {{ $section5->{config('app.locale').'_title'} }}
+                        </h2>
+                        <div class="discription">
+                            <p>
+                                {!! $section5->{config('app.locale').'_desc'} !!}
+                            </p>
+                        </div>
+                        <div class="openAi-btn d-flex align-items-center justify-content-start">
+                            <a href="{{ getSettingValue('new_user_link') }}" class="custom-btn fill-btn-1">{{ getSettingValue('new_user_btn_'.config('app.locale')) }}</a>
+                            <a href="{{ getSettingValue('existing_user_link')  }}" class="custom-btn fill-btn">{{ getSettingValue('existing_user_btn_'.config('app.locale')) }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="imgbox iphone-layer text-center">
+                        @if($section5)
+                        <img class="img-fluid" src="{{ $section5->image  ? $section5->image : asset('fixifx/images/iphone.png') }}" alt="">
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        <!-- end  -->
+
+        <div class="frequently-row-box fixi-features-herobox">
+            @include('front.common.mt4_faq')
+            @include('front.layouts.partials.get_started')
+        </div>
+        <!-- end  -->
+
+        @include('front.layouts.partials.discover_other_platform')
+        <!-- end  -->
+
+    </div>
+</section>
+<!-- end  -->
+
+<!-- Fixi’s OpenAPI Ready to get started? -->
+<section class="OpenAPI-wrapper padding-tb-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-sm-12">
+                <div class="section-head text-center">
+                    <h2 class="max-w-427">{{__('message.ready_to_get_started')}}</h2>
+                    <div class="discription">
+                        <p>{{__('message.ready_to_get_started_desc')}}</p>
+                    </div>
+                    <div class="openAi-btn d-flex align-items-center justify-content-center">
+                        <a href="{{ getSettingValue('live_link') }}" target="_blank" class="custom-btn fill-btn">{{__('message.open_account_btn')}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end  -->
+
 @endsection

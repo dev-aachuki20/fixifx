@@ -1,114 +1,267 @@
 @php
-    $keywords_jp = 'FX,MT5,MetaTrader5,アンドロイド,Android';
-    $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)のAndroid版に関するページです。';
+$keywords_jp = 'FX,MT5,MetaTrader5,アンドロイド,Android';
+$description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)のAndroid版に関するページです。';
 @endphp
 
-@extends('front.layouts.master')
+@extends('front.layouts.base')
 
-@section('content')    
-    
-        @include('front.common.page_header')
-        <div class="uk-section">
-            <div class="uk-container">
-                <div class="uk-grid">
-                    @include('front.common.side_section')
-                    <div class="uk-width-2-3@m">
-                        <div class="inner-content">
-                            @include('front.common.sub_header')
-                            <!-- <hr class="my-4"> -->
-                            <div class="inner-features-wrap">
-                                @php $section1 = $section->where('section_no', 1)->where('status', 1)->first() @endphp
-                                <div class="in-margin-small-top@s in-margin-bottom@s">
-                                    @if($section1 && $section1->image)
-                                    <img class="uk-align-center " src="{{ $section1->image }}" alt="Meta Trader 5 (MT5) - Android">
-                                    @endif
-                                </div>
-                                <div class="uk-first-column">
-                                    @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
-                                    @if($section2)
-                                    <div class="uk-margin-medium-bottom">
-                                        <h3 class="">{{ $section2->{config('app.locale').'_title'} }}</h3>
-                                        </div>{!! $section2->{config('app.locale').'_desc'} !!}
-                                        <a href="#"><img class="img-fluid" src="{{asset('front/img/playstore.svg')}}" alt="Meta Trader 5 (MT5) - Android" loading="lazy"></a>
-                                    </div>
-                                    @endif
+@section('content')
+<!-- Hero section  -->
+<section class="reward-wrapper mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+    <div class="container">
+        <div class="advan-trade-herobox">
+            <div class="row align-items-center justify-content-center">
 
-                                    @include('front.common.download_section')
+                <!-- main heading and desc  -->
+                @include('front.common.sub_header')
 
-                                    @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
-                                    @if($section3)
-                                    <div class="uk-flex-middle" uk-grid>
-                                        <div class="uk-width-2-3@m">
-                                            <h3>{{ $section3->{config('app.locale').'_title'} }}</h3>
-                                            <p>{!! $section3->{config('app.locale').'_desc'} !!}</p>
-                                        </div>
-                                        <div class="uk-width-1-3@m uk-flex-first">
-                                        @if($section3)
-                                                <img class="uk-align-center" src="{{ $section3->image ?  $section3->image :  asset('front/img/default.webp')}}" alt="Meta Trader 5 (MT5) - Android" loading="lazy">
-                                                @endif
-                                            </div>
-                                    </div>
-                                    <hr class="my-4" />
-                                    @endif
-                                    @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
-                                    @if($section4)
-                                    <div class="uk-flex-middle" uk-grid>
-                                        <div class="uk-width-2-3@m">
-                                            <h3>{{ $section4->{config('app.locale').'_title'} }}</h3>
-                                            <p>{!! $section4->{config('app.locale').'_desc'} !!}</p>
-                                        </div>
-                                        <div class="uk-width-1-3@m">
-                                            @if($section4)
-                                            <img class="uk-align-center" src="{{ $section4->image ? $section4->image : asset('front/img/default.webp') }}" alt="Meta Trader 5 (MT5) - Android" loading="lazy">
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <hr class="my-4" />
-                                    @endif
-                                    @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-                                    @if($section5)
-                                    <div class="uk-flex-middle" uk-grid>
-                                        <div class="uk-width-2-3@m">
-                                            <h3>{{ $section5->{config('app.locale').'_title'} }}</h3>
-                                            <p>{!! $section5->{config('app.locale').'_desc'} !!}</p>
-                                            <div class="user-button-flex" data-uk-margin="">
-                                                <a href="#"><img class="img-fluid" src="{{asset('front/img/playstore.svg')}}" alt="Download Meta Trader 5 (MT5) - Android" loading="lazy"></a>
+                @include('front.common.download_section')
+            </div>
+        </div>
+        <!-- end  -->
+
+        <!-- FiXi MT5 Features -->
+        @php $section2 = $section->where('section_no', 2)->where('page_id', 5)->where('status', 1)->first() @endphp
+        @if($section2)
+        <div class="fixi-features-herobox">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="side-by-side-img">
+                        <img src="{{$section2 && $section2->image ? $section2->image : asset('fixifx/images/FiXi-Features.png')}}" alt="tradergo">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="expert-support-head">
+                        <h2 class="max-w-427">{{ $section2->{config('app.locale').'_title'} }}</h2>
+                        <div class="discription">
+                            <p> {!! $section2->{config('app.locale').'_desc'} !!}</p>
+                        </div>
+                    </div>
+                    <div class="expert-content">
+                        <div class="accordion" id="accordionexpert">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expertOne" aria-expanded="true" aria-controls="expertOne">
+                                        Access to 8 platforms
+                                    </button>
+                                </h2>
+                                <div id="expertOne" class="accordion-collapse collapse show" data-bs-parent="#accordionexpert">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                <p>
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="uk-width-1-3@m uk-flex-first">
-                                            @if($section5)
-                                            <img class="uk-align-center" src="{{ $section5->image  ? $section5->image : asset('front/img/default.webp') }}" alt="Meta Trader 5 (MT5) - Android" loading="lazy">
-                                            @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertTwo" aria-expanded="false" aria-controls="expertTwo">
+                                        It is a long established fact
+                                    </button>
+                                </h2>
+                                <div id="expertTwo" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                <p>
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <hr class="my-4" />
-                                    @endif
-                                    @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
-                                    @if($section6)
-                                    <div class="uk-margin-medium-bottom">
-                                        <h3 class="">{{ $section6->{config('app.locale').'_title'} }}</h3>
-                                        <div class="title_divider_dot"></div>
-                                        {!! $section6->{config('app.locale').'_desc'} !!}
-                                    </div>
-                                    @endif
-                                    
-                                    @php $section7 = $section->where('section_no', 7)->where('status', 1)->first() @endphp
-                                    @if($section7)
-                                    <div class="uk-margin-medium-bottom">
-                                        <h3 class="">{{ $section7->{config('app.locale').'_title'} }}</h3>
-                                        <div class="title_divider_dot"></div>
-                                        {!! $section7->{config('app.locale').'_desc'} !!}
-                                    </div>
-                                    @endif
-                                    
-                                    @include('front.common.mt4_faq')
                                 </div>
-                                
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertThree" aria-expanded="false" aria-controls="expertThree">
+                                        It is a long established
+                                    </button>
+                                </h2>
+                                <div id="expertThree" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                <p>
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertfour" aria-expanded="false" aria-controls="expertfour">
+                                        It is a long established fact that
+                                    </button>
+                                </h2>
+                                <div id="expertfour" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                <p>
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertfive" aria-expanded="false" aria-controls="expertfive">
+                                        It is a long established
+                                    </button>
+                                </h2>
+                                <div id="expertfive" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                <p>
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
-@endsection    
+        @endif
+        <!-- end FiXi MT5 Features -->
+
+        <!-- High-function real-time quotes -->
+        @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
+        @if($section3)
+        <div class="fixi-features-herobox fixi-Benefits-herobox">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="section-head text-white">
+                        <h2 class="max-w-427 text-white">{{ $section3->{config('app.locale').'_title'} }}</h2>
+                        <div class="discription">
+                            <p>
+                                {!! $section3->{config('app.locale').'_desc'} !!}
+                            </p>
+                        </div>
+                        <div class="openAi-btn d-flex align-items-center justify-content-start">
+                            <a href="{{ getSettingValue('new_user_link') }}" class="custom-btn fill-btn-1">{{ getSettingValue('new_user_btn_'.config('app.locale')) }}</a>
+                            <a href="{{ getSettingValue('existing_user_link')  }}" class="custom-btn fill-btn">{{ getSettingValue('existing_user_btn_'.config('app.locale')) }}</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="side-by-side-img bgshadow-layer">
+                        @if($section3)
+                        <img src="{{ $section3->image ?  $section3->image :  asset('front/images/android.png')}}" alt="Meta Trader 5 (MT5) - Android">
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        <!-- end  -->
+
+        <!-- Advanced Charting -->
+        @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
+        @if($section4)
+        <div class="risk-management-herobox">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="imgbox bgshadow-layer">
+                        @if($section4)
+                        <img class="img-fluid" src="{{ $section4->image ? $section4->image : asset('front/images/android.png') }}" alt="Meta Trader 5 (MT5) - Android">
+                        @endif
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="section-head">
+                        <h2>{{ $section4->{config('app.locale').'_title'} }}</h2>
+                        <div class="discription">
+                            <p>
+                                {!! $section4->{config('app.locale').'_desc'} !!}
+                            </p>
+                        </div>
+                        <div class="openAi-btn d-flex align-items-center justify-content-start">
+                            <a href="{{ getSettingValue('new_user_link') }}" class="custom-btn fill-btn-1">{{ getSettingValue('new_user_btn_'.config('app.locale')) }}</a>
+                            <a href="{{ getSettingValue('existing_user_link')  }}" class="custom-btn fill-btn">{{ getSettingValue('existing_user_btn_'.config('app.locale')) }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        <!-- end  -->
+        <!-- Download the FiXi MT5 Trading App® for iPhone -->
+        @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
+        @if($section5)
+        <div class="risk-management-herobox">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="section-head">
+                        <h2> {{ $section5->{config('app.locale').'_title'} }}
+                        </h2>
+                        <div class="discription">
+                            <p>
+                                {!! $section5->{config('app.locale').'_desc'} !!}
+                            </p>
+                        </div>
+                        <div class="openAi-btn d-flex align-items-center justify-content-start">
+                            <a href="{{ getSettingValue('new_user_link') }}" class="custom-btn fill-btn-1">{{ getSettingValue('new_user_btn_'.config('app.locale')) }}</a>
+                            <a href="{{ getSettingValue('existing_user_link')  }}" class="custom-btn fill-btn">{{ getSettingValue('existing_user_btn_'.config('app.locale')) }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="imgbox bgshadow-layer">
+                        @if($section5)
+                        <img class="img-fluid" src="{{ $section5->image  ? $section5->image : asset('front/images/android.png') }}" alt="Meta Trader 5 (MT5) - Android">
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+        <!-- end  -->
+
+        <!-- faq and get started -->
+        <div class="frequently-row-box fixi-features-herobox">
+            @include('front.common.mt4_faq')
+            @include('front.layouts.partials.get_started')
+        </div>
+        <!-- end  -->
+
+        @include('front.layouts.partials.discover_other_platform')
+        <!-- end  -->
+
+    </div>
+</section>
+<!-- end  -->
+
+<!-- Fixi’s OpenAPI Ready to get started? -->
+<section class="OpenAPI-wrapper padding-tb-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-sm-12">
+                <div class="section-head text-center">
+                    <h2 class="max-w-427">{{__('message.ready_to_get_started')}}</h2>
+                    <div class="discription">
+                        <p>{{__('message.ready_to_get_started_desc')}}</p>
+                    </div>
+                    <div class="openAi-btn d-flex align-items-center justify-content-center">
+                        <a href="{{ getSettingValue('live_link') }}" target="_blank" class="custom-btn fill-btn">{{__('message.open_account_btn')}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end  -->
+@endsection

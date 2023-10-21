@@ -2050,6 +2050,7 @@ footer.footer-main h5:after {
 
 .trading-wrapper .read-more-btn a {
     margin: 0 auto;
+    min-width: 158px;
 }
 
 .trading-wrapper .broker-banner-wrap {

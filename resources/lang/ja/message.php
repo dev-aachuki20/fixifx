@@ -137,4 +137,10 @@ return [
     'ready_to_get_started_desc' => 'わずか数ステップで FIXI 口座を開設し、すべての資産クラスにアクセスできるようになります',
     'open_account_btn' => 'オープンアカウント',
 
+    'learn_more_btn'       => 'もっと詳しく知る',
+    'preview_platform_btn' => 'プレビュープラットフォーム',
+    'compare_btn' => '比較する',
+
+
+
 ];

@@ -135,5 +135,10 @@ return [
     'ready_to_get_started_desc' => 'Open a FIXI account in just a few steps and gain access to all asset classes',
     'open_account_btn' => 'Open Account',
 
+    'learn_more_btn'       => 'Learn More',
+    'preview_platform_btn' => 'Preview Platforms',
+    'compare_btn' => 'Compare',
+
+
 
 ];

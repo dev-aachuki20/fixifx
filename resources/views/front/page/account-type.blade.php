@@ -137,7 +137,7 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
                         <p> {{ __('message.fixi_account_desc') }}</p>
                     </div>
                     <div class="button-group">
-                        <a href="{{ getSettingValue('demo_link') }}" class="custom-btn fill-btn text-white">{{ __('message.create_account') }}</a>
+                        <a href="{{ getSettingValue('demo_link') }}" target="_blank" class="custom-btn fill-btn text-white">{{ __('message.create_account') }}</a>
                     </div>
                 </div>
             </div>

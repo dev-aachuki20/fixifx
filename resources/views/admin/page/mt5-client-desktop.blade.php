@@ -320,7 +320,7 @@
             <div id="sec_6" class="accordion-collapse collapse" aria-labelledby="Sec6" data-bs-parent="#sec6">
                 <div class="accordion-body">
                     @php isset($section) ? $section6 = $section->where('section_no', 6)->first() : '' @endphp
-                    <form action="{{ route('admin.save_section', ['sec_no' => 6]) }}" method="post" enctype=multipart/form-data>
+                    <form action="{{ route('admin.save_section', ['sec_no' => 6]) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="page_id" value="{{$page_id}}">
 

@@ -5,23 +5,40 @@
 <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec1">
     <div class="accordion-item">
         <h2 class="accordion-header" id="Sec1">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#sec_1" aria-expanded="true"
-                aria-controls="sec_1">
-                <i class="ri-global-line me-2"></i>Sub Header Section 
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_1" aria-expanded="true" aria-controls="sec_1">
+                <i class="ri-global-line me-2"></i>Sub Header Section
             </button>
         </h2>
-        <div id="sec_1" class="accordion-collapse collapse"
-            aria-labelledby="Sec1" data-bs-parent="#sec1">
+        <div id="sec_1" class="accordion-collapse collapse" aria-labelledby="Sec1" data-bs-parent="#sec1">
             <div class="accordion-body">
                 @php isset($section) ? $section1 = $section->where('section_no', 1)->first() : '' @endphp
-                <form action="{{ route('admin.save_section', ['sec_no' => 1]) }}" method="post" enctype= multipart/form-data>
-                @csrf
+                <form action="{{ route('admin.save_section', ['sec_no' => 1]) }}" method="post" enctype=multipart/form-data>
+                    @csrf
                     <input type="hidden" name="page_id" value="{{$page_id}}">
-                    
+
                     @if(isset($section1))
                     <input type="hidden" name="section_id" value="{{ $section1->id }}">
                     @endif
+
+                    <!-- image -->
+                    <div class="row">
+                        <div class="col-xxl-6 col-md-6 mb-3">
+                            <label for="title" class="form-label mx-2">Image</label>
+                            <div class="s-preview-img my-product-img">
+                                @if(isset($section1->image))
+                                <input type="hidden" name="image" value="{{$section1->getRawOriginal('image')}}">
+                                @endif
+                                <input type="file" name="image" class="form-control custom_img">
+
+                                <img src="{{ isset($section1->image) ? $section1->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
+                                <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                <div class="p-upload-icon">
+                                    <i class="ri-upload-cloud-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- image end -->
 
                     <div class="row gy-4">
                         <div class="col-xxl-6 col-md-6">
@@ -51,36 +68,36 @@
                                 <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section1) ? $section1->ja_desc : '') }}</textarea>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     @if(Route::current()->slug == "introducing-broker")
                     <div class="row mt-4">
-                            <div class="col-xxl-6 col-md-6">
-                                <div>
-                                    <label for="title" class="form-label">Button Text (English)</label>
-                                    <input type="text" class="form-control" id="en_short_text" name="en_short_text" value="{{ old('en_short_text', isset($section1) ? $section1->en_short_text : '') }}">
-                                </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Button Text (English)</label>
+                                <input type="text" class="form-control" id="en_short_text" name="en_short_text" value="{{ old('en_short_text', isset($section1) ? $section1->en_short_text : '') }}">
                             </div>
-                            <div class="col-xxl-6 col-md-6">
-                                <div>
-                                    <label for="title" class="form-label">Button Text (Japanese)</label>
-                                    <input type="text" class="form-control" id="ja_short_text" name="ja_short_text" value="{{ old('ja_short_text', isset($section1) ? $section1->ja_short_text : '') }}">
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Button Text (Japanese)</label>
+                                <input type="text" class="form-control" id="ja_short_text" name="ja_short_text" value="{{ old('ja_short_text', isset($section1) ? $section1->ja_short_text : '') }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Button Link</label>
+                                <div class="input-group">
+                                    <!-- <span class="input-group-text" id="basic-addon3">https://www.youtube.com/</span> -->
+                                    <input type="text" class="form-control {{ $errors->has('video_url') ? 'is-invalid' : '' }}" value="{{ old('video_url', isset($section1) ? $section1->getRawOriginal('video_url') : '') }}" placeholder="Add Button Link" id="video_url" name="video_url">
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-xxl-6 col-md-6">
-                                <div>
-                                    <label for="title" class="form-label">Button Link</label>
-                                    <div class="input-group">
-                                        <!-- <span class="input-group-text" id="basic-addon3">https://www.youtube.com/</span> -->
-                                        <input type="text" class="form-control {{ $errors->has('video_url') ? 'is-invalid' : '' }}" value="{{ old('video_url', isset($section1) ? $section1->getRawOriginal('video_url') : '') }}" placeholder="Add Button Link" id="video_url" name="video_url">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
                     @endif
                     <input type="submit" value="Save" class="btn btn-primary my-4">
-                </form>    
+                </form>
             </div>
         </div>
     </div>
@@ -99,21 +116,23 @@
         height: 420,
         automatic_uploads: true,
         file_picker_types: 'image',
-        file_picker_callback: function (cb, value, meta) {
+        file_picker_callback: function(cb, value, meta) {
             var input = document.createElement('input');
             input.setAttribute('type', 'file');
             input.setAttribute('accept', 'image/*');
-            input.onchange = function () {
+            input.onchange = function() {
                 var file = this.files[0];
 
                 var reader = new FileReader();
-                reader.onload = function () {
+                reader.onload = function() {
                     var id = 'blobid' + (new Date()).getTime();
-                    var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+                    var blobCache = tinymce.activeEditor.editorUpload.blobCache;
                     var base64 = reader.result.split(',')[1];
                     var blobInfo = blobCache.create(id, file, base64);
                     blobCache.add(blobInfo);
-                    cb(blobInfo.blobUri(), { title: file.name });
+                    cb(blobInfo.blobUri(), {
+                        title: file.name
+                    });
                 };
                 reader.readAsDataURL(file);
             };

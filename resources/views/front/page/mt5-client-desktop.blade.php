@@ -14,34 +14,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
             <div class="row align-items-center justify-content-center">
 
                 <!-- main heading and desc  -->
-                @php $header = $section->where('section_no', 1)->first() @endphp
-                @if($header)
-                <div class="col-12 col-md-12 col-sm-12 text-center">
-                    <h1>{{ $header->{config('app.locale').'_title'} }}</h1>
-                    <div class="section-head">
-                        <div class="discription">
-                            <p>
-                                {!! $header->{config('app.locale').'_desc'} !!}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="openAi-btn d-flex align-items-center justify-content-center">
-                        <a href="javascript:void();" class="custom-btn fill-btn-1">Preview Platforms</a>
-                        <a href="javascript:void();" class="custom-btn fill-btn">Open Account</a>
-                    </div>
-                </div>
-                @endif
-
-
-                <!--  main image  -->
-                @php $section1 = $section->where('section_no', 1)->where('status', 1)->first() @endphp
-                <div class="col-12 col-md-12 col-sm-12 text-center">
-                    <div class="imgbox">
-                        <a href="javascript:void(0);">
-                            <img class="img-fluid" src="{{$section1 && $section1->image ? $section1->image : asset('fixifx/images/Platforms-01.png')}}" alt="{{ config('app.locale') == 'ja' ? 'Meta Trader 5 (MT5) Windows版 - FiXi FX（フィクシー）' : 'Meta Trader 5 (MT5) Windows - FiXi FX' }}">
-                        </a>
-                    </div>
-                </div>
+                @include('front.common.sub_header')
 
                 @include('front.common.download_section')
             </div>
@@ -65,6 +38,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
                             {!! $section2->{config('app.locale').'_desc'} !!}
                         </div>
                     </div>
+
                     <div class="expert-content">
                         <div class="accordion" id="accordionexpert">
                             <div class="accordion-item">
