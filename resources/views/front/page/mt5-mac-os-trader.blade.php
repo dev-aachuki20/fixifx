@@ -38,120 +38,14 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
                             {!! $section2->{config('app.locale').'_desc'} !!}
                         </div>
                     </div>
+                    @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
+                    @if($section3)
                     <div class="expert-content">
                         <div class="accordion" id="accordionexpert">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expertOne" aria-expanded="true" aria-controls="expertOne">
-                                        Access to 8 platforms
-                                    </button>
-                                </h2>
-                                <div id="expertOne" class="accordion-collapse collapse show" data-bs-parent="#accordionexpert">
-                                    <div class="accordion-body">
-                                        <div class="expert-inner-content">
-                                            <div class="discription">
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever since the Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertTwo" aria-expanded="false" aria-controls="expertTwo">
-                                        It is a long established fact
-                                    </button>
-                                </h2>
-                                <div id="expertTwo" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
-                                    <div class="accordion-body">
-                                        <div class="expert-inner-content">
-                                            <div class="discription">
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever since the Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertThree" aria-expanded="false" aria-controls="expertThree">
-                                        It is a long established
-                                    </button>
-                                </h2>
-                                <div id="expertThree" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
-                                    <div class="accordion-body">
-                                        <div class="expert-inner-content">
-                                            <div class="discription">
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever since the Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertfour" aria-expanded="false" aria-controls="expertfour">
-                                        It is a long established fact that
-                                    </button>
-                                </h2>
-                                <div id="expertfour" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
-                                    <div class="accordion-body">
-                                        <div class="expert-inner-content">
-                                            <div class="discription">
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever since the Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#expertfive" aria-expanded="false" aria-controls="expertfive">
-                                        It is a long established
-                                    </button>
-                                </h2>
-                                <div id="expertfive" class="accordion-collapse collapse" data-bs-parent="#accordionexpert">
-                                    <div class="accordion-body">
-                                        <div class="expert-inner-content">
-                                            <div class="discription">
-                                                <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                                    text ever since the Lorem Ipsum is simply dummy text of the
-                                                    printing and typesetting industry. Lorem Ipsum has been the
-                                                    industry's standard dummy text ever since.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {!! $section3->{config('app.locale').'_desc'} !!}
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
