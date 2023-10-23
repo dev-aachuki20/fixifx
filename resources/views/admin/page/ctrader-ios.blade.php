@@ -326,7 +326,7 @@
     </div>
 
 
-    <!-- SECTION 6 feature points of transaction -->
+    <!-- SECTION 6 feature points of transaction --> 
     <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec6">
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec6">

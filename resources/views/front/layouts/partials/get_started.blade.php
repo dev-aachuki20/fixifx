@@ -39,7 +39,7 @@ $section6 = $common->where('section_no', 1)->first();
               <p>{{ $value->{config('app.locale').'_desc'} }}</p>
             </div>
           </div>
-          @endforeach
+          @endforeach 
         </div>
         @endif
       </div>

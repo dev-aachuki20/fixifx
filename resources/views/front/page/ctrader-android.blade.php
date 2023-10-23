@@ -69,7 +69,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     @endif
                 </div>
             </div>
-        </div>
+        </div> 
         @endif
         <!-- end  -->
         <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox">

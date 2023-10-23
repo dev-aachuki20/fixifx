@@ -384,12 +384,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
     <!-- ----------- section 4 ------------------- -->
     @php isset($section) ? $section4 = $section->where('section_no', 4)->first() : '' @endphp
     <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="home4">
-        <div class="accordion-item">
+        <div class="accordion-item"> 
             <h2 class="accordion-header" id="HomeSection4">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#home_section_4" aria-expanded="true" aria-controls="home_section_4">
                     <i class="ri-global-line me-2"></i>{{ isset($section4->en_title) ? $section4->en_title : 'Section 4'}}
