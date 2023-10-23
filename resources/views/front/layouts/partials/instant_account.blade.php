@@ -3,7 +3,10 @@
       @if(request()->route()->parameters['slug'] != 'mt5-client-desktop' &&
       request()->route()->parameters['slug'] != 'mt5-mac-os-trader' &&
       request()->route()->parameters['slug'] != 'mt5-iphone-trader' &&
-      request()->route()->parameters['slug'] != 'mt5-android-trader')
+      request()->route()->parameters['slug'] != 'mt5-android-trader' &&
+      request()->route()->parameters['slug'] != 'ctrader-ios' &&
+      request()->route()->parameters['slug'] != 'ctrader-android' &&
+      request()->route()->parameters['slug'] != 'ctrader-web')
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-sm-12">

@@ -5,7 +5,7 @@ $section6 = $common->where('section_no', 1)->first();
 @if($section6)
 @php $menu_page = App\Models\MenuPage::where('menu_id', 3)->get(); @endphp
 
-@if(request()->route()->parameters['slug'] != 'mt5-client-desktop' && request()->route()->parameters['slug'] != 'mt5-android-trader' && request()->route()->parameters['slug'] != 'mt5-mac-os-trader' && request()->route()->parameters['slug'] != 'mt5-iphone-trader')
+@if(request()->route()->parameters['slug'] != 'mt5-client-desktop' && request()->route()->parameters['slug'] != 'mt5-android-trader' && request()->route()->parameters['slug'] != 'mt5-mac-os-trader' && request()->route()->parameters['slug'] != 'mt5-iphone-trader' && request()->route()->parameters['slug'] != 'ctrader-ios' && request()->route()->parameters['slug'] != 'ctrader-android' && request()->route()->parameters['slug'] != 'ctrader-web')
 <!-- Get Started Section -->
 <section class="get-started-sec padding-tb-120">
   <div class="container">
@@ -48,7 +48,7 @@ $section6 = $common->where('section_no', 1)->first();
 </section>
 @endif
 
-@if(request()->route()->parameters['slug'] == 'mt5-client-desktop' || request()->route()->parameters['slug'] == 'mt5-android-trader' || request()->route()->parameters['slug'] == 'mt5-mac-os-trader' || request()->route()->parameters['slug'] == 'mt5-iphone-trader')
+@if(request()->route()->parameters['slug'] == 'mt5-client-desktop' || request()->route()->parameters['slug'] == 'mt5-android-trader' || request()->route()->parameters['slug'] == 'mt5-mac-os-trader' || request()->route()->parameters['slug'] == 'mt5-iphone-trader' || request()->route()->parameters['slug'] == 'ctrader-ios' || request()->route()->parameters['slug'] == 'ctrader-android' || request()->route()->parameters['slug'] == 'ctrader-web')
 <!-- Trading Pages Section -->
 <div class="row get-started-now-box">
   <div class="section-head text-center">
