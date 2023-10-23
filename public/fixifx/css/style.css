@@ -3989,6 +3989,13 @@ body.modal-open{
     background-position: top right;
     background-position: 86% 50%;
 }
+/*.commissionsBox_wrap .openAi-btn .fill-btn-1:hover,
+.commissionsBox_wrap .openAi-btn .fill-btn{
+    color: var(--color-dark-jungle-green);
+}
+.commissionsBox_wrap .openAi-btn .fill-btn:hover{
+    color: #fff;
+}*/
 
 .rightProudly_box .gridProudly-box {
     display: grid;
@@ -4331,7 +4338,7 @@ body.modal-open{
     width: 50%;
     font-size: 16px;
     font-weight: 600;
-    line-height: normal;
+    line-height: 20px;
     border-bottom-left-radius: 5px;
 }
 
@@ -4348,6 +4355,7 @@ body.modal-open{
     justify-content: flex-end;
     gap: 10px;
     border-bottom-right-radius: 5px;
+    line-height: 25px;
 }
 .dataTables_paginate:empty{
     padding-top: 24px !important;
@@ -5521,14 +5529,20 @@ body.darkHeader .dark-header .mobile_logo {
 .fixi-features-herobox .expert-content .accordion .accordion-item{
     border: 1px solid rgba(255, 255, 255, 0.14);
     background: rgba(255, 255, 255, 0.08);
-    margin-top: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
 }
+
 
 .fixi-features-herobox .expert-content .accordion .accordion-item .accordion-button{
     color: var(--color-white);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     line-height: normal;
+    border-bottom: none;
+}
+.fixi-features-herobox .expert-content .accordion .accordion-item .accordion-button[aria-expanded="true"]{
+    border-bottom: 1px solid #3d4452;
 }
 
 .fixi-features-herobox .expert-content .accordion .accordion-item .accordion-body .expert-inner-content .listing-box li{
@@ -5667,6 +5681,14 @@ margin-top: 60px;
     right: 0;
     top: 23px;
     background-size: 14px;
+}
+.frequently-row-box .frequently-faq-list .accordion-item .accordion-body{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.frequently-row-box .frequently-faq-list .accordion-item .accordion-body .discription{
+    font-size: 16px;
+    line-height: 27px;
 }
 
 .discover-platform-box{

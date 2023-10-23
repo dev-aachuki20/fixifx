@@ -258,8 +258,8 @@
 }
 
     .dataTables_info{
-        padding-top: 21px !important;
-        padding-bottom: 21px;
+        padding-top: 24px !important;
+        padding-bottom: 24px;
     }
 
     .contact-loaction ul li .loactiop-de{
@@ -500,8 +500,8 @@
         margin-bottom: 2rem;
     }
     .dataTables_paginate:empty{
-        padding-top: 21px !important;
-        padding-bottom: 21px;
+        padding-top: 24px !important;
+        padding-bottom: 24px;
     }
     
     
@@ -889,7 +889,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     }
 
     .dataTables_paginate{
-        padding-top: 21px !important;
+        padding-top: 22px !important;
         padding-bottom: 21px;
     }
 
@@ -1036,6 +1036,9 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 
     .contact-information-inner .contact-info-form form .col-lg-6 {
         width: 100%;
+    }
+    .fixi-features-herobox .expert-content .accordion .accordion-item{
+        margin-top: 20px;
     }
 }
 
@@ -1631,8 +1634,8 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     }
 
     .dataTables_paginate {
-        padding-top: 19px !important;
-        padding-bottom: 20px;
+        padding-top: 22px !important;
+        padding-bottom: 21px;
     }
 
     .child_listing {
@@ -1836,8 +1839,8 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     }
 
     .dataTables_paginate {
-        padding-top: 18px !important;
-        padding-bottom: 19px;
+        padding-top: 21px !important;
+        padding-bottom: 22px;
     }
     
     .broker-content{
@@ -1888,7 +1891,11 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     }
 
     .dataTables_paginate {
-        padding-top: 26px !important;
-        padding-bottom: 26px;
+        padding-top: 31px !important;
+        padding-bottom: 32px;
+    }
+    html[lang="ja"] .dataTables_paginate{
+        padding-top: 22px !important;
+        padding-bottom: 21px;
     }
 }
