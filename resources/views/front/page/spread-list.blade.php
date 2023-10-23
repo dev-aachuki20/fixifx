@@ -55,14 +55,14 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
     <div class="container">
         <div class="row align-items-center">
             @include('front.common.sub_header')
-            @php isset($section) ? $section2 = $section->where('section_no', 2)->first() : '' @endphp
-            @if($section2)
-            <div class="col-lg-6 col-sm-12">
-                <div class="side-by-side-img">
-                    <img src="{{ $section2->image }}" alt="tradergo">
-                </div>
-            </div>
-            @endif
+            <!--@php isset($section) ? $section2 = $section->where('section_no', 2)->first() : '' @endphp-->
+            <!--@if($section2)-->
+            <!--<div class="col-lg-6 col-sm-12">-->
+            <!--    <div class="side-by-side-img">-->
+            <!--        <img src="{{ $section2->image }}" alt="tradergo">-->
+            <!--    </div>-->
+            <!--</div>-->
+            <!--@endif-->
         </div>
     </div>
 </section>
