@@ -50,11 +50,30 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 @include('front.layouts.partials.common_hero')
 
+
+
 <!-- Spreads, Swaps & Commissions -->
+@php $header = $section->where('section_no', 1)->first() @endphp
+@if($header)
 <section class="bg-white side-by-side padding-tb-120 fiXiTrader_box commissionsBox_wrap">
     <div class="container">
         <div class="row align-items-center">
-            @include('front.common.sub_header')
+            <div class="col-lg-6 col-sm-12">
+                <div class="section-head">
+                    <h2 class="max-w-427">{{ $header->{config('app.locale').'_title'} }}</h2>
+                    <div class="discription">
+                        <p>
+                            {!! $header->{config('app.locale').'_desc'} !!}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="side-by-side-img">
+                    <img src="{{$header && $header->image ? $header->image : asset('fixifx/images/tradergo.png')}}" alt="tradergo">
+                </div>
+            </div>
+
             <!--@php isset($section) ? $section2 = $section->where('section_no', 2)->first() : '' @endphp-->
             <!--@if($section2)-->
             <!--<div class="col-lg-6 col-sm-12">-->
@@ -66,6 +85,8 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
         </div>
     </div>
 </section>
+@endif
+
 <!-- end  -->
 
 <!-- FiXi Proudly Offers -->
