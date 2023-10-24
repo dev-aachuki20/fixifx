@@ -39,7 +39,7 @@ $section6 = $common->where('section_no', 1)->first();
               <p>{{ $value->{config('app.locale').'_desc'} }}</p>
             </div>
           </div>
-          @endforeach 
+          @endforeach
         </div>
         @endif
       </div>
@@ -64,7 +64,7 @@ $section6 = $common->where('section_no', 1)->first();
       @foreach($section6->subSection->where('status', 1)->where('page_id', -1) as $key => $value)
       <div class="awrad-items">
         <div class="iconbox">
-          <img class="img-fluid" src="{{ asset('fixifx/images/'. ($key == 0 ? 'programmer' : ($key == 1 ? 'profit' : 'bank')) . '.svg') }}" alt="{{ $key == 0 ? 'programmer' : ($key == 1 ? 'profit' : 'bank') }}">
+          <img class="img-fluid" src="{{ asset('fixifx/images/'. ($key == 0 ? 'programmer' : ($key == 1 ? 'bank' : 'profit')) . '.svg') }}" alt="{{ $key == 0 ? 'programmer' : ($key == 1 ? 'profit' : 'bank') }}">
         </div>
         <div class="title">
           <h6>

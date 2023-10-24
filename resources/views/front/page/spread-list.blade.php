@@ -42,6 +42,18 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 @section('css')
 <link rel="stylesheet" href="{{asset('fixifx/css/datatable.css')}}">
+<!-- <style>
+    .loaderbtn {
+    font-size: 40px; /* Adjust the size of the icon as needed */
+    color: #3498db; /* Customize the color if desired */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none; /* Initially hide the loader */
+}
+</style> -->
 <!-- <link href="{{asset('assets/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/jquery.dataTables.min.css')}}" rel="stylesheet"> -->
 @endsection
@@ -73,15 +85,6 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                     <img src="{{$header && $header->image ? $header->image : asset('fixifx/images/tradergo.png')}}" alt="tradergo">
                 </div>
             </div>
-
-            <!--@php isset($section) ? $section2 = $section->where('section_no', 2)->first() : '' @endphp-->
-            <!--@if($section2)-->
-            <!--<div class="col-lg-6 col-sm-12">-->
-            <!--    <div class="side-by-side-img">-->
-            <!--        <img src="{{ $section2->image }}" alt="tradergo">-->
-            <!--    </div>-->
-            <!--</div>-->
-            <!--@endif-->
         </div>
     </div>
 </section>
@@ -198,7 +201,6 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 <!-- end  -->
 
 <!-- accountFunding -->
-
 <section class="accountFunding">
     <div class="container">
         <div class="title">
@@ -229,43 +231,24 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             </div>
         </div>
         <div class="col-12">
-
             <div class="blog-tab spreadList_tab">
                 <ul class="tab-listing nav nav-tabs" id="nav-tab">
                     @foreach($spread_categories as $key => $spread_cat)
-
                     <li class="nav-item @if($key == 0) active @endif">
                         <a class="nav-link @if($key == 0) active @endif" id="nav-{{ $spread_cat->id }}-tab" data-bs-toggle="tab" href="#nav-{{ $spread_cat->id }}" role="tab" aria-controls="nav-{{ $spread_cat->id }}" aria-selected="true" value="{{ $spread_cat->id }}">{{ $spread_cat->{config('app.locale').'_name'} }}</a>
                     </li>
                     @endforeach
+                    <!-- <div class="loaderbtn" id='loader'></div> -->
                 </ul>
                 <input type="hidden" id="cat_val" value="{{ $spread_categories[0]->id }}">
             </div>
-
-
-            {{-- <li>
-                        <button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true" value="{{ $spread_cat->id }}">{{ $spread_cat->{config('app.locale').'_name'} }}</button>
-
-            </li> --}}
-
-
-
-            {{-- {!! $dataTable->table(['class' => 'table dt-responsive uk-table uk-table-striped nowrap table-wrapper uk-overflow-auto','style' => 'width: 100%']) !!} --}}
-
-
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                    <div class="table_wrapper 1111111">
-
+                    <div class="table_wrapper">
                         {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%']) !!}
-
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 </section>
@@ -278,6 +261,13 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 
 @section('javascript')
+<!-- <script>
+    // Show the loader when the page is loading
+    $(window).on('load', function() {
+        $('#loader').show();
+    });
+</script> -->
+
 <script src="{{asset('fixifx/js/dataTables.js')}}"></script>
 <!-- <script src="{{asset('assets/libs/jquery/dataTables.min.js')}}"></script> -->
 {!! $dataTable->scripts() !!}

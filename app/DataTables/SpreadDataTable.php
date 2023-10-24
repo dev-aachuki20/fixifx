@@ -6,12 +6,11 @@ use App\Models\Spread;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class SpreadDataTable extends DataTable
 {
+    private $currencies;
     public function dataTable($query)
     {
         return datatables()
@@ -21,7 +20,8 @@ class SpreadDataTable extends DataTable
             })
             ->editColumn('symbol', function ($data) {
                 $html = '<div class="flag_data"><div class="uk-flag"><span>';
-                $currency_changes = getAllCurrency();
+                $currency_changes = $this->currencies;
+
                 if (array_key_exists($data->symbol, $currency_changes)) {
                     if (isset($currency_changes[$data->symbol])) {
                         $flags = $currency_changes[$data->symbol];
@@ -45,6 +45,7 @@ class SpreadDataTable extends DataTable
 
     public function query(Spread $model, Request $request)
     {
+        $this->currencies = getAllCurrency();
         if (isset($request->category_id)) {
             $model =  $model->where('category_id', $request->category_id);
         }
@@ -111,8 +112,7 @@ class SpreadDataTable extends DataTable
                     ->width(60)
                     ->addClass('text-center'),
             ];
-        }
-        if (config("app.locale") == 'ja') {
+        } else if (config("app.locale") == 'ja') {
             return [
                 Column::make('symbol')->title('<p>シンボル</p>')->orderable(false),
                 Column::make('ultimate_account')->title('<p>アルティメットアカウント<span>最狭スプレッド</span></p>')->orderable(false),
