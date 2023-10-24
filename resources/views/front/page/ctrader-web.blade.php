@@ -1,75 +1,149 @@
 @php
-    $keywords_jp = 'FX,cTrader,web版,ブラウザ版';
-    $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･ブラウザ版)に関するページです。';
+$keywords_jp = 'FX,cTrader,web版,ブラウザ版';
+$description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･ブラウザ版)に関するページです。';
 @endphp
 
-@extends('front.layouts.master')
+@extends('front.layouts.base')
 
-@section('content')     
-    
-        @include('front.common.page_header')
-        <div class="uk-section">
-            <div class="uk-container">
-                <div class="uk-grid">
-                    @include('front.common.side_section')
-                    <div class="uk-width-2-3@m">
-                        <div class="inner-content">
-                            @include('front.common.sub_header')
-                            <div class="inner-features-wrap">
-                                @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
-                                @if($section2)
-                                <div class="in-margin-small-top@s in-margin-bottom@s">
-                                    <img class="uk-align-center" src="{{ $section2->image }}" alt="{{ config('app.locale') == 'ja' ? 'cTraderコピートレード可能な海外FX業者 - FiXi FX（フィクシー）' : 'cTrader - FiXi FX' }}" loading="lazy" />
-                                </div>
-                                {!! $section2->{config('app.locale').'_desc'} !!}
-                                @endif
+@section('content')
 
-                                <!-- <div class="uk-flex uk-flex-middle flex-wrap uk-margin-medium-bottom uk-background-muted p-3 uk-border-rounded justify-content-center">
-                                    <div class="uk-flex uk-flex-middle flex-wrap uk-background-muted uk-border-rounded justify-content-center">
-                                        <div class="d-flex align-items-center me-3">
-                                            <span class="uk-margin-right in-icon-wrap circle medium flex-shrink-0"><i class="fas fa-download fa-2x"></i></span>
-                                            <h4 class="my-0 uk-margin-right">Trade Forex on the go with your Android Device!</h4>
-                                        </div>
-                                        <a href="#" class="uk-button uk-button-dark uk-border-rounded mt-2 mt-sm-0">Download</a>
-                                    </div>
-                                </div> -->
-                                <div class="uk-grid uk-child-width-1-2@s uk-child-width-1-2@m in-margin-bottom-30@s uk-margin-medium-bottom" data-uk-grid="">
-                                    @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
-                                    @if($section3)
-                                    <div class="uk-first-column">
-                                        <h3 class=" mb-3">{{ $section3->{config('app.locale').'_title'} }}</h3>
-                                        <div class="title_divider_dot"></div>
-                                        {!! $section3->{config('app.locale').'_desc'} !!}
-                                    </div>
-                                    @endif
-                                    @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
-                                    @if($section4)
-                                    <div class="in-margin-small-top@s in-margin-bottom@s">
-                                        <h3 class=" mb-3">{{ $section4->{config('app.locale').'_title'} }}</h3>
-                                        <div class="title_divider_dot"></div>
-                                        {!! $section4->{config('app.locale').'_desc'} !!}
-                                    </div>
-                                    @endif
+<!-- Hero section  -->
+<section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+    <div class="container">
+        <div class="advan-trade-herobox cTrader-ios-trade-herobox">
+            <div class="row align-items-center justify-content-center">
+                <!-- main heading and desc  -->
+                @include('front.common.sub_header')
+
+                @include('front.common.download_section')
+
+                @php isset($section) ? $section2 = $section->where('section_no', 2)->first() : '' @endphp
+                @if($section2)
+                <div class="col-12">
+                    <div class="system-requirements-inner">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-4 col-lg-4">
+                                <div class="img-box w-100 mw-100">
+                                    <img class="img-fluid w-100" src="{{$section2->image ? $section2->image : asset('fixifx/images/laptop.png')}}" alt="">
                                 </div>
-                                <!-- <hr class="in-margin-top-20@s uk-margin-medium-top in-margin-bottom-20@s uk-margin-medium-bottom" /> -->
-                                @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-                                @if($section5)
-                                <!-- <div>
-                                    <h4 class="">{{ $section5->{config('app.locale').'_title'} }}</h4>
-                                    {!! $section5->{config('app.locale').'_desc'} !!}
-                                </div> -->
-                                <div class="in-profit-16">
-                                    <div class="in-create-account uk-text-left uk-margin-medium-top">
-                                        <span class="uk-label uk-text-small uk-text-uppercase uk-border-rounded uk-margin-small-bottom">{{ $section5->{config('app.locale').'_title'} }}</span>
-                                        {!! $section5->{config('app.locale').'_desc'} !!}
-                                    </div>
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-8">
+                                <div class="contentbox section-head">
+                                    <h4>{{ $section2->{config('app.locale').'_title'} }}</h4>
+                                    {!! $section2->{config('app.locale').'_desc'} !!}
                                 </div>
-                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+            </div>
+        </div>
+        <!-- end  -->
+
+        <!-- features -->
+        <div class="fixi-features-herobox">
+            @php isset($section) ? $section3 = $section->where('section_no', 3)->first() : '' @endphp
+            @if($section3)
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="side-by-side-img">
+                        <img src="{{$section3->image ? $section3->image : asset('fixifx/images/iphone.png')}}" alt="tradergo">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <div class="expert-support-head">
+                        <h2 class="max-w-427">{{ $section3->{config('app.locale').'_title'} }}</h2>
+                        <div class="discription">
+                            <p>
+                                {!! $section3->{config('app.locale').'_desc'} !!}
+                            </p>
+                        </div>
+                    </div>
+                    @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
+                    @if($section6)
+                    <div class="expert-content">
+                        <div class="accordion" id="accordionexpert">
+                            {!! $section6->{config('app.locale').'_desc'} !!}
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+            @endif
+        </div>
+        <!-- end  -->
+
+        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox">
+            <!-- benefits -->
+            @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
+            @if($section4)
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6  col-sm-12">
+                    <div class="section-head text-white">
+                        <h2 class="max-w-427 text-white">{{ $section4->{config('app.locale').'_title'} }}</h2>
+                        {!! $section4->{config('app.locale').'_desc'} !!}
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6  col-sm-12">
+                    <div class="side-by-side-img">
+                        <img src="{{$section4->image ? $section4->image : asset('fixifx/images/laptop.png')}}" alt="laptop">
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
+            @if($section5)
+            <div class="col-12">
+                <div class="system-requirements-inner">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-4 col-lg-4">
+                            <div class="img-box">
+                                <img class="img-fluid" src="{{$section5->image ? $section5->image : asset('fixifx/images/platforms01.png')}}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-8 col-lg-8">
+                            <div class="contentbox section-head">
+                                <h4>{{ $section5->{config('app.locale').'_title'} }}</h4>
+                                {!! $section5->{config('app.locale').'_desc'} !!}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
-    
-@endsection    
+        <!-- end  -->
+
+        <div class="frequently-row-box fixi-features-herobox">
+            @include('front.common.mt4_faq')
+            @include('front.layouts.partials.get_started')
+        </div>
+        <!-- end  -->
+
+    </div>
+</section>
+<!-- end  -->
+
+<!-- Fixi’s OpenAPI Ready to get started? -->
+<section class="OpenAPI-wrapper padding-tb-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-sm-12">
+                <div class="section-head text-center">
+                    <h2 class="max-w-427">{{__('message.ready_to_get_started')}}</h2>
+                    <div class="discription">
+                        <p>{{__('message.ready_to_get_started_desc')}}</p>
+                    </div>
+                    <div class="openAi-btn d-flex align-items-center justify-content-center">
+                        <a href="{{ getSettingValue('live_link') }}" target="_blank" class="custom-btn fill-btn">{{__('message.open_account_btn')}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end  -->
+
+@endsection
