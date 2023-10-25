@@ -1,5 +1,5 @@
 @php $faqs = App\Models\Faq::where('page_id', 1)->get() @endphp
-<div class="row  frequently-row-box justify-content-center">
+<div class="row  frequently-row-box justify-content-center pat-50">
     <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
         <div class="text-center justify-content-center d-flex">
             <h2 class="max-w-427 text-center">{{__('message.faq')}}</h2>

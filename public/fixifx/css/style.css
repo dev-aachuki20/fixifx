@@ -466,6 +466,13 @@ h6 {
 .header-main .container {
     max-width: 1245px;
 }
+.header-main .search-form form{
+    margin-bottom: 0;
+}
+.header-main .search-form form .form-group input{
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 .mobile-view {
     display: none;
@@ -4407,7 +4414,8 @@ body.search_open .dark-header{
     background-color: transparent !important;
 }
 
-body.search_open.darkHeader .dark-header{
+body.search_open.darkHeader .dark-header,
+body.header_hover.search_open .dark-header{
     background-color: #ffffff !important;
 }
 
@@ -5536,7 +5544,7 @@ body.darkHeader .dark-header .mobile_logo {
 
 .fixi-features-herobox .expert-content .accordion .accordion-item .accordion-button{
     color: var(--color-white);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     line-height: normal;
     border-bottom: none;
@@ -5682,14 +5690,16 @@ margin-top: 60px;
     top: 23px;
     background-size: 14px;
 }
-.frequently-row-box .frequently-faq-list .accordion-item .accordion-body{
+.frequently-row-box .frequently-faq-list .accordion-item .accordion-body,
+.fixi-features-herobox .expert-content .accordion .accordion-item .accordion-body,
+.acc-type-expert .expert-content .accordion-body{
     padding-left: 15px;
     padding-right: 15px;
 }
-.frequently-row-box .frequently-faq-list .accordion-item .accordion-body .discription{
-    font-size: 16px;
-    line-height: 27px;
-}
+/*.frequently-row-box .frequently-faq-list .accordion-item .accordion-body .discription{*/
+/*    font-size: 16px;*/
+/*    line-height: 27px;*/
+/*}*/
 
 .discover-platform-box{
     padding: 100px 0;
@@ -5805,6 +5815,9 @@ padding-bottom: 100px;
     margin: 0;
     font-size: 16px;
 }
+html[lang="ja"] .system-requirements-inner .contentbox .content-listing li .title h6{
+    font-size: 15px;
+}
 
 .system-requirements-inner .contentbox .content-listing li .title{
     position: relative;
@@ -5841,12 +5854,20 @@ padding-bottom: 100px;
 .get-started-now-box .award-listing-inner .awrad-items {
     max-width: 330px;
     margin: 0 auto;
+    min-height: 100%;
 }
 
 .get-started-now-box .award-listing-inner>div::after{
     background-color: #213869;
     right: -30px;
     min-height: 191px;
+}
+.get-started-now-box .award-listing-inner .awrad-items .title h6{
+    font-size: 25px;
+}
+.get-started-now-box .award-listing-inner .awrad-items .discription p{
+    font-size: 16px;
+    line-height: 27px;
 }
 
 .risk-management-herobox .imgbox {
@@ -6284,4 +6305,12 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
 .trading-wrapper  .hidebg-trade {
     background-image: none;
 }
+
+
+/*24-10-2023*/
+.border-bottomfaq{
+    border-bottom: 1px solid #213869 !important;
+}
+
+
 

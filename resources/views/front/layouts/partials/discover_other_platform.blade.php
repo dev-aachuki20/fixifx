@@ -3,7 +3,7 @@ $section30 = $common->where('section_no', 30)->first();
 @endphp
 @if($section30)
 @php $menu_page = App\Models\MenuPage::where('menu_id', 2)->get(); @endphp
-<div class="discover-platform-box">
+<div class="discover-platform-box ptb-50">
   <div class="row justify-content-center">
     <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
       <div class="text-center justify-content-center d-flex">
@@ -12,7 +12,7 @@ $section30 = $common->where('section_no', 30)->first();
     </div>
   </div>
   @if(count($section30->subSection))
-  <div class="row mt-5 pt-3">
+  <div class="row mt-md-5 pt-3">
     @foreach($section30->subSection->where('status', 1)->where('page_id', -1) as $key => $value)
     <div class="col-12 col-md-6 col-lg-6">
       <div class="platforms-box">

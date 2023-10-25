@@ -79,7 +79,7 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
     </div>
 </section>
 
-<section class="expert-support-wrapper tradingBenefits-wrapper tradingBenefits-bg side-by-side padding-tb-120">
+<section class="expert-support-wrapper tradingBenefits-wrapper tradingBenefits-bg side-by-side padding-tb-120 acc-type-expert">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">

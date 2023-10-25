@@ -24,14 +24,14 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
         <!-- FiXi MT5 Features -->
         @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
         @if($section2)
-        <div class="fixi-features-herobox">
+        <div class="fixi-features-herobox mt5-feature-hero ptb-50">
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
                         <img src="{{$section2 && $section2->image ? $section2->image : asset('fixifx/images/FiXi-Features.png')}}" alt="tradergo">
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-8 col-md-8 col-sm-12 mt-5 mt-md-0">
                     <div class="expert-support-head">
                         <h2 class="max-w-427">{{ $section2->{config('app.locale').'_title'} }}</h2>
                         <div class="discription">
@@ -57,16 +57,16 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
         <!-- FiXi Trading Benefits -->
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
         @if($section4)
-        <div class="fixi-features-herobox fixi-Benefits-herobox">
+        <div class="fixi-features-herobox fixi-Benefits-herobox ptb-50 mbd-20">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-12 col-md-6 col-lg-6">
                     <div class="section-head text-white">
                         <h2 class="max-w-427 text-white">{{ $section4->{config('app.locale').'_title'} }}</h2>
 
                         {!! $section4->{config('app.locale').'_desc'} !!}
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-12 col-md-6 col-lg-6 mt-5 mt-md-0">
                     <div class="side-by-side-img">
                         <img src="{{$section4 && $section4->image ? $section4->image : asset('fixifx/images/laptop.png')}}" alt="laptop">
                     </div>
@@ -79,7 +79,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
         <!-- Download MetaTrader 5 for Windows -->
         @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
         @if($section5)
-        <div class="risk-management-herobox">
+        <div class="risk-management-herobox mt5-riskinner ptb-50">
             <div class="row align-items-center">
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="imgbox">
@@ -88,7 +88,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
                         @endif
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12 col-md-6 col-lg-6 mt-5 mt-md-0">
                     <div class="section-head">
                         <h2>{{ $section5->{config('app.locale').'_title'} }}</h2>
                         <div class="discription">
@@ -107,12 +107,12 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
 
 
 
-        <div class="fixi-system-requirements risk-management-herobox fixi-features-herobox">
+        <div class="fixi-system-requirements risk-management-herobox fixi-features-herobox ptb-50">
 
             <!-- FiXi MT5 System Requirements : -->
             @php $section8 = $section->where('section_no', 8)->where('status', 1)->first() @endphp
             @if($section8)
-            <div class="system-requirements-inner">
+            <div class="system-requirements-inner mt5-inner-system">
                 <div class="row">
                     <div class="col-12 col-md-4 col-lg-4">
                         <div class="img-box">
@@ -121,7 +121,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
                     </div>
                     <div class="col-12 col-md-8 col-lg-8">
                         <div class="contentbox">
-                            <h2>{{ $section8->{config('app.locale').'_title'} }}</h2>
+                            <h4 class="mb-4">{{ $section8->{config('app.locale').'_title'} }}</h4>
                             {!! $section8->{config('app.locale').'_desc'} !!}
                         </div>
                     </div>

@@ -807,14 +807,26 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     body.header_hover .dark-header ul.navbar-nav>li.nav-item>a, body.darkHeader .dark-header ul.navbar-nav>li.nav-item>a{
         color: var(--color-white);
     }
-
+    
     .dark-header .desktop_logo{
         display: none !important;
     }
 
+    /*.dark-header .desktop_logo,*/
+    /*body.header_hover .dark-header .mobile_logo,*/
+    /*body.darkHeader.search_open .dark-header .mobile_logo{*/
+    /*    display: none !important;*/
+    /*}*/
+
     .dark-header .mobile_logo{
         display: block !important;
     }
+
+    /*.dark-header .mobile_logo,*/
+    /*body.header_hover .dark-header .desktop_logo,*/
+    /*body.darkHeader.search_open .dark-header .desktop_logo{*/
+    /*    display: block !important;*/
+    /*}*/
 
     body.darkHeader header{
         position: fixed !important;
@@ -827,6 +839,39 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     body.header_hover .dark-header .search-icon svg, body.darkHeader .dark-header .search-icon svg{
         stroke: var(--color-white);
     }
+    
+    .get-started-now-box .award-listing-inner{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .get-started-now-box .award-listing-inner .awrad-items{
+        padding-left: 15px;
+        padding-right: 15px;
+        min-height: 100%;
+    }
+    .get-started-now-box .award-listing-inner>div::after{
+        right: 0;
+    }
+    
+    /*body.darkHeader.header_hover .dark-header .search-icon svg{*/
+    /*    stroke: var(--color-dark-jungle-green) !important;*/
+    /*}*/
+    
+    /*body.darkHeader.header_hover .dark-header li.nav-item.language-box a.nav-link{*/
+    /*    color: var(--color-dark-jungle-green) !important;*/
+    /*}*/
+
+    /*body.darkHeader.header_hover .dark-header .bar1, */
+    /*body.darkHeader.header_hover .dark-header .bar2, */
+    /*body.darkHeader.header_hover .dark-header .bar3{*/
+    /*    background-color: var(--color-dark-jungle-green) !important;*/
+    /*}*/
+    
+    body.search_open.darkHeader .dark-header, 
+    body.header_hover.search_open .dark-header,
+    body.header_hover .dark-header{
+        background-color: #0d1017 !important;
+    }
+    
 
     /* end darkmode  */
 
@@ -865,6 +910,9 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
 
     .award-listing-inner>div:nth-child(2n)::after {
         display: none;
+    }
+    .get-started-now-box .award-listing-inner .awrad-items:nth-child(2n)::after{
+        display: block;
     }
 
     .we-trade-wrapper {
@@ -1509,6 +1557,73 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .handling-vps-wrapper .imgbox {
         padding-bottom: 60px;
     }
+    .get-started-now-box .award-listing-inner{
+        grid-template-columns: 1fr;
+    }
+    .get-started-now-box .award-listing-inner .awrad-items .discription p{
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .get-started-now-box .award-listing-inner>div::after,
+    .get-started-now-box .award-listing-inner .awrad-items:nth-child(2n)::after{
+        display: none;
+    }
+    .get-started-now-box .award-listing-inner .awrad-items{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .mt5-inner-system{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .mt5-inner-system .contentbox{
+        padding-left: 0;
+        padding-top: 20px;
+    }
+    .mt5-inner-system .contentbox .content-listing li{
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .mt5-inner-system .contentbox .content-listing li .title::after{
+        display: none;
+    }
+    .discover-platform-box .platforms-box{
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .discover-platform-box .platforms-box .imgbox{
+        padding-top: 0;
+    }
+    .get-started-now-box .award-listing-inner .awrad-items .title h6{
+        font-size: 22px;
+    }
+    .get-started-now-box .award-listing-inner.mt5-getstart{
+        padding-top: 0;
+    }
+    .mt5-riskinner .discription,
+    .mbd-20 .discription{
+        margin-bottom: 20px !important;
+    }
+    .mt5-feature-hero .discription p,
+    .mt5-feature-hero .discription li,
+    .mt5-feature-hero .expert-content li,
+    .frequently-row-box .frequently-faq-list .accordion-item .accordion-body .discription p, 
+    .fixi-features-herobox .expert-content .accordion .accordion-item .accordion-body .discription p{
+        font-size: 14px;
+    }
+    .mtwindow-trade-wrapper .download-social-trade,
+    .mt5-android-trade-wrapper .download-social-trade,
+    .pab-50{
+        padding-bottom: 50px;
+    }
+    .pat-50,
+    footer.footer-main{
+        padding-top: 50px !important;
+    }
+    .ptb-50{
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
    
 }
 
@@ -1894,7 +2009,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         padding-top: 31px !important;
         padding-bottom: 32px;
     }
-    html[lang="ja"] .dataTables_paginate{
+    html[lang="ja"] .dataTables_paginate:not(:empty){
         padding-top: 22px !important;
         padding-bottom: 21px;
     }

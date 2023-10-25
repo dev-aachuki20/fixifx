@@ -23,9 +23,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
         <!-- High-function real-time quotes -->
         @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
         @if($section3)
-        <div class="fixi-features-herobox fixi-Benefits-herobox">
+        <div class="fixi-features-herobox fixi-Benefits-herobox mt5-feature-hero ptb-50 mbd-20">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-12 col-md-6 col-lg-6">
                     <div class="section-head text-white">
                         <h2 class="max-w-427 text-white">{{ $section3->{config('app.locale').'_title'} }}</h2>
                         <div class="discription">
@@ -39,7 +39,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-12 col-md-6 col-lg-6 mt-5 mt-md-0">
                     <div class="side-by-side-img iphone-layer text-center">
                         @if($section3)
                         <img src="{{ $section3->image ? $section3->image : asset('fixifx/images/iphone.png')}}" alt="android">
@@ -54,7 +54,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
         <!-- Advanced Charting -->
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
         @if($section4)
-        <div class="risk-management-herobox">
+        <div class="risk-management-herobox mt5-riskinner ptb-50">
             <div class="row align-items-center">
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="imgbox iphone-layer text-center">
@@ -63,7 +63,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
                         @endif
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12 col-md-6 col-lg-6 mt-5 mt-md-0">
                     <div class="section-head">
                         <h2>{{ $section4->{config('app.locale').'_title'} }}</h2>
                         <div class="discription">
@@ -85,7 +85,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
         <!-- Download the FiXi MT5 Trading App® for iPhone -->
         @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
         @if($section5)
-        <div class="risk-management-herobox">
+        <div class="risk-management-herobox mt5-riskinner ptb-50">
             <div class="row align-items-center">
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="section-head">
@@ -102,7 +102,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6">
+                <div class="col-12 col-md-6 col-lg-6 mt-5 mt-md-0">
                     <div class="imgbox iphone-layer text-center">
                         @if($section5)
                         <img class="img-fluid" src="{{ $section5->image  ? $section5->image : asset('fixifx/images/iphone.png') }}" alt="">
@@ -114,7 +114,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
         @endif
         <!-- end  -->
 
-        <div class="frequently-row-box fixi-features-herobox">
+        <div class="frequently-row-box fixi-features-herobox pt-0 border-bottomfaq pab-50">
             @include('front.common.mt4_faq')
             @include('front.layouts.partials.get_started')
         </div>

@@ -50,7 +50,7 @@ $section6 = $common->where('section_no', 1)->first();
 
 @if(request()->route()->parameters['slug'] == 'mt5-client-desktop' || request()->route()->parameters['slug'] == 'mt5-android-trader' || request()->route()->parameters['slug'] == 'mt5-mac-os-trader' || request()->route()->parameters['slug'] == 'mt5-iphone-trader' || request()->route()->parameters['slug'] == 'ctrader-ios' || request()->route()->parameters['slug'] == 'ctrader-android' || request()->route()->parameters['slug'] == 'ctrader-web')
 <!-- Trading Pages Section -->
-<div class="row get-started-now-box">
+<div class="row get-started-now-box pat-50">
   <div class="section-head text-center">
     <h2>{{ $section6->{config('app.locale').'_title'} }}</h2>
     <div class="discription">
@@ -60,7 +60,7 @@ $section6 = $common->where('section_no', 1)->first();
 
   @if(count($section6->subSection))
   <div class="col-12">
-    <div class="award-listing-inner">
+    <div class="award-listing-inner mt5-getstart">
       @foreach($section6->subSection->where('status', 1)->where('page_id', -1) as $key => $value)
       <div class="awrad-items">
         <div class="iconbox">
