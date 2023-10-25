@@ -139,6 +139,17 @@ return [
     'preview_platform_btn' => 'Preview Platforms',
     'compare_btn' => 'Compare',
 
+    'cTrader' => 'cTrader',
+    'fixi' => 'FiXi',
+    'download_now'          => 'Download Now!',
+
+    'manual_fixi_openai_title'                => 'Explore more ways to connect
+    with Fixi’s OpenAPI',
+    'manual_fixi_openai_desc'                 => 'Can’t find exactly what you’re looking for? Build your own solution and connect to our trading engine through our OpenAPI.',
+    'go_to_the_developer_portal_btn'          => 'Go To The Developer Portal',
+    'talk_to_our_specialist_btn'              => 'Talk To Our Specialists',
+
+
 
 
 ];

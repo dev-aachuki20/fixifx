@@ -141,6 +141,15 @@ return [
     'preview_platform_btn' => 'プレビュープラットフォーム',
     'compare_btn' => '比較する',
 
+    'cTrader' => 'cトレーダー',
+    'fixi' => 'フィキシ',
+    'download_now'          => 'ダウンロード中！',
+
+    'manual_fixi_openai_title'                => 'Fixi の OpenAPI に接続するその他の方法を検討する',
+    'manual_fixi_openai_desc'                 => '探しているものが見つかりませんか?独自のソリューションを構築し、OpenAPI を通じて取引エンジンに接続します。',
+    'go_to_the_developer_portal_btn'          => '開発者ポータルに移動',
+    'talk_to_our_specialist_btn'              => '当社のスペシャリストにご相談ください',
+
 
 
 ];
