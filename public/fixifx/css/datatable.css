@@ -318,7 +318,13 @@ table.dataTable {
     border-collapse: separate;
     border-spacing: 0
 }
+/* table.dataTable thead , .table_wrapper .dataTables_scrollHeadInner table{
+    overflow-x: hidden !important;
+} */
 
+/* .dataTables_scrollHead{
+    display: none;
+} */
 table.dataTable thead th,
 table.dataTable tfoot th {
     font-weight: bold
@@ -327,7 +333,8 @@ table.dataTable tfoot th {
 table.dataTable>thead>tr>th,
 table.dataTable>thead>tr>td {
     padding: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3)
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    width: 25% !important;
 }
 
 table.dataTable>thead>tr>th:active,
@@ -698,7 +705,8 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>td,
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>th,
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>td {
-    vertical-align: middle
+    vertical-align: middle;
+    width: 25%;
 }
 
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>thead>tr>th>div.dataTables_sizing,

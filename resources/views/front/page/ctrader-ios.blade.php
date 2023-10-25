@@ -48,9 +48,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
-                        @if($section3->image)
                         <img src="{{$section3->image ? $section3->image : asset('fixifx/images/FiXi-Features.png')}}" alt="tradergo">
-                        @endif
                     </div>
                 </div>
 
