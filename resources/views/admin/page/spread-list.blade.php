@@ -167,7 +167,7 @@
         </div>
     </div>
 
-    <!-- SECTION 4 -->
+    <!-- SECTION 4  ndd-->
     @php isset($section) ? $section4 = $section->where('section_no', 4)->first() : '' @endphp
     <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="Sec4">
         <div class="accordion-item">
@@ -185,6 +185,10 @@
                         @if(isset($section4))
                         <input type="hidden" name="section_id" value="{{ $section4->id }}">
                         @endif
+
+
+
+
                         <div class="row">
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
@@ -193,6 +197,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                         <div class="row gy-4">
                             <div class="col-xxl-6 col-md-6">
                                 <div>
@@ -222,7 +229,10 @@
                             </div>
                         </div>
                         @for($i=1; $i<=3; $i++) @php $sub_section4=$section4->subSection[$i-1] ?? false @endphp
-                            [$i-1] ?? false @endphp
+
+                            @if($sub_section4)
+                            <input type="hidden" name="sub_section[{{$i}}][sub_section_id]" value="{{ $sub_section4->id }}">
+                            @endif
                             <div class="accordion nesting4-accordion custom-accordionwithicon accordion-border-box mt-3" id="sub_sec_{{$i}}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="sub_sec_{{$i}}">
