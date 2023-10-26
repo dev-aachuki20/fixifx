@@ -42,18 +42,33 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 @section('css')
 <link rel="stylesheet" href="{{asset('fixifx/css/datatable.css')}}">
-<!-- <style>
-    .loaderbtn {
-    font-size: 40px; /* Adjust the size of the icon as needed */
-    color: #3498db; /* Customize the color if desired */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    display: none; /* Initially hide the loader */
-}
-</style> -->
+<style>
+    .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.3);
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 <!-- <link href="{{asset('assets/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/jquery.dataTables.min.css')}}" rel="stylesheet"> -->
 @endsection
@@ -244,6 +259,11 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             </div>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                    <!-- loader -->
+                    <div id="loader" style="display:none;">
+                        <img src="{{ asset('fixifx/images/loading.gif') }}" width="30px" alt="Loading...">
+                    </div>
+                    <!-- loader end -->
                     <div class="table_wrapper">
                         {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%']) !!}
                     </div>
@@ -259,15 +279,48 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 @endsection
 
 
-
+<!-- Working code with loader and etc-->
 @section('javascript')
-<!-- <script>
-    // Show the loader when the page is loading
-    $(window).on('load', function() {
-        $('#loader').show();
-    });
-</script> -->
+<script src="{{asset('fixifx/js/dataTables.js')}}"></script>
+{!! $dataTable->scripts() !!}
+<script>
+    $(document).ready(function() {
+        // Trigger preXhr.dt event manually to show loader initially
+        $("#spread-table").DataTable().ajax.reload();
 
+        $("#spread-table").on('preXhr.dt', function(e, settings, data) {
+            data.category_id = $("#cat_val").val();
+            $('#spread-table tbody').html('<tr><td colspan="6"><div id="loader" class="text-center"><img src="{{ asset("fixifx/images/loading.gif") }}" width="50px" alt="Loading..."></div></td></tr>');
+        });
+
+        $('#spread-table').on('xhr.dt', function() {
+            $('#loader').remove(); // Remove the loader when the response is received
+        });
+
+        // Trigger preXhr.dt event manually to show loader initially
+        $('#spread-table').DataTable().ajax.reload();
+
+        // Trigger click event for the default tab
+        $('.nav-link.active').trigger('click');
+
+        $('.nav-link').on('click', function(e) {
+            e.preventDefault(); // Prevent the default link behavior
+            value = $(this).attr('value');
+            $('#cat_val').val(value);
+            window.LaravelDataTables["spread-table"].draw();
+        });
+
+        $('#spread-table').on('page.dt', function() {
+            // Show loader when pagination is clicked
+            $('#spread-table tbody').html('<tr><td colspan="6"><div id="loader" class="text-center"><img src="{{ asset("fixifx/images/loading.gif") }}" width="50px" alt="Loading..."></div></td></tr>');
+        });
+    });
+</script>
+@endsection
+
+
+<!-- old code without loader and etc-->
+{{-- @section('javascript')
 <script src="{{asset('fixifx/js/dataTables.js')}}"></script>
 <!-- <script src="{{asset('assets/libs/jquery/dataTables.min.js')}}"></script> -->
 {!! $dataTable->scripts() !!}
@@ -282,4 +335,4 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
         // e.preventDefault();
     });
 </script>
-@endsection
+@endsection --}}

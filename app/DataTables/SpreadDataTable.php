@@ -30,9 +30,11 @@ class SpreadDataTable extends DataTable
                         $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
                     }
                 } else {
-                    $html .= $data->symbol;
+                    $html .= '<img class="img-fluid" src="'.asset('front/img/flag/usd.svg').'" alt=""></span><span><img class="img-fluid" src="'.asset('front/img/flag/try.svg').'" alt="">';
+                    $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
                 }
 
+                // $html .= $data->symbol;
                 return $html;
             })
             ->addIndexColumn()
