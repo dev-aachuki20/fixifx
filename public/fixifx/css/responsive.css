@@ -1571,6 +1571,10 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .get-started-now-box .award-listing-inner .awrad-items{
         padding-left: 0;
         padding-right: 0;
+        margin-bottom: 15px;
+    }
+    .get-started-now-box .award-listing-inner .awrad-items:last-child{
+        margin-bottom: 0;
     }
     .mt5-inner-system{
         padding-left: 15px;
@@ -1594,8 +1598,12 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .discover-platform-box .platforms-box .imgbox{
         padding-top: 0;
     }
+    .get-started-now-box .award-listing-inner .awrad-items .iconbox{
+        margin-bottom: 16px;
+    }
     .get-started-now-box .award-listing-inner .awrad-items .title h6{
         font-size: 22px;
+        margin-bottom: 10px;
     }
     .get-started-now-box .award-listing-inner.mt5-getstart{
         padding-top: 0;
