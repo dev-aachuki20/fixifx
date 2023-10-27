@@ -198,7 +198,7 @@ return $target;
                                     <div class="col-12 col-md-6">
                                         <div class="latestBlog-gridList">
                                             <ul class="latestBlog-gridList-box">
-                                                @for($i=1; $i<=4; $i++) @if(isset($random_articles[$i])) <li class="latestBlog-gridList-box-link">
+                                                @for($i=1; $i<=5; $i++) @if(isset($random_articles[$i])) <li class="latestBlog-gridList-box-link">
                                                     <a class="latestBlog-gridList-box-link-tab" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->id]) }}">
                                                         <div class="left-imgBox">
                                                             <img class="img-fluid" src="{{ $random_articles[$i]->image? $random_articles[$i]->image:asset('front/img/default.png') }}" data-src="{{ $random_articles[$i]->image }}" alt="{{ config('app.locale') == 'ja' ? 'FiXi FX（フィクシー）' : 'FiXi FX' }}">

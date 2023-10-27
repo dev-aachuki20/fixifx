@@ -252,6 +252,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
 
 
                                     <div class="tagsBox-wrapper d-flex align-items-start justify-content-between">
+
                                         <div class="tagListing-main d-flex align-items-center">
                                             <div class="tagTitle-wrap">
                                                 <h6>
@@ -259,15 +260,17 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                                 </h6>
                                             </div>
                                             <ul class="tagListing-box">
-                                                @php $tags = explode(',', $article->tags) @endphp
-                                                @foreach($tags as $k => $value)
+                                                <!-- comment -->
+                                                @php $tagsvalue = explode(',', $article->tags) @endphp
+                                                @foreach($tagsvalue as $k => $value)
                                                 <li>
                                                     <a href="{{route('page', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => NULL, 'tag' => $value])}}">
                                                         {{ $value }}
                                                     </a>
-                                                    @if(!($k == count($tags) - 1))@endif
+                                                    @if(!($k == count($tagsvalue) - 1))@endif
                                                 </li>
                                                 @endforeach
+                                                <!-- comment -->
                                             </ul>
                                         </div>
                                         @include('front.layouts.partials.social_share')

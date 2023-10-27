@@ -108,7 +108,8 @@ $section4 = App\Models\Section::where('id', 4)->first();
                           <dl class="col-lg-4 pf-no-margin">
                             <dt class="m-0 mb-3 header-pf-name">
                               <h3>{{ $section4->subSection[2]->{config('app.locale').'_title'} ?? __('message.advan_trade') }}</h3>
-                              <a href="javascript:void();">
+                              {{-- route('page', [config('app.locale'), 'advan-trade']) --}}
+                              <a href="">
                                 <h5 class="overviewtext">{{__('message.overview') }}</h5>
                               </a>
                             </dt>
