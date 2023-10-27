@@ -2834,6 +2834,18 @@ a.blogBox-wrap:hover .blogTitle h6{
     /*height: 100%;*/
     object-fit: cover;
 }
+.blog-detail .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .left-imgBox img{
+    height: 70px;
+}
+.blog-detail .recentPost-wrapper .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .left-imgBox img{
+    height: 100%;
+}
+.blog-detail .recentPost-wrapper .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .rightBox .description p:not(:empty){
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
 
 .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .blogTitle h6{
     margin-bottom: 6px;
@@ -4403,8 +4415,8 @@ body.modal-open{
 }
 
 body.header_hover .header-main{
-    /* background-color: var(--color-white); */
-    background-color: #f9f9f9cf;
+     background-color: var(--color-white); 
+    /*background-color: #f9f9f9cf;*/
 }
 
 body.header_hover .dark-header{

@@ -1939,6 +1939,10 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         background-image: linear-gradient(to bottom, #4674cd00, #d8e8fb 4%) !important;
     }
     
+    .blog-detail .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .left-imgBox img{
+        height: auto;
+    }
+    
 }
 
 @media(max-width:400px){
