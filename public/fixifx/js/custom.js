@@ -192,6 +192,28 @@ var swiper = new Swiper('.traders_slides', {
 //   $("body").toggleClass("result_hover");
 // });
 
+    // if ($(window).width() > 1199) {
+    //     $(".nav-item.dropdown").click(function () {
+    //         if ($(this).hasClass("active")){
+    //             $("body").addClass("header_hover");
+    //         }else{
+    //             $("body").removeClass("header_hover");
+    //         }
+    //     });
+    // }
+    
+    //  if ($(window).width() > 1199) {
+    //     $('.nav-item .nav-link.dropdown-toggle').click(function(e){
+    //         $('.nav-item .nav-link.dropdown-toggle').parents('body').removeClass("header-bg2");
+    //         $(this).parents('body').addClass("header-bg2");
+    //     });
+    //     $(document).on("click", function(e) {
+    //         if ($(e.target).is(".nav-item .nav-link.dropdown-toggle") === false) {
+    //           $("body").removeClass("header-bg2");
+    //         }
+    //     });
+    // }
+
 });
 
   // dropdown-menu 
@@ -199,6 +221,13 @@ var swiper = new Swiper('.traders_slides', {
  $(".nav-item.dropdown").hover(function (params) {
   $("body").toggleClass("header_hover");
 });
+
+
+
+//$(".nav-item.dropdown:focus").parents("body").addClass("header_hover");
+
+
+
 
 
 function myFunction(x) {

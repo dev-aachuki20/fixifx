@@ -116,10 +116,10 @@ class SpreadDataTable extends DataTable
             ];
         } else if (config("app.locale") == 'ja') {
             return [
-                Column::make('symbol')->title('<p>シンボル</p>')->orderable(false),
-                Column::make('ultimate_account')->title('<p>アルティメットアカウント<span>最狭スプレッド</span></p>')->orderable(false),
-                Column::make('premium_account')->title('<p>プレミアムアカウント<span>最狭スプレッド</span></p>')->orderable(false),
-                Column::make('starter_account')->title('<p>スターターアカウント<span>最狭スプレッド</span></p>')->orderable(false),
+                Column::make('symbol')->title('<div class="heading_table"><div class="title"><h6>シンボル</h6></div></div>')->orderable(false),
+                Column::make('ultimate_account')->title('<div class="heading_table"><div class="title"><h6>アルティメットアカウント</h6></div><div class="subtext_table"><span>最狭スプレッド</span></div></div>')->orderable(false),
+                Column::make('premium_account')->title('<div class="heading_table"><div class="title"><h6>プレミアムアカウント</h6></div><div class="subtext_table"><span>最狭スプレッド</span></div></div>')->orderable(false),
+                Column::make('starter_account')->title('<div class="heading_table"><div class="title"><h6>スターターアカウント</h6></div><div class="subtext_table"><span>最狭スプレッド</span></div></div>')->orderable(false),
                 Column::computed('action')
                     ->visible(false)
                     ->exportable(false)

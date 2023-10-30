@@ -68,6 +68,59 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             transform: rotate(360deg);
         }
     }
+    
+    .tradersChoose_box .swiper .blogBox-wrap img {
+        width: 100%;
+    }
+    
+    @media(max-width:767px){
+        .data-table-wrapper .dataTables_scrollHeadInner {
+            width: 100% !important;
+            min-width: 684px;
+        }
+        
+        html[lang="ja"] .data-table-wrapper .dataTables_scrollHeadInner {
+            width: 100% !important;
+            min-width: 789px;
+        }
+        
+        .data-table-wrapper .dataTables_scroll {
+            clear: both;
+            white-space: nowrap;
+            width: 100%;
+            display: block;
+            overflow-x: auto;
+            overflow: auto;
+        }
+        
+        .data-table-wrapper .dataTables_scroll .dataTables_scrollHead {
+            overflow: visible !important;
+        }
+        
+        .data-table-wrapper .dataTables_scrollHeadInner {
+            width: 100% !important;
+            min-width: 684px;
+        }
+        
+       .data-table-wrapper .dataTables_scrollBody {
+            white-space: nowrap;
+            display: block;
+            overflow: visible !important;
+        }
+        
+        .data-table-wrapper table {
+            border-bottom: none !important;
+            width: 100% !important;
+            white-space: nowrap;
+            overflow-x: visible;
+            display: block;
+        }
+        
+        table.dataTable thead>tr>th.sorting_desc:before,
+        table.dataTable thead>tr>th.sorting_desc:after{
+                right: 5px;
+        }
+    }
 </style>
 <!-- <link href="{{asset('assets/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/jquery.dataTables.min.css')}}" rel="stylesheet"> -->
@@ -264,7 +317,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                         <img src="{{ asset('fixifx/images/loading.gif') }}" width="30px" alt="Loading...">
                     </div>
                     <!-- loader end -->
-                    <div class="table_wrapper">
+                    <div class="table_wrapper data-table-wrapper">
                         {!! $dataTable->table(['class' => 'table spreadTable-box','style' => 'width: 100%']) !!}
                     </div>
                 </div>
@@ -313,6 +366,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
         $('#spread-table').on('page.dt', function() {
             // Show loader when pagination is clicked
             $('#spread-table tbody').html('<tr><td colspan="6"><div id="loader" class="text-center"><img src="{{ asset("fixifx/images/loading.gif") }}" width="50px" alt="Loading..."></div></td></tr>');
+            fixedHeader: true
         });
     });
 </script>
@@ -327,6 +381,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 <script>
     $("#spread-table").on('preXhr.dt', function(e, settings, data) {
         data.category_id = $("#cat_val").val();
+        fixedHeader: true
     });
     $('.nav-link').on('click', function(e) {
         value = $(this).attr('value');
