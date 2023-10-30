@@ -2577,6 +2577,7 @@ footer.footer-main h5:after {
 }
 
 .blog-tab .tab-listing li .nav-link {
+    cursor: pointer;
     font-size: 16px;
     font-weight: 600;
     line-height: normal;

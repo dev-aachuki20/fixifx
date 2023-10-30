@@ -53,6 +53,7 @@ return $target;
                         @foreach($categories as $category)
                         @if($category->id !== 3 && $category->id !== 7 && $category->id !== 33)
                         <li>
+
                             <a class="nav-link {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" href="{{ route('page', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => NULL, 'category' => $category->id]) }}" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->{config('app.locale').'_name'}  }}</a>
                         </li>
                         @endif
@@ -577,7 +578,11 @@ return $target;
                                     <select class="niceCountryInputSelector from_code" id="from_code" name="from_country">
                                         @foreach($countries as $country)
                                         <option value="{{ $country->currency_code }}" data-src="{{$country->flag }}" @if($country->currency_code == 'USD' && $country->name == 'American Samoa') selected @endif>
-                                            {{ $country->name }}
+                                            @if(app()->getLocale() == 'en')
+                                            {{ $country->name }} ({{ $country->currency_code }})
+                                            @else
+                                            {{ $country->ja_name }} ({{ $country->currency_code }})
+                                            @endif
                                         </option>
                                         @endforeach
                                     </select>
@@ -590,7 +595,11 @@ return $target;
                                     <select class="to_code" id="to_code" name="to_country">
                                         @foreach($countries as $country)
                                         <option value="{{ $country->currency_code }}" data-src="{{$country->flag}}" @if($country->currency_code == 'JPY') selected @endif>
-                                            {{ $country->name }}
+                                            @if(app()->getLocale() == 'en')
+                                            {{ $country->name }} ({{ $country->currency_code }})
+                                            @else
+                                            {{ $country->ja_name }} ({{ $country->currency_code }})
+                                            @endif
                                         </option>
                                         @endforeach
                                     </select>
@@ -632,7 +641,7 @@ return $target;
                             </div>
 
                             {{-- <div class="broker-img">
-                                    <img class="img-fluid" src="{{asset('fixifx/images/laptop.png')}}" alt="{{ config('app.locale') == 'ja' ? 'FiXi FX（フィクシー）ブログ' : 'FiXi FX Blog' }}">
+                                        <img class="img-fluid" src="{{asset('fixifx/images/laptop.png')}}" alt="{{ config('app.locale') == 'ja' ? 'FiXi FX（フィクシー）ブログ' : 'FiXi FX Blog' }}">
                         </div> --}}
                         <div class="appBtn">
                             <a href="javascript:void(0);" class="custom-btn fill-btn-1">Open Account Now!</a>
@@ -643,10 +652,10 @@ return $target;
             </div>
         </div>
     </div>
-    </div>
-    </div>
+    <!-- </div>
+        </div> -->
 </section>
 <!-- blogs and other section end-->
-
 @include('front.layouts.partials.get_started')
 @endsection
+

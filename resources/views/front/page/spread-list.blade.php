@@ -304,7 +304,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
         $('.nav-link.active').trigger('click');
 
         $('.nav-link').on('click', function(e) {
-            e.preventDefault(); // Prevent the default link behavior
+            // e.preventDefault(); // Prevent the default link behavior
             value = $(this).attr('value');
             $('#cat_val').val(value);
             window.LaravelDataTables["spread-table"].draw();

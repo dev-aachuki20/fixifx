@@ -47,7 +47,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- we-trade-wrapper  -->
 @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
 @if($section3)
-<section class="spreads-industry-wrap we-trade-wrapper bg-white padding-top-120 padding-bottom-240 mb-120" style="background-image:url(images/bg-glob-1.svg);background-repeat: no-repeat; background-position: bottom left;">
+<section class="spreads-industry-wrap we-trade-wrapper bg-white padding-top-120 padding-bottom-240 mb-120" style="background-image:url('{{ asset('fixifx/images/bg-glob-1.svg') }}');background-repeat: no-repeat; background-position: bottom left;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-md-6 col-xl-6">
@@ -146,7 +146,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- end  -->
 
 <!-- we-trade-wrapper  -->
-<section class="market-depth we-trade-wrapper bg-white pt-0 padding-bottom-240 mb-120" style="background-image:url(images/bg-glob-1-right.png);background-repeat: no-repeat; background-position: bottom right;">
+<section class="market-depth we-trade-wrapper bg-white pt-0 padding-bottom-240 mb-120" style="background-image:url('{{ asset('fixifx/images/bg-glob-1-right.png') }}');background-repeat: no-repeat; background-position: bottom right;">
     <div class="container">
         <!-- border  -->
         <div class="border-padding"></div>

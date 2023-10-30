@@ -60,6 +60,8 @@ Route::group(['middleware' => 'localization'], function () {
     Route::post('get_media', 'HomeController@getMedia')->name('get_media');
 
     Route::get('search-faqs', 'HomeController@searchFaqs')->name('search_faqs');
+    // ajax
+    // Route::get('/{locale}/load-content/{category}', 'HomeController@loadContent')->name('loadContent');
 });
 
 Route::post('get_rate', 'HomeController@getChangeRate')->name('getChangeRate');

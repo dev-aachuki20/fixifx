@@ -124,8 +124,11 @@ class HomeController extends Controller
                 return $cfdDataTable->render('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'tags', 'faqs', 'countries', 'contacts', 'common'));
             }
 
-
+            // if (request()->ajax()) {
+            //     return response()->view('front.page.'. $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories', 'currency_changes'));
+            // } else {
             return view('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories', 'currency_changes'));
+            // }
         } else {
             abort(404);
         }
@@ -261,4 +264,13 @@ class HomeController extends Controller
             'relatedFaqsHtml' => $relatedFaqsHtml,
         ]);
     }
+
+    // public function loadContent(Request $request) {
+    //     // Fetch content based on the selected category (you'll need to implement this part)
+    //     $content = YourModel::getContent($request->category);
+
+    //     // Return a view (in this case, `partial.content`) with the fetched content
+    //     return view('front.page.prex-blogs', ['content' => $content]);
+    //     // return view('partial.content', ['content' => $content]);
+    // }
 }

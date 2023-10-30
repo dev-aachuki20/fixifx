@@ -1242,7 +1242,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         margin: 0 !important;
     }
 
-    .table_wrapper  table {
+    .table_wrapper table {
         border-bottom: none !important;
         width: 100%;
         white-space: nowrap;

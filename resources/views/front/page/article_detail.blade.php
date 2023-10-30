@@ -827,7 +827,11 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                     <select class="niceCountryInputSelector from_code" id="from_code" name="from_country">
                                         @foreach($countries as $country)
                                         <option value="{{ $country->currency_code }}" data-src="{{$country->flag }}" @if($country->currency_code == 'USD' && $country->name == 'American Samoa') selected @endif>
-                                            {{ $country->name }}
+                                            @if(app()->getLocale() == 'en')
+                                            {{ $country->name }} ({{ $country->currency_code }})
+                                            @else
+                                            {{ $country->ja_name }} ({{ $country->currency_code }})
+                                            @endif
                                         </option>
                                         @endforeach
                                     </select>
@@ -840,7 +844,11 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                     <select class="to_code" id="to_code" name="to_country">
                                         @foreach($countries as $country)
                                         <option value="{{ $country->currency_code }}" data-src="{{$country->flag}}" @if($country->currency_code == 'JPY') selected @endif>
-                                            {{ $country->name }}
+                                            @if(app()->getLocale() == 'en')
+                                            {{ $country->name }} ({{ $country->currency_code }})
+                                            @else
+                                            {{ $country->ja_name }} ({{ $country->currency_code }})
+                                            @endif
                                         </option>
                                         @endforeach
                                     </select>
