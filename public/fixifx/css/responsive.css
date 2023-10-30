@@ -1245,8 +1245,8 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .table_wrapper table {
         border-bottom: none !important;
         width: 100%;
-        white-space: nowrap;
-        overflow-x: auto;
+        /* white-space: nowrap; */
+        /* overflow-x: auto; */
         display: block;
     }
 
@@ -1632,6 +1632,13 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         padding-top: 50px !important;
         padding-bottom: 50px !important;
     }
+
+    .table_wrapper .table tbody tr td:first-child .flag_data{
+        flex-wrap: wrap;
+    }
+    .table_wrapper .table tbody tr td, .table_wrapper .table thead tr th{
+        padding: 10px;
+    }
    
 }
 
@@ -1942,6 +1949,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .blog-detail .latestBlog-gridList-box .latestBlog-gridList-box-link-tab .left-imgBox img{
         height: auto;
     }
+    
     
 }
 
