@@ -1698,12 +1698,12 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         padding-bottom: 50px !important;
     }
 
-    .table_wrapper .table tbody tr td:first-child .flag_data{
+    /* .table_wrapper .table tbody tr td:first-child .flag_data{
         flex-wrap: wrap;
     }
     .table_wrapper .table tbody tr td, .table_wrapper .table thead tr th{
         padding: 10px;
-    }
+    } */
    
 }
 
