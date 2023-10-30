@@ -6338,4 +6338,10 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
 }
 
 
+.download-social-trade .social-platform ul li a:hover {
+    box-shadow: 5px 26px 32px #00000052;
+    padding-bottom: 10px;
+}
+
+
 
