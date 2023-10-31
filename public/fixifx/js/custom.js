@@ -223,8 +223,12 @@ var swiper = new Swiper('.traders_slides', {
 });
 
 
-
-//$(".nav-item.dropdown:focus").parents("body").addClass("header_hover");
+// $(document).ready(function(){
+//     if ($(window).width() < 767) {
+//         var Height01 = $(".dataTables_info").outerHeight();
+//         $(".dataTables_paginate").outerHeight(Height01);
+//     }
+// });
 
 
 

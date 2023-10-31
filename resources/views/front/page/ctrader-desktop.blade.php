@@ -8,7 +8,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+<section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero">
     <div class="container">
         <div class="advan-trade-herobox cTrader-ios-trade-herobox">
             <div class="row align-items-center justify-content-center">
@@ -47,7 +47,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- we-trade-wrapper  -->
 @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
 @if($section3)
-<section class="spreads-industry-wrap we-trade-wrapper bg-white padding-top-120 padding-bottom-240 mb-120" style="background-image:url('{{ asset('fixifx/images/bg-glob-1.svg') }}');background-repeat: no-repeat; background-position: bottom left;">
+<section class="spreads-industry-wrap we-trade-wrapper bg-white padding-top-120 padding-bottom-240 mb-120 bgsize-100 ptb-50 mbottom-0" style="background-image:url('{{ asset('fixifx/images/bg-glob-1.svg') }}');background-repeat: no-repeat; background-position: bottom left;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-md-6 col-xl-6">
@@ -57,7 +57,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                             {{ $section3->{config('app.locale').'_title'} }}
                         </h2>
                     </div>
-                    <div class="discription">
+                    <div class="discription Psize-14">
                         <p>
                             {!! $section3->{config('app.locale').'_desc'} !!}
                         </p>
@@ -69,13 +69,13 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-6">
-                <div class="imgbox">
+                <div class="imgbox ptop-30">
                     <img class="img-fluid" src="{{ $section3->image ? $section3->image : asset('fixifx/images/Platforms-01.png')}}" alt="">
                 </div>
             </div>
         </div>
         <!-- border  -->
-        <div class="border-padding"></div>
+        <div class="border-padding ctrader-border"></div>
         <!-- end border  -->
 
 
@@ -83,18 +83,18 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
         @if($section4)
         <div class="row align-items-center">
             <div class="col-12 col-md-6 col-xl-6">
-                <div class="imgbox">
+                <div class="imgbox ptop-0">
                     <img class="img-fluid" src="{{$section4->image ? $section4->image : asset('fixifx/images/Platforms-01.png')}}" alt="">
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-xl-6">
+            <div class="col-12 col-md-6 col-xl-6 mt-4 mt-md-0">
                 <div class="leftProudly_box">
                     <div class="title">
                         <h2>
                             {{ $section4->{config('app.locale').'_title'} }}
                         </h2>
                     </div>
-                    <div class="discription">
+                    <div class="discription Psize-14">
                         <p>
                             {!! $section4->{config('app.locale').'_desc'} !!}
                         </p>
@@ -115,14 +115,14 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- No trading limits -->
 @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
 @if($section5)
-<section class="no-trading-limits pb-0 reward-wrapper whsection-text">
+<section class="no-trading-limits pb-0 reward-wrapper whsection-text ctrader-notrade">
     <div class="container">
-        <div class="fixi-features-herobox fixi-Benefits-herobox b-none">
+        <div class="fixi-features-herobox fixi-Benefits-herobox b-none ptop-50">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 col-md-12 col-sm-12 text-center">
                     <h2>{{ $section5->{config('app.locale').'_title'} }}</h2>
                     <div class="section-head m-auto">
-                        <div class="discription">
+                        <div class="discription mbottom-50">
                             <p>
                                 {!! $section5->{config('app.locale').'_desc'} !!}
                             </p>
@@ -146,10 +146,10 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- end  -->
 
 <!-- we-trade-wrapper  -->
-<section class="market-depth we-trade-wrapper bg-white pt-0 padding-bottom-240 mb-120" style="background-image:url('{{ asset('fixifx/images/bg-glob-1-right.png') }}');background-repeat: no-repeat; background-position: bottom right;">
+<section class="market-depth we-trade-wrapper bg-white pt-0 padding-bottom-240 mb-120 bgsize-100 mbottom-0 pbottom-50" style="background-image:url('{{ asset('fixifx/images/bg-glob-1-right.png') }}');background-repeat: no-repeat; background-position: bottom right;">
     <div class="container">
         <!-- border  -->
-        <div class="border-padding"></div>
+        <div class="border-padding ctrader-border mtop-0"></div>
         <!-- end border  -->
 
 
@@ -164,7 +164,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                             {{ $section6->{config('app.locale').'_title'} }}
                         </h2>
                     </div>
-                    <div class="discription">
+                    <div class="discription Psize-14">
                         <p>
                             {!! $section6->{config('app.locale').'_desc'} !!}
                         </p>
@@ -183,7 +183,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
         </div>
         @endif
         <!-- border  -->
-        <div class="border-padding"></div>
+        <div class="border-padding ctrader-border"></div>
         <!-- end border  -->
 
 
@@ -192,18 +192,18 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
         @if($section7)
         <div class="row align-items-center">
             <div class="col-12 col-md-6 col-xl-6">
-                <div class="imgbox">
+                <div class="imgbox ptop-0">
                     <img class="img-fluid" src="{{$section7->image ? $section7->image : asset('fixifx/images/Platforms-01.png')}}" alt="">
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-xl-6">
+            <div class="col-12 col-md-6 col-xl-6 mt-5 mt-md-0">
                 <div class="leftProudly_box">
                     <div class="title">
                         <h2>
                             {{ $section7->{config('app.locale').'_title'} }}
                         </h2>
                     </div>
-                    <div class="discription">
+                    <div class="discription Psize-14">
                         <p>
                             {!! $section7->{config('app.locale').'_desc'} !!}
                         </p>
@@ -225,17 +225,17 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 @if($section8)
 <section class="cTrader-desktop-f pb-0 reward-wrapper whsection-text">
     <div class="container">
-        <div class="fixi-features-herobox">
+        <div class="fixi-features-herobox ptb-50">
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
                         <img src="{{$section8->image ? $section8->image : asset('fixifx/images/FiXi-Features.png')}}" alt="tradergo">
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-8 col-md-8 col-sm-12 mt-5 mt-md-0">
                     <div class="expert-support-head">
                         <h2 class="max-w-427">{{ $section8->{config('app.locale').'_title'} }}</h2>
-                        <div class="discription">
+                        <div class="discription Psize-14">
                             <p>
                                 {!! $section8->{config('app.locale').'_desc'} !!}
                             </p>
@@ -262,11 +262,11 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- cTrader Desktop Benefits -->
 @php $section9 = $section->where('section_no', 9)->where('status', 1)->first() @endphp
 @if($section9)
-<section class="ctrade-desktop-benefits bg-white side-by-side padding-tb-120 fiXiTrader_box">
+<section class="ctrade-desktop-benefits bg-white side-by-side padding-tb-120 fiXiTrader_box ctrader-benefits-area">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-sm-12 col-lg-6 col-md-6  ">
-                <div class="section-head">
+            <div class="col-sm-12 col-lg-6 col-md-6">
+                <div class="section-head mbd-20">
                     <h2 class="max-w-427">{{ $section9->{config('app.locale').'_title'} }}</h2>
                     {!! $section9->{config('app.locale').'_desc'} !!}
                 </div>
@@ -284,9 +284,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- System Requirements -->
 @php $section10 = $section->where('section_no', 10)->where('status', 1)->first() @endphp
 @if($section10)
-<section class="cTrader-desktop-f pb-0 reward-wrapper whsection-text">
+<section class="cTrader-desktop-f pb-0 reward-wrapper whsection-text ctrader-sys-inner">
     <div class="container">
-        <div class="fixi-features-herobox cTrader-ios-trade-herobox">
+        <div class="fixi-features-herobox cTrader-ios-trade-herobox ptb-50">
             <div class="col-12">
                 <div class="system-requirements-inner mt-0 mb-0">
                     <div class="row align-items-center">
@@ -313,7 +313,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- Notes section  -->
 @php $section11 = $section->where('section_no', 11)->where('status', 1)->first() @endphp
 @if($section11)
-<section class="notes-wrapper padding-tb-120">
+<section class="notes-wrapper padding-tb-120 bgsize-100 bottom-note-trade">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -324,7 +324,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                                 {!! $section11->{config('app.locale').'_title'} !!}
                             </h4>
                         </div>
-                        <div class="discription">
+                        <div class="discription Psize-14">
                             <p>
                                 {!! $section11->{config('app.locale').'_desc'} !!}
                             </p>

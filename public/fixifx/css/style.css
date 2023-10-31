@@ -5580,14 +5580,16 @@ body.darkHeader .dark-header .mobile_logo {
     transform: translate(0);
 }
 
-.mt5-feature-hero .expert-content .accordion-item .accordion-button:not(.collapsed)::after{
+.mt5-feature-hero .expert-content .accordion-item .accordion-button:not(.collapsed)::after,
+.accordion-icon-small .accordion-item .accordion-button:not(.collapsed)::after{
     background-size: 15.5px;
     background-position: center;
 }
 .mt5-feature-hero .expert-content .accordion-item .accordion-button:after{
     top: 17px;
 }
-html[lang="ja"] .mt5-feature-hero .expert-content .accordion-item .accordion-button:after{
+html[lang="ja"] .mt5-feature-hero .expert-content .accordion-item .accordion-button:after,
+html[lang="ja"] .accordion-icon-small .accordion-item .accordion-button::after{
     top: 19px;
 }
 

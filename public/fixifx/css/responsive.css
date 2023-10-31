@@ -13,6 +13,9 @@
     ul.navbar-nav>li:not(:last-child) {
         margin-right: 24px;
     }
+    .ctrader-notrade .fixi-Benefits-herobox::after{
+        right: 0;
+    }
 }
 
 @media(min-width:1320px) and (max-width:1800px){
@@ -127,6 +130,9 @@
         flex-direction: column;
         
     }
+    .ctrader-notrade .fixi-Benefits-herobox::after{
+        right: -12px;
+    }
 }
 
 @media screen and (min-width: 1200px){
@@ -201,6 +207,9 @@
         background-color: #dff3fc; 
         background-image: linear-gradient(to right, #D3E1FC, #DBF2FD) !important;
         background-repeat: no-repeat;
+    }
+    .ctrader-benefits-area .row{
+        flex-direction: inherit !important;
     }
 }
 
@@ -936,7 +945,22 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     body.header_hover .dark-header{
         background-color: #0d1017 !important;
     }
-    
+
+    .bgsize-100::before,
+    .bgsize-100::after{
+        background-size: 100%;
+    }
+    .market-depth.bgsize-100::before{
+        width: 100%;
+        height: 100%;
+    }
+    .ctrader-notrade .fixi-Benefits-herobox::after{
+        right: 0;
+    }
+    .notes-wrapper.bgsize-100:before{
+        left: inherit;
+        right: 0;
+    }
 
     /* end darkmode  */
 
@@ -1152,6 +1176,21 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     }
     .fixi-features-herobox .expert-content .accordion .accordion-item{
         margin-top: 20px;
+    }
+    .bgsize-100::before,
+    .bgsize-100::after{
+        background-size: 100%;
+    }
+    .market-depth.bgsize-100::before{
+        width: 100%;
+        height: 100%;
+    }
+    .ctrader-notrade .fixi-Benefits-herobox::after{
+        right: 0;
+    }
+    .notes-wrapper.bgsize-100:before{
+        left: inherit;
+        right: 0;
     }
 }
 
@@ -1649,7 +1688,9 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         padding-left: 0;
         padding-top: 20px;
     }
-    .mt5-inner-system .contentbox .content-listing li{
+    .mt5-inner-system .contentbox .content-listing li,
+    .ctrader-top-hero .advan-trade-herobox .system-requirements-inner .section-list ul,
+    .ctrader-sys-inner .system-requirements-inner .contentbox .section-list ul{
         grid-template-columns: 1fr;
         gap: 10px;
     }
@@ -1661,7 +1702,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         margin-bottom: 20px;
     }
     .discover-platform-box .platforms-box .imgbox{
-        padding-top: 0;
+        padding-top: 0 !important;
     }
     .get-started-now-box .award-listing-inner .awrad-items .iconbox{
         margin-bottom: 16px;
@@ -1681,7 +1722,8 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .mt5-feature-hero .discription li,
     .mt5-feature-hero .expert-content li,
     .frequently-row-box .frequently-faq-list .accordion-item .accordion-body .discription p, 
-    .fixi-features-herobox .expert-content .accordion .accordion-item .accordion-body .discription p{
+    .fixi-features-herobox .expert-content .accordion .accordion-item .accordion-body .discription p,
+    .Psize-14 p{
         font-size: 14px;
     }
     .mtwindow-trade-wrapper .download-social-trade,
@@ -1697,13 +1739,71 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         padding-top: 50px !important;
         padding-bottom: 50px !important;
     }
-
-    /* .table_wrapper .table tbody tr td:first-child .flag_data{
-        flex-wrap: wrap;
+    .ptop-50{
+        padding-top: 50px !important;
     }
-    .table_wrapper .table tbody tr td, .table_wrapper .table thead tr th{
-        padding: 10px;
-    } */
+    .pbottom-50{
+        padding-bottom: 50px !important;
+    }
+    .ptop-30{
+        padding-top: 30px !important;
+    }
+    .pbottom-30{
+        padding-bottom: 30px !important;
+    }
+    .ptop-0{
+        padding-top: 0 !important;
+    }
+    .pbottom-0,
+    .ctrader-top-hero .download-social-trade{
+        padding-bottom: 0 !important;
+    }
+    .mtop-0{
+        margin-top: 0 !important;
+    }
+    .mbottom-0{
+        margin-bottom: 0 !important;
+    }
+    .mtop-50{
+        margin-top: 50px !important;
+    }
+    .mbottom-50{
+        margin-bottom: 50px !important;
+    }
+    .ctrader-border{
+        margin: 50px 0;
+    }
+    .ctrader-top-hero .advan-trade-herobox h1 + .section-head .discription{
+        margin-bottom: 50px;
+    }
+    .ctrader-top-hero .imgbox{
+        padding-top: 40px !important;
+    }
+    .ctrader-top-hero .advan-trade-herobox .system-requirements-inner{
+        margin: 50px 0 !important;
+        padding: 30px 15px;
+    }
+    .ctrader-sys-inner .system-requirements-inner{
+        padding: 30px 15px;
+    }
+    .ctrader-top-hero .advan-trade-herobox .system-requirements-inner .contentbox,
+    .ctrader-sys-inner .system-requirements-inner .contentbox{
+        padding-left: 0;
+        padding-top: 20px;
+    }
+    .ctrader-top-hero .advan-trade-herobox .system-requirements-inner .section-list ul,
+    .ctrader-sys-inner .system-requirements-inner .contentbox .section-list ul{
+        gap: 16px;
+    }
+    .no-trading-limits.ctrader-notrade{
+        margin-bottom: 190px;
+    }
+    .bottom-note-trade .notes-item{
+        padding: 20px 15px !important;
+    }
+    .bottom-note-trade + section .instant-account-outer{
+        margin: 0 0 -40px;
+    }
    
 }
 
@@ -1826,6 +1926,9 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         font-size: 13px;
         font-weight: 500;
         padding-left: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .dataTables_paginate {

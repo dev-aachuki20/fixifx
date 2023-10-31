@@ -8,7 +8,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+<section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero">
     <div class="container">
         <div class="advan-trade-herobox cTrader-ios-trade-herobox">
             <div class="row align-items-center justify-content-center">
@@ -42,7 +42,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         <!-- end  -->
 
         <!-- features -->
-        <div class="fixi-features-herobox">
+        <div class="fixi-features-herobox ptb-50">
             @php isset($section) ? $section3 = $section->where('section_no', 3)->first() : '' @endphp
             @if($section3)
             <div class="row align-items-center">
@@ -51,10 +51,10 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                         <img src="{{$section3->image ? $section3->image : asset('fixifx/images/iphone.png')}}" alt="tradergo">
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-8 col-md-8 col-sm-12 mt-5 mt-md-0">
                     <div class="expert-support-head">
                         <h2 class="max-w-427">{{ $section3->{config('app.locale').'_title'} }}</h2>
-                        <div class="discription">
+                        <div class="discription Psize-14">
                             <p>
                                 {!! $section3->{config('app.locale').'_desc'} !!}
                             </p>
@@ -62,7 +62,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                     </div>
                     @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
                     @if($section6)
-                    <div class="expert-content">
+                    <div class="expert-content accordion-icon-small">
                         <div class="accordion" id="accordionexpert">
                             {!! $section6->{config('app.locale').'_desc'} !!}
                         </div>
@@ -74,18 +74,18 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         </div>
         <!-- end  -->
 
-        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox">
+        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner">
             <!-- benefits -->
             @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
             @if($section4)
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6  col-sm-12">
-                    <div class="section-head text-white">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="section-head text-white mbd-20">
                         <h2 class="max-w-427 text-white">{{ $section4->{config('app.locale').'_title'} }}</h2>
                         {!! $section4->{config('app.locale').'_desc'} !!}
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6  col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-5 mt-md-0">
                     <div class="side-by-side-img">
                         <img src="{{$section4->image ? $section4->image : asset('fixifx/images/laptop.png')}}" alt="laptop">
                     </div>
@@ -96,7 +96,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
             @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
             @if($section5)
             <div class="col-12">
-                <div class="system-requirements-inner">
+                <div class="system-requirements-inner mtop-50">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-4 col-lg-4">
                             <div class="img-box">
@@ -116,7 +116,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         </div>
         <!-- end  -->
 
-        <div class="frequently-row-box fixi-features-herobox">
+        <div class="frequently-row-box fixi-features-herobox pbottom-50 pt-0">
             @include('front.common.mt4_faq')
             @include('front.layouts.partials.get_started')
         </div>
