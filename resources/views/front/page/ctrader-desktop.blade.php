@@ -26,7 +26,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                                 </div>
                             </div>
                             <div class="col-12 col-md-8 col-lg-8">
-                                <div class="contentbox section-head">
+                                <div class="contentbox section-head icon-position">
                                     <h4>{{ $section2->{config('app.locale').'_title'} }}</h4>
                                     {!! $section2->{config('app.locale').'_desc'} !!}
                                 </div>
@@ -133,7 +133,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                         <a href="{{ getSettingValue('existing_user_link')  }}" class="custom-btn fill-btn">{{ getSettingValue('existing_user_btn_'.config('app.locale')) }}</a>
                     </div>
                 </div>
-                <div class="col-12 col-md-12 col-sm-12 text-center">
+                <div class="col-12 col-md-12 col-lg-9 col-xl-7 col-sm-12 text-center">
                     <div class="imgbox">
                         <img class="img-fluid" src="{{ $section5->image ? $section5->image : asset('fixifxd/images/laptop.png')}}" alt="">
                     </div>
@@ -243,7 +243,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                     </div>
                     @foreach($section8->subSection as $sub_sec_index => $sub_sec)
                     @if($sub_sec->status == 1)
-                    <div class="expert-content">
+                    <div class="expert-content accordion-icon-small">
                         <div class="accordion" id="accordionexpert">
                             {!! $sub_sec->{config('app.locale').'_desc'} !!}
                         </div>
@@ -296,7 +296,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                             </div>
                         </div>
                         <div class="col-12 col-md-8 col-lg-8">
-                            <div class="contentbox section-head">
+                            <div class="contentbox section-head icon-position">
                                 <h4>{{ $section10->{config('app.locale').'_title'} }}</h4>
                                 {!! $section10->{config('app.locale').'_desc'} !!}
                             </div>

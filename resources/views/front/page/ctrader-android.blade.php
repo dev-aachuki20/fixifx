@@ -8,7 +8,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+<section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero">
     <div class="container">
         <div class="advan-trade-herobox cTrader-ios-trade-herobox">
             <div class="row align-items-center justify-content-center">
@@ -28,7 +28,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                             </div>
 
                             <div class="col-12 col-md-8 col-lg-8">
-                                <div class="contentbox section-head">
+                                <div class="contentbox section-head icon-position">
                                     <h4>{{ $section2->{config('app.locale').'_title'} }}</h4>
 
                                     {!! $section2->{config('app.locale').'_desc'} !!}
@@ -43,17 +43,17 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- end  -->
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
         @if($section4)
-        <div class="fixi-features-herobox">
+        <div class="fixi-features-herobox ptb-50">
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
                         <img src="{{$section2->image ? $section2->image : asset('fixifx/images/FiXi-Features.png') }}" alt="tradergo">
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-8 col-md-8 col-sm-12 mt-5 mt-md-0">
                     <div class="expert-support-head">
                         <h2 class="max-w-427">{{ $section4->{config('app.locale').'_title'} }}</h2>
-                        <div class="discription">
+                        <div class="discription Psize-14 whites-color">
                             <p>
                                 {!! $section4->{config('app.locale').'_desc'} !!}
                             </p>
@@ -61,7 +61,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     </div>
                     @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
                     @if($section6)
-                    <div class="expert-content">
+                    <div class="expert-content accordion-icon-small">
                         <div class="accordion" id="accordionexpert">
                             {!! $section6->{config('app.locale').'_desc'} !!}
                         </div>
@@ -72,7 +72,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         </div> 
         @endif
         <!-- end  -->
-        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox">
+        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-top-0">
             <div class="col-12"></div>
             @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
             @if($section5)
@@ -86,7 +86,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         </div>
                     </div>
                     <div class="col-12 col-md-8 col-lg-8">
-                        <div class="contentbox section-head">
+                        <div class="contentbox section-head icon-position">
                             <h4>{{ $section5->{config('app.locale').'_title'} }}</h4>
 
                             {!! $section5->{config('app.locale').'_desc'} !!}
@@ -102,7 +102,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         @include('front.layouts.partials.discover_other_platform')
         <!-- end  -->
 
-        <div class="frequently-row-box fixi-features-herobox">
+        <div class="frequently-row-box fixi-features-herobox pbottom-50 pt-0">
             @include('front.common.mt4_faq')
 
             @include('front.layouts.partials.get_started')

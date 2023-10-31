@@ -1723,7 +1723,8 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .mt5-feature-hero .expert-content li,
     .frequently-row-box .frequently-faq-list .accordion-item .accordion-body .discription p, 
     .fixi-features-herobox .expert-content .accordion .accordion-item .accordion-body .discription p,
-    .Psize-14 p{
+    .Psize-14 p,
+    .Psize-14 div{
         font-size: 14px;
     }
     .mtwindow-trade-wrapper .download-social-trade,
@@ -2120,7 +2121,9 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .specifications-modal .modal-dialog{
         width: calc(100% - 16px);
     }
-    
+    .ctrader-notrade .fixi-Benefits-herobox::after{
+        right: -10px;
+    }
     
 }
 

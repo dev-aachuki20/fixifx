@@ -5747,6 +5747,9 @@ margin-top: 60px;
 .discover-platform-box .platforms-box .imgbox{
     margin-bottom: 30px;
 }
+.whites-color div{
+    color: #fff;
+}
 
 /* end  */
 
@@ -6338,12 +6341,30 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
 .border-bottomfaq{
     border-bottom: 1px solid #213869 !important;
 }
-
-
 .download-social-trade .social-platform ul li a:hover {
     box-shadow: 5px 26px 32px #00000052;
     padding-bottom: 10px;
 }
 
+/*31-10-2023*/
+.icon-position .section-list ul li::before{
+    transform: inherit !important;
+    top: 0 !important;
+}
+.ctrader-notrade::after{
+    content: '';
+    width: 100%;
+    height: 490px;
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+    z-index: -1;
+    background-image: url(../images/dark-lines2.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.ctrader-notrade .fixi-Benefits-herobox::after{
+    display: none;
+}
 
 

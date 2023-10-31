@@ -28,7 +28,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                                 </div>
                             </div>
                             <div class="col-12 col-md-8 col-lg-8">
-                                <div class="contentbox section-head">
+                                <div class="contentbox section-head icon-position">
                                     <h4>{{ $section2->{config('app.locale').'_title'} }}</h4>
                                     {!! $section2->{config('app.locale').'_desc'} !!}
                                 </div>
@@ -74,7 +74,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         </div>
         <!-- end  -->
 
-        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner">
+        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-0">
             <!-- benefits -->
             @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
             @if($section4)
@@ -104,7 +104,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                             </div>
                         </div>
                         <div class="col-12 col-md-8 col-lg-8">
-                            <div class="contentbox section-head">
+                            <div class="contentbox section-head icon-position">
                                 <h4>{{ $section5->{config('app.locale').'_title'} }}</h4>
                                 {!! $section5->{config('app.locale').'_desc'} !!}
                             </div>

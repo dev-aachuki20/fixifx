@@ -28,7 +28,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                                 </div>
                             </div>
                             <div class="col-12 col-md-8 col-lg-8">
-                                <div class="contentbox section-head">
+                                <div class="contentbox section-head icon-position">
                                     <h4>{{ $section2->{config('app.locale').'_title'} }}</h4>
                                     {!! $section2->{config('app.locale').'_desc'} !!}
 
@@ -63,7 +63,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                     </div>
                     @foreach($section3->subSection as $sub_sec_index => $sub_sec)
                     @if($sub_sec->status == 1)
-                    <div class="expert-content">
+                    <div class="expert-content accordion-icon-small">
                         <div class="accordion" id="accordionexpert">
                             {!! $sub_sec->{config('app.locale').'_desc'} !!}
                         </div>
@@ -79,7 +79,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
         <!-- end  -->
 
         <!-- benfits -->
-        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner">
+        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-top-0">
             @php $section7 = $section->where('section_no', 7)->where('status', 1)->first() @endphp
             @if($section7)
             <div class="row align-items-center">
@@ -113,7 +113,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                             </div>
                         </div>
                         <div class="col-12 col-md-8 col-lg-8">
-                            <div class="contentbox section-head">
+                            <div class="contentbox section-head icon-position">
                                 <h4>{{ $section5->{config('app.locale').'_title'} }}</h4>
                                 {!! $section5->{config('app.locale').'_desc'} !!}
                             </div>
