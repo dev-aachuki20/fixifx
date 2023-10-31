@@ -54,7 +54,14 @@ return $target;
                         @if($category->id !== 3 && $category->id !== 7 && $category->id !== 33)
                         <li>
 
-                            <a class="nav-link {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" href="{{ route('page', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => NULL, 'category' => $category->id]) }}" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->{config('app.locale').'_name'}  }}</a>
+                            <a class="nav-link blog-list {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" data-category-id="{{ $category->id }}" data-slug="{{ $slug }}" data-href="{{ route('loadContent', ['locale' => config('app.locale'),'slug' => $slug, 'category' => $category->id]) }}" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->{config('app.locale').'_name'} }}</a>
+
+
+                            {{-- <a class="nav-link blog-list {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" data-category="{{ route('page', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => NULL, 'category' => $category->id]) }}" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->{config('app.locale').'_name'}  }}</a>
+
+                            <a class="nav-link blog-list {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" href="#" data-category="{{ $category->id }}" role="tab" aria-controls="nav-home" aria-selected="true">
+                                {{ $category->{config('app.locale').'_name'} }}
+                            </a> --}}
                         </li>
                         @endif
                         @endforeach
@@ -659,3 +666,39 @@ return $target;
 @include('front.layouts.partials.get_started')
 @endsection
 
+
+@section('javascript')
+<script>
+    $(document).ready(function() {
+        $('.blog-list').on('click', function(e) {
+            e.preventDefault();
+            var url = $(this).data('href');
+            var category_id = $(this).data('category-id');
+            var slug = $(this).data('slug');
+
+
+            $('.blog-list').removeClass('active');
+            $(this).addClass('active');
+
+            // Make an AJAX request
+            $.ajax({
+                url: url,
+                data: {
+                    category_id: category_id,
+                    slug: slug,
+                },
+                dataType: 'json',
+                type: 'GET',
+                success: function(data) {
+                    $('.recentPost-wrapper').html(data.recentPost);
+                    $('.latestData-wrapper').html(data.randomArticles);
+                    $('.mostPopular-wrap').html(data.mostPopularArticles);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
+@endsection

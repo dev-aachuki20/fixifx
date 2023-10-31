@@ -265,12 +265,44 @@ class HomeController extends Controller
         ]);
     }
 
-    // public function loadContent(Request $request) {
+    // public function loadContent(Request $request)
+    // {
     //     // Fetch content based on the selected category (you'll need to implement this part)
-    //     $content = YourModel::getContent($request->category);
+    //     // $content = Article::getContent($request->category);
 
     //     // Return a view (in this case, `partial.content`) with the fetched content
-    //     return view('front.page.prex-blogs', ['content' => $content]);
+    //     // return view('front.page.prex-blogs', ['content' => $content]);
     //     // return view('partial.content', ['content' => $content]);
+
+    //     $category_id = $request->category_id;
+    //     $articles = Article::where('category_id', $category_id)->get();
+    //     dd($articles);
+    //     // return view('front.ajax.category_content', compact('articles'));
     // }
+
+    public function loadContent(Request $request)
+    {
+        $category_id = $request->category_id;
+        $slug = $request->slug;
+        if ($category_id) {
+            $articles = Article::where('category_id', $category_id)
+                ->where('status', 1)
+                ->orderBy('id', 'DESC')
+                ->paginate(10);
+
+            $page = MenuPage::where('slug', $slug)/* ->pluck('id') */->first();
+
+            if ($page) {
+                $random_articles = Article::where('page_id', $page->id)->where('status', 1)->inRandomOrder()->take(8)->get();
+            }
+
+            $recentPost = view('front.page.article_category_list', compact('articles', 'slug'))->render();
+            $randomArticles = view('front.page.random_article_category_list', compact('random_articles', 'slug'))->render();
+            $mostPopularArticles = view('front.page.most_popular_article_category_list', compact('random_articles', 'slug'))->render();
+
+            return response()->json(['recentPost' => $recentPost, 'randomArticles' => $randomArticles, 'mostPopularArticles' => $mostPopularArticles]);
+        }
+
+        return response()->json(['error' => 'Invalid category ID']);
+    }
 }
