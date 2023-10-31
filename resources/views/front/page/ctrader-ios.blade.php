@@ -61,14 +61,15 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                             </p>
                         </div>
                     </div>
-                    @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
-                    @if($section6)
+                    @foreach($section3->subSection as $sub_sec_index => $sub_sec)
+                    @if($sub_sec->status == 1)
                     <div class="expert-content">
                         <div class="accordion" id="accordionexpert">
-                            {!! $section6->{config('app.locale').'_desc'} !!}
+                            {!! $sub_sec->{config('app.locale').'_desc'} !!}
                         </div>
                     </div>
                     @endif
+                    @endforeach
 
 
                 </div>

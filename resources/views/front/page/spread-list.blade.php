@@ -68,22 +68,22 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             transform: rotate(360deg);
         }
     }
-    
+
     .tradersChoose_box .swiper .blogBox-wrap img {
         width: 100%;
     }
-    
-    @media(max-width:767px){
+
+    @media(max-width:767px) {
         .data-table-wrapper .dataTables_scrollHeadInner {
             width: 100% !important;
             min-width: 684px;
         }
-        
+
         html[lang="ja"] .data-table-wrapper .dataTables_scrollHeadInner {
             width: 100% !important;
             min-width: 789px;
         }
-        
+
         .data-table-wrapper .dataTables_scroll {
             clear: both;
             white-space: nowrap;
@@ -92,22 +92,22 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             overflow-x: auto;
             overflow: auto;
         }
-        
+
         .data-table-wrapper .dataTables_scroll .dataTables_scrollHead {
             overflow: visible !important;
         }
-        
+
         .data-table-wrapper .dataTables_scrollHeadInner {
             width: 100% !important;
             min-width: 684px;
         }
-        
-       .data-table-wrapper .dataTables_scrollBody {
+
+        .data-table-wrapper .dataTables_scrollBody {
             white-space: nowrap;
             display: block;
             overflow: visible !important;
         }
-        
+
         .data-table-wrapper table {
             border-bottom: none !important;
             width: 100% !important;
@@ -115,10 +115,10 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
             overflow-x: visible;
             display: block;
         }
-        
+
         table.dataTable thead>tr>th.sorting_desc:before,
-        table.dataTable thead>tr>th.sorting_desc:after{
-                right: 5px;
+        table.dataTable thead>tr>th.sorting_desc:after {
+            right: 5px;
         }
     }
 </style>
@@ -133,7 +133,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 
 <!-- Spreads, Swaps & Commissions -->
-@php $header = $section->where('section_no', 1)->first() @endphp
+@php $header = $section->where('section_no', 1)->where('status', 1)->first() @endphp
 @if($header)
 <section class="bg-white side-by-side padding-tb-120 fiXiTrader_box commissionsBox_wrap">
     <div class="container">
@@ -161,7 +161,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 <!-- end  -->
 
 <!-- FiXi Proudly Offers -->
-@php isset($section) ? $section3 = $section->where('section_no', 3)->first() : '' @endphp
+@php isset($section) ? $section3 = $section->where('section_no', 3)->where('status', 1)->first() : '' @endphp
 @if($section3)
 <section class="proudlyOffers-wrapper padding-tb-120 bg-snow-drift">
     <div class="container">
@@ -182,6 +182,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                 <div class="rightProudly_box">
                     <div class="gridProudly-box">
                         @foreach($section3->subSection as $sub_sec_index => $sub_sec)
+                        @if($sub_sec->status == 1)
                         <div class="gridProudly-item">
                             <div class="icon_box">
                                 <img class="img-fluid" src="{{ asset('front/img/icons/page-icon/Spread-list/'.$sub_sec->icon) }}" alt="{{ spread_list_alt($sub_sec_index, config('app.locale')) }}">
@@ -192,6 +193,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                                 </h6>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                     </div>
                 </div>
@@ -204,7 +206,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 
 <!-- Why Traders Choose the NDD Model -->
-@php isset($section) ? $section4 = $section->where('section_no', 4)->first() : '' @endphp
+@php isset($section) ? $section4 = $section->where('section_no', 4)->where('status', 1)->first() : '' @endphp
 @if($section4)
 <section class="tradersChoose_box padding-tb-120">
     <div class="container">

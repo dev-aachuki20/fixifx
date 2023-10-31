@@ -534,11 +534,10 @@
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
                                     <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
-                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" checked="{{ isset($section8) ? (($section8->status == 1) ? true : false) : true }}">
+                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section8) ? (($section8->status == 1) ? 'checked' : '') : checked }}>
                                 </div>
                             </div>
                         </div>
-
                         <!-- image -->
                         <div class="row">
                             <div class="col-xxl-6 col-md-6 mb-3">
@@ -557,7 +556,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row gy-4">
                             <div class="col-xxl-6 col-md-6">
                                 <div>
@@ -587,6 +585,59 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- subsection -->
+                        @php
+                        $i = 0;
+                        $sub_section8 = $section8->subSection[$i] ?? false;
+                        @endphp
+
+                        @if($sub_section8)
+                        <input type="hidden" name="sub_section[{{$i}}][sub_section_id]" value="{{ $sub_section8->id }}">
+                        @endif
+
+                        <div class="accordion nesting4-accordion custom-accordionwithicon accordion-border-box mt-3" id="sub_sec_{{$i}}">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sub_sec_{{$i}}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub_sec{{$i}}" aria-expanded="false" aria-controls="sub_sec{{$i}}">
+                                        <i class="ri-global-line me-2"></i> Features Point
+                                    </button>
+                                </h2>
+                                <div id="sub_sec{{$i}}" class="accordion-collapse collapse" aria-labelledby="sub_sec_{{$i}}" data-bs-parent="#sub_sec_{{$i}}">
+                                    <div class="accordion-body">
+                                        <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
+                                            <label for="dropdown-base-example" class="form-label text-muted">Status</label>
+                                            <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="sub_section[{{$i}}][status]" {{ $sub_section8 ? (($sub_section8->status == 1) ? 'checked' : '') : 'checked' }}>
+                                        </div>
+
+                                        <!-- description -->
+                                        <div class="row mt-4">
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="dec" class="form-label">Description (English)</label>
+                                                    <textarea name="sub_section[{{$i}}][en_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($sub_section8) ? $sub_section8->en_desc : '') }}</textarea>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="dec" class="form-label">Description (Japanese)</label>
+                                                    <textarea name="sub_section[{{$i}}][ja_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($sub_section8) ? $sub_section8->ja_desc : '') }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <!-- end subsection -->
 
                         <input type="submit" value="Save" class="btn btn-primary my-4">
                     </form>
@@ -618,7 +669,7 @@
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
                                     <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
-                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" checked="{{ isset($section9) ? (($section9->status == 1) ? true : false) : true }}">
+                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section9) ? (($section9->status == 1) ? 'checked' : '') : 'checked' }}>
                                 </div>
                             </div>
                         </div>
@@ -656,6 +707,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="row mt-4">
                             <div class="col-xxl-6 col-md-6">
                                 <div>
@@ -702,7 +754,7 @@
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
                                     <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
-                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" checked="{{ isset($section10) ? (($section10->status == 1) ? true : false) : true }}">
+                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section10) ? (($section10->status == 1) ? 'checked' : '') : 'checked'}}>
                                 </div>
                             </div>
                         </div>
@@ -787,7 +839,7 @@
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
                                     <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
-                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" checked="{{ isset($section11) ? (($section11->status == 1) ? true : false) : true }}">
+                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section11) ? (($section11->status == 1) ? 'checked' : '') : 'checked' }}>
                                 </div>
                             </div>
                         </div>
@@ -829,9 +881,8 @@
         </div>
     </div>
 
-
     <!-- SECTION 12 -->
-    <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec12">
+    {{-- <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec12">
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec12">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_12" aria-expanded="true" aria-controls="sec_12">
@@ -842,44 +893,44 @@
                 <div class="accordion-body">
                     @php isset($section) ? $section12 = $section->where('section_no', 12)->first() : '' @endphp
                     <form action="{{ route('admin.save_section', ['sec_no' => 12]) }}" method="post">
-                        @csrf
-                        <input type="hidden" name="page_id" value="{{$page_id}}">
+    @csrf
+    <input type="hidden" name="page_id" value="{{$page_id}}">
 
-                        @if(isset($section12))
-                        <input type="hidden" name="section_id" value="{{ $section12->id }}">
-                        @endif
+    @if(isset($section12))
+    <input type="hidden" name="section_id" value="{{ $section12->id }}">
+    @endif
 
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
-                                    <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
-                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" checked="{{ isset($section12) ? (($section12->status == 1) ? true : false) : true }}">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row mt-4">
-                            <div class="col-xxl-6 col-md-6">
-                                <div>
-                                    <label for="dec" class="form-label">Description (English)</label>
-                                    <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section12) ? $section12->en_desc : '') }}</textarea>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-xxl-6 col-md-6">
-                                <div>
-                                    <label for="dec" class="form-label">Description (Japanese)</label>
-                                    <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section12) ? $section12->ja_desc : '') }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <input type="submit" value="Save" class="btn btn-primary my-4">
-                    </form>
-                </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
+                <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section12) ? (($section12->status == 1) ? 'checked' : '') : 'checked' }}>
             </div>
         </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col-xxl-6 col-md-6">
+            <div>
+                <label for="dec" class="form-label">Description (English)</label>
+                <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section12) ? $section12->en_desc : '') }}</textarea>
+            </div>
+        </div>
+        <br>
+        <div class="col-xxl-6 col-md-6">
+            <div>
+                <label for="dec" class="form-label">Description (Japanese)</label>
+                <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section12) ? $section12->ja_desc : '') }}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="Save" class="btn btn-primary my-4">
+    </form>
+</div>
+</div>
+</div>
+</div> --}}
 </div>
 
 @endsection

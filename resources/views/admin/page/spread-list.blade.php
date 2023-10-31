@@ -33,7 +33,7 @@
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
                                     <label for="dropdown-base-example" class="form-label text-muted">Status</label>
-                                    <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="status" checked="{{ isset($section2) ? (($section2->status == 2) ? true : false) : true }}">
+                                    <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="status" {{ isset($section2) ? (($section2->status == 1) ? "checked" : "") : "checked" }}>
                                 </div>
                             </div>
                         </div>
@@ -113,8 +113,8 @@
                                 </div>
                             </div>
                         </div>
-                        @for($i=1; $i<=6; $i++) @php $sub_section3=$section3->subSection[$i-1] ?? false @endphp
 
+                        @for($i=1; $i<=6; $i++) @php $sub_section3=$section3->subSection[$i-1] ?? false @endphp
                             @if($sub_section3)
                             <input type="hidden" name="sub_section[{{$i}}][sub_section_id]" value="{{ $sub_section3->id }}">
                             @endif
