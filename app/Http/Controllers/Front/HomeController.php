@@ -88,15 +88,14 @@ class HomeController extends Controller
             $categories = ArticleCategory::all();
             $contacts = ContactPage::where('page_id', $page->id)->get();
             $currency_changes = getAllChangeCurrency();
+
             if ($article_id) {
                 $article = Article::where('id', $article_id)->where('page_id', $page->id)->first();
 
                 if ($article) {
                     $totalViews = $article->views + 1;
                     $article->update(['views' => $totalViews]);
-                }
 
-                if ($article) {
                     if (($slug == 'event-news') || ($slug == 'company-news')) {
                         return view('front.page.event_detail', compact('slug', 'section', 'page', 'menu', 'articles', 'article', 'tags', 'common'));
                     }
@@ -133,6 +132,7 @@ class HomeController extends Controller
             abort(404);
         }
     }
+
 
     public function contactUs(ContactRequest $request)
     {
@@ -264,22 +264,6 @@ class HomeController extends Controller
             'relatedFaqsHtml' => $relatedFaqsHtml,
         ]);
     }
-
-    // public function loadContent(Request $request)
-    // {
-    //     // Fetch content based on the selected category (you'll need to implement this part)
-    //     // $content = Article::getContent($request->category);
-
-    //     // Return a view (in this case, `partial.content`) with the fetched content
-    //     // return view('front.page.prex-blogs', ['content' => $content]);
-    //     // return view('partial.content', ['content' => $content]);
-
-    //     $category_id = $request->category_id;
-    //     $articles = Article::where('category_id', $category_id)->get();
-    //     dd($articles);
-    //     // return view('front.ajax.category_content', compact('articles'));
-    // }
-
     public function loadContent(Request $request)
     {
         $category_id = $request->category_id;

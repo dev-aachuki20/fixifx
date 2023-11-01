@@ -110,68 +110,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                         @endif
                                     </div>
 
-                                    <!-- <div class="projectConcept_box">
-                                        <div class="title">
-                                            <h6>
-                                                Project Concept
-                                            </h6>
-                                        </div>
-                                        <div class="img-box">
-                                            <img class="img-fluid" src="{{asset('fixifx/images/blogDetail01.png')}}" alt="">
-                                        </div>
-                                        <div class="description">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-                                                consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                                dolore.
-                                            </p>
-                                        </div>
-                                        <ul class="projectConcept_box_listing">
-                                            <li>
-                                                <span class="bold_text">The talent at runs wide and deep. Across
-                                                    many markets, geographies & typologies.</span>
-                                            </li>
-                                            <li>
-                                                <span class="bold_text">Our team members are some of the finest
-                                                    professionals in the industry.</span>
-                                            </li>
-                                            <li>
-                                                <span class="bold_text">Organized to deliver the most specialized
-                                                    service possible and enriched by the depth.</span>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-
-                                    <div class="projectConcept_box">
-                                        <div class="title">
-                                            <h6>
-                                                Project Concept
-                                            </h6>
-                                        </div>
-                                        <div class="img-box">
-                                            <img class="img-fluid" src="{{asset('fixifx/images/blogDetail01.png')}}" alt="">
-                                        </div>
-                                        <div class="description">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-                                                consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                                exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            </p>
-                                        </div>
-                                    </div> -->
-                                    <!-- end  -->
-
                                     <div class="noteBox_wrap">
                                         <div class="note_content">
                                             <i>
@@ -184,52 +122,9 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                         </div>
                                     </div>
 
-                                    <!-- <div class="row girdDetail_box">
-                                        <div class="col-12 col-md-6">
-                                            <div class="img-box">
-                                                <img class="img-fluid" src="{{asset('fixifx/images/blog09.png')}}" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="title">
-                                                <h6>
-                                                    Project Concept
-                                                </h6>
-                                            </div>
-                                            <div class="description">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                    enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                    nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-                                                    amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                                    labore et dolore magna aliqua. ullamco laboris nisi ut aliquip
-                                                    ex ea commodo consequat.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="description">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                    enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                    nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-                                                    amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-                                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                                    commodo consequat. Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div> -->
-
                                     <div class="tardingBanner-wrap tardingBanner-gridBox d-flex align-items-center">
                                         <div class="broker-img">
-                                            <img class="img-fluid" src="{{asset('fixifx/images/tardingBanner04.png')}}" alt="">
+                                            <img class="img-fluid" src="" alt="">
                                         </div>
                                         <div class="broker-content">
                                             <div class="broker-slide-title">
@@ -280,7 +175,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                     <div class="authorBox-main">
                                         <div class="authorBox-wrapper">
                                             <div class="authorIcon">
-                                                <img class="img-fluid" src="{{$article->authors->profile ?? asset('fixifx/images/Authoricon.png')}}" alt="">
+                                                <img class="img-fluid" src="" alt="">
                                             </div>
                                             <div class="authorContent">
                                                 <div class="title">
@@ -369,7 +264,8 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                         </div>
 
                                         <div class="swiper-wrapper main_slides">
-                                            @foreach($articles->random()->get() as $randarticle)
+                                            {{-- @foreach($articles->random()->get() as $randarticle) --}}
+                                            @foreach($random_articles as $randarticle)
                                             <div class="swiper-slide items_grid">
                                                 <a href="{{ route('detail', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => $randarticle->id]) }}" class="blogBox-wrap">
                                                     <div class="img-box">
@@ -445,108 +341,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                             <div class="commentBox-listing">
                                                 <ul class="parent_listing">
 
-                                                    <!-- <li>
-                                                        <div class="commentBox-content d-flex align-items-start">
-                                                            <div class="commentLeft">
-                                                                <div class="avtar_icon">
-                                                                    <img class="img-fluid" src="{{asset('fixifx/images/Authoricon01.png')}}" alt="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="commentRight">
-                                                                <div class="avtar_title">
-                                                                    <h6>
-                                                                        Mellisa Doe
-                                                                    </h6>
-                                                                    <span class="date">
-                                                                        Aug 07, 2023
-                                                                    </span>
-                                                                </div>
-                                                                <div class="description">
-                                                                    <p>
-                                                                        Lorem ipsum dolor sit amet, consectetur
-                                                                        adipiscing elit, sed do eiusmod tempor
-                                                                        incididunt ut labore et dolore magna aliqua enim
-                                                                        ad minim veniam, quis nostrud.
-                                                                    </p>
-                                                                </div>
-                                                                <div class="replybtn">
-                                                                    <a href="">
-                                                                        Reply
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="child_listing">
-                                                            <li>
-                                                                <div class="commentBox-content d-flex align-items-start">
-                                                                    <div class="commentLeft">
-                                                                        <div class="avtar_icon">
-                                                                            <img class="img-fluid" src="{{asset('fixifx/images/Authoricon02.png')}}" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="commentRight">
-                                                                        <div class="avtar_title">
-                                                                            <h6>
-                                                                                Jonathon Hall
-                                                                            </h6>
-                                                                            <span class="date">
-                                                                                Aug 07, 2023
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="description">
-                                                                            <p>
-                                                                                Lorem ipsum dolor sit amet, consectetur
-                                                                                adipiscing elit, sed do eiusmod tempor
-                                                                                incididunt ut labore et dolore magna
-                                                                                aliqua enim ad minim veniam, quis
-                                                                                nostrud.
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="replybtn">
-                                                                            <a href="">
-                                                                                Reply
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="commentBox-content d-flex align-items-start">
-                                                                    <div class="commentLeft">
-                                                                        <div class="avtar_icon">
-                                                                            <img class="img-fluid" src="{{asset('fixifx/images/Authoricon03.png')}}" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="commentRight">
-                                                                        <div class="avtar_title">
-                                                                            <h6>
-                                                                                Mellisa Doe
-                                                                            </h6>
-                                                                            <span class="date">
-                                                                                Aug 07, 2023
-                                                                            </span>
-                                                                        </div>
-                                                                        <div class="description">
-                                                                            <p>
-                                                                                Lorem ipsum dolor sit amet, consectetur
-                                                                                adipiscing elit, sed do eiusmod tempor
-                                                                                incididunt ut labore et dolore magna
-                                                                                aliqua enim ad minim veniam, quis
-                                                                                nostrud.
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="replybtn">
-                                                                            <a href="">
-                                                                                Reply
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </li> -->
-
-
                                                     @foreach($article->comments as $comment)
                                                     <li>
                                                         <div class="commentBox-content d-flex align-items-start">
@@ -576,11 +370,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                                                 <div class="description">
                                                                     <p>{{ucwords($comment->message)}}</p>
                                                                 </div>
-                                                                <!-- <div class="replybtn">
-                                                                    <a href="">
-                                                                        Reply
-                                                                    </a>
-                                                                </div> -->
                                                             </div>
                                                         </div>
                                                     </li>
@@ -594,45 +383,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 </div>
 
                                 @include('front.common.leave_reply')
-                                <!-- <div class="col-12">
-                                <div class="postComment-box">
-                                    <div class="title">
-                                        <h4>
-                                            Post Your Comment
-                                        </h4>
-                                    </div>
-                                    <form action="" method="post">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="form-group position-relative">
-                                                    <img class="input-icon" src="{{asset('fixifx/images/form-icon/user.svg')}}" alt="user">
-                                                    <input type="text" placeholder="First Name" class="form-control" name="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="form-group position-relative">
-                                                    <img class="input-icon" src="{{asset('fixifx/images/form-icon/user.svg')}}" alt="user">
-                                                    <input type="text" placeholder="Last Name" class="form-control" name="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                                <div class="form-group position-relative">
-                                                    <img class="input-icon" src="{{asset('fixifx/images/form-icon/email.svg')}}" alt="email">
-                                                    <input type="email" placeholder="Enter your email" class="form-control" name="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                                <div class="form-group position-relative">
-                                                    <textarea placeholder="Enter comment" class="form-control" name=""></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="submit-form">
-                                                <input type="submit" class="custom-btn fill-btn-1" value="Submit Now">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div> -->
+
                         </div>
                     </div>
                     <!-- end latestData -->
@@ -909,8 +660,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
 
 
 @section('javascript')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script src="{{asset('assets/libs/jquery/jquery.validate.min.js')}}"></script>
 <script>
     $(document).ready(function() {
         $('#reply').validate({

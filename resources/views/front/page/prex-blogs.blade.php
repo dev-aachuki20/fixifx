@@ -53,15 +53,7 @@ return $target;
                         @foreach($categories as $category)
                         @if($category->id !== 3 && $category->id !== 7 && $category->id !== 33)
                         <li>
-
                             <a class="nav-link blog-list {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" data-category-id="{{ $category->id }}" data-slug="{{ $slug }}" data-href="{{ route('loadContent', ['locale' => config('app.locale'),'slug' => $slug, 'category' => $category->id]) }}" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->{config('app.locale').'_name'} }}</a>
-
-
-                            {{-- <a class="nav-link blog-list {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" data-category="{{ route('page', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => NULL, 'category' => $category->id]) }}" id="nav-home-tab" data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{ $category->{config('app.locale').'_name'}  }}</a>
-
-                            <a class="nav-link blog-list {{($loop->first && !request()->has('category')) || ($category->id == request()->category) ? 'active' : ''}}" href="#" data-category="{{ $category->id }}" role="tab" aria-controls="nav-home" aria-selected="true">
-                                {{ $category->{config('app.locale').'_name'} }}
-                            </a> --}}
                         </li>
                         @endif
                         @endforeach
