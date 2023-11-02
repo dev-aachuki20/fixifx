@@ -10,17 +10,17 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
 <!-- Hero section  -->
 <section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero">
     <div class="container">
-        <div class="advan-trade-herobox cTrader-ios-trade-herobox">
+        <div class="advan-trade-herobox cTrader-ios-trade-herobox space-bottom-100">
             <div class="row align-items-center justify-content-center">
                 <!-- main heading and desc  -->
                 @include('front.common.sub_header')
 
                 @include('front.common.download_section')
 
-                @php isset($section) ? $section2 = $section->where('section_no', 2)->first() : '' @endphp
+                @php isset($section) ? $section2 = $section->where('section_no', 2)->where('status',1)->first() : '' @endphp
                 @if($section2)
                 <div class="col-12">
-                    <div class="system-requirements-inner">
+                    <div class="system-requirements-inner mb-0">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-4 col-lg-4">
                                 <div class="img-box w-100 mw-100">
@@ -42,8 +42,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         <!-- end  -->
 
         <!-- features -->
-        <div class="fixi-features-herobox ptb-50">
-            @php isset($section) ? $section3 = $section->where('section_no', 3)->first() : '' @endphp
+        <div class="fixi-features-herobox ptb-50 border-bottom-0">
+            @php isset($section) ? $section3 = $section->where('section_no', 3)->where('status',1)->first() : '' @endphp
             @if($section3)
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
@@ -74,7 +74,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         </div>
         <!-- end  -->
 
-        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-0">
+        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-bottom-0">
             <!-- benefits -->
             @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
             @if($section4)

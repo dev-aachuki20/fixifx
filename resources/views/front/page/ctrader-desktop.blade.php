@@ -8,7 +8,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero">
+<section class="reward-wrapper cTrader-ios cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero space-bottom-100">
     <div class="container">
         <div class="advan-trade-herobox cTrader-ios-trade-herobox">
             <div class="row align-items-center justify-content-center">
@@ -18,7 +18,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                 @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
                 @if($section2)
                 <div class="col-12">
-                    <div class="system-requirements-inner">
+                    <div class="system-requirements-inner mb-0">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-4 col-lg-4">
                                 <div class="img-box w-100 mw-100">
@@ -47,9 +47,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- we-trade-wrapper  -->
 @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
 @if($section3)
-<section class="spreads-industry-wrap we-trade-wrapper bg-white padding-top-120 padding-bottom-240 mb-120 bgsize-100 ptb-50 mbottom-0" style="background-image:url('{{ asset('fixifx/images/bg-glob-1.svg') }}');background-repeat: no-repeat; background-position: bottom left;">
+<section class="spreads-industry-wrap we-trade-wrapper bg-white bgsize-100 mbottom-0 space-top-100 space-bottom-100 background-ab-none ctrader-lowest-top" style="background-image:url('{{ asset('fixifx/images/bg-glob-1.svg') }}');background-repeat: no-repeat; background-position: left 123%;">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center space-bottom-100">
             <div class="col-12 col-md-6 col-xl-6">
                 <div class="leftProudly_box">
                     <div class="title">
@@ -75,13 +75,13 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
             </div>
         </div>
         <!-- border  -->
-        <div class="border-padding ctrader-border"></div>
+        <div class="border-padding m-0"></div>
         <!-- end border  -->
 
 
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
         @if($section4)
-        <div class="row align-items-center">
+        <div class="row align-items-center space-top-100">
             <div class="col-12 col-md-6 col-xl-6">
                 <div class="imgbox ptop-0">
                     <img class="img-fluid" src="{{$section4->image ? $section4->image : asset('fixifx/images/Platforms-01.png')}}" alt="">
@@ -115,7 +115,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- No trading limits -->
 @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
 @if($section5)
-<section class="no-trading-limits pb-0 reward-wrapper whsection-text ctrader-notrade">
+<section class="no-trading-limits pb-0 reward-wrapper whsection-text ctrader-notrade background-ab-none">
     <div class="container">
         <div class="fixi-features-herobox fixi-Benefits-herobox b-none ptop-50">
             <div class="row align-items-center justify-content-center">
@@ -146,17 +146,17 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- end  -->
 
 <!-- we-trade-wrapper  -->
-<section class="market-depth we-trade-wrapper bg-white pt-0 padding-bottom-240 mb-120 bgsize-100 mbottom-0 pbottom-50" style="background-image:url('{{ asset('fixifx/images/bg-glob-1-right.png') }}');background-repeat: no-repeat; background-position: bottom right;">
+<section class="market-depth we-trade-wrapper bg-white bgsize-100 space-bottom-100" style="background-image:url('{{ asset('fixifx/images/bg-glob-1-right.png') }}');background-repeat: no-repeat; background-position: right 114%;">
     <div class="container">
         <!-- border  -->
-        <div class="border-padding ctrader-border mtop-0"></div>
+        <div class="border-padding m-0"></div>
         <!-- end border  -->
 
 
         <!-- Level II Pricing – Market Depth -->
         @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
         @if($section6)
-        <div class="row align-items-center">
+        <div class="row align-items-center space-top-100">
             <div class="col-12 col-md-6 col-xl-6">
                 <div class="leftProudly_box">
                     <div class="title">
@@ -180,17 +180,20 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                     <img class="img-fluid" src="{{$section6->image ? $section6->image : asset('fixifx/images/Platforms-01.png')}}" alt="">
                 </div>
             </div>
+            <div class="col-12 space-top-100">
+                <div class="border-padding m-0"></div>
+            </div>
         </div>
         @endif
         <!-- border  -->
-        <div class="border-padding ctrader-border"></div>
+        
         <!-- end border  -->
 
 
         <!-- Smart Stop Out -->
         @php $section7 = $section->where('section_no', 7)->where('status', 1)->first() @endphp
         @if($section7)
-        <div class="row align-items-center">
+        <div class="row align-items-center space-top-100">
             <div class="col-12 col-md-6 col-xl-6">
                 <div class="imgbox ptop-0">
                     <img class="img-fluid" src="{{$section7->image ? $section7->image : asset('fixifx/images/Platforms-01.png')}}" alt="">
@@ -286,7 +289,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 @if($section10)
 <section class="cTrader-desktop-f pb-0 reward-wrapper whsection-text ctrader-sys-inner">
     <div class="container">
-        <div class="fixi-features-herobox cTrader-ios-trade-herobox ptb-50">
+        <div class="fixi-features-herobox cTrader-ios-trade-herobox ptb-50 border-top-0">
             <div class="col-12">
                 <div class="system-requirements-inner mt-0 mb-0">
                     <div class="row align-items-center">

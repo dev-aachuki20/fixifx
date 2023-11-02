@@ -4,6 +4,17 @@
 
 @section('content')
 
+<style>
+
+table#article-table {
+    white-space: nowrap;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+
+</style>
+
 <div class="animated fadeIn">
 
     <div class="row my-3">
@@ -16,11 +27,8 @@
     <!-- ----------- Header Section ------------------- -->
     @include('admin.common.header_section')
 
-    <!-- SECTION 1 -->
-    <!-- @include('admin.common.title_section') -->
-
     <!-- Article Section -->
-    <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="faq">
+    <div class="accordion custom-accordionwithicon accordion-secondary mt-2 mb-2" id="faq">
         <div class="accordion-item">
             <h2 class="accordion-header" id="faq">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"

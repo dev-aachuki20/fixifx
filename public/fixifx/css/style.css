@@ -6366,5 +6366,44 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
 .ctrader-notrade .fixi-Benefits-herobox::after{
     display: none;
 }
+.space-top-100{
+    padding-top: 100px !important;
+}
+.space-bottom-100{
+    padding-bottom: 100px !important;
+}
+.mspace-top-100{
+    margin-top: 100px !important;
+}
+.mspace-bottom-100{
+    margin-bottom: 100px !important;
+}
+.ctrader-newtop .download-social-trade{
+    padding-bottom: 0;
+}
+
+/*02-11-2023*/
+.top-bg-image.mt5-android-trade-wrapper::after{
+    background-size: 100%;
+}
+.top-bg-image.mt5-android-trade-wrapper .ctrader-newtop .imgbox:not(.system-requirements-inner .imgbox){
+    position: relative;
+}
+.top-bg-image.mt5-android-trade-wrapper .ctrader-newtop .imgbox:not(.system-requirements-inner .imgbox):before{
+        content: '';
+    width: 100%;
+    height: 587px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    background-image: url("data:image/svg+xml,%3Csvg width='371' height='587' viewBox='0 0 371 587' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg style='mix-blend-mode:soft-light' filter='url(%23filter0_f_765_13640)'%3E%3Cellipse cx='185.5' cy='293.5' rx='102.5' ry='210.5' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_765_13640' x='0' y='0' width='371' height='587' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur stdDeviation='41.5' result='effect1_foregroundBlur_765_13640'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center;
+    mix-blend-mode: soft-light;
+    filter: blur(41.5px);
+}
+
 
 

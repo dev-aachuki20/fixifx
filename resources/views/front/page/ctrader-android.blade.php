@@ -8,16 +8,16 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero">
+<section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero top-bg-image">
     <div class="container">
-        <div class="advan-trade-herobox cTrader-ios-trade-herobox">
+        <div class="advan-trade-herobox cTrader-ios-trade-herobox ctrader-newtop space-bottom-100">
             <div class="row align-items-center justify-content-center">
 
                 @include('front.common.sub_header')
                 @include('front.common.download_section')
 
                 <div class="col-12">
-                    <div class="system-requirements-inner">
+                    <div class="system-requirements-inner mb-0 mspace-top-100">
                         @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
                         @if($section2)
                         <div class="row">
@@ -47,7 +47,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
-                        <img src="{{$section2->image ? $section2->image : asset('fixifx/images/FiXi-Features.png') }}" alt="tradergo">
+                        <img src="{{$section4->image ? $section4->image : asset('fixifx/images/FiXi-Features.png') }}" alt="tradergo">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-12 mt-5 mt-md-0">

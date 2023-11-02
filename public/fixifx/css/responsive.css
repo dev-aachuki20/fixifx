@@ -1740,10 +1740,12 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         padding-top: 50px !important;
         padding-bottom: 50px !important;
     }
-    .ptop-50{
+    .ptop-50,
+    .space-top-100{
         padding-top: 50px !important;
     }
-    .pbottom-50{
+    .pbottom-50,
+    .space-bottom-100{
         padding-bottom: 50px !important;
     }
     .ptop-30{
@@ -1755,8 +1757,12 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .ptop-0{
         padding-top: 0 !important;
     }
+    /*.pbottom-0,*/
+    /*.ctrader-top-hero .download-social-trade{*/
+    /*    padding-bottom: 0 !important;*/
+    /*}*/
     .pbottom-0,
-    .ctrader-top-hero .download-social-trade{
+    .ctrader-newtop .download-social-trade{
         padding-bottom: 0 !important;
     }
     .mtop-0{
@@ -1765,10 +1771,12 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     .mbottom-0{
         margin-bottom: 0 !important;
     }
-    .mtop-50{
+    .mtop-50,
+    .mspace-top-100{
         margin-top: 50px !important;
     }
-    .mbottom-50{
+    .mbottom-50,
+    .mspace-bottom-100{
         margin-bottom: 50px !important;
     }
     .ctrader-border{
@@ -1781,7 +1789,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
         padding-top: 40px !important;
     }
     .ctrader-top-hero .advan-trade-herobox .system-requirements-inner{
-        margin: 50px 0 !important;
+        margin: 50px 0;
         padding: 30px 15px;
     }
     .ctrader-sys-inner .system-requirements-inner{
@@ -1804,6 +1812,15 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child){
     }
     .bottom-note-trade + section .instant-account-outer{
         margin: 0 0 -40px;
+    }
+    .bottom-note-trade:after,
+    .bottom-note-trade:before,
+    .background-ab-none:after,
+    .background-ab-none:before{
+        display: none;
+    }
+    .ctrader-lowest-top{
+        background-position: left 116% !important;
     }
    
 }
