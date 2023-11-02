@@ -16,10 +16,10 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 @include('front.common.sub_header')
                 @include('front.common.download_section')
 
+                @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
+                @if($section2)
                 <div class="col-12">
                     <div class="system-requirements-inner mb-0 mspace-top-100">
-                        @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
-                        @if($section2)
                         <div class="row">
                             <div class="col-12 col-md-4 col-lg-4">
                                 <div class="img-box">
@@ -35,9 +35,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 </div>
                             </div>
                         </div>
-                        @endif
                     </div>
                 </div>
+                @endif
             </div>
         </div>
         <!-- end  -->
@@ -69,13 +69,13 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     @endif
                 </div>
             </div>
-        </div> 
+        </div>
         @endif
         <!-- end  -->
+        @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
+        @if($section5)
         <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-top-0">
             <div class="col-12"></div>
-            @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-            @if($section5)
             <div class="system-requirements-inner mt-0">
                 <div class="row align-items-center">
                     <div class="col-12 col-md-4 col-lg-4">
@@ -95,8 +95,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     </div>
                 </div>
             </div>
-            @endif
         </div>
+        @endif
         <!-- end  -->
 
         @include('front.layouts.partials.discover_other_platform')
