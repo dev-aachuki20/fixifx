@@ -42,9 +42,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         <!-- end  -->
 
         <!-- features -->
+        @php isset($section) ? $section3 = $section->where('section_no', 3)->where('status',1)->first() : '' @endphp
+        @if($section3)
         <div class="fixi-features-herobox ptb-50 border-bottom-0">
-            @php isset($section) ? $section3 = $section->where('section_no', 3)->where('status',1)->first() : '' @endphp
-            @if($section3)
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
@@ -60,18 +60,19 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                             </p>
                         </div>
                     </div>
-                    @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
-                    @if($section6)
+                    @foreach($section3->subSection as $sub_sec_index => $sub_sec)
+                    @if($sub_sec->status == 1)
                     <div class="expert-content accordion-icon-small">
                         <div class="accordion" id="accordionexpert">
-                            {!! $section6->{config('app.locale').'_desc'} !!}
-                        </div>
+                            {!! $sub_sec->{config('app.locale').'_desc'} !!}
+                        </div>  
                     </div>
                     @endif
+                    @endforeach
                 </div>
             </div>
-            @endif
         </div>
+        @endif
         <!-- end  -->
 
         <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-bottom-0">

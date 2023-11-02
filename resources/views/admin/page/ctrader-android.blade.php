@@ -259,7 +259,7 @@
                                     @if(isset($section5->image))
                                     <input type="hidden" name="image" value="{{$section5->getRawOriginal('image')}}">
                                     @endif
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image" class="form-control custom_img">
 
                                     <img src="{{ isset($section5->image) ? $section5->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
                                     <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>

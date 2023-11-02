@@ -128,7 +128,7 @@
                                     @if(isset($section3->image))
                                     <input type="hidden" name="image" value="{{$section3->getRawOriginal('image')}}">
                                     @endif
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image" class="form-control custom_img">
 
                                     <img src="{{ isset($section3->image) ? $section3->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
                                     <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
@@ -168,6 +168,52 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- subsection -->
+                        @php
+                        $i = 0;
+                        $sub_section3 = $section3->subSection[$i] ?? false;
+                        @endphp
+
+                        @if($sub_section3)
+                        <input type="hidden" name="sub_section[{{$i}}][sub_section_id]" value="{{ $sub_section3->id }}">
+                        @endif
+
+                        <div class="accordion nesting4-accordion custom-accordionwithicon accordion-border-box mt-3" id="sub_sec_{{$i}}">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sub_sec_{{$i}}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub_sec{{$i}}" aria-expanded="false" aria-controls="sub_sec{{$i}}">
+                                        <i class="ri-global-line me-2"></i> Feature Points
+                                    </button>
+                                </h2>
+                                <div id="sub_sec{{$i}}" class="accordion-collapse collapse" aria-labelledby="sub_sec_{{$i}}" data-bs-parent="#sub_sec_{{$i}}">
+                                    <div class="accordion-body">
+                                        <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
+                                            <label for="dropdown-base-example" class="form-label text-muted">Status</label>
+                                            <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="sub_section[{{$i}}][status]" {{ $sub_section3 ? (($sub_section3->status == 1) ? 'checked' : '') : 'checked' }}>
+                                        </div>
+
+                                        <!-- description -->
+                                        <div class="row mt-4">
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="dec" class="form-label">Description (English)</label>
+                                                    <textarea name="sub_section[{{$i}}][en_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($sub_section3) ? $sub_section3->en_desc : '') }}</textarea>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="dec" class="form-label">Description (Japanese)</label>
+                                                    <textarea name="sub_section[{{$i}}][ja_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($sub_section3) ? $sub_section3->ja_desc : '') }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end subsection -->
 
                         <input type="submit" value="Save" class="btn btn-primary my-4">
                     </form>
@@ -212,7 +258,7 @@
                                     @if(isset($section4->image))
                                     <input type="hidden" name="image" value="{{$section4->getRawOriginal('image')}}">
                                     @endif
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image" class="form-control custom_img">
 
                                     <img src="{{ isset($section4->image) ? $section4->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
                                     <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
@@ -296,7 +342,7 @@
                                     @if(isset($section5->image))
                                     <input type="hidden" name="image" value="{{$section5->getRawOriginal('image')}}">
                                     @endif
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image" class="form-control custom_img">
 
                                     <img src="{{ isset($section5->image) ? $section5->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
                                     <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
@@ -346,7 +392,7 @@
 
 
     <!-- SECTION 6 Feature points -->
-    <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec6">
+    {{-- <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec6">
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec6">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_6" aria-expanded="true" aria-controls="sec_6">
@@ -357,44 +403,44 @@
                 <div class="accordion-body">
                     @php isset($section) ? $section6 = $section->where('section_no', 6)->first() : '' @endphp
                     <form action="{{ route('admin.save_section', ['sec_no' => 6]) }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="page_id" value="{{$page_id}}">
+    @csrf
+    <input type="hidden" name="page_id" value="{{$page_id}}">
 
-                        @if(isset($section6))
-                        <input type="hidden" name="section_id" value="{{ $section6->id }}">
-                        @endif
+    @if(isset($section6))
+    <input type="hidden" name="section_id" value="{{ $section6->id }}">
+    @endif
 
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
-                                    <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
-                                    <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section6) ? (($section6->status == 1) ? 'checked' : '') : 'checked' }}>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-xxl-6 col-md-6">
-                                <div>
-                                    <label for="dec" class="form-label">Description (English)</label>
-                                    <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section6) ? $section6->en_desc : '') }}</textarea>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="col-xxl-6 col-md-6">
-                                <div>
-                                    <label for="dec" class="form-label">Description (Japanese)</label>
-                                    <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section6) ? $section6->ja_desc : '') }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <input type="submit" value="Save" class="btn btn-primary my-4">
-                    </form>
-                </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
+                <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
+                <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section6) ? (($section6->status == 1) ? 'checked' : '') : 'checked' }}>
             </div>
         </div>
     </div>
+
+    <div class="row mt-4">
+        <div class="col-xxl-6 col-md-6">
+            <div>
+                <label for="dec" class="form-label">Description (English)</label>
+                <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section6) ? $section6->en_desc : '') }}</textarea>
+            </div>
+        </div>
+        <br>
+        <div class="col-xxl-6 col-md-6">
+            <div>
+                <label for="dec" class="form-label">Description (Japanese)</label>
+                <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section6) ? $section6->ja_desc : '') }}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="Save" class="btn btn-primary my-4">
+    </form>
+</div>
+</div>
+</div>
+</div> --}}
 </div>
 
 @endsection
