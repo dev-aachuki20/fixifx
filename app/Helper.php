@@ -126,7 +126,8 @@ function getAllChangeCurrency()
 
 function getChangeRate($source)
 {
-    $access_key = env('CURRENCY_KEY');
+    $access_key = "156008d1a480152fc96284714da5a892"; //env('CURRENCY_KEY');
+    // $access_key = config('app.currency_key'); //env('CURRENCY_KEY');
     if ($source == 'EUR') {
         $currencies = 'USD,JPY,GBP';
     } else if ($source == 'USD') {

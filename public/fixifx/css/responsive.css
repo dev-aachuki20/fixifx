@@ -172,7 +172,7 @@
     }
     ul.navbar-nav li.nav-item.dropdown .mega-menu .container{
         transform: translateY(20px);
-        transition: all .20s;
+        /*transition: all .20s;*/
     }
     ul.navbar-nav li.nav-item.dropdown .nav-link.show+.mega-menu .container{
         transform: translateY(0px);

@@ -492,6 +492,10 @@ ul.navbar-nav>li {
 /*    color: var(--color-aqua-marine);*/
 /*}*/
 
+ul.navbar-nav>li.nav-item>a:hover{
+    color: var(--color-aqua-marine);
+}
+
 ul.navbar-nav .nav-link.active {
     color: var(--color-aqua-marine);
 }
