@@ -486,9 +486,13 @@ ul.navbar-nav>li {
     position: inherit;
 }
 
-ul.navbar-nav .nav-link.active,
-ul.navbar-nav .nav-link:hover,
-ul.navbar-nav>li.nav-item>a:hover {
+/*ul.navbar-nav .nav-link.active,*/
+/*ul.navbar-nav .nav-link:hover,*/
+/*ul.navbar-nav>li.nav-item>a:hover {*/
+/*    color: var(--color-aqua-marine);*/
+/*}*/
+
+ul.navbar-nav .nav-link.active {
     color: var(--color-aqua-marine);
 }
 
@@ -807,26 +811,26 @@ li.nav-item.language-box ul li>a img {
     display: none;
 }
 
-@media(min-width:1200px){
+/*@media(min-width:1200px){*/
 
-    .navbar .dropdown:hover>.mega-menu {
-        opacity: 1;
-        top: 85px;
-        visibility: visible;
-        z-index: 999999999;
-    }
-    .navbar .dropdown .dropdown:hover>ul {
-        opacity: 1;
-        top: 0;
-        left: 100%;
-        visibility: visible;
-    }
-    .navbar .dropdown:hover>ul {
-        opacity: 1;
-        top: 100%;
-        visibility: visible;
-    }    
-}
+/*    .navbar .dropdown:hover>.mega-menu {*/
+/*        opacity: 1;*/
+/*        top: 85px;*/
+/*        visibility: visible;*/
+/*        z-index: 999999999;*/
+/*    }*/
+/*    .navbar .dropdown .dropdown:hover>ul {*/
+/*        opacity: 1;*/
+/*        top: 0;*/
+/*        left: 100%;*/
+/*        visibility: visible;*/
+/*    }*/
+/*    .navbar .dropdown:hover>ul {*/
+/*        opacity: 1;*/
+/*        top: 100%;*/
+/*        visibility: visible;*/
+/*    }    */
+/*}*/
 
 .header-btns ul li:not(:last-child) {
     margin-right: 15px;
@@ -842,17 +846,17 @@ li.nav-item.dropdown>a:after {
     border: none;
     vertical-align: middle;
     filter: brightness(0);
-    transition: all .6s;
+    transition: all .15s;
 }
 
-li.nav-item.dropdown>a:hover {
-    color: var(--color-aqua-marine);
-}
+/*li.nav-item.dropdown>a:hover {*/
+/*    color: var(--color-aqua-marine);*/
+/*}*/
 
-li.nav-item.dropdown>a:hover::after {
-    filter: initial !important;
-    transform: rotate(180deg);
-}
+/*li.nav-item.dropdown>a:hover::after {*/
+/*    filter: initial !important;*/
+/*    transform: rotate(180deg);*/
+/*}*/
 
 .search-icon {
     margin-right: 0;
@@ -6351,6 +6355,9 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
     transform: inherit !important;
     top: 0 !important;
 }
+html[lang="ja"] .icon-position .section-list ul li::before{
+    top: 2px !important;
+}
 .ctrader-notrade::after{
     content: '';
     width: 100%;
@@ -6404,6 +6411,28 @@ html[lang="ja"] .blog-detail .bioData-blog .bioData-blog-link span svg {
     mix-blend-mode: soft-light;
     filter: blur(41.5px);
 }
-
-
+.before-none:before{
+    display: none;
+}
+.after-none:after{
+    display: none;
+}
+.ctrader-sys-inner.before-none .system-requirements-inner .img-box{
+    max-width: 410px;
+}
+.discover-next-border + .discover-platform-box{
+    border-top: 1px solid #213869;
+}
+.cdesktop-note-trade::after{
+    bottom: -230px;
+}
+.cdesktop-note-trade{
+    padding-bottom: 0 !important;
+}
+.next-div + section{
+    padding-top: 100px;
+}
+.ctrader-benefits-area + .next-div + section{
+    padding-top: 0;
+}
 

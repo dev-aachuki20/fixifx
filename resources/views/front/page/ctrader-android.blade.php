@@ -10,7 +10,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 <!-- Hero section  -->
 <section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero top-bg-image">
     <div class="container">
-        <div class="advan-trade-herobox cTrader-ios-trade-herobox ctrader-newtop space-bottom-100">
+        <div class="advan-trade-herobox cTrader-ios-trade-herobox ctrader-newtop space-bottom-100 discover-next-border">
             <div class="row align-items-center justify-content-center">
 
                 @include('front.common.sub_header')
@@ -43,7 +43,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- end  -->
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
         @if($section4)
-        <div class="fixi-features-herobox ptb-50">
+        <div class="fixi-features-herobox ptb-50 border-bottom-0 discover-next-border">
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
@@ -74,7 +74,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- end  -->
         @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
         @if($section5)
-        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-top-0">
+        <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-bottom-0 discover-next-border">
             <div class="col-12"></div>
             <div class="system-requirements-inner mt-0">
                 <div class="row align-items-center">

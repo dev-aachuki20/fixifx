@@ -316,7 +316,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 <!-- Notes section  -->
 @php $section11 = $section->where('section_no', 11)->where('status', 1)->first() @endphp
 @if($section11)
-<section class="notes-wrapper padding-tb-120 bgsize-100 bottom-note-trade">
+<section class="notes-wrapper padding-tb-120 bgsize-100 bottom-note-trade cdesktop-note-trade">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -339,5 +339,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
     </div>
 </section>
 @endif
+<div class="next-div"></div>
 <!-- end  -->
 @endsection

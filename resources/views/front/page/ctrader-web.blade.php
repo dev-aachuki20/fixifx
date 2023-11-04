@@ -74,11 +74,11 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         </div>
         @endif
         <!-- end  -->
-
+    
+        @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
+            @if($section4)
         <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-bottom-0">
             <!-- benefits -->
-            @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
-            @if($section4)
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="section-head text-white mbd-20">
@@ -92,29 +92,32 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                     </div>
                 </div>
             </div>
-            @endif
-
-            @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
+        </div>
+        @endif
+         @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
             @if($section5)
-            <div class="col-12">
-                <div class="system-requirements-inner mtop-50">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4 col-lg-4">
-                            <div class="img-box">
-                                <img class="img-fluid" src="{{$section5->image ? $section5->image : asset('fixifx/images/platforms01.png')}}" alt="">
+        <div class="fixi-features-herobox cTrader-ios-trade-herobox pbottom-50 ctrader-sys-inner border-0 before-none pt-0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="system-requirements-inner m-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-4 col-lg-4">
+                                <div class="img-box">
+                                    <img class="img-fluid" src="{{$section5->image ? $section5->image : asset('fixifx/images/platforms01.png')}}" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-8 col-lg-8">
-                            <div class="contentbox section-head icon-position">
-                                <h4>{{ $section5->{config('app.locale').'_title'} }}</h4>
-                                {!! $section5->{config('app.locale').'_desc'} !!}
+                            <div class="col-12 col-md-8 col-lg-8">
+                                <div class="contentbox section-head icon-position">
+                                    <h4>{{ $section5->{config('app.locale').'_title'} }}</h4>
+                                    {!! $section5->{config('app.locale').'_desc'} !!}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @endif
         </div>
+        @endif
         <!-- end  -->
 
         <div class="frequently-row-box fixi-features-herobox pbottom-50 pt-0">
