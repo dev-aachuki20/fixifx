@@ -150,6 +150,7 @@ return [
     'go_to_the_developer_portal_btn'          => '開発者ポータルに移動',
     'talk_to_our_specialist_btn'              => '当社のスペシャリストにご相談ください',
 
-
+    'coming_soon' => '近日公開',
+    'back_to_home' => 'ホームページに戻ります',
 
 ];

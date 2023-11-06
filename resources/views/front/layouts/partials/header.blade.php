@@ -9,7 +9,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
 
 
 <!-- Header  -->
-<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' ? 'dark-header' : '' }}">
+<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' ? 'dark-header' : '' }}">
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="{{ route('page', [config('app.locale'), 'home']) }}">
@@ -77,7 +77,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
                           <h4>{{ $submenu->{config('app.locale').'_name'} }}</h4>
                         </a>
                         <dt class="m-0 mb-3 header-pf-name">
-                          <h3><a href="javascript:void();">{{__('message.overview') }}</a></h3>
+                          <h3><a href="{{ route('page', [config('app.locale'), 'platform-overview']) }}">{{__('message.overview') }}</a></h3>
                         </dt>
                         <dd class="menu-dropdown-col row g-1">
                           @endif
@@ -108,8 +108,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
                           <dl class="col-lg-4 pf-no-margin">
                             <dt class="m-0 mb-3 header-pf-name">
                               <h3>{{ $section4->subSection[2]->{config('app.locale').'_title'} ?? __('message.advan_trade') }}</h3>
-                              {{-- route('page', [config('app.locale'), 'advan-trade']) --}}
-                              <a href="">
+                              <a href="{{ route('page', [config('app.locale'), 'advan-trade']) }}">
                                 <h5 class="overviewtext">{{__('message.overview') }}</h5>
                               </a>
                             </dt>

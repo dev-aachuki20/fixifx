@@ -150,6 +150,10 @@ return [
     'talk_to_our_specialist_btn'              => 'Talk To Our Specialists',
 
 
+    'coming_soon' => 'COMING SOON',
+    'back_to_home' => 'Back To Home Page',
+
+
 
 
 ];

@@ -6,9 +6,10 @@
       request()->route()->parameters['slug'] != 'mt5-android-trader' &&
       request()->route()->parameters['slug'] != 'ctrader-ios' &&
       request()->route()->parameters['slug'] != 'ctrader-android' &&
-      request()->route()->parameters['slug'] != 'ctrader-web')
+      request()->route()->parameters['slug'] != 'ctrader-web' &&
+      request()->route()->parameters['slug'] != 'advan-trade')
       <div class="container">
-        <div class="row"> 
+        <div class="row">
           <div class="col-lg-12 col-sm-12">
             <div class="instant-account-outer text-white instant-account-text-editor">
               {!! getSettingValue('footer_common_'.config('app.locale')) !!}
