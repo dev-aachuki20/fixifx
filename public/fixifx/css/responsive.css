@@ -171,13 +171,33 @@
         color: var(--color-aqua-marine);
     }
     ul.navbar-nav li.nav-item.dropdown .mega-menu .container{
-        transform: translateY(20px);
+        /*transform: translateY(20px);*/
         /*transition: all .20s;*/
+        background-color:#ffffff;
     }
+    
     ul.navbar-nav li.nav-item.dropdown .nav-link.show+.mega-menu .container{
-        transform: translateY(0px);
-        transition: all .20s;
+        /*transform: translateY(0px);*/
+        /*transition: all .20s;*/
+        background-color:#ffffff;
+        -webkit-animation: bounce .5s;
+        animation: bounce .5s;
     }
+    @keyframes bounce{
+        0% {
+            -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+        }
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+    
+    .navbar .dropdown>.mega-menu{
+        transition:none;
+    }
+    
     /*ul.navbar-nav li.nav-item.dropdown>a.show:after{*/
     /*    filter: brightness(0) !important;*/
     /*    transform: rotate(0deg);*/
