@@ -152,6 +152,7 @@ return [
 
     'coming_soon' => 'COMING SOON',
     'back_to_home' => 'Back To Home Page',
+    'fiXi_advanTrade' => 'FiXi AdvanTrade',
 
 
 

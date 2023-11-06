@@ -152,5 +152,6 @@ return [
 
     'coming_soon' => '近日公開',
     'back_to_home' => 'ホームページに戻ります',
+    'fiXi_advanTrade' => 'FiXi アドバントレード',
 
 ];
