@@ -111,7 +111,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 @if($sub_sec->status == 1 && $sub_sec_index < 6) <div class="col-12 col-md-6 col-lg-4">
                     <div class="grid-management-box">
                         <div class="iconbox">
-                            <img class="img-fluid" src="{{$sub_sec->image ? $sub_sec->image : asset('fixifx/images/images/Innovative-icon01.svg')}}" alt="">
+                            <img class="img-fluid" src="{{$sub_sec->image ? $sub_sec->image : asset('fixifx/images/Innovative-icon01.svg')}}" alt="">
                         </div>
                         <div class="title">
                             <h4>
