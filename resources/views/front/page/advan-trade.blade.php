@@ -219,4 +219,29 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 </section>
 <!-- end  -->
 
+<!-- Modal -->
+<div class="modal fade videoplay-modal" id="videoplay" tabindex="-1" aria-labelledby="videoplay" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6l-12 12" />
+                    <path d="M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="video-container">
+                    <!-- __BLOCK__ -->
+                    <video controls autoplay id="video1 modal_video">
+                        <source src="{{$header->video_url ?? ''}}" type="video/mp4">
+                    </video>
+
+                    <!-- __ENDBLOCK__ -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection

@@ -20,8 +20,8 @@
                     <input type="hidden" name="section_id" value="{{ $section1->id }}">
                     @endif
 
-                    <!-- image -->
                     <div class="row">
+                        <!-- image -->
                         <div class="col-xxl-6 col-md-6 mb-3">
                             <label for="title" class="form-label mx-2">Image</label>
                             <div class="s-preview-img my-product-img">
@@ -37,8 +37,33 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- image end -->
+                        <!-- video -->
+                        @if($slug == 'advan-trade')
+                        <div class="col-xxl-6 col-md-6 mb-3">
+                            <label for="video" class="form-label mx-2">Video</label>
+                            <div class="s-preview-img my-product-img videoSelectInput">
+                                @if(isset($section1->video_url))
+                                <input type="hidden" name="video" value="">
+                                @endif
+                                <input type="file" name="video" class="form-control">
+
+                                <video controls class="img-fluid w-100" id="video_preview">
+                                    <source src="{{ isset($section1->video_url) ? $section1->video_url : '' }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                <div class="p-upload-icon">
+                                    <i class="ri-upload-cloud-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        <!-- end video -->
                     </div>
-                    <!-- image end -->
+
+
+
 
                     <div class="row gy-4">
                         <div class="col-xxl-6 col-md-6">
