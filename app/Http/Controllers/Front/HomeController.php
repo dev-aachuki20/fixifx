@@ -31,6 +31,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\ContactRequest;
+use App\Http\Requests\VpsenquiryRequest;
+use App\Mail\VpsFormMail;
+use App\Models\VpsEnquiry;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -288,5 +292,26 @@ class HomeController extends Controller
         }
 
         return response()->json(['error' => 'Invalid category ID']);
+    }
+
+
+    public function vpsEnquiry(VpsenquiryRequest $request)
+    {
+        $vpsenquiry = new VpsEnquiry();
+
+        $vpsenquiry->first_name = $request->fname;
+        $vpsenquiry->last_name = $request->lname;
+        $vpsenquiry->email = $request->email;
+        $vpsenquiry->mobile_number = $request->phone_number;
+        $vpsenquiry->save();
+
+        // Send email to admin
+        $name = $request->fname . ' ' . $request->lname;
+        $email = $request->email;
+        $phoneNumber = $request->phone_number;
+        $email = 'aachukiagarwal.hipl@gmail.com';
+        Mail::to($email)->send(new VpsFormMail($name, $email, $phoneNumber));
+
+        return redirect()->back()->with('success', 'Enquiry Sent !!');
     }
 }

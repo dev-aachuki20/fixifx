@@ -62,6 +62,9 @@ Route::group(['middleware' => 'localization'], function () {
     Route::get('search-faqs', 'HomeController@searchFaqs')->name('search_faqs');
     // ajax
     Route::get('/load-content', 'HomeController@loadContent')->name('loadContent');
+
+    // vps enquiry route
+    Route::post('vps-enquiry', 'HomeController@vpsEnquiry')->name('vps_enquiry');
 });
 
 Route::post('get_rate', 'HomeController@getChangeRate')->name('getChangeRate');

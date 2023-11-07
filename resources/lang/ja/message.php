@@ -153,5 +153,8 @@ return [
     'coming_soon' => '近日公開',
     'back_to_home' => 'ホームページに戻ります',
     'fiXi_advanTrade' => 'FiXi アドバントレード',
+    'downloadpdf' => 'PDFをダウンロード',
+    'findmore' => 'もっと見つけます',
+    'send_request' => 'リクエストの送信',
 
 ];

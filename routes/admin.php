@@ -98,4 +98,7 @@ Route::group(['middleware' => 'auth:admin'],function (){
     Route::post('delete_share', 'HomeController@deleteShare')->name('delete_share');
     Route::post('delete_forex', 'HomeController@deleteForex')->name('delete_forex');
     Route::post('delete_cfd', 'HomeController@deleteCfd')->name('delete_cfd');
+
+    Route::get('vps-user/list', 'HomeController@vpsUser')->name('vps_user');
+
 });

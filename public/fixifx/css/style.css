@@ -1308,6 +1308,15 @@ span.select2-dropdown.select2-dropdown--below {
     left: 17px;
     transform: translateY(-50%);
 }
+.form-group .input-icon-new{
+    position: absolute;
+    top: 20px;
+    left: 17px;
+    height: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
 .form-group .iti__flag-container {
     padding: 10px 20px;

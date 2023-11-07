@@ -27,6 +27,7 @@ use App\DataTables\CfdDataTable;
 use App\DataTables\ForexDataTable;
 use App\DataTables\ShareCategoryDataTable;
 use App\DataTables\ShareDataTable;
+use App\DataTables\VpsUsersDataTable;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\ShareCategoryRequest;
 use App\Http\Requests\ShareRequest;
@@ -773,4 +774,10 @@ class HomeController extends Controller
 
         return $share->delete();
     }
+
+    public function vpsUser(VpsUsersDataTable $dataTable)
+    {
+        return $dataTable->render('admin.vps_users');
+    }
+
 }
