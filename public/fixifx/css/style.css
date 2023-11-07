@@ -5077,11 +5077,11 @@ body.darkHeader .dark-header .mobile_logo {
     color: var(--color-white);
 }
 
-.tailor-environment {
+/* .tailor-environment {
     background-image: url(../images/tailor-environment-bg.png);
     background-size: cover;
     background-position: bottom;
-}
+} */
 
 .connect-account-wrapper .section-head h2{
     margin-bottom: 20px;
