@@ -6452,6 +6452,9 @@ html[lang="ja"] .icon-position .section-list ul li::before{
 .ctrader-benefits-area + .next-div + section{
     padding-top: 0;
 }
+.manual-listing .manual-listing-wrap-link .manual-listing-box-title svg{
+    width: 14px;
+}
 
 
 /* coming soon page */

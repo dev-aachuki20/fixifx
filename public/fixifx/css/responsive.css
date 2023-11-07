@@ -1968,8 +1968,12 @@
     .bottom-note-trade .notes-item {
         padding: 20px 15px !important;
     }
+<<<<<<< Updated upstream
 
     .bottom-note-trade+section .instant-account-outer {
+=======
+    .instant-account-outer{
+>>>>>>> Stashed changes
         margin: 0 0 -40px;
     }
 
@@ -1987,7 +1991,14 @@
     .top-bg-image.mt5-android-trade-wrapper::after {
         background-size: auto;
     }
+<<<<<<< Updated upstream
 
+=======
+    .manual-listing .manual-listing-wrap-link .manual-listing-box-title>h4{
+        margin-bottom: 0; 
+    }
+   
+>>>>>>> Stashed changes
 }
 
 @media(max-width:575px) {
@@ -2310,11 +2321,18 @@
     .ctrader-notrade .fixi-Benefits-herobox::after {
         right: -10px;
     }
+<<<<<<< Updated upstream
 
     .form-group .input-icon-new {
         top: 15px;
     }
 
+=======
+    .manual-listing .manual-listing-wrap-link .manual-listing-content-inner .title{
+        text-align: center;
+    }
+    
+>>>>>>> Stashed changes
 }
 
 @media(max-width:400px) {
