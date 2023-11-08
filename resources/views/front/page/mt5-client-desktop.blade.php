@@ -8,7 +8,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するMetaTrader5(MT5)�
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper mtwindow-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+<section class="reward-wrapper mtwindow-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center before-nonemob">
     <div class="container">
         <div class="advan-trade-herobox">
             <div class="row align-items-center justify-content-center">

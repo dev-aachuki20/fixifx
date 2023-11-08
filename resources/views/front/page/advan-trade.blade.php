@@ -8,9 +8,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper advan-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+<section class="reward-wrapper advan-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center before-nonemob">
     <div class="container">
-        <div class="advan-trade-herobox">
+        <div class="advan-trade-herobox pbottom-50">
             <div class="row align-items-center justify-content-center">
                 @php $header = $section->where('section_no', 1)->first() @endphp
                 @if($header)
@@ -25,9 +25,10 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-sm-12 text-center">
-                    <div class="video-banner">
-                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#videoplay">
+                    <div class="video-banner advan-video-area">
+                        <a href="javascript:void(0);">
                             <img class="img-fluid" src="{{$header && $header->image ? $header->image : asset('fixifx/images/video-banner.svg')}}" alt="">
+                            <span class="vplay-icon" data-bs-toggle="modal" data-bs-target="#videoplay"><img src="{{asset('fixifx/images/play-icon.svg')}}" alt=""></span>
                         </a>
                     </div>
                 </div>
@@ -41,14 +42,14 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- FiXi MT5 Features -->
         @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
         @if($section2)
-        <div class="fixi-features-herobox">
+        <div class="fixi-features-herobox ptb-50">
             <div class="row align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12">
                     <div class="side-by-side-img">
                         <img src="{{$section2 && $section2->image ? $section2->image : asset('fixifx/images/FiXi-Features.png')}}" alt="tradergo">
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="col-lg-8 col-md-8 col-sm-12 mt-5 mt-md-0">
                     <div class="expert-support-head">
                         <h2 class="max-w-427">{{ $section2->{config('app.locale').'_title'} }}</h2>
                         <div class="discription">
@@ -74,15 +75,15 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- benefits -->
         @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
         @if($section3)
-        <div class="fixi-features-herobox fixi-Benefits-herobox">
+        <div class="fixi-features-herobox fixi-Benefits-herobox border-top-0 ptb-50">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-12">
-                    <div class="section-head text-white">
+                    <div class="section-head text-white mbd-20">
                         <h2 class="max-w-427 text-white">{{ $section3->{config('app.locale').'_title'} }}</h2>
                         {!! $section3->{config('app.locale').'_desc'} !!}
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-6 col-sm-12 mt-5 mt-md-0">
                     <div class="side-by-side-img">
                         <img src="{{$section3->image ? $section3->image : asset('fixifx/images/laptop.png')}}" alt="laptop">
                     </div>
@@ -95,7 +96,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- risk section -->
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
         @if($section4)
-        <div class="risk-management-herobox">
+        <div class="risk-management-herobox ptb-50">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-7 col-md-7 col-sm-12 justify-content-center">
                     <div class="expert-support-head text-center">
@@ -149,76 +150,40 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
     <!-- dummy section Discover the full FixiFx offering-->
     @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
     @if($section5)
-    <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox">
-        <div class="row">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-sm-12">
-                    <div class="section-head text-center">
-                        <h2 class="max-w-427">{{ $section5->{config('app.locale').'_title'} }}</h2>
-                        <div class="discription">
-                            <p>{!! $section5->{config('app.locale').'_desc'} !!}</p>
-                        </div>
+    <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox advan-discover ptb-50 border-top-0">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-sm-12">
+                <div class="section-head text-center">
+                    <h2 class="max-w-427">{{ $section5->{config('app.locale').'_title'} }}</h2>
+                    <div class="discription">
+                        <p>{!! $section5->{config('app.locale').'_desc'} !!}</p>
                     </div>
                 </div>
             </div>
-            <div class="row row-gap-24">
-                @foreach($section5->subSection as $sub_sec_index => $sub_sec)
-                @if($sub_sec->status == 1)
-                <div class="col-12 col-md-4 col-lg-3">
-                    <div class="dummy-box">
-                        <div class="iconbox">
-                            <img class="img-fluid" src="{{$sub_sec->image ? $sub_sec->image : asset('fixifx/images/Innovative-icon04.svg')}}" alt="">
-                        </div>
-                        <div class="title">
-                            <h4>
-                                {{ $sub_sec->{config('app.locale').'_title'} }}
-                            </h4>
-                        </div>
-                        <div class="discription">
-                            <p>{!! $sub_sec->{config('app.locale').'_desc'} !!}</p>
-                        </div>
-                        <a href="#" class="custom-btn fill-btn text-white">{{__('message.read_more')}}</a>
+            <div class="w-100"></div>
+            @foreach($section5->subSection as $sub_sec_index => $sub_sec)
+            @if($sub_sec->status == 1)
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="dummy-box">
+                    <div class="iconbox">
+                        <img class="img-fluid" src="{{$sub_sec->image ? $sub_sec->image : asset('fixifx/images/Innovative-icon04.svg')}}" alt="">
                     </div>
+                    <div class="title">
+                        <h4>
+                            {{ $sub_sec->{config('app.locale').'_title'} }}
+                        </h4>
+                    </div>
+                    <div class="discription">
+                        <p>{!! $sub_sec->{config('app.locale').'_desc'} !!}</p>
+                    </div>
+                    <a href="#" class="custom-btn fill-btn text-white">{{__('message.read_more')}}</a>
                 </div>
-                @endif
-                @endforeach
             </div>
+            @endif
+            @endforeach
         </div>
 
-        @php $faqs = App\Models\Faq::where('page_id', 49)->get() @endphp
-        <div class="row  frequently-row-box justify-content-center pat-50">
-            <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
-                <div class="text-center justify-content-center d-flex">
-                    <h2 class="max-w-427 text-center">{{__('message.faq')}}</h2>
-                </div>
-            </div>
-
-            <div class="col-12 frequently-faq-list">
-                <div class="expert-content">
-                    <div class="accordion" id="accordionfrequently">
-                        @foreach($faqs as $index => $faq)
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expert{{$index}}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="expert{{ $index }}">
-                                    {{ $faq->{config('app.locale').'_question'} }}
-                                </button>
-                            </h2>
-                            <div id="expert{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#accordionfrequently">
-                                <div class="accordion-body">
-                                    <div class="expert-inner-content">
-                                        <div class="discription">
-                                            {!! $faq->{config('app.locale').'_answer'} !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        @include('front.common.mt4_faq')
 
     </div>
     @endif

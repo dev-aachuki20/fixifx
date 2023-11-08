@@ -5757,7 +5757,7 @@ margin-top: 60px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.14);
     background: rgba(255, 255, 255, 0.08);
-    padding: 40px 0;
+    padding: 40px 40px;
     text-align: center;
 }
 
@@ -6534,23 +6534,57 @@ body{
 .comingsoonpage .innerfluid .buttongroup .homeBtn .arrowIMg img {
     height: 100%;
 }
+.advan-discover>.row:not(.frequently-row-box){
+    row-gap: 0;
+}
+.advan-discover .section-head{
+    padding-bottom: 25px;
+}
+.advan-video-area{
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 20px;
+    padding: 54px;
+    background-color: rgba(255, 255, 255, 0.06);
+    position: relative;
+}
+.advan-video-area .vplay-icon{
+    width: 66px;
+    height: 66px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 7px;
+}
+.advan-video-area .vplay-icon img{
+    width: 23px !important;
+}
+
+
+
 @media screen and (max-width: 768px) {
-.comingsoonpage .innerfluid .transparentHeading{
-    /* font-size: 10vw; */
-    width: 80vw;
-}
-.comingsoonpage .innerfluid .coming_heading{
-    font-size: 7vw;
-}
-.comingsoonpage .innerfluid .buttongroup .homeBtn {
-    margin-top: 3vw;
-    gap: 0.8vw;
-    font-size: 1.5vw;
-    padding: 1.2vw 1.5vw;
-    border-radius: 0.5vw;
-}
-.comingsoonpage .innerfluid .buttongroup .homeBtn .arrowIMg{
-    height: 1.5vw;
-}
+    .comingsoonpage .innerfluid .transparentHeading{
+        /* font-size: 10vw; */
+        width: 80vw;
+    }
+    .comingsoonpage .innerfluid .coming_heading{
+        font-size: 7vw;
+    }
+    .comingsoonpage .innerfluid .buttongroup .homeBtn {
+        margin-top: 3vw;
+        gap: 0.8vw;
+        font-size: 1.5vw;
+        padding: 1.2vw 1.5vw;
+        border-radius: 0.5vw;
+    }
+    .comingsoonpage .innerfluid .buttongroup .homeBtn .arrowIMg{
+        height: 1.5vw;
+    }
 }
 

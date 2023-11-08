@@ -8,7 +8,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
 @section('content')
 
 <!-- Hero section  -->
-<section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero top-bg-image">
+<section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero top-bg-image before-nonemob">
     <div class="container">
         <div class="advan-trade-herobox cTrader-ios-trade-herobox ctrader-newtop space-bottom-100 discover-next-border">
             <div class="row align-items-center justify-content-center">

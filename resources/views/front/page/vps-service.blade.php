@@ -129,7 +129,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         </h2>
                     </div>
                     <div class="discription">
-                        <p> {!! $section3->{config('app.locale').'_desc'} !!}</p>
+                        <p> {!! $section4->{config('app.locale').'_desc'} !!}</p>
                     </div>
                     <div class="download_btn">
                         <a href="{{$section4->image}}" target="_blank" class="custom-btn">
