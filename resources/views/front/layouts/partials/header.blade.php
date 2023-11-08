@@ -9,7 +9,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
 
 
 <!-- Header  -->
-<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' || request()->route()->parameters['slug'] === 'vps-service' ? 'dark-header' : '' }}">
+<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' || request()->route()->parameters['slug'] === 'vps-service' || request()->route()->parameters['slug'] === 'third-party-tool' ? 'dark-header' : '' }}">
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="{{ route('page', [config('app.locale'), 'home']) }}">

@@ -65,7 +65,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                     <div class="expert-content accordion-icon-small">
                         <div class="accordion" id="accordionexpert">
                             {!! $sub_sec->{config('app.locale').'_desc'} !!}
-                        </div>  
+                        </div>
                     </div>
                     @endif
                     @endforeach
@@ -74,9 +74,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         </div>
         @endif
         <!-- end  -->
-    
+
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
-            @if($section4)
+        @if($section4)
         <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-bottom-0">
             <!-- benefits -->
             <div class="row align-items-center">
@@ -94,8 +94,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
             </div>
         </div>
         @endif
-         @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-            @if($section5)
+        @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
+        @if($section5)
         <div class="fixi-features-herobox cTrader-ios-trade-herobox pbottom-50 ctrader-sys-inner border-0 before-none pt-0">
             <div class="row">
                 <div class="col-12">
@@ -121,7 +121,40 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         <!-- end  -->
 
         <div class="frequently-row-box fixi-features-herobox pbottom-50 pt-0">
-            @include('front.common.mt4_faq')
+            @php $faqs = App\Models\Faq::where('page_id', 40)->get() @endphp
+            @if($faqs->count() > 0)
+            <div class="row  frequently-row-box justify-content-center pat-50">
+                <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
+                    <div class="text-center justify-content-center d-flex">
+                        <h2 class="max-w-427 text-center">{{__('message.faq')}}</h2>
+                    </div>
+                </div>
+                <div class="col-12 frequently-faq-list">
+                    <div class="expert-content">
+                        <div class="accordion" id="accordionfrequently">
+                            @foreach($faqs as $index => $faq)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expert{{$index}}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="expert{{ $index }}">
+                                        {{ $faq->{config('app.locale').'_question'} }}
+                                    </button>
+                                </h2>
+                                <div id="expert{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#accordionfrequently">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                {!! $faq->{config('app.locale').'_answer'} !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
             @include('front.layouts.partials.get_started')
         </div>
         <!-- end  -->

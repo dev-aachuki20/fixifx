@@ -82,8 +82,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
         <!-- end  -->
 
         <!-- benfits -->
-            @php $section7 = $section->where('section_no', 7)->where('status', 1)->first() @endphp
-            @if($section7)
+        @php $section7 = $section->where('section_no', 7)->where('status', 1)->first() @endphp
+        @if($section7)
         <div class="fixi-features-herobox fixi-Benefits-herobox cTrader-ios-trade-herobox ptb-50 ctrader-sys-inner border-bottom-0 discover-next-border">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -102,15 +102,15 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                 </div>
             </div>
         </div>
-            @endif
+        @endif
         @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-                        @if($section5)
+        @if($section5)
         <div class="fixi-features-herobox cTrader-ios-trade-herobox pbottom-50 ctrader-sys-inner border-0 before-none pt-0 discover-next-border">
             <div class="row">
                 <div class="col-12">
                     <div class="system-requirements-inner m-0">
                         <div class="row align-items-center">
-                            
+
                             <div class="col-12 col-md-4 col-lg-4">
                                 <div class="img-box">
                                     @if($section5->image)
@@ -124,7 +124,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                                     {!! $section5->{config('app.locale').'_desc'} !!}
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,40 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
         <!-- end  -->
 
         <div class="frequently-row-box fixi-features-herobox pbottom-50 pt-0">
-            @include('front.common.mt4_faq')
+            @php $faqs = App\Models\Faq::where('page_id', 39)->get() @endphp
+            @if($faqs->count() > 0)
+            <div class="row  frequently-row-box justify-content-center pat-50">
+                <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
+                    <div class="text-center justify-content-center d-flex">
+                        <h2 class="max-w-427 text-center">{{__('message.faq')}}</h2>
+                    </div>
+                </div>
+                <div class="col-12 frequently-faq-list">
+                    <div class="expert-content">
+                        <div class="accordion" id="accordionfrequently">
+                            @foreach($faqs as $index => $faq)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expert{{$index}}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="expert{{ $index }}">
+                                        {{ $faq->{config('app.locale').'_question'} }}
+                                    </button>
+                                </h2>
+                                <div id="expert{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#accordionfrequently">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                {!! $faq->{config('app.locale').'_answer'} !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
             @include('front.layouts.partials.get_started')
         </div>
         <!-- end  -->

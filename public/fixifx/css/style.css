@@ -6534,9 +6534,14 @@ body{
 .comingsoonpage .innerfluid .buttongroup .homeBtn .arrowIMg img {
     height: 100%;
 }
+
 .advan-discover>.row:not(.frequently-row-box){
     row-gap: 0;
 }
+.manual-listing .manual-listing-wrap-link .manual-listing-box-title>h4 {
+    margin-bottom: 0;
+}
+
 .advan-discover .section-head{
     padding-bottom: 25px;
 }

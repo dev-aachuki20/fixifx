@@ -203,7 +203,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group position-relative">
-                                    <div class="input-icon-new"><img class="" src="{{asset('fixifx/images/form-icon/user.svg')}}" alt="user"></div>
+                                        <div class="input-icon-new"><img class="" src="{{asset('fixifx/images/form-icon/user.svg')}}" alt="user"></div>
                                         <input type="text" placeholder="{{__('message.last_name')}}" class="form-control" name="lname" id="lname">
                                         @if($errors->has('lname'))
                                         <span style="color: red;">{{ $errors->first('lname') }}</span>
@@ -212,7 +212,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group position-relative">
-                                    <div class="input-icon-new"><img class="" src="{{asset('fixifx/images/form-icon/email.svg')}}" alt="email"></div>
+                                        <div class="input-icon-new"><img class="" src="{{asset('fixifx/images/form-icon/email.svg')}}" alt="email"></div>
                                         <input type="email" placeholder="{{__('message.enter_email')}}" class="form-control" name="email" id="email">
                                         @if($errors->has('email'))
                                         <span style="color: red;">{{ $errors->first('email') }}</span>
