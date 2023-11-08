@@ -224,6 +224,11 @@ var swiper = new Swiper('.traders_slides', {
 
 
 $(document).ready(function(){
+    
+     $('.language-box').on('click', function(event){
+            event.stopPropagation();
+        });
+    
     if ($(window).width() < 1200) {
        $('.dropdown-menu .container').on('click', function(event){
             event.stopPropagation();

@@ -27,18 +27,20 @@
             <div class="img-box">
               <img class="img-fluid" @if($section4->image && $section4->image != null) src="{{ asset($section4->image) }}" @else src="{{ asset('fixifx/images/Platforms-01.png') }} @endif alt="{{ config('app.locale') == 'ja' ? 'cTrader - スプレッドが狭いFX海外口座FiXi FX（フィクシー）' : 'cTrader - FiXi FX' }}">
             </div>
-            <div class="trade-grid-list">
+            <div class="trade-grid-list home-forex-list">
 
               @foreach($section4->subSection as $sub_sec_index => $sub_sec)
               @if($sub_sec->status == 1)
               <div class="trade-item meta-trader">
-                <div class="trade-logo">
-                  <img class="img-fluid" src="{{$sub_sec->image ? $sub_sec->image : asset('fixifx/images/Meta-Trader.png') }}" alt="{{ config('app.locale') == 'ja' ? 'Meta Trader 5 (MT5) - スプレッドが狭いFX海外口座FiXi FX（フィクシー）' : 'Meta Trader (MT5) - FiXi FX' }}">
-                </div>
-                <div class="download-text">
-                  <h6>
-                    {{ $sub_sec->{config('app.locale').'_title'} }}
-                  </h6>
+                <div>
+                    <div class="trade-logo">
+                      <img class="img-fluid" src="{{$sub_sec->image ? $sub_sec->image : asset('fixifx/images/Meta-Trader.png') }}" alt="{{ config('app.locale') == 'ja' ? 'Meta Trader 5 (MT5) - スプレッドが狭いFX海外口座FiXi FX（フィクシー）' : 'Meta Trader (MT5) - FiXi FX' }}">
+                    </div>
+                    <div class="download-text">
+                      <h6>
+                        {{ $sub_sec->{config('app.locale').'_title'} }}
+                      </h6>
+                    </div>
                 </div>
                 <div class="social-platform">
                   <ul>

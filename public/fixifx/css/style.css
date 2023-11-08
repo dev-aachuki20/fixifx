@@ -6571,6 +6571,15 @@ body{
     width: 23px !important;
 }
 
+.home-forex-list .trade-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+}
+.home-forex-list .trade-item .social-platform{
+    flex: 0 0 100%;
+}
 
 
 @media screen and (max-width: 768px) {
