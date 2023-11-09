@@ -183,7 +183,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         </h2>
                     </div>
                     <div class="discription">
-                        <p> {!! $section5->{config('app.locale').'_desc'} !!}</p>
+                        <p> {!! $section6->{config('app.locale').'_desc'} !!}</p>
                     </div>
 
                     <!-- vps service form -->

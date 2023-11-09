@@ -29,6 +29,17 @@
                 </li>
             </ul>
         </div>
+
+        @if($slug == "advan-trade")
+        <div class="download-platform">
+            <a href="javascript:void();" class="custom-btn fill-btn">{{__('message.download_platform_guide', [], config('app.locale'))}}</a>
+        </div>
+        <div class="subtext">
+            <span>
+                {{__('message.support_six_screen', [], config('app.locale'))}}
+            </span>
+        </div>
+        @endif
     </div>
 </div>
 

@@ -79,6 +79,7 @@
                             </div>
                         </div>
                     </div>
+                    @if($slug != 'advan-trade')
                     <div class="row mt-4">
                         <div class="col-xxl-6 col-md-6">
                             <div>
@@ -94,6 +95,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @if(Route::current()->slug == "introducing-broker")
                     <div class="row mt-4">
                         <div class="col-xxl-6 col-md-6">
