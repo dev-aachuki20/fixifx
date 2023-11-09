@@ -28,7 +28,7 @@
                                 @if(isset($section1->image))
                                 <input type="hidden" name="image" value="{{$section1->getRawOriginal('image')}}">
                                 @endif
-                                <input type="file" name="image" class="form-control custom_img">
+                                <input type="file" accept="image/jpeg,image/png,image/jpg,image/svg" name="image" class="form-control custom_img">
 
                                 <img src="{{ isset($section1->image) ? $section1->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
                                 <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
@@ -46,7 +46,7 @@
                                 @if(isset($section1->video_url))
                                 <input type="hidden" name="video" value="">
                                 @endif
-                                <input type="file" name="video" class="form-control">
+                                <input type="file" accept="video/*" name="video" class="form-control">
 
                                 <video controls class="img-fluid w-100" id="video_preview">
                                     <source src="{{ isset($section1->video_url) ? $section1->video_url : '' }}" type="video/mp4">
