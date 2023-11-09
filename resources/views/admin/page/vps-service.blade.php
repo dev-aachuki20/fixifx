@@ -28,14 +28,14 @@
                         @endif
 
                         <!-- status -->
-                        <div class="row">
+                        {{--<div class="row">
                             <div class="col-3">
                                 <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
                                     <label for="customSwitchsizelg" class="form-label text-muted">Status</label>
                                     <input class="form-check-input code-switcher" type="checkbox" id="customSwitchsizelg" name="status" {{ isset($section2) ? (($section2->status == 1) ? 'checked' : '') : 'checked' }}>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}  
 
                         <!-- image -->
                         <div class="row">

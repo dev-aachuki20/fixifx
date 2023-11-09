@@ -416,22 +416,32 @@
         clone_div = $(".faq_section_row:first").clone();
         clone_div.find('.remove_faq').removeClass('d-none').addClass('d-block');
         clone_div.insertAfter(".faq_section_row:last");
-        change_name($(this));
+        clone_div.find('.en_question, .ja_question, .en_answer, .ja_answer').val('');
+        change_name();
     });
 
+    var remove_faq_ids = [];
     $(document).on('click', '.remove_faq', function() {
         $(this).parent().parent().parent().remove();
+        remove_faq_ids.push($(this).parent().parent().parent().find('.faq_id').val());
+        $('.faq_remove_ids').val(remove_faq_ids);
     });
 
-    function change_name(this_var) {
+    function change_name() {
         var n = 0;
         $(".faq_section_row").each(function() {
+            CKEDITOR.replaceAll('ckeditor');
+
             $(this).find('.en_question').attr('name', 'faq[' + n + '][en_question]');
             $(this).find('.ja_question').attr('name', 'faq[' + n + '][ja_question]');
             $(this).find('.en_answer').attr('name', 'faq[' + n + '][en_answer]');
             $(this).find('.ja_answer').attr('name', 'faq[' + n + '][ja_answer]');
             n++;
         });
+
+        setTimeout(function() {
+            $('.faq_section_row').find('.ckeditor').nextAll().not($('.faq_section_row').find('.ckeditor').next()).remove();
+        }, 100);
     }
 </script>
 @endpush
