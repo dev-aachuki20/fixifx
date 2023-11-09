@@ -4638,6 +4638,7 @@ body.darkHeader .dark-header .header-btns ul li .custom-btn{
     color: var(--color-dark-jungle-green);
 }
 
+
 body.header_hover .dark-header .header-btns ul li .fill-btn-1,
 body.darkHeader .dark-header .header-btns ul li .fill-btn-1{
     color: var(--color-white);
@@ -6580,7 +6581,22 @@ body{
 .home-forex-list .trade-item .social-platform{
     flex: 0 0 100%;
 }
+body.darkHeader .dark-header.scrollUp .header-btns ul li .fill-btn:hover {
+    color: white !important;
+}
 
+.vps-service-fxpro .error{
+    position: inherit;
+    bottom: inherit !important;
+}
+.vps-service-fxpro .invalid-feedback{
+    line-height: 14px;
+    color: red;
+    margin: 0;
+}
+/*.vps-service-fxpro .error ~ .invalid-feedback{*/
+/*    display: none;*/
+/*}*/
 
 @media screen and (max-width: 768px) {
     .comingsoonpage .innerfluid .transparentHeading{
@@ -6600,5 +6616,14 @@ body{
     .comingsoonpage .innerfluid .buttongroup .homeBtn .arrowIMg{
         height: 1.5vw;
     }
+}
+
+.section-head .discription ul {
+    list-style: circle;
+    padding-left: 1rem;
+}
+.section-head .discription ul li {
+    list-style: circle;
+    margin-bottom: 10px;
 }
 

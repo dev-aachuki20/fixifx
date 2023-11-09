@@ -7,7 +7,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
 @section('content')
 <!-- Hero section  -->
-<section class="vps-services-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center">
+<section class="vps-services-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center space-bottom-100">
     <div class="container">
 
         @php $section1 = $section->where('section_no', 1)->where('status', 1)->first() @endphp
@@ -40,7 +40,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
         @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
         @if($section2)
-        <div class="automate-trade">
+        <div class="automate-trade mtop-50">
             <div class="row align-items-center">
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="leftcontent-wrap">
@@ -53,7 +53,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6 text-center">
-                    <div class="imgbox">
+                    <div class="imgbox ptop-30">
                         <img class="img-fluid" src="{{$section2 && $section2->image ? $section2->image : asset('fixifx/images/vps-services02.png')}}" alt="">
                     </div>
                 </div>
@@ -61,7 +61,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         </div>
         <!-- end  -->
 
-        <div class="award-listing-inner">
+        <div class="award-listing-inner pb-0">
             @foreach($section2->subSection as $sub_sec_index => $sub_sec)
             @if($sub_sec->status == 1)
             <div class="awrad-items">
@@ -85,7 +85,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 <!-- we trade -->
 @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
 @if($section3)
-<section class="we-trade-wrapper bg-white padding-top-120 padding-bottom-240 mb-120" style="background-image:url('{{ asset('fixifx/images/bg-glob-1.svg')}}');background-repeat: no-repeat; background-position: bottom left;">
+<section class="we-trade-wrapper bg-white padding-top-120 padding-bottom-240 mb-120 ptop-50 vps-service-trade" style="background-image:url('{{ asset('fixifx/images/bg-glob-1.svg')}}');background-repeat: no-repeat; background-position: bottom left;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-md-6 col-xl-5">
@@ -105,7 +105,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-7">
-                <div class="imgbox">
+                <div class="imgbox ptop-30">
                     <img class="img-fluid" src="{{$section3 && $section3->image ? $section3->image : asset('fixifx/images/vps-services03.png')}}" alt="">
                 </div>
             </div>
@@ -187,7 +187,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     </div>
 
                     <!-- vps service form -->
-                    <div class="fxpro-form">
+                    <div class="fxpro-form vps-service-fxpro">
                         <form id="vps_enquiry" method="post">
                             @csrf
 

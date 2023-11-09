@@ -1938,6 +1938,10 @@
     .mspace-bottom-100 {
         margin-bottom: 50px !important;
     }
+    
+    .vps-service-trade{
+        padding-bottom: 180px;
+    }
 
     .ctrader-border {
         margin: 50px 0;

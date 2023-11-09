@@ -369,7 +369,7 @@
                                     @if(isset($section4->image))
                                     <input type="hidden" name="image" value="{{$section4->getRawOriginal('image')}}">
                                     @endif
-                                    <input type="file" name="image" class="form-control custom_img">
+                                    <input type="file" accept="application/pdf" name="image" class="form-control custom_img">
 
                                     <img src="{{ isset($section4->image) ? $section4->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
                                     <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
