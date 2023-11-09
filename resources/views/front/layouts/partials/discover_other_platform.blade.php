@@ -25,7 +25,7 @@ $section30 = $common->where('section_no', 30)->first();
           <img class="img-fluid" src="{{$value->image ? $value->image : asset('fixifx/images/platforms01.png')}}" alt="{{ config('app.locale') == 'ja' ? 'プラットフォーム' : 'Platforms' }}">
         </div>
         <div class="readmore-btn">
-          <a href="{{route('page', ['locale' => config('app.locale'), 'slug' => $slug])}}" class="custom-btn fill-btn text-white">{{__('message.learn_more_btn')}}</a>
+          <a href="{{$value->link}}" class="custom-btn fill-btn text-white">{{__('message.learn_more_btn')}}</a>
         </div>
       </div>
     </div>

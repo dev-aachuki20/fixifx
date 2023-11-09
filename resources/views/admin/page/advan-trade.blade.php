@@ -320,7 +320,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endif
+
                                             <div class="row gy-4">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
@@ -335,17 +335,20 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row gy-4 mt-1">
+                                            @endif
+
+                                            <div class="row mt-4">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="title" class="form-label">Description (English)</label>
-                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="form-control" cols="100" rows="5">{{ $sub_section4 ? $sub_section4->en_desc : '' }}</textarea>
+                                                        <label for="dec" class="form-label">Description (English)</label>
+                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($sub_section4) ? $sub_section4->en_desc : '') }}</textarea>
                                                     </div>
                                                 </div>
+                                                <br>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="title" class="form-label">Description (Japanese)</label>
-                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="form-control" cols="100" rows="5">{{ $sub_section4 ? $sub_section4->ja_desc : '' }}</textarea>
+                                                        <label for="dec" class="form-label">Description (Japanese)</label>
+                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($sub_section4) ? $sub_section4->ja_desc : '') }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -477,20 +480,25 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row gy-4 mt-1">
+
+                                            <div class="row mt-4">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="title" class="form-label">Description (English)</label>
-                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="form-control" cols="100" rows="5">{{ $sub_section5 ? $sub_section5->en_desc : '' }}</textarea>
+                                                        <label for="dec" class="form-label">Description (English)</label>
+                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($sub_section5) ? $sub_section5->en_desc : '') }}</textarea>
                                                     </div>
                                                 </div>
+                                                <br>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="title" class="form-label">Description (Japanese)</label>
-                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="form-control" cols="100" rows="5">{{ $sub_section5 ? $sub_section5->ja_desc : '' }}</textarea>
+                                                        <label for="dec" class="form-label">Description (Japanese)</label>
+                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($sub_section5) ? $sub_section5->ja_desc : '') }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
                                         </div>
                                     </div>
                                 </div>

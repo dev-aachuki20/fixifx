@@ -143,7 +143,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
                                     <div class="accordion-body">
                                         <div class="expert-inner-content">
                                             <div class="discription">
-                                                {!! $faq->{config('app.locale').'_answer'} !!}
+                                            <p> {!! $faq->{config('app.locale').'_answer'} !!}</p>
                                             </div>
                                         </div>
                                     </div>

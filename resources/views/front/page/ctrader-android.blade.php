@@ -103,40 +103,40 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- end  -->
 
         <div class="frequently-row-box fixi-features-herobox pbottom-50 pt-0">
-        @php $faqs = App\Models\Faq::where('page_id', 41)->get() @endphp
-        @if($faqs->count() > 0)
-        <div class="row  frequently-row-box justify-content-center pat-50">
-            <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
-                <div class="text-center justify-content-center d-flex">
-                    <h2 class="max-w-427 text-center">{{__('message.faq')}}</h2>
+            @php $faqs = App\Models\Faq::where('page_id', 41)->get() @endphp
+            @if($faqs->count() > 0)
+            <div class="row  frequently-row-box justify-content-center pat-50">
+                <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
+                    <div class="text-center justify-content-center d-flex">
+                        <h2 class="max-w-427 text-center">{{__('message.faq')}}</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 frequently-faq-list">
-                <div class="expert-content">
-                    <div class="accordion" id="accordionfrequently">
-                        @foreach($faqs as $index => $faq)
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expert{{$index}}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="expert{{ $index }}">
-                                    {{ $faq->{config('app.locale').'_question'} }}
-                                </button>
-                            </h2>
-                            <div id="expert{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#accordionfrequently">
-                                <div class="accordion-body">
-                                    <div class="expert-inner-content">
-                                        <div class="discription">
-                                            {!! $faq->{config('app.locale').'_answer'} !!}
+                <div class="col-12 frequently-faq-list">
+                    <div class="expert-content">
+                        <div class="accordion" id="accordionfrequently">
+                            @foreach($faqs as $index => $faq)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expert{{$index}}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="expert{{ $index }}">
+                                        {{ $faq->{config('app.locale').'_question'} }}
+                                    </button>
+                                </h2>
+                                <div id="expert{{ $index }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#accordionfrequently">
+                                    <div class="accordion-body">
+                                        <div class="expert-inner-content">
+                                            <div class="discription">
+                                                <p> {!! $faq->{config('app.locale').'_answer'} !!}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-        @endif
+            @endif
 
             @include('front.layouts.partials.get_started')
         </div>

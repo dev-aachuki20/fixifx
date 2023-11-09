@@ -150,7 +150,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供しているトレーデ
                     </div>
                     <div class="openAi-btn d-flex align-items-center justify-content-center">
                         <a href="#" class="custom-btn fill-btn-1">{{__('message.go_to_the_developer_portal_btn')}}</a>
-                        <a href="#" class="custom-btn fill-btn">{{__('message.talk_to_our_specialist_btn')}}</a>
+                        <a href="{{ route('page', [config('app.locale'), 'contact-us']) }}" class="custom-btn fill-btn">{{__('message.talk_to_our_specialist_btn')}}</a>
                     </div>
                 </div>
             </div>

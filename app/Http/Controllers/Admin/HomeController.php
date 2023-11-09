@@ -219,6 +219,7 @@ class HomeController extends Controller
                 $sub->en_short_text =  isset($value['en_short_text']) ? $value['en_short_text'] : '';
                 $sub->ja_short_text =  isset($value['ja_short_text']) ? $value['ja_short_text'] : '';
                 $sub->icon          =  isset($value['icon']) ? $value['icon'] : '';
+                $sub->link          =  isset($value['link']) ? $value['link'] : '';
                 $sub->status        =  isset($value['status']) ? 1 : 0;
 
                 $sub->save();
@@ -779,5 +780,4 @@ class HomeController extends Controller
     {
         return $dataTable->render('admin.vps_users');
     }
-
 }

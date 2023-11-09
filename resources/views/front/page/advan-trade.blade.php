@@ -27,7 +27,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 <div class="col-12 col-md-12 col-sm-12 text-center">
                     <div class="video-banner advan-video-area">
                         <a href="javascript:void(0);">
-                            <img class="img-fluid" src="{{$header && $header->image ? $header->image : asset('fixifx/images/video-banner.svg')}}" alt="">
+                            <img class="img-fluid" src="{{$header && $header->image ? $header->image : asset('fixifx/images/video-banner.png')}}" alt="">
                             <span class="vplay-icon" data-bs-toggle="modal" data-bs-target="#videoplay"><img src="{{asset('fixifx/images/play-icon.svg')}}" alt=""></span>
                         </a>
                     </div>
@@ -205,7 +205,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 <div class="accordion-body">
                                     <div class="expert-inner-content">
                                         <div class="discription">
-                                            {!! $faq->{config('app.locale').'_answer'} !!}
+                                            <p>{!! $faq->{config('app.locale').'_answer'} !!}</p>
                                         </div>
                                     </div>
                                 </div>

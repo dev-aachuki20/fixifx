@@ -229,6 +229,16 @@
                                                 </div>
                                             </div>
 
+                                            <!-- link -->
+                                            <div class="row mt-1 gy-4">
+                                                <div class="col-xxl-6 col-md-6">
+                                                    <div>
+                                                        <label for="title" class="form-label">Link</label>
+                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][link]" value="{{ $sub_section30 ? $sub_section30->link : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

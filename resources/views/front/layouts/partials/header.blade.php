@@ -88,8 +88,11 @@ $section4 = App\Models\Section::where('id', 4)->first();
                               <h3>{{ $section4->subSection[1]->{config('app.locale').'_title'} ?? __('message.c_trader') }}</h3>
                             </dt>
                             @elseif($submenu->id == 2)
+                            @php $configName = config('app.locale').'_name'; @endphp
                             <dt class="m-0 mb-3 header-pf-name">
                               <h3>{{ $section4->subSection[0]->{config('app.locale').'_title'} ?? __('message.meta_trader') }}</h3>
+
+                              {{-- <h3>{{ $submenu->menuPage->$configName ?? __('message.meta_trader') }}</h3> --}}
                             </dt>
                             @endif
                             <dd>
