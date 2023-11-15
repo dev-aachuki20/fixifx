@@ -9,7 +9,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
 
 
 <!-- Header  -->
-<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' || request()->route()->parameters['slug'] === 'vps-service' || request()->route()->parameters['slug'] === 'third-party-tool' ? 'dark-header' : '' }}">
+<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' || request()->route()->parameters['slug'] === 'vps-service' || request()->route()->parameters['slug'] === 'third-party-tool'? 'dark-header' : '' }}">
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="{{ route('page', [config('app.locale'), 'home']) }}">
@@ -29,9 +29,9 @@ $section4 = App\Models\Section::where('id', 4)->first();
             </li>
             <li class="nav-item dropdown language-box">
               @if(config('app.locale') == 'en')
-              <a href="javascript:void();" @if(config('app.locale')=='en' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}"> ENG</a>
+              <a href="javascript:void(0);" @if(config('app.locale')=='en' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}"> ENG</a>
               @else
-              <a href="javascript:void();" @if(config('app.locale')=='ja' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}"> JA</a>
+              <a href="javascript:void(0);" @if(config('app.locale')=='ja' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}"> JA</a>
               @endif
               <ul>
                 <li><a href="{{ route('language.change', ['locale' => 'en']) }}" @if(config('app.locale')=='en' ) class="active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}">ENG</a></li>
@@ -56,7 +56,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
             <a href="javascript:void();" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               {{ $m->{config('app.locale').'_name'} }}</a>
             <div class="mega-menu dropdown-menu">
-              <a href="javascript:void();" class="back_btn">
+              <a href="javascript:void(0);" class="back_btn">
                 <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0.215872 5.49505L4.74173 9.79476C5.02962 10.0684 5.4964 10.0684 5.78416 9.79476C6.07195 9.52135 6.07195 9.0779 5.78416 8.80451L1.77948 4.99993L5.78405 1.19548C6.07183 0.921955 6.07183 0.478552 5.78405 0.205141C5.49626 -0.0683804 5.02951 -0.0683804 4.74161 0.205141L0.215755 4.50492C0.0718641 4.64169 0 4.82075 0 4.99991C0 5.17915 0.0720043 5.35835 0.215872 5.49505Z" fill="#FFFFFF"></path>
                 </svg>
