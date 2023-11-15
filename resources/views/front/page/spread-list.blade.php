@@ -345,7 +345,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
         $("#spread-table").on('preXhr.dt', function(e, settings, data) {
             data.category_id = $("#cat_val").val();
-            $('#spread-table tbody').html('<tr><td colspan="6"><div id="loader" class="text-center"><img src="{{ asset("fixifx/images/loading.gif") }}" width="50px" alt="Loading..."></div></td></tr>');
+            $('#spread-table tbody').html('<tr><td colspan="6" class="border-right-0"><div id="loader" class="text-center"><img src="{{ asset("fixifx/images/loading.gif") }}" width="50px" alt="Loading..."></div></td></tr>');
         });
 
         $('#spread-table').on('xhr.dt', function() {

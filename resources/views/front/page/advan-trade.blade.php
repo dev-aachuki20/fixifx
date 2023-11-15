@@ -149,8 +149,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
     <!-- dummy section Discover the full FixiFx offering-->
     @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-    @if($section5)
+    
     <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox advan-discover ptb-50 border-top-0">
+        @if($section5)
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-12">
                 <div class="section-head text-center">
@@ -182,6 +183,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             @endif
             @endforeach
         </div>
+        @endif
 
         @php $faqs = App\Models\Faq::where('page_id', 49)->get() @endphp
         @if($faqs->count() > 0)
@@ -219,7 +221,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         @endif
 
     </div>
-    @endif
+    
     <!-- end  -->
 
     @include('front.layouts.partials.discover_other_platform')

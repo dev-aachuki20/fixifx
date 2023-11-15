@@ -290,7 +290,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         if (data) {
                             success = msg = "";
                             if ('{{config("app.locale")}}' == 'en') {
-                                msg = 'Enquiry sent successfully';
+                                msg = 'Request sent successfully';
                                 success = 'Success';
                             } else {
                                 msg = 'お問い合わせは正常に送信されました';

@@ -4366,7 +4366,7 @@ body.modal-open{
 .table_wrapper tbody tr:last-child td::after{
     display: none;
 }
-.spreadList-wrapper .tab-content .table_wrapper tbody tr td:last-child{
+.spreadList-wrapper .tab-content .table_wrapper tbody tr td:last-child:not(.dataTables_empty,.border-right-0){
     border-right: 1px solid #D2E4E9;
 }
 
@@ -4398,6 +4398,11 @@ body.modal-open{
     gap: 10px;
     border-bottom-right-radius: 5px;
     line-height: 25px;
+}
+.dataTables_paginate .paginate_button.previous,
+.dataTables_paginate .paginate_button.next{
+    height: 25px;
+    background-position: center!important;
 }
 .dataTables_paginate:empty{
     padding-top: 24px !important;

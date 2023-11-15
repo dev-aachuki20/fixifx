@@ -2428,10 +2428,10 @@
         font-size: 40px;
     }
 
-    .dataTables_paginate {
-        padding-top: 31px !important;
-        padding-bottom: 32px;
-    }
+    /*.dataTables_paginate {*/
+    /*    padding-top: 31px !important;*/
+    /*    padding-bottom: 32px;*/
+    /*}*/
 
     html[lang="ja"] .dataTables_paginate:not(:empty) {
         padding-top: 22px !important;

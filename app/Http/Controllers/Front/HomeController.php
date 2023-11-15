@@ -306,11 +306,11 @@ class HomeController extends Controller
         $vpsenquiry->save();
 
         // Send email to admin
-       // $name = $request->fname . ' ' . $request->lname;
-      //  $email = $request->email;
-       // $phoneNumber = $request->phone_number;
-       // $email = 'aachukiagarwal.hipl@gmail.com';
-       // Mail::to($email)->send(new VpsFormMail($name, $email, $phoneNumber));
+        // $name = $request->fname . ' ' . $request->lname;
+        // $email = $request->email;
+        // $phoneNumber = $request->phone_number;
+        // $adminemail = 'info@bizshiksha.com';
+        // Mail::to($adminemail)->send(new VpsFormMail($name, $email, $phoneNumber));
 
         return redirect()->back()->with('success', 'Enquiry Sent !!');
     }
