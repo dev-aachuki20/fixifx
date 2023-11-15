@@ -91,7 +91,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="side-by-side-img">
-                    <img src="{{$section1 && $section1->image ? $section1->image : asset('fixifx/images/tailor-environment-bg.png')}}images/tradergo.png" alt="tradergo">
+                    <img src="{{$section3 && $section3->image ? $section3->image : asset('fixifx/images/images/tradergo.png')}}" alt="tradergo">
                 </div>
             </div>
         </div>
