@@ -8,7 +8,7 @@ $link = "";
 
 
 
-<section class="other-pages-banner padding-tb-180 d-flex flex-wrap align-items-center" @if(($page && $page->slug == 'faqs' && $page->bg_img != null) || ($page && $page->slug == 'contact-us' && $page->bg_img != null) || ($page && $page->slug == 'spread-list' && $page->bg_img != null) || ($page && $page->slug == 'account-type' && $page->bg_img != null) || ($page && $page->slug == 'manuals' && $page->bg_img != null))
+<section class="other-pages-banner padding-tb-180 d-flex flex-wrap align-items-center" @if(($page && $page->slug == 'faqs' && $page->bg_img != null) || ($page && $page->slug == 'contact-us' && $page->bg_img != null) || ($page && $page->slug == 'spread-list' && $page->bg_img != null) || ($page && $page->slug == 'account-type' && $page->bg_img != null) || ($page && $page->slug == 'manuals' && $page->bg_img != null) || ($page && $page->slug == 'platform-overview' && $page->bg_img != null))
   style="background-image: url({{$page->bg_img}});"
   @else
   style="background-image: url({{ asset('fixifx/images/hero-bg.png') }});"
@@ -19,7 +19,7 @@ $link = "";
       <div class="col-12 col-xl-6 col-lg-12 col-md-12 col-sm-12">
         <div class="other-banner-text hero-wrapper">
           <h1>
-            @if($page->slug == 'contact-us' || $page->slug == 'spread-list' || $page->slug == 'account-type' || $page->slug == 'manuals')
+            @if($page->slug == 'contact-us' || $page->slug == 'spread-list' || $page->slug == 'account-type' || $page->slug == 'manuals' || $page->slug == 'platform-overview')
             {{ $page->{config('app.locale').'_name'} }}
             @else
             {{ $page->{config('app.locale').'_desc'} }}

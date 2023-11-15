@@ -159,6 +159,7 @@ return [
     'download_platform_guide' => 'Download platform guide',
     'support_six_screen' => 'FiXi AdvanTrade supports up to six screens on Windows and Mac',
 
+    'preview_btn' => 'Preview',
 
 
 

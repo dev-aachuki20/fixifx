@@ -158,5 +158,6 @@ return [
     'send_request' => 'リクエストの送信',
     'download_platform_guide' => 'プラットフォームガイドをダウンロード',
     'support_six_screen' => 'FiXi AdvanTrade は Windows および Mac で最大 6 つの画面をサポートします',
+    'preview_btn' => 'プレビュー',
 
 ];
