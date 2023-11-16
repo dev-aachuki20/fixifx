@@ -12,7 +12,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
         @php $section1 = $section->where('section_no', 1)->where('status', 1)->first() @endphp
         @if($section1)
-        <div class="reward-wrapper-herobox">
+        <div class="reward-wrapper-herobox border-bottom-0">
             <div class="row align-items-center">
                 <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="other-banner-text">
@@ -40,21 +40,23 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
         @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
         @if($section2)
-        <div class="automate-trade mtop-50">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="leftcontent-wrap">
-                        <div class="title">
-                            <h2>
-                                {{ $section2->{config('app.locale').'_title'} }}
-                            </h2>
+        <div class="vps-automate ptop-50">
+            <div class="automate-trade">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <div class="leftcontent-wrap">
+                            <div class="title">
+                                <h2>
+                                    {{ $section2->{config('app.locale').'_title'} }}
+                                </h2>
+                            </div>
+                            {!! $section2->{config('app.locale').'_desc'} !!}
                         </div>
-                        {!! $section2->{config('app.locale').'_desc'} !!}
                     </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6 text-center">
-                    <div class="imgbox ptop-30">
-                        <img class="img-fluid" src="{{$section2 && $section2->image ? $section2->image : asset('fixifx/images/vps-services02.png')}}" alt="">
+                    <div class="col-12 col-md-6 col-lg-6 text-center">
+                        <div class="imgbox ptop-30">
+                            <img class="img-fluid" src="{{$section2 && $section2->image ? $section2->image : asset('fixifx/images/vps-services02.png')}}" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -121,8 +123,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
             @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
             @if($section4)
-            <div class="col-12 col-md-6">
-                <div class="handling-grid-boxs">
+            <div class="col-12 col-md-6 space-bottom-100">
+                <div class="handling-grid-boxs mb-0">
                     <div class="title">
                         <h2>
                             {{ $section4->{config('app.locale').'_title'} }}
@@ -147,8 +149,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
             @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
             @if($section5)
-            <div class="col-12 col-md-6">
-                <div class="handling-grid-boxs">
+            <div class="col-12 col-md-6 space-bottom-100">
+                <div class="handling-grid-boxs mb-0">
                     <div class="title">
                         <h2>
                             {{ $section5->{config('app.locale').'_title'} }}
@@ -169,7 +171,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
         @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
         @if($section6)
-        <div class="row padding-tb-120 pb-0 align-items-center">
+        <div class="row align-items-center">
             <div class="col-12 col-md-6">
                 <div class="imgbox">
                     <img class="img-fluid" src="{{$section6 && $section6->image ? $section6->image : asset('fixifx/images/faxpro.svg')}}" alt="">

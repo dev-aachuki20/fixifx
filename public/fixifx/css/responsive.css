@@ -1879,9 +1879,11 @@
         padding-bottom: 50px;
     }
 
-    .pat-50,
-    footer.footer-main {
+    .pat-50{
         padding-top: 50px !important;
+    }
+    footer.footer-main{
+        padding-top: 80px !important;
     }
 
     .ptb-50 {

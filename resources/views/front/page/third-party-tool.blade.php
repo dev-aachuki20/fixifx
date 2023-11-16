@@ -10,7 +10,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 <!-- Hero section  -->
 @php $section1 = $section->where('section_no', 1)->where('status', 1)->first() @endphp
 @if($section1)
-<section class="tailor-environment whsection-text padding-tb-180 d-flex flex-wrap align-items-center" style="background-image: url({{$section1 && $section1->image ? $section1->image : asset('fixifx/images/tailor-environment-bg.png')}});background-size: cover;
+<section class="tailor-environment whsection-text padding-tb-180 d-flex flex-wrap align-items-center pbottom-50" style="background-image: url({{$section1 && $section1->image ? $section1->image : asset('fixifx/images/tailor-environment-bg.png')}});background-size: cover;
     background-position: bottom;">
     <div class="container">
         <div class="tailor-wrapper-herobox">
@@ -18,7 +18,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 <div class="col-12 col-xl-6 col-lg-6 col-md-8 col-sm-12">
                     <div class="other-banner-text">
                         <h1>{{ $section1->{config('app.locale').'_title'} }}</h1>
-                        <div class="section-head">
+                        <div class="section-head mbd-20">
                             <div class="discription">
                                 <p>{!! $section1->{config('app.locale').'_desc'} !!}</p>
                             </div>
@@ -44,7 +44,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7 col-sm-12">
-                <div class="section-head text-center">
+                <div class="section-head text-center mbd-20">
                     <h2 class="max-w-427">{{ $section2->{config('app.locale').'_title'} }}</h2>
                     <div class="discription">
                         <p>{!! $section2->{config('app.locale').'_desc'} !!}</p>

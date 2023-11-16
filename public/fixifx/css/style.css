@@ -1558,6 +1558,7 @@ input[type=number] {
     padding: 33px 55px;
     position: relative;
     z-index: 0;
+    background-blend-mode: color-dodge;
 }
 .instant-account-outer.text-white:before {
     content: '';
@@ -6602,6 +6603,18 @@ body.darkHeader .dark-header.scrollUp .header-btns ul li .fill-btn:hover {
 /*.vps-service-fxpro .error ~ .invalid-feedback{*/
 /*    display: none;*/
 /*}*/
+.vps-automate{
+    padding-top: 100px;
+}
+.reward-wrapper-herobox + .vps-automate{
+    border-top: 1px solid #213869;
+}
+.vps-automate .automate-trade{
+    margin-top: 0;
+}
+.handling-vps-wrapper.bg-snow-drift + section{
+    background-color: #F7F9FA;
+}
 
 @media screen and (max-width: 768px) {
     .comingsoonpage .innerfluid .transparentHeading{
