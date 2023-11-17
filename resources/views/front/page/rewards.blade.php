@@ -377,20 +377,22 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 <!-- End Move Between Tiers -->
 
 <!-- faq-sub-page  -->
+@php $faqs = App\Models\Faq::where('page_id', 52)->get() @endphp
+@if($faqs->count() > 0)
+@php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
+@if($section5)
 <section class="faq-sub-page padding-top-120 padding-bottom-120">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-12 col-xl-7 align-items-center justify-content-center text-center pb-5">
                 <div class="title">
                     <h2>
-                        Frequently asked questions
+                        {{ $section5->{config('app.locale').'_title'} }}
                     </h2>
                 </div>
                 <div class="description">
                     <p>
-                        We support clients in more than 180 countries from offices in major financial hubs. Find contact details
-                        for
-                        all our offices below.</a>
+                        {!! $section5->{config('app.locale').'_desc'} !!}</a>
                     </p>
                 </div>
             </div>
@@ -428,6 +430,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         </div>
     </div>
 </section>
+@endif
+@endif
 <!-- end faq-sub-page  -->
 
 <!-- Get Started  -->
