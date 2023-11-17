@@ -268,6 +268,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 },
                 'phone_number': {
                     required: true,
+                    // minlength: 10,
+                    // maxlength: 15
                 },
             },
             highlight: function(element, errorClass, validClass) {

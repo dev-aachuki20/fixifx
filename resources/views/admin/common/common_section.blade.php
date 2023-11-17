@@ -110,13 +110,13 @@
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Description (English)</label>
-                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="form-control" cols="100" rows="5">{{ $sub_section1 ? $sub_section1->en_desc : '' }}</textarea>
+                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="form-control ckeditor_custom" id="description" cols="100" rows="5">{{ $sub_section1 ? $sub_section1->en_desc : '' }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Description (Japanese)</label>
-                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="form-control" cols="100" rows="5">{{ $sub_section1 ? $sub_section1->ja_desc : '' }}</textarea>
+                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="form-control ckeditor_custom" id="description" cols="100" rows="5">{{ $sub_section1 ? $sub_section1->ja_desc : '' }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,7 +233,7 @@
                                             <div class="row mt-1 gy-4">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="title" class="form-label">Link</label>
+                                                        <label for="title" class="form-label">Learn More Link</label>
                                                         <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][link]" value="{{ $sub_section30 ? $sub_section30->link : '' }}">
                                                     </div>
                                                 </div>
@@ -257,7 +257,7 @@
 
 @endsection
 
-@section('javascript')
+@push('scripts')
 <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 <script type="text/javascript">
     /**
@@ -309,4 +309,4 @@
         },
     });
 </script>
-@endsection
+@endpush

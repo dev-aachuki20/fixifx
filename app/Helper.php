@@ -90,14 +90,6 @@ function timeDiff($date)
     return $diffHuman;
 }
 
-// function getCurrencyFlag($currency_code)
-// {
-//     // return Country::where('currency_code', $currency_code)->pluck('flag')->first();
-//     return asset('front/img/flag/' . strtolower($currency_code) . '.svg') ?: Country::where('currency_code', $currency_code)->pluck('flag')->first();
-
-
-// }
-
 function getCurrencyFlag($currency_code)
 {
     $flagPath = 'front/img/flag/' . strtolower($currency_code) . '.svg';
@@ -160,7 +152,6 @@ function getChangeRate($source)
     return $data;
 }
 
-
 function getAllCurrency()
 {
     $cacheKey = 'all_currencies';
@@ -177,7 +168,6 @@ function getAllCurrency()
         return $result;
     });
 }
-
 
 function getFlags($source)
 {
@@ -238,79 +228,6 @@ function getFlags($source)
         return null;
     });
 }
-
-
-// function getAllCurrency()
-// {
-//     $sources = ['USD', 'EUR', 'GBP', 'AUD', 'NZD', 'CHF', 'CAD', 'JPY', 'CADD', 'TRY', 'MXN', 'ZAR', 'CNH', 'DKK', 'NOK', 'PLN', 'XAU', 'XAG'];
-//     $result = [];
-
-//     foreach ($sources as $source) {
-//         $flags = getFlags($source);
-//         if ($flags !== null) {
-//             $result = array_merge($result, $flags);
-//         }
-//         // $result = array_merge($result, getFlags($source));
-//     }
-
-//     // return array_merge($result[0], $result[1], $result[2], $result[3], $result[4], $result[5], $result[6], $result[7], $result[8]);
-//     return $result;
-// }
-
-// function getFlags($source)
-// {
-//     ini_set('max_execution_time', '0');
-//     $access_key = env('CURRENCY_KEY');
-//     $currencies = '';
-//     // EUR,AUD,GBP,NZD, USD, CAD,CHF,XAG,XAU
-//     if ($source == 'EUR') {
-//         $currencies = 'USD,JPY,GBP,CHF,AUD,CAD,NZD,TRY';
-//     } else if ($source == 'USD') {
-//         $currencies = 'JPY,CAD,CHF,CNY,TRY,MXN,ZAR,CNH,DKK,NOK,PLN';
-//     } else if ($source == 'GBP') {
-//         $currencies = 'USD,AUD,CADD,CHF,JPY';
-//     } else if ($source == 'AUD') {
-//         $currencies = 'USD,JPY,CAD,CHF,NZD';
-//     } else if ($source == 'NZD') {
-//         $currencies = 'USD,JPY';
-//     } else if ($source == 'CAD') {
-//         $currencies = 'CHF,JPY';
-//     } else if ($source == 'CHF') {
-//         $currencies = 'JPY';
-//     } else if ($source == 'XAG') {
-//         $currencies = 'USD';
-//     } else if ($source == 'XAU') {
-//         $currencies = 'USD';
-//     }
-
-//     $response = Http::withHeaders([
-//         'Content-Type' => 'application/json',
-//     ])->get('https://api.currencylayer.com/live', [
-//         'access_key' => $access_key,
-//         'source' => $source,
-//         'currencies' => $currencies,
-//     ]);
-//     $response = json_decode($response->body());
-//     // dd($response->quotes);
-
-//     if (isset($response->quotes)) {
-//         $data = [];
-//         $currency = (array) $response->quotes;
-//         // $currency = (array) $response->rates;
-
-//         foreach ($currency as $key => $value) {
-//             $data[$key]['start_rate'] = $value;
-//             $data[$key]['end_rate'] = 0; // You may adjust this as needed
-//             $data[$key]['change_pct'] = 0; // You may adjust this as needed
-//             $data[$key]['flag_1'] = getCurrencyFlag(substr($key, 0, 3));
-//             $data[$key]['flag_2'] = getCurrencyFlag(substr($key, 3, 6));
-//         }
-
-//         return $data;
-//     }
-
-//     return null;
-// }
 
 // avtar with initials
 function getInitials($name)

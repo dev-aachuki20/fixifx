@@ -106,8 +106,8 @@ class HomeController extends Controller
         $section->en_short_text =  $request->en_short_text;
         $section->ja_short_text =  $request->ja_short_text;
         $section->status        =  isset($request->status) ? 1 : 0;
-
-
+        $jsonArray = $request['link'];
+        $section->link = json_encode($jsonArray, JSON_UNESCAPED_SLASHES);
 
         if ($request->image && ($request->hasFile('image'))) {
             $section->image = uploadFile($request->image, 'Section');

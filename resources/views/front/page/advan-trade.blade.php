@@ -120,7 +120,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                             </h4>
                         </div>
                         <div class="discription">
-                            <p>{{ $sub_sec->{config('app.locale').'_desc'} }}</p>
+                            <p>{!! $sub_sec->{config('app.locale').'_desc'} !!}</p>
                         </div>
                     </div>
             </div>
@@ -149,7 +149,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
     <!-- dummy section Discover the full FixiFx offering-->
     @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
-    
+
     <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox advan-discover ptb-50 border-top-0">
         @if($section5)
         <div class="row justify-content-center">
@@ -177,7 +177,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     <div class="discription">
                         <p>{!! $sub_sec->{config('app.locale').'_desc'} !!}</p>
                     </div>
-                    <a href="#" class="custom-btn fill-btn text-white">{{__('message.read_more')}}</a>
+                    <a href="{{isset($sub_sec->link) ? $sub_sec->link : '#'}}" class="custom-btn fill-btn text-white">{{__('message.read_more')}}</a>
                 </div>
             </div>
             @endif
@@ -221,7 +221,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         @endif
 
     </div>
-    
+
     <!-- end  -->
 
     @include('front.layouts.partials.discover_other_platform')

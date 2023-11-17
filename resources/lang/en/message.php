@@ -160,7 +160,8 @@ return [
     'support_six_screen' => 'FiXi AdvanTrade supports up to six screens on Windows and Mac',
 
     'preview_btn' => 'Preview',
-
-
+    'See_the_full_point_catalogue' => 'See the full point catalogue',
+    'more_points' => 'More points mean better prices',
+    'prestigious_vip_network' => 'Learn about our prestigious VIP network',
 
 ];

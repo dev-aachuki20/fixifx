@@ -33,6 +33,10 @@
                 <li class="nav-item">
                     <a class="nav-link {{Route::current()->getName() == 'admin.setting.share-category' ? 'active' : ''}}" data-bs-toggle="tab" role="tab" href="#sharecategory" id="shareTable">Shares & Bonds Category</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" role="tab" href="#reward_setting">Fixi Rewards Setting</a>
+                </li>
             </ul>
         </div>
         <div class="card-body">
@@ -403,8 +407,7 @@
                                         <input type="text" class="form-control" name="setting[home_small_warning_ja]" value="{{ getSettingValue('home_small_warning_ja') }}">
                                     </div>
                                 </div>
-                                @for($i=1; $i<=6; $i++) 
-                                <div class="form-group row mt-4">
+                                @for($i=1; $i<=6; $i++) <div class="form-group row mt-4">
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="setting[home_sub_en_{{$i}}]" value="{{ getSettingValue('home_sub_en_'.$i) }}">
                                     </div>
@@ -415,289 +418,516 @@
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="setting[home_sub_num_{{$i}}]" value="{{ getSettingValue('home_sub_num_'.$i) }}">
                                     </div>
+                            </div>
+                            @endfor
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="card-header">Download Platform Link</div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Window</label>
+                                        <input type="text" class="form-control" id="window" placeholder="Enter download link for window" name="setting[window]" value="{{ getSettingValue('window') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Apple</label>
+                                        <input type="text" class="form-control" id="apple" placeholder="Enter download link for apple" name="setting[apple]" value="{{ getSettingValue('apple') }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Ios</label>
+                                        <input type="text" class="form-control" id="ios " placeholder="Enter download link for ios" name="setting[ios]" value="{{ getSettingValue('ios') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Android</label>
+                                        <input type="text" class="form-control" id="android" placeholder="download link for android" name="setting[android]" value="{{ getSettingValue('android') }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-4 card-primary card-outline">
+                            <div class="card-header text-dark">Account Type</div>
+                            <div class="card-body">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="standard-tab" data-bs-toggle="pill" data-bs-target="#standard" type="button" role="tab" aria-controls="standard" aria-selected="true">STP Standard</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pro-tab" data-bs-toggle="pill" data-bs-target="#pro" type="button" role="tab" aria-controls="pro" aria-selected="false">ECN Standard</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="ecn-tab" data-bs-toggle="pill" data-bs-target="#ecn" type="button" role="tab" aria-controls="ecn" aria-selected="false">STP Premier</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="premium-tab" data-bs-toggle="pill" data-bs-target="#premium" type="button" role="tab" aria-controls="ecn" aria-selected="false">ECN Premier</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="standard" role="tabpanel" aria-labelledby="standard-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="form-label text-muted">STP Standard Header (English)</label>
+                                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[standard_header_en]" value="{{ getSettingValue('standard_header_en') }}">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label text-muted">STP Standard Header (Japanese)</label>
+                                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[standard_header_ja]" value="{{ getSettingValue('standard_header_ja') }}">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            @for($i=1; $i<=8; $i++) <div class="form-group row my-2">
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-muted">Title (English)</label>
+                                                    <input type="text" class="form-control" placeholder="Enter title" name="setting[standard_title_en_{{$i}}]" value="{{ getSettingValue('standard_title_en_'.$i) }}">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-muted">Title (Japanese)</label>
+                                                    <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[standard_title_ja_{{$i}}]" value="{{ getSettingValue('standard_title_ja_'.$i) }}">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label text-muted">Value</label>
+                                                    <input type="text" class="form-control" placeholder="Enter value" name="setting[standard_value_{{$i}}]" value="{{ getSettingValue('standard_value_'.$i) }}">
+                                                </div>
+                                        </div>
+                                        @endfor
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pro" role="tabpanel" aria-labelledby="pro-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label text-muted">ECN Standard Header (English)</label>
+                                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[pro_header]" value="{{ getSettingValue('pro_header_en') }}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label text-muted">ECN Standard Header (Japanese)</label>
+                                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[pro_header_ja]" value="{{ getSettingValue('pro_header_ja') }}">
+                                        </div>
+                                    </div>
+                                    @for($i=1; $i<=8; $i++) <div class="form-group row my-2">
+                                        <div class="col-md-4">
+                                            <label class="form-label text-muted">Title (English)</label>
+                                            <input type="text" class="form-control" placeholder="Enter title" name="setting[pro_title_en_{{$i}}]" value="{{ getSettingValue('pro_title_en_'.$i) }}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label text-muted">Title (Japanese)</label>
+                                            <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[pro_title_ja_{{$i}}]" value="{{ getSettingValue('pro_title_ja_'.$i) }}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="form-label text-muted">Value</label>
+                                            <input type="text" class="form-control" id="android" placeholder="Enter value" name="setting[pro_value_{{$i}}]" value="{{ getSettingValue('pro_value_'.$i) }}">
+                                        </div>
                                 </div>
                                 @endfor
                             </div>
-                        
-                            <div class="card mt-3">
-                                <div class="card-header">Download Platform Link</div>
-                                <div class="card-body">
-                                    <div class="form-group row">
-                                        <div class="col-md-6">
-                                            <label class="form-label text-muted">Window</label>
-                                            <input type="text" class="form-control" id="window" placeholder="Enter download link for window" name="setting[window]" value="{{ getSettingValue('window') }}">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label text-muted">Apple</label>
-                                            <input type="text" class="form-control" id="apple" placeholder="Enter download link for apple" name="setting[apple]" value="{{ getSettingValue('apple') }}">
-                                        </div>
+                            <div class="tab-pane fade" id="ecn" role="tabpanel" aria-labelledby="ecn-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">STP Premier Header (English)</label>
+                                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[ecn_header_en]" value="{{ getSettingValue('ecn_header_en') }}">
                                     </div>
-                                    <div class="form-group row mt-4">
-                                        <div class="col-md-6">
-                                            <label class="form-label text-muted">Ios</label>
-                                            <input type="text" class="form-control" id="ios " placeholder="Enter download link for ios" name="setting[ios]" value="{{ getSettingValue('ios') }}">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label text-muted">Android</label>
-                                            <input type="text" class="form-control" id="android" placeholder="download link for android" name="setting[android]" value="{{ getSettingValue('android') }}">
-                                        </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">STP Premier Header (Japanese)</label>
+                                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[ecn_header_ja]" value="{{ getSettingValue('ecn_header_ja') }}">
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="card mt-4 card-primary card-outline">
-                                <div class="card-header text-dark">Account Type</div>
-                                <div class="card-body">
-                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                          <button class="nav-link active" id="standard-tab" data-bs-toggle="pill" data-bs-target="#standard" type="button" role="tab" aria-controls="standard" aria-selected="true">STP Standard</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                          <button class="nav-link" id="pro-tab" data-bs-toggle="pill" data-bs-target="#pro" type="button" role="tab" aria-controls="pro" aria-selected="false">ECN Standard</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                          <button class="nav-link" id="ecn-tab" data-bs-toggle="pill" data-bs-target="#ecn" type="button" role="tab" aria-controls="ecn" aria-selected="false">STP Premier</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="premium-tab" data-bs-toggle="pill" data-bs-target="#premium" type="button" role="tab" aria-controls="ecn" aria-selected="false">ECN Premier</button>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content" id="pills-tabContent">
-                                        <div class="tab-pane fade show active" id="standard" role="tabpanel" aria-labelledby="standard-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">STP Standard Header (English)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[standard_header_en]" value="{{ getSettingValue('standard_header_en') }}">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">STP Standard Header (Japanese)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[standard_header_ja]" value="{{ getSettingValue('standard_header_ja') }}">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                @for($i=1; $i<=8; $i++)
-                                                <div class="form-group row my-2">
-                                                    <div class="col-md-4">
-                                                        <label class="form-label text-muted">Title (English)</label>
-                                                        <input type="text" class="form-control" placeholder="Enter title" name="setting[standard_title_en_{{$i}}]" value="{{ getSettingValue('standard_title_en_'.$i) }}">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label class="form-label text-muted">Title (Japanese)</label>
-                                                        <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[standard_title_ja_{{$i}}]" value="{{ getSettingValue('standard_title_ja_'.$i) }}">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label class="form-label text-muted">Value</label>
-                                                        <input type="text" class="form-control" placeholder="Enter value" name="setting[standard_value_{{$i}}]" value="{{ getSettingValue('standard_value_'.$i) }}">
-                                                    </div>
-                                                </div>
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="pro" role="tabpanel" aria-labelledby="pro-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">ECN Standard Header (English)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[pro_header]" value="{{ getSettingValue('pro_header_en') }}">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">ECN Standard Header (Japanese)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[pro_header_ja]" value="{{ getSettingValue('pro_header_ja') }}">
-                                                </div>
-                                            </div>
-                                            @for($i=1; $i<=8; $i++)
-                                            <div class="form-group row my-2">
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Title (English)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter title" name="setting[pro_title_en_{{$i}}]" value="{{ getSettingValue('pro_title_en_'.$i) }}">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Title (Japanese)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[pro_title_ja_{{$i}}]" value="{{ getSettingValue('pro_title_ja_'.$i) }}">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Value</label>
-                                                    <input type="text" class="form-control" id="android" placeholder="Enter value" name="setting[pro_value_{{$i}}]" value="{{ getSettingValue('pro_value_'.$i) }}">
-                                                </div>
-                                            </div>
-                                            @endfor
-                                        </div>
-                                        <div class="tab-pane fade" id="ecn" role="tabpanel" aria-labelledby="ecn-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">STP Premier Header (English)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[ecn_header_en]" value="{{ getSettingValue('ecn_header_en') }}">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">STP Premier Header (Japanese)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[ecn_header_ja]" value="{{ getSettingValue('ecn_header_ja') }}">
-                                                </div>
-                                            </div>
-                                            @for($i=1; $i<=8; $i++)
-                                            <div class="form-group row my-2">
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Title (English)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter title" name="setting[ecn_title_en_{{$i}}]" value="{{ getSettingValue('ecn_title_en_'.$i) }}">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Title (Japanese)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[ecn_title_ja_{{$i}}]" value="{{ getSettingValue('ecn_title_ja_'.$i) }}">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Value</label>
-                                                    <input type="text" class="form-control" placeholder="Enter value" name="setting[ecn_value_{{$i}}]" value="{{ getSettingValue('ecn_value_'.$i) }}">
-                                                </div>
-                                            </div>
-                                            @endfor
-                                        </div>
-                                        <div class="tab-pane fade" id="premium" role="tabpanel" aria-labelledby="premium-tab">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">ECN Premier Header (English)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[premium_header_en]" value="{{ getSettingValue('premium_header_en') }}">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label text-muted">ECN Premier Header (Japanese)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[premium_header_ja]" value="{{ getSettingValue('premium_header_ja') }}">
-                                                </div>
-                                            </div>
-                                            @for($i=1; $i<=8; $i++)
-                                            <div class="form-group row my-2">
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Title (English)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter title" name="setting[premium_title_en_{{$i}}]" value="{{ getSettingValue('premium_title_en_'.$i) }}">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Title (Japanese)</label>
-                                                    <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[premium_title_ja_{{$i}}]" value="{{ getSettingValue('premium_title_ja_'.$i) }}">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label text-muted">Value</label>
-                                                    <input type="text" class="form-control" placeholder="Enter value" name="setting[premium_value_{{$i}}]" value="{{ getSettingValue('premium_value_'.$i) }}">
-                                                </div>
-                                            </div>
-                                            @endfor
-                                        </div>
+                                @for($i=1; $i<=8; $i++) <div class="form-group row my-2">
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Title (English)</label>
+                                        <input type="text" class="form-control" placeholder="Enter title" name="setting[ecn_title_en_{{$i}}]" value="{{ getSettingValue('ecn_title_en_'.$i) }}">
                                     </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Title (Japanese)</label>
+                                        <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[ecn_title_ja_{{$i}}]" value="{{ getSettingValue('ecn_title_ja_'.$i) }}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Value</label>
+                                        <input type="text" class="form-control" placeholder="Enter value" name="setting[ecn_value_{{$i}}]" value="{{ getSettingValue('ecn_value_'.$i) }}">
+                                    </div>
+                            </div>
+                            @endfor
+                        </div>
+                        <div class="tab-pane fade" id="premium" role="tabpanel" aria-labelledby="premium-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">ECN Premier Header (English)</label>
+                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[premium_header_en]" value="{{ getSettingValue('premium_header_en') }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">ECN Premier Header (Japanese)</label>
+                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[premium_header_ja]" value="{{ getSettingValue('premium_header_ja') }}">
                                 </div>
                             </div>
-
-                            <div class="card-footer text-left">
-                                <button type="submit" class="btn btn-success">Update</button>
-                            </div>
-                        
-                    </form>
+                            @for($i=1; $i<=8; $i++) <div class="form-group row my-2">
+                                <div class="col-md-4">
+                                    <label class="form-label text-muted">Title (English)</label>
+                                    <input type="text" class="form-control" placeholder="Enter title" name="setting[premium_title_en_{{$i}}]" value="{{ getSettingValue('premium_title_en_'.$i) }}">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label text-muted">Title (Japanese)</label>
+                                    <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[premium_title_ja_{{$i}}]" value="{{ getSettingValue('premium_title_ja_'.$i) }}">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label text-muted">Value</label>
+                                    <input type="text" class="form-control" placeholder="Enter value" name="setting[premium_value_{{$i}}]" value="{{ getSettingValue('premium_value_'.$i) }}">
+                                </div>
+                        </div>
+                        @endfor
                 </div>
-
-            </div>
-            <div id="terms_setting" class="tab-pane"><br>
-                <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label class="form-label text-muted">Header Image</label>
-                                    <input type="file" name="setting[terms_header_img]" class="form-control">
-                                </div>
-                                @if(getSettingValue('terms_header_img'))
-                                <div class="col-md-6">
-                                    <img src="{{ asset('storage/Setting/'.getSettingValue('terms_header_img')) }}" loading="lazy" alt="" width="100px" height="100px">
-                                </div>
-                                @endif
-                            </div>
-
-                            <div class="form-group row mt-4">
-                                <div class="col-md-6">
-                                    <label class="form-label text-muted">Terms Title (English)</label>
-                                    <input type="text" class="form-control" name="setting[terms_title_en]" value="{{ getSettingValue('terms_title_en') }}">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="form-label text-muted">Terms Title (Japanese)</label>
-                                    <input type="text" class="form-control" name="setting[terms_title_ja]" value="{{ getSettingValue('terms_title_ja') }}">
-                                </div>
-                            </div>
-                            <div class="form-group row mt-4">
-                                <div class="col-md-12">
-                                    <label class="form-label text-muted">Terms Content (English)</label>
-                                    <textarea name="setting[terms_desc_en]" class="terms ckeditor">{{ getSettingValue('terms_desc_en') }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row mt-4">
-                                <div class="col-md-12">
-                                    <label class="form-label text-muted">Terms Content (Japanese)</label>
-                                    <textarea name="setting[terms_desc_ja]" class="terms ckeditor">{{ getSettingValue('terms_desc_ja') }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-left">
-                        <button type="submit" class="btn btn-success">Update</button>
-                    </div>
-                </form>
-            </div>
-            <div id="privacy_setting" class="tab-pane"><br>
-                <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    <label class="form-label text-muted">Header Image</label>
-                                    <input type="file" name="setting[privacy_header_img]" class="form-control">
-                                </div>
-                                @if(getSettingValue('privacy_header_img'))
-                                <div class="col-md-6">
-                                    <img src="{{ asset('storage/Setting/'.getSettingValue('privacy_header_img')) }}" loading="lazy" alt="" width="100px" height="100px">
-                                </div>
-                                @endif
-                            </div>
-                            <div class="form-group row mt-4">
-                                <div class="col-md-6">
-                                    <label class="form-label text-muted">Privacy Policy Title (English)</label>
-                                    <input type="text" class="form-control" name="setting[privacy_title_en]" value="{{ getSettingValue('privacy_title_en') }}">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="form-label text-muted">Privacy Policy Title (Japanese)</label>
-                                    <input type="text" class="form-control" name="setting[privacy_title_ja]" value="{{ getSettingValue('privacy_title_ja') }}">
-                                </div>
-                            </div>
-                            <div class="form-group row mt-4">
-                                <div class="col-md-12">
-                                    <label class="form-label text-muted">Privacy Policy Content (English)</label>
-                                    <textarea name="setting[privacy_desc_en]" class="terms ckeditor">{{ getSettingValue('privacy_desc_en') }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row mt-4">
-                                <div class="col-md-12">
-                                    <label class="form-label text-muted">Privacy Policy Content (Japanese)</label>
-                                    <textarea name="setting[privacy_desc_ja]" class="terms ckeditor">{{ getSettingValue('privacy_desc_ja') }}</textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-left">
-                        <button type="submit" class="btn btn-success">Update</button>
-                    </div>
-                </form>
-            </div>
-            <div id="category" class="tab-pane {{Route::current()->getName() == 'admin.setting.category' ? 'active' : ''}}">
-                <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addShareCategory" data-bs-whatever="@mdo" id="addBtn">Add</button>
-                @if(Route::currentRouteName()=='admin.setting.category')
-                {{$dataTable->table(['class' => 'table table-bordered dt-responsive nowrap','style' => 'width: 100%']) }}
-                @endif
-            </div>
-            <div id="sharecategory" class="tab-pane {{Route::current()->getName() == 'admin.setting.viewshareCategory' ? 'active' : ''}}">
-                <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addCategory" data-bs-whatever="@mdo" id="addBtn">Add</button>
-                {{$dataTable->table(['class' => 'table table-bordered dt-responsive nowrap','style' => 'width: 100%']) }}
             </div>
         </div>
     </div>
+
+    <div class="card-footer text-left">
+        <button type="submit" class="btn btn-success">Update</button>
+    </div>
+
+    </form>
+</div>
+
+</div>
+<div id="terms_setting" class="tab-pane"><br>
+    <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
+        @csrf
+
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Header Image</label>
+                        <input type="file" name="setting[terms_header_img]" class="form-control">
+                    </div>
+                    @if(getSettingValue('terms_header_img'))
+                    <div class="col-md-6">
+                        <img src="{{ asset('storage/Setting/'.getSettingValue('terms_header_img')) }}" loading="lazy" alt="" width="100px" height="100px">
+                    </div>
+                    @endif
+                </div>
+
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Terms Title (English)</label>
+                        <input type="text" class="form-control" name="setting[terms_title_en]" value="{{ getSettingValue('terms_title_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Terms Title (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[terms_title_ja]" value="{{ getSettingValue('terms_title_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <label class="form-label text-muted">Terms Content (English)</label>
+                        <textarea name="setting[terms_desc_en]" class="terms ckeditor">{{ getSettingValue('terms_desc_en') }}</textarea>
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <label class="form-label text-muted">Terms Content (Japanese)</label>
+                        <textarea name="setting[terms_desc_ja]" class="terms ckeditor">{{ getSettingValue('terms_desc_ja') }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer text-left">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </form>
+</div>
+<div id="privacy_setting" class="tab-pane"><br>
+    <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
+        @csrf
+
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Header Image</label>
+                        <input type="file" name="setting[privacy_header_img]" class="form-control">
+                    </div>
+                    @if(getSettingValue('privacy_header_img'))
+                    <div class="col-md-6">
+                        <img src="{{ asset('storage/Setting/'.getSettingValue('privacy_header_img')) }}" loading="lazy" alt="" width="100px" height="100px">
+                    </div>
+                    @endif
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Privacy Policy Title (English)</label>
+                        <input type="text" class="form-control" name="setting[privacy_title_en]" value="{{ getSettingValue('privacy_title_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Privacy Policy Title (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[privacy_title_ja]" value="{{ getSettingValue('privacy_title_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <label class="form-label text-muted">Privacy Policy Content (English)</label>
+                        <textarea name="setting[privacy_desc_en]" class="terms ckeditor">{{ getSettingValue('privacy_desc_en') }}</textarea>
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-12">
+                        <label class="form-label text-muted">Privacy Policy Content (Japanese)</label>
+                        <textarea name="setting[privacy_desc_ja]" class="terms ckeditor">{{ getSettingValue('privacy_desc_ja') }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer text-left">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </form>
+</div>
+<div id="category" class="tab-pane {{Route::current()->getName() == 'admin.setting.category' ? 'active' : ''}}">
+    <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addShareCategory" data-bs-whatever="@mdo" id="addBtn">Add</button>
+    @if(Route::currentRouteName()=='admin.setting.category')
+    {{$dataTable->table(['class' => 'table table-bordered dt-responsive nowrap','style' => 'width: 100%']) }}
+    @endif
+</div>
+<div id="sharecategory" class="tab-pane {{Route::current()->getName() == 'admin.setting.viewshareCategory' ? 'active' : ''}}">
+    <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addCategory" data-bs-whatever="@mdo" id="addBtn">Add</button>
+    {{$dataTable->table(['class' => 'table table-bordered dt-responsive nowrap','style' => 'width: 100%']) }}
+</div>
+
+
+<!-- reward -->
+<div id="reward_setting" class="tab-pane"><br>
+    <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
+        @csrf
+
+        <!-- main description -->
+        <div class="form-group row my-2">
+            <div class="col-md-4">
+                <label class="form-label text-muted">Main Description (English)</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="setting[rewards_main_header_en]" value="{{ getSettingValue('rewards_main_header_en') }}">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label text-muted">Main Description (Japanese)</label>
+                <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[rewards_main_header_ja]" value="{{ getSettingValue('rewards_main_header_ja') }}">
+            </div>
+        </div>
+
+        <!-- note -->
+        <div class="form-group row my-2">
+            <div class="col-md-4">
+                <label class="form-label text-muted">Note (English)</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="setting[rewards_note_en]" value="{{ getSettingValue('rewards_note_en') }}">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label text-muted">Note (Japanese)</label>
+                <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[rewards_note_ja]" value="{{ getSettingValue('rewards_note_ja') }}">
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card mt-4 card-primary card-outline">
+                <!-- <div class="card-header text-dark">Reward Type</div> -->
+                <div class="card-body">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="standard-tab" data-bs-toggle="pill" data-bs-target="#classic" type="button" role="tab" aria-controls="standard" aria-selected="true">Classic</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pro-tab" data-bs-toggle="pill" data-bs-target="#advance" type="button" role="tab" aria-controls="pro" aria-selected="false">Advance</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="ecn-tab" data-bs-toggle="pill" data-bs-target="#elite" type="button" role="tab" aria-controls="ecn" aria-selected="false">Elite</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="premium-tab" data-bs-toggle="pill" data-bs-target="#ambassador" type="button" role="tab" aria-controls="ecn" aria-selected="false">Ambassador</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <!-- classic tab -->
+                        <div class="tab-pane fade show active" id="classic" role="tabpanel" aria-labelledby="standard-tab">
+                            <!-- funding title -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Classic Funding Title (English)</label>
+                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_classic_title_en]" value="{{ getSettingValue('rewards_funding_classic_title_en') }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Classic Funding Title (Japanese)</label>
+                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_classic_title_ja]" value="{{ getSettingValue('rewards_funding_classic_title_ja') }}">
+                                </div>
+                            </div>
+                            <!-- header -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Classic Header (English)</label>
+                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[classic_header_en]" value="{{ getSettingValue('classic_header_en') }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Classic Header (Japanese)</label>
+                                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[classic_header_ja]" value="{{ getSettingValue('classic_header_ja') }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                @for($i=1; $i<=6; $i++) <div class="form-group row my-2">
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Title (English)</label>
+                                        <input type="text" class="form-control" placeholder="Enter title" name="setting[classic_title_en_{{$i}}]" value="{{ getSettingValue('classic_title_en_'.$i) }}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Title (Japanese)</label>
+                                        <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[classic_title_ja_{{$i}}]" value="{{ getSettingValue('classic_title_ja_'.$i) }}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Value</label>
+                                        <input type="text" class="form-control" placeholder="Enter value" name="setting[classic_value_{{$i}}]" value="{{ getSettingValue('classic_value_'.$i) }}">
+                                    </div>
+                            </div>
+                            @endfor
+                        </div>
+                    </div>
+                    <!-- end classic tab -->
+
+                    <!-- Advance -->
+                    <div class="tab-pane fade" id="advance" role="tabpanel" aria-labelledby="pro-tab">
+                        <!-- funding title -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted">Advance Funding Title (English)</label>
+                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_advance_title_en]" value="{{ getSettingValue('rewards_funding_advance_title_en') }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted">Advance Funding Title (Japanese)</label>
+                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_advance_title_ja]" value="{{ getSettingValue('rewards_funding_advance_title_ja') }}">
+                            </div>
+                        </div>
+                        <!-- header -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted">Advance Header (English)</label>
+                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header]" value="{{ getSettingValue('advance_header_en') }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted">Advance Standard Header (Japanese)</label>
+                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header_ja]" value="{{ getSettingValue('advance_header_ja') }}">
+                            </div>
+                        </div>
+                        @for($i=1; $i<=6; $i++) <div class="form-group row my-2">
+                            <div class="col-md-4">
+                                <label class="form-label text-muted">Title (English)</label>
+                                <input type="text" class="form-control" placeholder="Enter title" name="setting[advance_title_en_{{$i}}]" value="{{ getSettingValue('advance_title_en_'.$i) }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label text-muted">Title (Japanese)</label>
+                                <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[advance_title_ja_{{$i}}]" value="{{ getSettingValue('advance_title_ja_'.$i) }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label text-muted">Value</label>
+                                <input type="text" class="form-control" id="android" placeholder="Enter value" name="setting[advance_value_{{$i}}]" value="{{ getSettingValue('advance_value_'.$i) }}">
+                            </div>
+                    </div>
+                    @endfor
+                </div>
+                <!-- end advance tab -->
+
+                <!-- elite -->
+                <div class="tab-pane fade" id="elite" role="tabpanel" aria-labelledby="ecn-tab">
+                    <!-- funding title -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted">Elite Funding Title (English)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_elite_title_en]" value="{{ getSettingValue('rewards_funding_elite_title_en') }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted">Elite Funding Title (Japanese)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_elite_title_ja]" value="{{ getSettingValue('rewards_funding_elite_title_ja') }}">
+                        </div>
+                    </div>
+                    <!-- header -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted">Elite Header (English)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[elite_header_en]" value="{{ getSettingValue('elite_header_en') }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted">Elite Header (Japanese)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[elite_header_ja]" value="{{ getSettingValue('elite_header_ja') }}">
+                        </div>
+                    </div>
+                    @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
+                        <div class="col-md-4">
+                            <label class="form-label text-muted">Title (English)</label>
+                            <input type="text" class="form-control" placeholder="Enter title" name="setting[elite_title_en_{{$i}}]" value="{{ getSettingValue('elite_title_en_'.$i) }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted">Title (Japanese)</label>
+                            <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[elite_title_ja_{{$i}}]" value="{{ getSettingValue('elite_title_ja_'.$i) }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted">Value</label>
+                            <input type="text" class="form-control" placeholder="Enter value" name="setting[elite_value_{{$i}}]" value="{{ getSettingValue('elite_value_'.$i) }}">
+                        </div>
+                </div>
+                @endfor
+            </div>
+            <!-- elite end -->
+
+            <!-- Ambassador -->
+            <div class="tab-pane fade" id="ambassador" role="tabpanel" aria-labelledby="premium-tab">
+                <!-- funding title -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Ambassador Funding Title (English)</label>
+                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_ambassador_title_en]" value="{{ getSettingValue('rewards_funding_ambassador_title_en') }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Ambassador Funding Title (Japanese)</label>
+                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_ambassador_title_ja]" value="{{ getSettingValue('rewards_funding_ambassador_title_ja') }}">
+                    </div>
+                </div>
+                <!-- header -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Ambassador Header (English)</label>
+                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[ambassador_header_en]" value="{{ getSettingValue('ambassador_header_en') }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">ECN Premier Header (Japanese)</label>
+                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[ambassador_header_ja]" value="{{ getSettingValue('ambassador_header_ja') }}">
+                    </div>
+                </div>
+                @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
+                    <div class="col-md-4">
+                        <label class="form-label text-muted">Title (English)</label>
+                        <input type="text" class="form-control" placeholder="Enter title" name="setting[ambassador_title_en_{{$i}}]" value="{{ getSettingValue('ambassador_title_en_'.$i) }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted">Title (Japanese)</label>
+                        <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[ambassador_title_ja_{{$i}}]" value="{{ getSettingValue('ambassador_title_ja_'.$i) }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label text-muted">Value</label>
+                        <input type="text" class="form-control" placeholder="Enter value" name="setting[ambassador_value_{{$i}}]" value="{{ getSettingValue('ambassador_value_'.$i) }}">
+                    </div>
+            </div>
+            @endfor
+        </div>
+        <!-- end Ambassador -->
+</div>
+</div>
+</div>
+
+<div class="card-footer text-left">
+    <button type="submit" class="btn btn-success">Update</button>
+</div>
+
+</form>
+</div>
+<!-- end reward -->
+</div>
+</div>
 </div>
 <div class="modal fade" id="addShareCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

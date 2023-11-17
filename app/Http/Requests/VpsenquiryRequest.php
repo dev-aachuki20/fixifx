@@ -27,7 +27,7 @@ class VpsenquiryRequest extends FormRequest
             'fname' => 'required|string|min:3|max:20|regex:/^[A-Za-z]+$/',
             'lname' => 'required|string|min:3|max:40|regex:/^[A-Za-z]+$/',
             'email' => 'required|regex:/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/|unique:vps_enquiries',
-            'phone_number'   => 'required|digits:10',
+            'phone_number'   => 'required|numeric|digits_between:10,15',
         ];
     }
 }

@@ -255,7 +255,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                                 </div>
                                 <div class="description">
                                     <p>
-                                        {{ $sub_sec->{config('app.locale').'_desc'} }}
+                                        {!! $sub_sec->{config('app.locale').'_desc'} !!}
                                     </p>
                                 </div>
                             </div>

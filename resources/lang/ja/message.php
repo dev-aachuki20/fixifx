@@ -159,5 +159,8 @@ return [
     'download_platform_guide' => 'プラットフォームガイドをダウンロード',
     'support_six_screen' => 'FiXi AdvanTrade は Windows および Mac で最大 6 つの画面をサポートします',
     'preview_btn' => 'プレビュー',
+    'See_the_full_point_catalogue' => 'フルポイントカタログを見る',
+    'more_points' => 'ポイントが多ければ価格もお得になります',
+    'prestigious_vip_network' => '当社の権威ある VIP ネットワークについて学ぶ',
 
 ];

@@ -8,8 +8,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 @section('content')
 
 @include('front.layouts.partials.common_hero')
-
-@php $section1 = $section->where('section_no', 1)->where('status', 1)->first() @endphp
+@php $section1 = $section->where('section_no', 1)->where('status', 1)->first();
+$sectionLink1 = json_decode($section1->link);
+@endphp
 @if($section1)
 <section class="bg-white side-by-side padding-tb-120 fiXiTrader_box">
     <div class="container">
@@ -24,8 +25,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         <p>{!! $section1->{config('app.locale').'_desc'} !!}</p>
                     </div>
                     <div class="button-group">
-                        <a href="#" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="#" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionLink1[0]) ? $sectionLink1[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionLink1[1]) ? $sectionLink1[1] : '#' }}" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +40,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 </section>
 @endif
 
-@php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
+@php $section2 = $section->where('section_no', 2)->where('status', 1)->first();
+$sectionLink2 = json_decode($section2->link);
+@endphp
 @if($section2)
 <section class="bg-gradient-dark side-by-side padding-tb-120 fiXiTrader_box2">
     <div class="container">
@@ -59,8 +62,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         <p>{!! $section2->{config('app.locale').'_desc'} !!}</p>
                     </div>
                     <div class="button-group">
-                        <a href="#" class="custom-btn fill-btn-1 text-white">{{__('message.learn_more_btn')}}</a>
-                        <a href="#" class="custom-btn fill-btn text-white">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionLink2[0]) ? $sectionLink2[0] : '#' }}" class="custom-btn fill-btn-1 text-white">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionLink2[1]) ? $sectionLink2[1] : '#' }}" class="custom-btn fill-btn text-white">{{__('message.preview_btn')}}</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +72,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 </section>
 @endif
 
-@php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
+@php $section3 = $section->where('section_no', 3)->where('status', 1)->first();
+$sectionLink3 = json_decode($section3->link); @endphp
 @if($section3)
 <section class="bg-white side-by-side padding-tb-120 fiXiTrader_box" style="background-color: #F8F8F8 !important;">
     <div class="container">
@@ -84,14 +88,14 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         <p>{!! $section3->{config('app.locale').'_desc'} !!}</p>
                     </div>
                     <div class="button-group">
-                        <a href="#" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="#" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionLink3[0]) ? $sectionLink3[0] : '#' }}" class="custom-btn fill-btn-1 text-white">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionLink3[1]) ? $sectionLink3[1] : '#' }}" class="custom-btn fill-btn text-white">{{__('message.preview_btn')}}</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="side-by-side-img">
-                    <img src="{{$section3 && $section3->image ? $section3->image : asset('fixifx/images/images/tradergo.png')}}" alt="tradergo">
+                    <img src="{{$section3 && $section3->image ? $section3->image : asset('fixifx/images/tradergo.png')}}" alt="tradergo">
                 </div>
             </div>
         </div>
@@ -130,7 +134,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                             <p>{!! $sub_sec->{config('app.locale').'_desc'} !!}</p>
                         </div>
                         <div class="button-group">
-                            <a href="{{$sub_sec->link ? $sub_sec->link : ''}}" class="custom-btn fill-btn">{{__('message.learn_more_btn')}}</a>
+                            <a href="{{isset($sub_sec->link) ? $sub_sec->link : '#'}}" class="custom-btn fill-btn">{{__('message.learn_more_btn')}}</a>
                         </div>
                     </div>
                 </div>
