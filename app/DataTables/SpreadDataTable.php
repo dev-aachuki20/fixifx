@@ -25,12 +25,12 @@ class SpreadDataTable extends DataTable
                 if (array_key_exists($data->symbol, $currency_changes)) {
                     if (isset($currency_changes[$data->symbol])) {
                         $flags = $currency_changes[$data->symbol];
-                        $html .= '<img class="img-fluid" src="' . $flags['flag_1'] . '" alt=""></span><span><img class="img-fluid" src="' . $flags['flag_2'] . '" alt="">';
+                        $html .= '<img class="img-fluid" src="' . $flags['flag_1'] . '" alt="" width="24" style="margin-right: 5px;"></span><span><img class="img-fluid" src="' . $flags['flag_2'] . '" alt="" width="24">';
 
                         $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
                     }
                 } else {
-                    $html .= '<img class="img-fluid" src="'.asset('front/img/flag/usd.svg').'" alt=""></span><span><img class="img-fluid" src="'.asset('front/img/flag/try.svg').'" alt="">';
+                    $html .= '<img class="img-fluid" src="'.asset('front/img/flag/usd.svg').'" alt="" width="24" style="margin-right: 5px;"></span><span><img class="img-fluid" src="'.asset('front/img/flag/try.svg').'" alt="" width="24">';
                     $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
                 }
 

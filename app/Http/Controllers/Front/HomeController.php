@@ -22,6 +22,7 @@ use App\Models\SpreadCategory;
 use App\Models\ArticleCategory;
 use App\DataTables\CfdDataTable;
 use App\DataTables\ForexDataTable;
+use App\DataTables\RewardDataTable;
 use App\DataTables\ShareDataTable;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\SpreadDataTable;
@@ -33,6 +34,7 @@ use App\Http\Requests\CommentRequest;
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\VpsenquiryRequest;
 use App\Mail\VpsFormMail;
+use App\Models\Reward;
 use App\Models\VpsEnquiry;
 use Illuminate\Support\Facades\Mail;
 
@@ -52,7 +54,7 @@ class HomeController extends Controller
         return redirect($newUrl);
     }
 
-    public function page($locale, $slug, SpreadDataTable $spreadTable, ShareDataTable $shareDataTable, ForexDataTable $forexDataTable, CfdDataTable $cfdDataTable, $article_id = NULL)
+    public function page($locale, $slug, SpreadDataTable $spreadTable, ShareDataTable $shareDataTable, ForexDataTable $forexDataTable, CfdDataTable $cfdDataTable, RewardDataTable $rewardTable, $article_id = NULL)
     {
 
         $home_articles = Article::where('page_id', 0)->where('status', 1)->orderBy('id', 'DESC')->get();
@@ -127,11 +129,12 @@ class HomeController extends Controller
                 return $cfdDataTable->render('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'tags', 'faqs', 'countries', 'contacts', 'common'));
             }
 
-            // if (request()->ajax()) {
-            //     return response()->view('front.page.'. $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories', 'currency_changes'));
-            // } else {
+            if ($slug == "rewards") {
+                $rewards = Reward::all();
+                return $rewardTable->render('front.page.' . $slug, compact('slug', 'section', 'page', 'rewards'));
+            }
+
             return view('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories', 'currency_changes'));
-            // }
         } else {
             abort(404);
         }

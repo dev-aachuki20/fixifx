@@ -163,4 +163,8 @@ return [
     'more_points' => 'ポイントが多ければ価格もお得になります',
     'prestigious_vip_network' => '当社の権威ある VIP ネットワークについて学ぶ',
 
+    'trade' => '貿易',
+    'volume' => '音量',
+    'points' => 'ポイント',
+
 ];

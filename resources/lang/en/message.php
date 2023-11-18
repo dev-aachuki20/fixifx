@@ -164,4 +164,7 @@ return [
     'more_points' => 'More points mean better prices',
     'prestigious_vip_network' => 'Learn about our prestigious VIP network',
 
+    'trade' => 'Trade',
+    'volume' => 'Volume',
+    'points' => 'Points',
 ];

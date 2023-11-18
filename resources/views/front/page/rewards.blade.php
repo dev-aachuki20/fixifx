@@ -259,89 +259,37 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         <thead>
                             <tr>
                                 <th>
-                                    Trade
+                                    {{__('message.trade')}}
                                 </th>
                                 <th>
-                                    Volume
+                                    {{__('message.volume')}}
                                 </th>
                                 <th>
-                                    Points
+                                    {{__('message.points')}}
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($rewards as $reward)
                             <tr>
                                 <td>
                                     <div class="trade-listing d-flex">
                                         <div class="icon">
-                                            <img class="img-fluid" src="{{asset('fixifx/images/x-coin.svg')}}" alt="">
+                                            <img class="img-fluid" src="{{ $reward && $reward->image ? asset('fixifx/images/reward/'.$reward->image) : asset('fixifx/images/x-coin.svg')}}" alt="" style="width: 25px; height: auto;">
                                         </div>
                                         <div class="trade-name">
-                                            Stocks/ETFs/ETN
+                                            {{$reward->trade}}
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    USD 10,000
+                                    {{$reward->volume}}
                                 </td>
                                 <td>
-                                    250
+                                    {{$reward->points}}
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <div class="trade-listing d-flex">
-                                        <div class="icon">
-                                            <img class="img-fluid" src="{{asset('fixifx/images/b-coin.svg')}}" alt="">
-                                        </div>
-                                        <div class="trade-name">
-                                            Stocks/ETFs/ETN
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    USD 10,000
-                                </td>
-                                <td>
-                                    250
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="trade-listing d-flex">
-                                        <div class="icon">
-                                            <img class="img-fluid" src="{{asset('fixifx/images/b-coin.svg')}}" alt="">
-                                        </div>
-                                        <div class="trade-name">
-                                            Stocks/ETFs/ETN
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    USD 10,000
-                                </td>
-                                <td>
-                                    250
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="trade-listing d-flex">
-                                        <div class="icon">
-                                            <img class="img-fluid" src="{{asset('fixifx/images/x-coin.svg')}}" alt="">
-                                        </div>
-                                        <div class="trade-name">
-                                            Stocks/ETFs/ETN
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    USD 10,000
-                                </td>
-                                <td>
-                                    250
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

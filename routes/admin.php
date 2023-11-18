@@ -88,6 +88,10 @@ Route::group(['middleware' => 'auth:admin'],function (){
     Route::post('add_spread/{id?}', 'HomeController@addUpdateSpread')->name('add_spread');
     Route::post('get_spread', 'HomeController@getSpread')->name('get_spread');
     Route::post('delete_spread', 'HomeController@deleteSpread')->name('delete_spread');
+    
+    // reward data table route
+    Route::post('get_reward', 'HomeController@getReward')->name('get_reward');
+    Route::post('add_reward/{id?}', 'HomeController@addUpdateReward')->name('add_reward');
 
     Route::post('add_share/{id?}', 'HomeController@addUpdateShare')->name('add_share');
     Route::post('add_forex/{id?}', 'HomeController@addUpdateForex')->name('add_forex');

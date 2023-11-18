@@ -4,6 +4,32 @@
 
 @push('css')
 <link rel="stylesheet" href="{{ asset('custom.css') }}">
+
+<style>
+    .admin-datatable .dataTables_scrollHead table.table,
+    .admin-datatable .dataTables_scrollHeadInner {
+        width: 100% !important;
+    }
+
+    .admin-datatable .dataTables_scrollBody {
+        overflow: inherit !important;
+    }
+
+    .admin-datatable .dataTables_scroll {
+        overflow: auto;
+    }
+
+
+    @media screen and (min-width: 1100px) {
+
+        .admin-datatable .dataTables_scrollHead table.table thead th,
+        .admin-datatable .dataTables_scrollBody thead th,
+        .admin-datatable .dataTables_scrollBody tbody td {
+            width: 18% !important;
+        }
+    }
+</style>
+
 @endpush
 @section('content')
 <div class="animated fadeIn">
@@ -657,84 +683,247 @@
 
 
 
+    <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="Sec6">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="Sec6">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_6" aria-expanded="true" aria-controls="sec_6">
+                    <i class="ri-global-line me-2"></i>Reward Table
+                </button>
+            </h2>
+            <div id="sec_6" class="accordion-collapse collapse" aria-labelledby="Sec6" data-bs-parent="#Sec6">
+                <div class="accordion-body">
+                    {{-- <form action="{{ route('admin.save_section', ['sec_no' => 5]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="page_id" value="{{$page_id}}"> --}}
+
+                    <div class="card mt-2">
+                        <div class="card-body admin-datatable">
+
+                            {!! $dataTable->table(['class' => 'table table-bordered dt-responsive nowrap','style' => 'width: 100%']) !!}
+                        </div>
+                    </div>
+                    {{-- </form> --}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="rewardModal" tabindex="-1" role="dialog" aria-labelledby="rewardModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rewardModalLabel">Add Spread</h5>
+                    <button type="button" class="btn btn-primary reward_close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="reward_form" method="post">
+                        @csrf
+
+                        <input type="hidden" name="reward_id" id="reward_id" value="">
 
 
-</div>
+                        <div class="row mt-4">
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Trade</label>
+                                    <input type="text" name="trade" class="form-control" id="trade">
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Volume</label>
+                                    <input type="text" name="volume" class="form-control" id="volume">
+                                </div>
+                            </div>
 
-@endsection
+                        </div>
 
-@push('scripts')
-<script src="{{ asset('custom.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.2.0/tinymce.min.js" referrerpolicy="origin"></script>
-<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
-<script type="text/javascript">
-    tinymce.init({
-        selector: ".ckeditor_custom",
-        plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons checklist mediaembed pageembed permanentpen powerpaste table advtable tableofcontents',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-        content_style: "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap'); body { font-family: 'Noto Sans JP' } h1,h2,h3,h4,h5,h6 { font-family: 'Noto Sans JP' }",
-        font_formats: "Arial Black=arial black,avant garde; Courier New=courier new,courier; Lato Black=lato; Roboto=roboto; Noto Sans JP=Noto Sans JP",
-        // skin: "snow",
-        height: 420,
-        automatic_uploads: true,
-        file_picker_types: 'image',
-        file_picker_callback: function(cb, value, meta) {
-            var input = document.createElement('input');
-            input.setAttribute('type', 'file');
-            input.setAttribute('accept', 'image/*');
-            input.onchange = function() {
-                var file = this.files[0];
+                        <div class="row mt-4">
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Points</label>
+                                    <input type="number" name="points" class="form-control" id="points">
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Icon</label>
+                                    <input type="file" name="image" class="form-control" id="image">
+                                </div>
+                            </div>
 
-                var reader = new FileReader();
-                reader.onload = function() {
-                    var id = 'blobid' + (new Date()).getTime();
-                    var blobCache = tinymce.activeEditor.editorUpload.blobCache;
-                    var base64 = reader.result.split(',')[1];
-                    var blobInfo = blobCache.create(id, file, base64);
-                    blobCache.add(blobInfo);
-                    cb(blobInfo.blobUri(), {
-                        title: file.name
-                    });
+                            <!-- <div class="col-xxl-5 col-md-5">
+                                <div>
+                                http://localhost:8000/fixifx/images/x-coin.svg
+                                    <img id="imagess" src="" style="width: 80px; height: auto;" alt="">
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="modal-footer mt-4">
+                            <button type="button" class="btn btn-secondary reward_close" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @endsection
+
+    @push('scripts')
+
+
+    <script src="{{ asset('custom.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.2.0/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: ".ckeditor_custom",
+            plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons checklist mediaembed pageembed permanentpen powerpaste table advtable tableofcontents',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+            content_style: "@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap'); body { font-family: 'Noto Sans JP' } h1,h2,h3,h4,h5,h6 { font-family: 'Noto Sans JP' }",
+            font_formats: "Arial Black=arial black,avant garde; Courier New=courier new,courier; Lato Black=lato; Roboto=roboto; Noto Sans JP=Noto Sans JP",
+            // skin: "snow",
+            height: 420,
+            automatic_uploads: true,
+            file_picker_types: 'image',
+            file_picker_callback: function(cb, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.onchange = function() {
+                    var file = this.files[0];
+
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+                        cb(blobInfo.blobUri(), {
+                            title: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
                 };
-                reader.readAsDataURL(file);
-            };
 
-            input.click();
-        },
-    });
-</script>
+                input.click();
+            },
+        });
+    </script>
 
-<script type="text/javascript">
-    $(document).on('click', '.add_faq', function() {
-        clone_div = $(".faq_section_row:first").clone();
-        clone_div.find('.remove_faq').removeClass('d-none').addClass('d-block');
-        clone_div.insertAfter(".faq_section_row:last");
-        clone_div.find('.en_question, .ja_question, .en_answer, .ja_answer').val('');
-        change_name();
-    });
-
-    var remove_faq_ids = [];
-    $(document).on('click', '.remove_faq', function() {
-        $(this).parent().parent().parent().remove();
-        remove_faq_ids.push($(this).parent().parent().parent().find('.faq_id').val());
-        $('.faq_remove_ids').val(remove_faq_ids);
-    });
-
-    function change_name() {
-        var n = 0;
-        $(".faq_section_row").each(function() {
-            CKEDITOR.replaceAll('ckeditor');
-
-            $(this).find('.en_question').attr('name', 'faq[' + n + '][en_question]');
-            $(this).find('.ja_question').attr('name', 'faq[' + n + '][ja_question]');
-            $(this).find('.en_answer').attr('name', 'faq[' + n + '][en_answer]');
-            $(this).find('.ja_answer').attr('name', 'faq[' + n + '][ja_answer]');
-            n++;
+    <!-- faq section -->
+    <script type="text/javascript">
+        $(document).on('click', '.add_faq', function() {
+            clone_div = $(".faq_section_row:first").clone();
+            clone_div.find('.remove_faq').removeClass('d-none').addClass('d-block');
+            clone_div.insertAfter(".faq_section_row:last");
+            clone_div.find('.en_question, .ja_question, .en_answer, .ja_answer').val('');
+            change_name();
         });
 
-        setTimeout(function() {
-            $('.faq_section_row').find('.ckeditor').nextAll().not($('.faq_section_row').find('.ckeditor').next()).remove();
-        }, 100);
-    }
-</script>
-@endpush
+        var remove_faq_ids = [];
+        $(document).on('click', '.remove_faq', function() {
+            $(this).parent().parent().parent().remove();
+            remove_faq_ids.push($(this).parent().parent().parent().find('.faq_id').val());
+            $('.faq_remove_ids').val(remove_faq_ids);
+        });
+
+        function change_name() {
+            var n = 0;
+            $(".faq_section_row").each(function() {
+                CKEDITOR.replaceAll('ckeditor');
+
+                $(this).find('.en_question').attr('name', 'faq[' + n + '][en_question]');
+                $(this).find('.ja_question').attr('name', 'faq[' + n + '][ja_question]');
+                $(this).find('.en_answer').attr('name', 'faq[' + n + '][en_answer]');
+                $(this).find('.ja_answer').attr('name', 'faq[' + n + '][ja_answer]');
+                n++;
+            });
+
+            setTimeout(function() {
+                $('.faq_section_row').find('.ckeditor').nextAll().not($('.faq_section_row').find('.ckeditor').next()).remove();
+            }, 100);
+        }
+    </script>
+
+
+    <!-- datatable  -->
+    {!! $dataTable->scripts() !!}
+    <script src="{{ asset('custom.js') }}"></script>
+    <script>
+        $(document).on('click', '.spread_add', function() {
+            $('#spread_form')[0].reset();
+            $('#spreadModal').modal('show');
+        });
+
+        $(document).on('click', '.edit_reward', function() {
+            id = $(this).attr('reward_id');
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ route('admin.get_reward') }}",
+                type: 'POST',
+                data: {
+                    'id': id
+                },
+                success: function(res) {
+                    if (res) {
+                        $('#rewardModal').modal('show');
+                        $('#reward_id').val(res.id);
+                        $('#trade').val(res.trade);
+                        $('#volume').val(res.volume);
+                        $('#points').val(res.points);
+                        $('#image').val(res.image);
+                    }
+                }
+            });
+        });
+
+        $(document).on('click', '.reward_close', function() {
+            $('#rewardModal').modal('hide');
+        });
+
+
+        $('#reward_form').on('submit', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ route('admin.add_reward') }}",
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                data: new FormData($('#reward_form')[0]),
+                success: function(res) {
+                    if (res) {
+                        $('#rewardModal').modal('hide');
+                        window.LaravelDataTables["reward-table"].draw();
+                    }
+                },
+                error: function(data) {
+                    if (data.status === 422) {
+                        $('.invalid-feedback').remove();
+                        var errors = $.parseJSON(data.responseText);
+                        $.each(errors.errors, function(key, value) {
+                            $('#reward_form').find('input[name=' + key + '], select[name=' + key + ']').empty().after('<div id="' + key + '-error" class="invalid-feedback animated fadeInDown">' + value + '</div>');
+                            $('#reward_form').find('input[name=' + key + '], select[name=' + key + ']').addClass('is-invalid');
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    @endpush

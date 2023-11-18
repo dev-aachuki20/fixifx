@@ -25,19 +25,22 @@ use App\DataTables\ContactUsersDataTable;
 use App\DataTables\ArticleCategoryDataTable;
 use App\DataTables\CfdDataTable;
 use App\DataTables\ForexDataTable;
+use App\DataTables\RewardDataTable;
 use App\DataTables\ShareCategoryDataTable;
 use App\DataTables\ShareDataTable;
 use App\DataTables\VpsUsersDataTable;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\RewardRequest;
 use App\Http\Requests\ShareCategoryRequest;
 use App\Http\Requests\ShareRequest;
 use App\Models\Cfd;
 use App\Models\Forex;
+use App\Models\Reward;
 use App\Models\ShareCategory;
 
 class HomeController extends Controller
 {
-    public function page(ArticleDataTable $dataTable, $slug, SpreadDataTable $spreadTable, ArticleCategoryDataTable $articleCategoryDataTable, ShareDataTable $shareDataTable, ShareCategoryDataTable $shareCategoryDataTable, ForexDataTable $forexDataTable, CfdDataTable $cfdDataTable)
+    public function page(ArticleDataTable $dataTable, $slug, SpreadDataTable $spreadTable, ArticleCategoryDataTable $articleCategoryDataTable, ShareDataTable $shareDataTable, ShareCategoryDataTable $shareCategoryDataTable, ForexDataTable $forexDataTable, CfdDataTable $cfdDataTable, RewardDataTable $rewardTable)
     {
         if ($slug == 'home') {
             $section = Section::where('page_id', 0)->get();
@@ -82,6 +85,11 @@ class HomeController extends Controller
         if ($slug == "setting") {
             return $shareCategoryDataTable->render('admin.page.setting');
         }
+
+        if ($slug == "rewards") {
+            return $rewardTable->render('admin.page.' . $slug, compact('slug', 'section', 'page', 'page_id', 'faqs'));
+        }
+
         return view('admin.page.' . $slug, compact('slug', 'section', 'page', 'page_id', 'faqs', 'payments', 'contact_data'));
     }
 
@@ -530,6 +538,52 @@ class HomeController extends Controller
 
         return $spread->delete();
     }
+
+
+    // reward
+    public function getReward(Request $request)
+    {
+        $reward = Reward::find($request->id);
+        return $reward;
+    }
+
+    public function addUpdateReward(RewardRequest $request)
+    {
+        $reward = new Reward();
+        if ($request->reward_id) {
+            $reward = Reward::find($request->reward_id);
+        }
+
+        // Check if the reward has an existing image
+        $existingImage = $reward->image;
+
+        // Delete the existing image
+        if ($existingImage) {
+            $imagePath = public_path('fixifx/images/reward/' . $existingImage);
+
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/fixifx/images/reward');
+            $image->move($destinationPath, $name);
+            $reward->image = $name;
+        }
+
+        $reward->trade    =   $request->trade;
+        $reward->volume   =   $request->volume;
+        $reward->points   =   $request->points;
+
+        $reward->save();
+
+        return back()->with('success', 'Record Updated successfully');
+    }
+    // end  reward
+
 
     public function viewCategory(ArticleCategoryDataTable $articleCategoryDataTable)
     {
