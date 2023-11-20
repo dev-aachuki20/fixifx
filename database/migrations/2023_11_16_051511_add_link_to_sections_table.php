@@ -14,7 +14,8 @@ class AddLinkToSectionsTable extends Migration
     public function up()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->longText('link')->nullable()->after('video_url');
+            $table->longText('en_link')->nullable()->after('video_url');
+            $table->longText('ja_link')->nullable()->after('en_link');
         });
     }
 
@@ -26,7 +27,8 @@ class AddLinkToSectionsTable extends Migration
     public function down()
     {
         Schema::table('sections', function (Blueprint $table) {
-            $table->dropColumn('link');
+            $table->dropColumn('en_link');
+            $table->dropColumn('ja_link');
         });
     }
 }

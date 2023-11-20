@@ -177,7 +177,11 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     <div class="discription">
                         <p>{!! $sub_sec->{config('app.locale').'_desc'} !!}</p>
                     </div>
-                    <a href="{{isset($sub_sec->link) ? $sub_sec->link : '#'}}" class="custom-btn fill-btn text-white">{{__('message.read_more')}}</a>
+                    @if(config('app.locale') == 'en')
+                    <a href="{{isset($sub_sec->en_link) ? $sub_sec->en_link : '#'}}" class="custom-btn fill-btn text-white">{{__('message.read_more')}}</a>
+                    @else
+                    <a href="{{isset($sub_sec->ja_link) ? $sub_sec->ja_link : '#'}}" class="custom-btn fill-btn text-white">{{__('message.read_more')}}</a>
+                    @endif
                 </div>
             </div>
             @endif

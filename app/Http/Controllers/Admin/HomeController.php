@@ -114,8 +114,11 @@ class HomeController extends Controller
         $section->en_short_text =  $request->en_short_text;
         $section->ja_short_text =  $request->ja_short_text;
         $section->status        =  isset($request->status) ? 1 : 0;
-        $jsonArray = $request['link'];
-        $section->link = json_encode($jsonArray, JSON_UNESCAPED_SLASHES);
+        $jsonEnArray = $request['en_link'];
+        $section->en_link = json_encode($jsonEnArray, JSON_UNESCAPED_SLASHES);
+
+        $jsonJaArray = $request['ja_link'];
+        $section->ja_link = json_encode($jsonJaArray, JSON_UNESCAPED_SLASHES);
 
         if ($request->image && ($request->hasFile('image'))) {
             $section->image = uploadFile($request->image, 'Section');
@@ -227,8 +230,17 @@ class HomeController extends Controller
                 $sub->en_short_text =  isset($value['en_short_text']) ? $value['en_short_text'] : '';
                 $sub->ja_short_text =  isset($value['ja_short_text']) ? $value['ja_short_text'] : '';
                 $sub->icon          =  isset($value['icon']) ? $value['icon'] : '';
-                $sub->link          =  isset($value['link']) ? $value['link'] : '';
+                $sub->en_link       =  isset($value['en_link']) ? $value['en_link'] : '';
+                $sub->ja_link       =  isset($value['ja_link']) ? $value['ja_link'] : '';
                 $sub->status        =  isset($value['status']) ? 1 : 0;
+
+
+                // $jsonEnArray = $request['en_link'];
+                // $section->en_link = json_encode($jsonEnArray, JSON_UNESCAPED_SLASHES);
+
+                // $jsonJaArray = $request['ja_link'];
+                // $section->ja_link = json_encode($jsonJaArray, JSON_UNESCAPED_SLASHES);
+
 
                 $sub->save();
                 // }

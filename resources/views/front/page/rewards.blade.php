@@ -297,7 +297,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             </div>
 
             @php $section3 = $section->where('section_no', 3)->where('status', 1)->first();
-            $sectionLink3 = json_decode($section3->link);
+            $sectionEnLink3 = json_decode($section3->en_link);
+            $sectionJaLink3 = json_decode($section3->ja_link);
             @endphp
             @if($section3)
             <div class="col-12  col-md-6 col-xl-6">
@@ -312,9 +313,21 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                             {!! $section3->{config('app.locale').'_desc'} !!}
                         </p>
                     </div>
+
+                    @if(config('app.locale') == 'en')
                     <div class="read-more-btn">
-                        <a href="{{ isset($sectionLink3[0]) ? $sectionLink3[0] : '#' }}" class="custom-btn fill-btn">{{__('message.See_the_full_point_catalogue')}}</a>
+                        <a href="{{ isset($sectionEnLink3[0]) ? $sectionEnLink3[0] : '#' }}" class="custom-btn fill-btn">{{__('message.See_the_full_point_catalogue')}}</a>
                     </div>
+                    @else
+                    <div class="read-more-btn">
+                        <a href="{{ isset($sectionJaLink3[0]) ? $sectionJaLink3[0] : '#' }}" class="custom-btn fill-btn">{{__('message.See_the_full_point_catalogue')}}</a>
+                    </div>
+                    @endif
+
+
+
+
+
                 </div>
             </div>
             @endif

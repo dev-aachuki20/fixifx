@@ -109,18 +109,36 @@
                         </div>
 
                         <div class="row mt-1 gy-4">
-                            <!-- link  1 -->
+                            <!-- link  1  eng-->
                             <div class="col-xxl-6 col-md-6">
                                 <div>
-                                    <label for="title" class="form-label">Learn More Link</label>
-                                    <input type="text" class="form-control" id="title" name="link[]" value="{{ $section1 && !is_null($section1->link)? json_decode($section1->link)[0] : '' }}">
+                                    <label for="title" class="form-label">Learn More Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section1 && !is_null($section1->en_link) && is_array(json_decode($section1->en_link)) ? json_decode($section1->en_link)[0] : '' }}">
                                 </div>
                             </div>
-                            <!-- link  2 -->
+                            <!-- link  1  japanese -->
                             <div class="col-xxl-6 col-md-6">
                                 <div>
-                                    <label for="title" class="form-label">Preview Link</label>
-                                    <input type="text" class="form-control" id="title" name="link[]" value="{{ $section1 && !is_null($section1->link) ? json_decode($section1->link)[1] : '' }}">
+                                    <label for="title" class="form-label">Learn More Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section1 && !is_null($section1->ja_link) && is_array(json_decode($section1->ja_link)) ? json_decode($section1->ja_link)[0] : '' }}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-1 gy-4">
+                            <!-- link 2 english -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section1 && !is_null($section1->en_link) && is_array(json_decode($section1->en_link)) ? json_decode($section1->en_link)[1] : '' }}">
+                                </div>
+                            </div>
+                            <!-- link 2 japanese -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section1 && !is_null($section1->ja_link) && is_array(json_decode($section1->ja_link)) ? json_decode($section1->ja_link)[1] : '' }}">
                                 </div>
                             </div>
                         </div>
@@ -231,19 +249,38 @@
                             </div>
                         </div>
 
+
                         <div class="row mt-1 gy-4">
-                            <!-- link  1 -->
+                            <!-- link  1  eng-->
                             <div class="col-xxl-6 col-md-6">
                                 <div>
-                                    <label for="title" class="form-label">Learn More Link</label>
-                                    <input type="text" class="form-control" id="title" name="link[]" value="{{ $section2 && !is_null($section2->link)? json_decode($section2->link)[0] : '' }}">
+                                    <label for="title" class="form-label">Learn More Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section2 && !is_null($section2->en_link) && is_array(json_decode($section2->en_link)) ? json_decode($section2->en_link)[0] : '' }}">
                                 </div>
                             </div>
-                            <!-- link  2 -->
+                            <!-- link  1  japanese -->
                             <div class="col-xxl-6 col-md-6">
                                 <div>
-                                    <label for="title" class="form-label">Preview Link</label>
-                                    <input type="text" class="form-control" id="title" name="link[]" value="{{ $section2 && !is_null($section2->link) ? json_decode($section2->link)[1] : '' }}">
+                                    <label for="title" class="form-label">Learn More Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section2 && !is_null($section2->ja_link) && is_array(json_decode($section2->ja_link)) ? json_decode($section2->ja_link)[0] : '' }}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-1 gy-4">
+                            <!-- link 2 english -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section2 && !is_null($section2->en_link) && is_array(json_decode($section2->en_link))  ? json_decode($section2->en_link)[1] : '' }}">
+                                </div>
+                            </div>
+                            <!-- link 2 japanese -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section2 && !is_null($section2->ja_link) && is_array(json_decode($section2->ja_link))  ? json_decode($section2->ja_link)[1] : '' }}">
                                 </div>
                             </div>
                         </div>
@@ -356,18 +393,36 @@
                         </div>
 
                         <div class="row mt-1 gy-4">
-                            <!-- link  1 -->
+                            <!-- link  1  eng-->
                             <div class="col-xxl-6 col-md-6">
                                 <div>
-                                    <label for="title" class="form-label">Learn More Link</label>
-                                    <input type="text" class="form-control" id="title" name="link[]" value="{{ $section3 && !is_null($section3->link)? json_decode($section3->link)[0] : '' }}">
+                                    <label for="title" class="form-label">Learn More Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section3 && !is_null($section3->en_link) && is_array(json_decode($section3->en_link)) ? json_decode($section3->en_link)[0] : '' }}">
                                 </div>
                             </div>
-                            <!-- link  2 -->
+                            <!-- link  1  japanese -->
                             <div class="col-xxl-6 col-md-6">
                                 <div>
-                                    <label for="title" class="form-label">Preview Link</label>
-                                    <input type="text" class="form-control" id="title" name="link[]" value="{{ $section3 && !is_null($section3->link) ? json_decode($section3->link)[1] : '' }}">
+                                    <label for="title" class="form-label">Learn More Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section3 && !is_null($section3->ja_link) && is_array(json_decode($section3->ja_link)) ? json_decode($section3->ja_link)[0] : '' }}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-1 gy-4">
+                            <!-- link 2 english -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section3 && !is_null($section3->en_link) && is_array(json_decode($section3->en_link)) ? json_decode($section3->en_link)[1] : '' }}">
+                                </div>
+                            </div>
+                            <!-- link 2 japanese -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section3 && !is_null($section3->ja_link) && is_array(json_decode($section3->ja_link)) ? json_decode($section3->ja_link)[1] : '' }}">
                                 </div>
                             </div>
                         </div>
@@ -527,12 +582,19 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- link -->
                                                 <div class="row mt-1 gy-4">
+                                                    <!-- link 2 english -->
                                                     <div class="col-xxl-6 col-md-6">
                                                         <div>
-                                                            <label for="title" class="form-label">Learn More Link</label>
-                                                            <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][link]" value="{{ $sub_section4 ? $sub_section4->link : '' }}">
+                                                            <label for="title" class="form-label">Learn More Link (English)</label>
+                                                            <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][en_link]" value="{{ $sub_section4 && !is_null($sub_section4->en_link) ? $sub_section4->en_link : '' }}">
+                                                        </div>
+                                                    </div>
+                                                    <!-- link 2 japanese -->
+                                                    <div class="col-xxl-6 col-md-6">
+                                                        <div>
+                                                            <label for="title" class="form-label">Learn More Link (Japanese)</label>
+                                                            <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][ja_link]" value="{{ $sub_section4 && !is_null($sub_section4->ja_link) ? $sub_section4->ja_link : '' }}">
                                                         </div>
                                                     </div>
                                                 </div>

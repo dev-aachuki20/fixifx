@@ -14,7 +14,8 @@ class AddLinkToSubSectionsTable extends Migration
     public function up()
     {
         Schema::table('sub_sections', function (Blueprint $table) {
-            $table->text('link')->nullable()->after('ja_image');
+            $table->longText('en_link')->nullable()->after('ja_image');
+            $table->longText('ja_link')->nullable()->after('en_link');
         });
     }
 
@@ -26,7 +27,8 @@ class AddLinkToSubSectionsTable extends Migration
     public function down()
     {
         Schema::table('sub_sections', function (Blueprint $table) {
-            $table->dropColumn('link');
+            $table->dropColumn('en_link');
+            $table->dropColumn('ja_link');
         });
     }
 }

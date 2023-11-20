@@ -24,9 +24,15 @@ $section30 = $common->where('section_no', 30)->first();
         <div class="imgbox">
           <img class="img-fluid" src="{{$value->image ? $value->image : asset('fixifx/images/platforms01.png')}}" alt="{{ config('app.locale') == 'ja' ? 'プラットフォーム' : 'Platforms' }}">
         </div>
+        @if(config('app.locale') == 'en')
         <div class="readmore-btn">
-          <a href="{{isset($value->link) ? $value->link : '#'}}" class="custom-btn fill-btn text-white">{{__('message.learn_more_btn')}}</a>
+          <a href="{{isset($value->en_link) ? $value->en_link : '#'}}" class="custom-btn fill-btn text-white">{{__('message.learn_more_btn')}}</a>
         </div>
+        @else
+        <div class="readmore-btn">
+          <a href="{{isset($value->ja_link) ? $value->ja_link : '#'}}" class="custom-btn fill-btn text-white">{{__('message.learn_more_btn')}}</a>
+        </div>
+        @endif
       </div>
     </div>
     @endforeach

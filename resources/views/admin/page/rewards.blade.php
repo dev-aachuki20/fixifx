@@ -312,14 +312,14 @@
     <!-- SECTION 3 How to move between tiers -->
     <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec3">
         <div class="accordion-item">
+            @php isset($section) ? $section3 = $section->where('section_no', 3)->first() : '' @endphp
             <h2 class="accordion-header" id="Sec3">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_3" aria-expanded="true" aria-controls="sec_3">
-                    <i class="ri-global-line me-1"></i>How to move between tiers
+                    <i class="ri-global-line me-1"></i>{{isset($section3) ? $section3->en_title : 'How to move between tiers'}}
                 </button>
             </h2>
             <div id="sec_3" class="accordion-collapse collapse" aria-labelledby="Sec3" data-bs-parent="#sec3">
                 <div class="accordion-body">
-                    @php isset($section) ? $section3 = $section->where('section_no', 3)->first() : '' @endphp
                     <form action="{{ route('admin.save_section', ['sec_no' => 3]) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="page_id" value="{{$page_id}}">
@@ -372,11 +372,18 @@
                         </div>
 
                         <div class="row mt-1 gy-4">
-                            <!-- link  1 -->
+                            <!-- link 2 english -->
                             <div class="col-xxl-6 col-md-6">
                                 <div>
-                                    <label for="title" class="form-label">See the full point catalogue Link</label>
-                                    <input type="text" class="form-control" id="title" name="link[]" value="{{ $section3 && !is_null($section3->link)? json_decode($section3->link)[0] : '' }}">
+                                    <label for="title" class="form-label">See the full point catalogue Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section3 && !is_null($section3->en_link) && is_array(json_decode($section3->en_link)) ? json_decode($section3->en_link)[0] : '' }}">
+                                </div>
+                            </div>
+                            <!-- link 2 japanese -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">See the full point catalogue Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section3 && !is_null($section3->ja_link) && is_array(json_decode($section3->ja_link)) ? json_decode($section3->ja_link)[0] : '' }}">
                                 </div>
                             </div>
                         </div>

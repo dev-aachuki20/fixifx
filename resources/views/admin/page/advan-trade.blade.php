@@ -497,17 +497,23 @@
                                                 </div>
                                             </div>
 
-                                            <!-- link -->
+
                                             <div class="row mt-1 gy-4">
+                                                <!-- link 2 english -->
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
-                                                        <label for="title" class="form-label">Read More Link</label>
-                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][link]" value="{{ $sub_section5 ? $sub_section5->link : '' }}">
+                                                        <label for="title" class="form-label">Read More Link (English)</label>
+                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][en_link]" value="{{ $sub_section5 && !is_null($sub_section5->en_link) ? $sub_section5->en_link : '' }}">
+                                                    </div>
+                                                </div>
+                                                <!-- link 2 japanese -->
+                                                <div class="col-xxl-6 col-md-6">
+                                                    <div>
+                                                        <label for="title" class="form-label">Read More Link (Japanese)</label>
+                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][ja_link]" value="{{ $sub_section5 && !is_null($sub_section5->ja_link) ? $sub_section5->ja_link : '' }}">
                                                     </div>
                                                 </div>
                                             </div>
-
-
 
                                         </div>
                                     </div>
