@@ -55,6 +55,11 @@
     }
 }
 
+@media(min-width:1200px) and (max-width:1210px) {
+    html[lang="ja"] ul.navbar-nav>li.nav-item>a{
+        font-size: 10px;
+    }
+}
 @media(min-width:1200px) and (max-width:1320px) {
     ul.navbar-nav>li.nav-item>a {
         font-size: 12px;
@@ -229,7 +234,7 @@
         /*transform: rotate(180deg);*/
     }
 
-
+    .header-main ul.navbar-nav>li.nav-item.dropdown.active>a,
     .dark-header ul.navbar-nav>li.nav-item.dropdown.active>a,
     .dark-header li.nav-item.dropdown>a.show,
     body.darkHeader .dark-header ul.navbar-nav>li.nav-item>a.show,
@@ -237,6 +242,7 @@
         color: var(--color-aqua-marine);
     }
 
+    .header-main ul.navbar-nav>li.nav-item.dropdown.active>a:after,
     .dark-header li.nav-item.dropdown.active>a:after,
     body.darkHeader .dark-header li.nav-item.dropdown.active>a:after,
     body.header_hover .dark-header li.nav-item.dropdown.active>a:after {
@@ -284,6 +290,15 @@
     /*.navbar .dropdown:hover>.mega-menu{*/
     /*    top: 93px;*/
     /*}*/
+    .get-started-top .count-get{
+        left: inherit;
+        width: 96px;
+        padding-right: 6px;
+        text-align: right;
+    }
+    .vps-service-trade{
+        background-position: -60px 110% !important;
+    }
 }
 
 
@@ -1068,6 +1083,12 @@
     .notes-wrapper.bgsize-100:before {
         left: inherit;
         right: 0;
+    }
+    .get-started-top .count-get{
+        left: calc(50% - 124px);
+        transform: translateY(-50%) translateX(-50%);
+        width: 96px;
+        text-align: right;
     }
 
     /* end darkmode  */
@@ -2018,8 +2039,12 @@
     .advan-video-area .vplay-icon img{
         width: 20px !important;
     }
-    .before-nonemob:before{
+    .before-nonemob:before,
+    .after-nonemob:after{
         display: none;
+    }
+    .third-par-faqinner .faqAccordion .accordion-item .accordion-button{
+        padding-bottom: 10px;
     }
 }
 
@@ -2438,5 +2463,8 @@
     html[lang="ja"] .dataTables_paginate:not(:empty) {
         padding-top: 22px !important;
         padding-bottom: 21px;
+    }
+    .download-social-trade .social-platform ul{
+        gap: 18px;
     }
 }

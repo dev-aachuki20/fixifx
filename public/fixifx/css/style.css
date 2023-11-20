@@ -4105,15 +4105,15 @@ body.modal-open{
     margin: 0;
     display:none;
 }
-.tradersChoose_box .nextPrev-box>div {
-    width: 40px;
-    height: 40px;
-    background-color: #2EEECE;
-    border: 1px solid #2EEECE;
-    border-radius: 5px;
-    margin: 0;
-    position: inherit;
-}
+/*.tradersChoose_box .nextPrev-box>div {*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*    background-color: #2EEECE;*/
+/*    border: 1px solid #2EEECE;*/
+/*    border-radius: 5px;*/
+/*    margin: 0;*/
+/*    position: inherit;*/
+/*}*/
 .tradersChoose_box .nextPrev-box {
     gap: 20px;
     display: flex;
@@ -4124,17 +4124,27 @@ body.modal-open{
 .tradersChoose_box .nextPrev-box>div {
     width: 40px;
     height: 40px;
-    background-color: #2EEECE;
+    background-color: #DDFCF8;
     border: 1px solid #2EEECE;
     border-radius: 5px;
     margin: 0;
     position: inherit;
 }
-.tradersChoose_box .nextPrev-box .swiper-button-disabled {
-    opacity: 1;
-    background-color: #DDFCF8;
-    border: 1px solid #2EEECE;
+.tradersChoose_box .nextPrev-box>div svg path{
+    fill: #1E1F1F;
 }
+.tradersChoose_box .nextPrev-box>div:hover{
+    background-color: #2EEECE;
+}
+.tradersChoose_box .nextPrev-box>div:hover svg path{
+    fill: #fff;
+}
+
+/*.tradersChoose_box .nextPrev-box .swiper-button-disabled {*/
+/*    opacity: 1;*/
+/*    background-color: #DDFCF8;*/
+/*    border: 1px solid #2EEECE;*/
+/*}*/
 .nextPrev-box .swiper-pagination .swiper-pagination-bullet{
      background-color: #DDFCF8;
      opacity: 1;
@@ -4315,7 +4325,7 @@ body.modal-open{
 .table_wrapper tbody tr td::after{
     content: '';
     width: 100%;
-    max-width: 130px;
+    max-width: 77px;
     height: 1px;
     bottom: 0;
     left: 50%;
@@ -4327,7 +4337,7 @@ body.modal-open{
 .table_wrapper tbody tr td .flag_data {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -4346,6 +4356,7 @@ body.modal-open{
 .table_wrapper .flag_data .uk-flag span img {
     width: 100%;
     max-width: 22px;
+    margin-right: 0 !important;
 }
 
 .table_wrapper tbody tr td .flag_data .title span {
@@ -4354,7 +4365,7 @@ body.modal-open{
     font-weight: 500;
 }
 .spreadList-wrapper .tab-content .table_wrapper tbody tr td:first-child:after{
-    max-width: 100%;
+    max-width: 152px;
 }
 
 .table_wrapper tbody tr td:nth-child(1),
@@ -5103,6 +5114,17 @@ body.darkHeader .dark-header .mobile_logo {
     position: relative;
     margin-top: 120px;
 }
+.connect-account-wrapper .gridBox-inner:hover{
+    background: #fff;
+}
+.connect-account-wrapper .gridBox-inner:hover .instrumentsbox{
+    background: #F7F9FA;
+}
+.connect-account-wrapper .gridBox-inner:hover .learcmore-box .custom-btn{
+    background-color: var(--color-aqua-marine);
+    color: var(--color-white);
+    box-shadow: 2px 2px 13px rgb(0 58 49 / 10%);
+}
 
 .connect-account-wrapper .gridBox-inner .logobox {
     border-radius: 10px;
@@ -5797,7 +5819,7 @@ html[lang="ja"] ul.navbar-nav>li:not(:last-child) {
     margin-right: 20px;
 }
 html[lang="ja"] ul.navbar-nav>li.nav-item>a {
-    font-size: 10px;
+    font-size: 11px;
 }
 html[lang="ja"] dd.menu-dropdown-col.row.g-1 dl.col-lg-4 {
     padding: 0 10px;

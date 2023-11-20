@@ -27,7 +27,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 <div class="col-12 col-md-12 col-sm-12 text-center">
                     <div class="video-banner advan-video-area">
                         <a href="javascript:void(0);">
-                            <img class="img-fluid" src="{{$header && $header->image ? $header->image : asset('fixifx/images/video-banner.png')}}" alt="">
+                            <img class="img-fluid w-auto" src="{{$header && $header->image ? $header->image : asset('fixifx/images/advan-trade-lapp.png')}}" alt="">
                             <span class="vplay-icon" data-bs-toggle="modal" data-bs-target="#videoplay"><img src="{{asset('fixifx/images/play-icon.svg')}}" alt=""></span>
                         </a>
                     </div>
@@ -75,7 +75,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- benefits -->
         @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
         @if($section3)
-        <div class="fixi-features-herobox fixi-Benefits-herobox border-top-0 ptb-50">
+        <div class="fixi-features-herobox fixi-Benefits-herobox border-top-0 ptb-50 after-nonemob">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-12">
                     <div class="section-head text-white mbd-20">

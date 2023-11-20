@@ -92,7 +92,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 <!-- Fixi’s OpenAPI  -->
 @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
 @if($section3)
-<section class="OpenAPI-wrapper padding-tb-120">
+<section class="OpenAPI-wrapper padding-tb-120 mspace-bottom-100">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-sm-12">
@@ -118,10 +118,10 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 @if($faqs->count() > 0)
 @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
 @if($section4)
-<section class="faq-sub-page padding-top-120 padding-bottom-120">
+<section class="faq-sub-page space-bottom-100 third-par-faqinner">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-12 col-xl-7 align-items-center justify-content-center text-center pb-5">
+            <div class="col-12 col-md-12 col-xl-7 align-items-center justify-content-center text-center pb-md-5">
                 <div class="title">
                     <h2>
                         {{ $section4->{config('app.locale').'_title'} }}

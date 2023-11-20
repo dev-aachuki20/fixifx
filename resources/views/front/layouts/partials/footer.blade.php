@@ -49,7 +49,7 @@
                 }
                 }
                 @endphp
-                <li><a href="javascript:void(0);"><img src="{{ asset('storage/Setting/'.$value['value']) }}" alt="{{ $payment_method_icon_alt }}"></a></li>
+                <li><a><img src="{{ asset('storage/Setting/'.$value['value']) }}" alt="{{ $payment_method_icon_alt }}"></a></li>
                 @endforeach
               </ul>
               @endif

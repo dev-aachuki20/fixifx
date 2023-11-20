@@ -159,6 +159,15 @@ breakpoints: {
 var swiper = new Swiper('.traders_slides', {
   slidesPerView: 2,
   spaceBetween: 24,
+  //centeredSlides: true,
+  //paginationClickable: true,
+  loop: true,
+  speed: 500,
+  autoplay: {
+    delay: 2500,
+    //reverseDirection: false,
+    disableOnInteraction: false,
+  },
   navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -179,6 +188,7 @@ var swiper = new Swiper('.traders_slides', {
       }
   }
   });
+
 
   // dataTable 
   // var table = new DataTable('#spreadTable');

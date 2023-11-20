@@ -337,6 +337,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 <!-- Working code with loader and etc-->
 @section('javascript')
 <script src="{{asset('fixifx/js/dataTables.js')}}"></script>
+<script src="{{asset('fixifx/js/swiper-bundle.min2.js')}}"></script>
 {!! $dataTable->scripts() !!}
 <script>
     $(document).ready(function() {
@@ -392,4 +393,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
         // e.preventDefault();
     });
 </script>
+
 @endsection --}}
+
+

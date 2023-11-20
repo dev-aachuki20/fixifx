@@ -117,13 +117,13 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 @endif
 <!-- end we trade -->
 
-<section class="handling-vps-wrapper padding-tb-120 bg-snow-drift">
+<section class="handling-vps-wrapper padding-tb-120 pb-0 bg-snow-drift">
     <div class="container">
         <div class="row">
 
             @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
             @if($section4)
-            <div class="col-12 col-md-6 space-bottom-100">
+            <div class="col-12 col-md-6 padding-bottom-120 pbottom-50">
                 <div class="handling-grid-boxs mb-0">
                     <div class="title">
                         <h2>
@@ -149,7 +149,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
             @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
             @if($section5)
-            <div class="col-12 col-md-6 space-bottom-100">
+            <div class="col-12 col-md-6 padding-bottom-120 pbottom-50">
                 <div class="handling-grid-boxs mb-0">
                     <div class="title">
                         <h2>
@@ -171,7 +171,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
         @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
         @if($section6)
-        <div class="row align-items-center">
+        <div class="row align-items-center padding-bottom-120 pbottom-50">
             <div class="col-12 col-md-6">
                 <div class="imgbox">
                     <img class="img-fluid" src="{{$section6 && $section6->image ? $section6->image : asset('fixifx/images/faxpro.svg')}}" alt="">
