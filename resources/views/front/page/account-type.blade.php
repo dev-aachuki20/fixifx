@@ -54,87 +54,104 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
     </div>
 </section>
 
+@php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
+@if($section3)
 <section class="auto-fix-wrapper padding-tb-120 bg-snow-drift">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="auto-fixi-img-box">
-                    <img src="{{asset('fixifx/images/auto-fixi.png')}}" class="img-fluid" alt="">
+                    <img src="{{$section3 && $section3->image ? $section3->image : asset('fixifx/images/auto-fixi.png')}}" class="img-fluid" alt="">
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="auto-content">
                     <div class="auto-fixi-title">
                         <h2>
-                            {{ __('message.move_between_tiers') }}
+                            {{ $section3->{config('app.locale').'_title'} }}
                         </h2>
                     </div>
                     <div class="auto-fixi-text">
-                        <p>{{ __('message.move_between_tiers_para1') }}</p>
-                        <p>{{ __('message.move_between_tiers_para2') }}</p>
+                        <p>{!! $section3->{config('app.locale').'_desc'} !!}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+@endif
 
+@php $header = $section->where('section_no', 1)->first() @endphp
+@if($header)
 <section class="expert-support-wrapper tradingBenefits-wrapper tradingBenefits-bg side-by-side padding-tb-120 acc-type-expert">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="side-by-side-img">
-                    <img src="{{asset('fixifx/images/expert-support01.png')}}" alt="tradergo">
+                    <img src="{{$header && $header->image ? $header->image : asset('fixifx/images/expert-support01.png')}}" alt="tradergo">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
-                @php $header = $section->where('section_no', 1)->first() @endphp
-                @if($header)
                 <div class="expert-support-head">
                     <h2 class="max-w-427">{{ $header->{config('app.locale').'_title'} }}</h2>
                     <div class="discription">
                         <p> {!! $header->{config('app.locale').'_desc'} !!}</p>
                     </div>
                 </div>
-                @endif
+                @foreach($header->subSection as $sub_sec_index => $sub_sec)
+                @if($sub_sec->status == 1)
                 <div class="expert-content">
+                    <div class="accordion" id="accordionexpert">
+                        {!! $sub_sec->{config('app.locale').'_desc'} !!}
+                    </div>
+                </div>
+                @endif
+                @endforeach
+
+                {{--<div class="expert-content">
                     <div class="accordion" id="accordionexpert">
                         @if(isset($faqs[""]) && count($faqs[""]))
                         @foreach($faqs[""] as $key => $faq)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button @if($key != 0){{ 'collapsed' }}@endif" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{$key}}" aria-expanded="{{ $key == 0 ? 'true' : 'false' }}" aria-controls="faq{{$key}}">
-                                    {{ $faq->{config('app.locale').'_question'} }}
-                                </button>
-                            </h2>
-                            <div id="faq{{$key}}" class="accordion-collapse collapse @if($key == 0){{ 'show' }}@endif" data-bs-parent="#accordionexpert">
-                                <div class="accordion-body">
-                                    {!! $faq->{config('app.locale').'_answer'} !!}
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        @endif
+                {{ $faq->{config('app.locale').'_question'} }}
+                </button>
+                </h2>
+                <div id="faq{{$key}}" class="accordion-collapse collapse @if($key == 0){{ 'show' }}@endif" data-bs-parent="#accordionexpert">
+                    <div class="accordion-body">
+                        {!! $faq->{config('app.locale').'_answer'} !!}
                     </div>
                 </div>
             </div>
+            @endforeach
+            @endif
         </div>
+    </div>--}}
+
+
+    </div>
+    </div>
     </div>
 </section>
+@endif
 
+
+@php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
+@if($section4)
 <section class="bg-gradient-dark side-by-side padding-tb-120 fiXiTrader_box2">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="side-by-side-img">
-                    <img src="{{asset('fixifx/images/tradergo.png')}}" alt="laptop">
+                    <img src="{{$section4 && $section4->image ? $section4->image : asset('fixifx/images/tradergo.png')}}" alt="laptop">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="section-head text-white">
-                    <h2 class="max-w-427 text-white"> {{ __('message.fixi_account_title') }}</h2>
+                    <h2 class="max-w-427 text-white"> {{ $section4->{config('app.locale').'_title'} }}</h2>
                     <div class="discription">
-                        <p> {{ __('message.fixi_account_desc') }}</p>
+                        <p> {!! $section4->{config('app.locale').'_desc'} !!}</p>
                     </div>
                     <div class="button-group">
                         <a href="{{ getSettingValue('demo_link') }}" target="_blank" class="custom-btn fill-btn text-white">{{ __('message.create_account') }}</a>
@@ -144,16 +161,18 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
         </div>
     </div>
 </section>
+@endif
 
 <!-- faq-sub-page  -->
 <section class="faq-sub-page padding-top-120 padding-bottom-120">
+    @php
+    $sectionData = App\Models\Section::where('id', 31)->where('status', 1)->first();
+    $faqData = App\Models\Faq::where('page_id', 6)->get();
+    @endphp
+    @if($sectionData && $faqData->count() > 0)
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-12 col-xl-7 align-items-center justify-content-center text-center pb-5">
-                @php
-                $sectionData = App\Models\Section::where('id', 31)->where('status', 1)->first();
-                @endphp
-                @if($sectionData)
                 <div class="title">
                     <h2>
                         {{ $sectionData->{config('app.locale').'_title'} }}
@@ -162,16 +181,16 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
                 <div class="description">
                     {!! $sectionData->{config('app.locale').'_desc'} !!}
                 </div>
-                @endif
+
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="faqTab-content p-0">
                     @php
-                    $faqData = App\Models\Faq::where('section_id', 31)->where('section_no', 3)->get();
+                    $faqData = App\Models\Faq::where('page_id', 6)->get();
                     @endphp
-                    @if($faqData)
+                    @if($faqData->count() > 0)
                     <div class="accordion faqAccordion" id="accordionExample">
                         @foreach($faqData as $index => $faqItem)
                         <div class="accordion-item">
@@ -197,6 +216,7 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
             </div>
         </div>
     </div>
+    @endif
 </section>
 <!-- end faq-sub-page  -->
 @endsection
