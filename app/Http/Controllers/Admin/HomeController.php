@@ -531,6 +531,7 @@ class HomeController extends Controller
         $spread->ultimate_account   =   $request->ultimate_account;
         $spread->premium_account    =   $request->premium_account;
         $spread->starter_account    =   $request->starter_account;
+        $spread->basic_account      =   $request->basic_account;
 
         $spread->save();
 

@@ -18,6 +18,10 @@ class SpreadDataTable extends DataTable
             ->editColumn('category_id', function ($data) {
                 return $data->category->en_name ?? "";
             })
+            ->editColumn('basic_account', function ($data) {
+
+                return $data->basic_account ?? "0.0";
+            })
             ->editColumn('symbol', function ($data) {
                 $html = '<div class="flag_data"><div class="uk-flag"><span>';
                 $currency_changes = $this->currencies;
@@ -30,11 +34,10 @@ class SpreadDataTable extends DataTable
                         $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
                     }
                 } else {
-                    $html .= '<img class="img-fluid" src="'.asset('front/img/flag/usd.svg').'" alt="" width="24" style="margin-right: 5px;"></span><span><img class="img-fluid" src="'.asset('front/img/flag/try.svg').'" alt="" width="24">';
+                    $html .= '<img class="img-fluid" src="' . asset('front/img/flag/usd.svg') . '" alt="" width="24" style="margin-right: 5px;"></span><span><img class="img-fluid" src="' . asset('front/img/flag/try.svg') . '" alt="" width="24">';
                     $html .= '</span></div><div class="title"><span>' . $data->symbol . '</span></div></div>';
                 }
 
-                // $html .= $data->symbol;
                 return $html;
             })
             ->addIndexColumn()
@@ -108,6 +111,7 @@ class SpreadDataTable extends DataTable
                 Column::make('ultimate_account')->orderable(false),
                 Column::make('premium_account')->orderable(false),
                 Column::make('starter_account')->orderable(false),
+                Column::make('basic_account')->orderable(false),
                 Column::computed('action')
                     ->exportable(false)
                     ->printable(false)
@@ -115,11 +119,19 @@ class SpreadDataTable extends DataTable
                     ->addClass('text-center'),
             ];
         } else if (config("app.locale") == 'ja') {
+
+            $ultimateJa = getSettingValue("ultimate_account_type_ja") ?? 'アルティメットアカウント';
+            $premiumJa = getSettingValue("premium_account_type_ja") ?? 'プレミアムアカウント';
+            $starterJa = getSettingValue("starter_account_type_ja") ?? 'スターターアカウント';
+            $basicJa = getSettingValue("basic_account_type_ja") ?? '基本アカウント';
+
+
             return [
                 Column::make('symbol')->title('<div class="heading_table"><div class="title"><h6>シンボル</h6></div></div>')->orderable(false),
-                Column::make('ultimate_account')->title('<div class="heading_table"><div class="title"><h6>アルティメットアカウント</h6></div><div class="subtext_table"><span>最狭スプレッド</span></div></div>')->orderable(false),
-                Column::make('premium_account')->title('<div class="heading_table"><div class="title"><h6>プレミアムアカウント</h6></div><div class="subtext_table"><span>最狭スプレッド</span></div></div>')->orderable(false),
-                Column::make('starter_account')->title('<div class="heading_table"><div class="title"><h6>スターターアカウント</h6></div><div class="subtext_table"><span>最狭スプレッド</span></div></div>')->orderable(false),
+                Column::make('ultimate_account')->title("<div class='heading_table'><div class='title'><h6>$ultimateJa</h6></div><div class='subtext_table'><span>最狭スプレッド</span></div></div>")->orderable(false),
+                Column::make('premium_account')->title("<div class='heading_table'><div class='title'><h6>$premiumJa</h6></div><div class='subtext_table'><span>最狭スプレッド</span></div></div>")->orderable(false),
+                Column::make('starter_account')->title("<div class='heading_table'><div class='title'><h6>$starterJa</h6></div><div class='subtext_table'><span>最狭スプレッド</span></div></div>")->orderable(false),
+                Column::make('basic_account')->title("<div class='heading_table'><div class='title'><h6>$basicJa</h6></div><div class='subtext_table'><span>最狭スプレッド</span></div></div>")->orderable(false),
                 Column::computed('action')
                     ->visible(false)
                     ->exportable(false)
@@ -128,12 +140,18 @@ class SpreadDataTable extends DataTable
                     ->addClass('text-center'),
             ];
         }
+
+        $ultimateEn = getSettingValue("ultimate_account_type_en") ?? 'Ultimate Account';
+        $premiumEn = getSettingValue("premium_account_type_en") ?? 'Premium Account';
+        $starterEn = getSettingValue("starter_account_type_en") ?? 'Starter Account';
+        $basicEn = getSettingValue("basic_account_type_en") ?? 'Basic Account';
         return [
             // Column::make('category_id')->title('<p>Category</p>'),
             Column::make('symbol')->title('<div class="heading_table"><div class="title"><h6>Symbol</h6></div></div>')->orderable(true),
-            Column::make('ultimate_account')->title('<div class="heading_table"><div class="title"><h6>Ultimate Account</h6></div><div class="subtext_table"><span>As Low As</span></div></div>')->orderable(true),
-            Column::make('premium_account')->title('<div class="heading_table"><div class="title"><h6>Premium Account</h6></div><div class="subtext_table"><span>As Low As</span></div></div>')->orderable(false),
-            Column::make('starter_account')->title('<div class="heading_table"><div class="title"><h6>Starter Account</h6></div><div class="subtext_table"><span>As Low As</span></div></div>')->orderable(false),
+            Column::make('ultimate_account')->title("<div class='heading_table'><div class='title'><h6>$ultimateEn</h6></div><div class='subtext_table'><span>As Low As</span></div></div>")->orderable(true),
+            Column::make('premium_account')->title("<div class='heading_table'><div class='title'><h6>$premiumEn</h6></div><div class='subtext_table'><span>As Low As</span></div></div>")->orderable(false),
+            Column::make('starter_account')->title("<div class='heading_table'><div class='title'><h6>$starterEn</h6></div><div class='subtext_table'><span>As Low As</span></div></div>")->orderable(false),
+            Column::make('basic_account')->title("<div class='heading_table'><div class='title'><h6>$basicEn</h6></div><div class='subtext_table'><span>As Low As</span></div></div>")->orderable(false),
             Column::computed('action')
                 ->visible(false)
                 ->exportable(false)

@@ -293,11 +293,11 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
         <div class="col-12 text-center">
             <div class="title">
                 <h2>
-                    Spread List
+                    {{ $section5->{config('app.locale').'_title'} }}
                 </h2>
             </div>
             <div class="discription">
-                <p>{{ $section5->{config('app.locale').'_desc'} }}</p>
+                <p>{!! $section5->{config('app.locale').'_desc'} !!}</p>
             </div>
         </div>
         <div class="col-12">
@@ -395,5 +395,3 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 </script>
 
 @endsection --}}
-
-

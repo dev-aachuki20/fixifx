@@ -27,31 +27,31 @@ class SpreadRequest extends FormRequest
         $rules = [];
 
         $rules['category_id']       =  'required|exists:spread_categories,id';
-        if($this->spread_id) {
+        if ($this->spread_id) {
             $rules['symbol']        =   [
                 'required',
                 Rule::unique('spreads', 'symbol')->where('category_id', $this->category_id)->ignore($this->spread_id)
-            ];    
+            ];
             $rules['ja_symbol']        =   [
                 'required',
                 Rule::unique('spreads', 'ja_symbol')->where('category_id', $this->category_id)->ignore($this->spread_id)
-            ];    
-            
+            ];
         } else {
             $rules['symbol']         =  [
                 'required',
                 Rule::unique('spreads', 'symbol')->where('category_id', $this->category_id)
-            ]; 
+            ];
             $rules['ja_symbol']         =  [
                 'required',
                 Rule::unique('spreads', 'ja_symbol')->where('category_id', $this->category_id)
-            ]; 
+            ];
         }
-        
+
         $rules['ultimate_account']  =  'required';
         $rules['premium_account']   =  'required';
         $rules['starter_account']   =  'required';
-        
+        $rules['basic_account']     =  'required';
+
         return $rules;
     }
 

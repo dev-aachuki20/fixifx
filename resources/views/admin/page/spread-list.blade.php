@@ -325,6 +325,23 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row gy-4">
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Title (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section5) ? $section5->en_title : '') }}">
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Title (Japanese)</label>
+                                    <input type="text" class="form-control" id="ja_title" name="ja_title" value="{{ old('ja_title', isset($section5) ? $section5->ja_title : '') }}">
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="row my-4">
                             <div class="col-xxl-6 col-md-6">
                                 <div>
@@ -368,6 +385,82 @@
                 @endfor
 
                 <input type="submit" value="Save" class="btn btn-primary my-4">
+                </form>
+
+
+
+                <!-- columns -->
+                <form action="{{ route('admin.update_setting') }}" method="post">
+                    @csrf
+                    <div class="row mt-5">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="dec" class="form-label">Column (English)</label>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="dec" class="form-label">Column (Japanese)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[ultimate_account_type_en]" class="form-control" value="{{ getSettingValue('ultimate_account_type_en') }}" required>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[ultimate_account_type_ja]" class="form-control" value="{{ getSettingValue('ultimate_account_type_ja') }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[premium_account_type_en]" class="form-control" value="{{ getSettingValue('premium_account_type_en') }}" required>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[premium_account_type_ja]" class="form-control" value="{{ getSettingValue('premium_account_type_ja') }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[starter_account_type_en]" class="form-control" value="{{ getSettingValue('starter_account_type_en') }}" required>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[starter_account_type_ja]" class="form-control" value="{{ getSettingValue('starter_account_type_ja') }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[basic_account_type_en]" class="form-control" value="{{ getSettingValue('basic_account_type_en') }}" required>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <input type="text" name="setting[basic_account_type_ja]" class="form-control" value="{{ getSettingValue('basic_account_type_ja') }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Update Columns" class="btn btn-primary my-4">
+                </form>
+                <!-- columns end -->
+
+
+
+
 
                 <div class="card mt-2">
                     <div class="card-header">
@@ -378,65 +471,6 @@
                         {!! $dataTable->table(['class' => 'table table-bordered dt-responsive nowrap','style' => 'width: 100%']) !!}
                     </div>
                 </div>
-                <!-- @for($i=1; $i<=6; $i++)
-                    
-                            @php $sub_section5 = $section5->subSection[$i-1] ?? false  @endphp
-                            
-                            @if($sub_section5)
-                            <input type="hidden" name="sub_section[{{$i}}][sub_section_id]" value="{{ $sub_section5->id }}">
-                            @endif
-
-                            <div class="accordion nesting4-accordion custom-accordionwithicon accordion-border-box mt-3"id="sub_sec_{{$i}}">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="sub_sec_{{$i}}">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub_sec{{$i}}" aria-expanded="false" aria-controls="sub_sec{{$i}}">
-                                            <i class="ri-global-line me-2"></i> Sub Section {{$i}}
-                                        </button>
-                                    </h2>
-                                    <div id="sub_sec{{$i}}" class="accordion-collapse collapse" aria-labelledby="sub_sec_{{$i}}" data-bs-parent="#sub_sec_{{$i}}">
-                                        <div class="accordion-body">
-                                            <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
-                                                <label for="dropdown-base-example" class="form-label text-muted">Status</label>
-                                                <input class="form-check-input code-switcher" type="checkbox"
-                                                    id="dropdown-base-example" name="sub_section[{{$i}}][status]" checked="{{ $sub_section5 ? (($sub_section5->status == 1) ? true : false) : true }}">
-                                            </div>
-                                            <div class="row gy-4 mt-1">
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <div>
-                                                        <label for="title" class="form-label">Title (English)</label>
-                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][en_title]" value="{{ $sub_section5 ? $sub_section5->en_title : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <div>
-                                                        <label for="title" class="form-label">Title (Japanese)</label>
-                                                        <input type="text" class="form-control" id="ja_title" name="sub_section[{{$i}}][ja_title]" value="{{ $sub_section5 ? $sub_section5->ja_title : '' }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-xxl-12 col-md-12">
-                                                    <div>
-                                                        <label for="dec" class="form-label">Description (English)</label>
-                                                        <textarea name="sub_section[{{$i}}][en_desc]" class="ckeditor_custom lg-ckeditor" id="description" cols="30" rows="10">{{ $sub_section5 ? $sub_section5->en_desc : '' }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                            <div class="row mt-1">
-                                                <div class="col-xxl-12 col-md-12">
-                                                    <div>
-                                                        <label for="dec" class="form-label">Description (Japanese)</label>
-                                                        <textarea name="sub_section[{{$i}}][ja_desc]" class="ckeditor_custom lg-ckeditor" id="description" cols="30" rows="10">{{ $sub_section5 ? $sub_section5->ja_desc : '' }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endfor  -->
-
-                </form>
             </div>
         </div>
     </div>
@@ -486,22 +520,32 @@
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col-xxl-4 col-md-4">
+                        <div class="col-xxl-6 col-md-6">
                             <div>
                                 <label for="dec" class="form-label">Ultimate Account</label>
                                 <input type="text" name="ultimate_account" class="form-control" id="ultimate_account">
                             </div>
                         </div>
-                        <div class="col-xxl-4 col-md-4">
+                        <div class="col-xxl-6 col-md-6">
                             <div>
                                 <label for="dec" class="form-label">Premium Account</label>
                                 <input type="text" name="premium_account" class="form-control" id="premium_account">
                             </div>
                         </div>
-                        <div class="col-xxl-4 col-md-4">
+                    </div>
+
+                    <div class="row mt-4">
+
+                        <div class="col-xxl-6 col-md-6">
                             <div>
                                 <label for="dec" class="form-label">Starter Account</label>
                                 <input type="text" name="starter_account" class="form-control" id="starter_account">
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="dec" class="form-label">Basic Account</label>
+                                <input type="text" name="basic_account" class="form-control" id="basic_account">
                             </div>
                         </div>
                     </div>
@@ -551,6 +595,7 @@
                     $('#ultimate_account').val(res.ultimate_account);
                     $('#premium_account').val(res.premium_account);
                     $('#starter_account').val(res.starter_account);
+                    $('#basic_account').val(res.basic_account);
                 }
             }
         });
