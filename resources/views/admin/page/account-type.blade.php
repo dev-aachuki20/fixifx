@@ -477,14 +477,14 @@
                                         <div class="col-xxl-6 col-md-6">
                                             <div>
                                                 <label for="dec" class="form-label">Answer (English)</label>
-                                                <textarea name="faq[{{$k}}][en_answer]" class="ckeditor en_answer" cols="30" rows="10">{{ $faq->en_answer }}</textarea>
+                                                <textarea name="faq[{{$k}}][en_answer]" class="ckeditor_custom en_answer" cols="30" rows="10">{{ $faq->en_answer }}</textarea>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="col-xxl-6 col-md-6">
                                             <div>
                                                 <label for="dec" class="form-label">Answer (Japanese)</label>
-                                                <textarea name="faq[{{$k}}][ja_answer]" class="ckeditor ja_answer" cols="30" rows="10">{{ $faq->ja_answer }}</textarea>
+                                                <textarea name="faq[{{$k}}][ja_answer]" class="ckeditor_custom ja_answer" cols="30" rows="10">{{ $faq->ja_answer }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -519,14 +519,14 @@
                                         <div class="col-xxl-6 col-md-6">
                                             <div>
                                                 <label for="dec" class="form-label">Answer (English)</label>
-                                                <textarea name="faq[0][en_answer]" class="ckeditor en_answer" cols="30" rows="10"></textarea>
+                                                <textarea name="faq[0][en_answer]" class="ckeditor_custom en_answer" cols="30" rows="10"></textarea>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="col-xxl-6 col-md-6">
                                             <div>
                                                 <label for="dec" class="form-label">Answer (Japanese)</label>
-                                                <textarea name="faq[0][ja_answer]" class="ckeditor ja_answer" cols="30" rows="10"></textarea>
+                                                <textarea name="faq[0][ja_answer]" class="ckeditor_custom ja_answer" cols="30" rows="10"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -617,7 +617,7 @@
         });
 
         setTimeout(function() {
-            $('.faq_section_row').find('.ckeditor').nextAll().not($('.faq_section_row').find('.ckeditor').next()).remove();
+            $('.faq_section_row').find('.ckeditor_custom').nextAll().not($('.faq_section_row').find('.ckeditor_custom').next()).remove();
         }, 100);
     }
 </script>

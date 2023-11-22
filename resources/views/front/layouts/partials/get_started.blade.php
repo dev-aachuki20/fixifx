@@ -1,5 +1,5 @@
 @php
-$section6 = $common->where('section_no', 1)->first();
+$section6 = $common->where('section_no', 1)->where('status', 1)->first();
 @endphp
 
 @if($section6)
@@ -36,7 +36,7 @@ $section6 = $common->where('section_no', 1)->first();
             </div>
             <div class="get-started-bottom text-center">
               <h4>{{ $value->{config('app.locale').'_title'} }}</h4>
-              <p>{{ $value->{config('app.locale').'_desc'} }}</p>
+              <p>{!! $value->{config('app.locale').'_desc'} !!}</p>
             </div>
           </div>
           @endforeach
@@ -72,7 +72,7 @@ $section6 = $common->where('section_no', 1)->first();
           </h6>
         </div>
         <div class="discription">
-          <p>{{ $value->{config('app.locale').'_desc'} }}</p>
+          <p>{!! $value->{config('app.locale').'_desc'} !!}</p>
         </div>
       </div>
       @endforeach

@@ -625,7 +625,10 @@ li.nav-item.dropdown>a.show:after{
     max-width: 1224px;
 }
 
-.active.mega-menu-box a{
+.active.mega-menu-box a,
+.mega-menu .header-pf-name.active a,
+.mega-menu .header-pf-name.active a h5,
+.mega-menu .header-pf-name.active a h3{
     color: var(--color-aqua-marine) !important;
 }
 
@@ -4168,6 +4171,16 @@ body.modal-open{
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.traders_slides .blogBox-wrap{
+    min-height: 100%;
+}
+.traders_slides .blogBox-wrap .description p{
+    margin-bottom: 0px !important;
+    display: block !important;
+    -webkit-line-clamp: inherit !important;
+    -webkit-box-orient: inherit !important;
+    overflow: inherit !important;
+}
 
 .tradersChoose_box .blogTitle h6 {
     margin: 17px 0 15px 0;
@@ -4368,6 +4381,7 @@ body.modal-open{
     max-width: 152px;
 }
 
+
 .table_wrapper tbody tr td:nth-child(1),
 .table_wrapper tbody tr td:nth-child(3),
 .table_wrapper tbody tr td:nth-child(5),
@@ -4378,9 +4392,9 @@ body.modal-open{
 .table_wrapper tbody tr:last-child td::after{
     display: none;
 }
-.spreadList-wrapper .tab-content .table_wrapper tbody tr td:last-child:not(.dataTables_empty,.border-right-0){
-    border-right: 1px solid #D2E4E9;
-}
+/*.spreadList-wrapper .tab-content .table_wrapper tbody tr td:last-child:not(.dataTables_empty,.border-right-0){*/
+/*    border-right: 1px solid #D2E4E9;*/
+/*}*/
 
 .dataTables_info {
     padding-left: 18px;
@@ -6636,6 +6650,19 @@ body.darkHeader .dark-header.scrollUp .header-btns ul li .fill-btn:hover {
 }
 .handling-vps-wrapper.bg-snow-drift + section{
     background-color: #F7F9FA;
+}
+.third-par-faqinner .faqAccordion .accordion-item .accordion-button{
+    margin: 0;
+    padding: 25px 0;
+}
+.third-par-faqinner .faqAccordion .accordion-item .accordion-button:after{
+    background-size: 16px;
+}
+.third-par-faqinner .faqAccordion  .accordion-body{
+    border-bottom: 1px solid #D2E4E9;
+}
+.third-par-faqinner .faqAccordion .accordion-item:last-child .accordion-body{
+    border-top: 1px solid #D2E4E9;
 }
 
 @media screen and (max-width: 768px) {

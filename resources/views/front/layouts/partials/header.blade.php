@@ -7,7 +7,6 @@ $section4 = App\Models\Section::where('id', 4)->first();
 
 @endphp
 
-
 <!-- Header  -->
 <header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' || request()->route()->parameters['slug'] === 'vps-service' || request()->route()->parameters['slug'] === 'third-party-tool'  || request()->route()->parameters['slug'] === 'rewards' ? 'dark-header' : '' }}">
   <nav class="navbar navbar-expand-lg">
@@ -76,7 +75,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
                         <a href="javascript:void();" class="linkhead-box">
                           <h4>{{ $submenu->{config('app.locale').'_name'} }}</h4>
                         </a>
-                        <dt class="m-0 mb-3 header-pf-name">
+                        <dt class="m-0 mb-3 header-pf-name {{ ($route_param == 'platform-overview') ? 'active' : '' }}">
                           <h3><a href="{{ route('page', [config('app.locale'), 'platform-overview']) }}">{{__('message.overview') }}</a></h3>
                         </dt>
                         <dd class="menu-dropdown-col row g-1">
@@ -109,7 +108,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
 
                           @if($submenu->id == 2)
                           <dl class="col-lg-4 pf-no-margin">
-                            <dt class="m-0 mb-3 header-pf-name">
+                            <dt class="m-0 mb-3 header-pf-name {{ ($route_param == 'advan-trade') ? 'active' : '' }}">
                               <h3>{{ $section4->subSection[2]->{config('app.locale').'_title'} ?? __('message.advan_trade') }}</h3>
                               <a href="{{ route('page', [config('app.locale'), 'advan-trade']) }}">
                                 <h5 class="overviewtext">{{__('message.overview') }}</h5>

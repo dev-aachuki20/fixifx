@@ -286,7 +286,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 </section>
 <!-- end  -->
 
-@php isset($section) ? $section5 = $section->where('section_no', 5)->first() : '' @endphp
+@php isset($section) ? $section5 = $section->where('section_no', 5)->where('status', 1)->first() : '' @endphp
 @if($section5)
 <section class="spreadList-wrapper padding-tb-120">
     <div class="container">

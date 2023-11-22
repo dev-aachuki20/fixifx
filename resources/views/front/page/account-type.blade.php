@@ -15,11 +15,11 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
 @endphp
 
 @if($subsection)
-<section class="saxo-offering-sec bg-white padding-tb-120">
+<section class="saxo-offering-sec account-type-saxo bg-white">
     <div class="container">
         <div class="row row-gap-24">
             @foreach($subsection as $key => $value)
-            <div class="col-lg-3 col-md-6 col-12">
+            <div class="col-lg-3 col-md-12 col-12 padding-top-120 padding-bottom-120">
                 <div class="saxo-offering-box">
                     <div class="saxo-offering-icon bg-light-gray">
                         <img src="{{ $value->image ? asset($value->image) : asset('fixifx/images/broker-slide.png') }}" alt="icon-1">
@@ -81,7 +81,7 @@ $subsection = App\Models\SubSection::where('section_id', 305)->whereIn('id', $id
 </section>
 @endif
 
-@php $header = $section->where('section_no', 1)->first() @endphp
+@php $header = $section->where('section_no', 1)->where('status', 1)->first() @endphp
 @if($header)
 <section class="expert-support-wrapper tradingBenefits-wrapper tradingBenefits-bg side-by-side padding-tb-120 acc-type-expert">
     <div class="container">

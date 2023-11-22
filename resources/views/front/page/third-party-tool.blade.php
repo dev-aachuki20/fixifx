@@ -142,8 +142,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         @foreach($faqs as $index => $faq)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$index}}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="collapse{{ $index }}">
-                                    <img class="img-fluid" src="images/faq-q.svg" alt="">
+                                <button class="accordion-button {{ $loop->iteration != 1 ? 'collapsed' : '' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$index}}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="collapse{{ $index }}">
+                                    <img class="img-fluid" src="{{asset('fixifx/images/faq-q.svg')}}" alt="">
                                     {{ $faq->{config('app.locale').'_question'} }}
                                 </button>
                             </h2>

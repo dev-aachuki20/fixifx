@@ -53,6 +53,9 @@
     .other-pages-banner {
         background-position: center;
     }
+    .we-trade-wrapper.vps-service-trade{
+        background-position: -110px 200% !important;
+    }
 }
 
 @media(min-width:1200px) and (max-width:1210px) {
@@ -299,8 +302,17 @@
     .vps-service-trade{
         background-position: -60px 110% !important;
     }
+    .spreadList-wrapper .tab-content .table_wrapper tbody>tr>td,
+    .spreadList-wrapper .tab-content .table_wrapper table.dataTable>thead>tr>th{
+        width: 20% !important;
+    }
 }
 
+@media screen and (min-width: 992px) and (max-width: 1319px){
+    .we-trade-wrapper.vps-service-trade{
+        background-position: -110px 230% !important;
+    }
+}
 
 @media(min-width:768px) and (max-width:1199px) {
     .hero-main {
@@ -312,6 +324,10 @@
 
     .ctrader-benefits-area .row {
         flex-direction: inherit !important;
+    }
+    .spreadList-wrapper .tab-content .table_wrapper tbody>tr>td,
+    .spreadList-wrapper .tab-content .table_wrapper table.dataTable>thead>tr>th{
+        width: 20% !important;
     }
 }
 
@@ -1338,6 +1354,23 @@
     .advan-discover .section-head{
         padding-bottom: 0; 
     }
+    .spreadList-wrapper .tab-content .table_wrapper tbody>tr>td, 
+    .spreadList-wrapper .tab-content .table_wrapper table.dataTable>thead>tr>th{
+        width: 20% !important;
+        min-width: 180px;
+    }
+    .account-type-saxo .padding-top-120{
+        padding-top: 0;
+    }
+    .account-type-saxo .padding-top-120:first-child{
+         padding-top: 120px;
+    }
+    .account-type-saxo .padding-bottom-120{
+        padding-bottom: 0;
+    }
+    .account-type-saxo .padding-bottom-120:last-child{
+        padding-bottom: 120px;
+    }
 }
 
 @media(max-width:769px) {
@@ -1459,7 +1492,7 @@
     }
 
     .tradersChoose_box {
-        padding-bottom: 170px;
+        padding-bottom: 130px;
         position: relative;
     }
 
@@ -2044,7 +2077,24 @@
         display: none;
     }
     .third-par-faqinner .faqAccordion .accordion-item .accordion-button{
-        padding-bottom: 10px;
+        padding: 15px 0;
+    }
+    .third-par-faqinner .faqAccordion .accordion-item .accordion-button:after{
+        background-size: 12px;
+    }
+    .traders_slides .blogBox-wrap{
+        min-height: calc(100% - 20px);
+    }
+    .spreadList-wrapper .tab-content .table_wrapper tbody>tr>td, 
+    .spreadList-wrapper .tab-content .table_wrapper table.dataTable>thead>tr>th{
+        width: 20% !important;
+        min-width: 170px;
+    }
+    .account-type-saxo .padding-top-120:first-child{
+         padding-top: 60px;
+    }
+    .account-type-saxo .padding-bottom-120:last-child{
+        padding-bottom: 60px;
     }
 }
 
@@ -2377,6 +2427,15 @@
         text-align: center;
     }
 
+}
+
+@media screen and (max-width: 480px){
+    .traders_slides .blogBox-wrap{
+        min-height: auto;
+    }
+    /*.traders_slides .swiper-slide{*/
+    /*    width: 100% !important;*/
+    /*}*/
 }
 
 @media(max-width:400px) {

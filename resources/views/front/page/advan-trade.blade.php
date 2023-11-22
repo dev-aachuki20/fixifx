@@ -150,7 +150,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
     <!-- dummy section Discover the full FixiFx offering-->
     @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
 
-    <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox advan-discover ptb-50 border-top-0">
+    <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox advan-discover ptb-50 border-top-0 before-nonemob">
         @if($section5)
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-12">

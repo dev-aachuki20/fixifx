@@ -192,9 +192,9 @@ $sectionJaLink3 = json_decode($section3->ja_link);
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-12">
                 <div class="section-head text-center">
-                    <h2 class="max-w-427"> {{ $section4->{config('app.locale').'_title'} }}</h2>
+                    <h2 class="max-w-427"> {{ $section5->{config('app.locale').'_title'} }}</h2>
                     <div class="discription">
-                        <p>{!! $section4->{config('app.locale').'_desc'} !!}</p>
+                        <p>{!! $section5->{config('app.locale').'_desc'} !!}</p>
                     </div>
                 </div>
             </div>

@@ -305,7 +305,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec5">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_5" aria-expanded="true" aria-controls="sec_5">
-                    <i class="ri-global-line me-2"></i>Section 5
+                    <i class="ri-global-line me-2"></i>{{ isset($section5) ? $section5->en_title : 'Section 5' }}
                 </button>
             </h2>
             <div id="sec_5" class="accordion-collapse collapse" aria-labelledby="Sec5" data-bs-parent="#Sec5">

@@ -96,7 +96,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
         @endif
         @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
         @if($section5)
-        <div class="fixi-features-herobox cTrader-ios-trade-herobox pbottom-50 ctrader-sys-inner border-0 before-none pt-0">
+        <div class="fixi-features-herobox cTrader-ios-trade-herobox ptop-50 pbottom-50 ctrader-sys-inner border-bottom-0 before-none">
             <div class="row">
                 <div class="col-12">
                     <div class="system-requirements-inner m-0">

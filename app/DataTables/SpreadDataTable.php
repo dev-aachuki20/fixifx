@@ -52,7 +52,7 @@ class SpreadDataTable extends DataTable
     {
         $this->currencies = getAllCurrency();
         if (isset($request->category_id)) {
-            $model =  $model->where('category_id', $request->category_id);
+            $model =  $model->where('category_id', $request->category_id)->orderBy('id', 'desc');;
         }
         return $model->newQuery();
     }
@@ -102,16 +102,21 @@ class SpreadDataTable extends DataTable
 
     protected function getColumns()
     {
+        $ultimateEn = getSettingValue("ultimate_account_type_en") ?? 'Ultimate Account';
+        $premiumEn = getSettingValue("premium_account_type_en") ?? 'Premium Account';
+        $starterEn = getSettingValue("starter_account_type_en") ?? 'Starter Account';
+        $basicEn = getSettingValue("basic_account_type_en") ?? 'Basic Account';
+        
         if (auth()->guard('admin')->check() && (request()->route()->getPrefix() == "PrexSecureCpanel/admin")) {
             return [
                 Column::make('no')->data('DT_RowIndex')->searchable(false)->orderable(false),
                 Column::make('category_id')->title("Category"),
                 Column::make('symbol')->orderable(false),
                 Column::make('ja_symbol'),
-                Column::make('ultimate_account')->orderable(false),
-                Column::make('premium_account')->orderable(false),
-                Column::make('starter_account')->orderable(false),
-                Column::make('basic_account')->orderable(false),
+                Column::make('ultimate_account')->title($ultimateEn)->orderable(false),
+                Column::make('premium_account')->title($premiumEn)->orderable(false),
+                Column::make('starter_account')->title($starterEn)->orderable(false),
+                Column::make('basic_account')->title($basicEn)->orderable(false),
                 Column::computed('action')
                     ->exportable(false)
                     ->printable(false)
@@ -141,10 +146,7 @@ class SpreadDataTable extends DataTable
             ];
         }
 
-        $ultimateEn = getSettingValue("ultimate_account_type_en") ?? 'Ultimate Account';
-        $premiumEn = getSettingValue("premium_account_type_en") ?? 'Premium Account';
-        $starterEn = getSettingValue("starter_account_type_en") ?? 'Starter Account';
-        $basicEn = getSettingValue("basic_account_type_en") ?? 'Basic Account';
+        
         return [
             // Column::make('category_id')->title('<p>Category</p>'),
             Column::make('symbol')->title('<div class="heading_table"><div class="title"><h6>Symbol</h6></div></div>')->orderable(true),

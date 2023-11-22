@@ -166,7 +166,7 @@ var swiper = new Swiper('.traders_slides', {
   autoplay: {
     delay: 2500,
     //reverseDirection: false,
-    disableOnInteraction: false,
+    //disableOnInteraction: false,
   },
   navigation: {
       nextEl: ".swiper-button-next",
@@ -182,9 +182,6 @@ var swiper = new Swiper('.traders_slides', {
       },
       480: {
           slidesPerView: 1
-      },
-      640: {
-          slidesPerView: 2
       }
   }
   });
