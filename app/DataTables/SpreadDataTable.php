@@ -14,8 +14,8 @@ class SpreadDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)
-            ->editColumn('category_id', function ($data) {
+            ->eloquent($query->with(['category'])->select("spreads.*"))
+            ->editColumn('category.en_name', function ($data) {
                 return $data->category->en_name ?? "";
             })
             ->editColumn('basic_account', function ($data) {
@@ -110,7 +110,7 @@ class SpreadDataTable extends DataTable
         if (auth()->guard('admin')->check() && (request()->route()->getPrefix() == "PrexSecureCpanel/admin")) {
             return [
                 Column::make('no')->data('DT_RowIndex')->searchable(false)->orderable(false),
-                Column::make('category_id')->title("Category"),
+                Column::make('category.en_name')->title("Category"),
                 Column::make('symbol')->orderable(false),
                 Column::make('ja_symbol'),
                 Column::make('ultimate_account')->title($ultimateEn)->orderable(false),

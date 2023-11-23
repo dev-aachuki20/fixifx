@@ -133,24 +133,24 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
 
 
 <!-- Spreads, Swaps & Commissions -->
-@php $header = $section->where('section_no', 1)->where('status', 1)->first() @endphp
-@if($header)
+@php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
+@if($section6)
 <section class="bg-white side-by-side padding-tb-120 fiXiTrader_box commissionsBox_wrap">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-sm-12">
-                <div class="section-head">
-                    <h2 class="max-w-427">{{ $header->{config('app.locale').'_title'} }}</h2>
-                    <div class="discription">
-                        <p>
-                            {!! $header->{config('app.locale').'_desc'} !!}
+                <div class="section-head mtop-30">
+                    <h2 class="max-w-427">{{ $section6->{config('app.locale').'_title'} }}</h2>
+                    <div class="discription mbottom-0">
+                        <p class="mbottom-0">
+                            {!! $section6->{config('app.locale').'_desc'} !!}
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="side-by-side-img">
-                    <img src="{{$header && $header->image ? $header->image : asset('fixifx/images/tradergo.png')}}" alt="tradergo">
+                    <img src="{{$section6 && $section6->image ? $section6->image : asset('fixifx/images/tradergo.png')}}" alt="tradergo">
                 </div>
             </div>
         </div>
@@ -185,7 +185,7 @@ $description_jp = 'FiXi FX（フィクシーFX）はスプレッドが狭い海�
                         @if($sub_sec->status == 1)
                         <div class="gridProudly-item">
                             <div class="icon_box">
-                                <img class="img-fluid" src="{{ asset('front/img/icons/page-icon/Spread-list/'.$sub_sec->icon) }}" alt="{{ spread_list_alt($sub_sec_index, config('app.locale')) }}">
+                                <img class="img-fluid" src="{{$sub_sec->image}}" alt="{{ spread_list_alt($sub_sec_index, config('app.locale')) }}">
                             </div>
                             <div class="title">
                                 <h6>

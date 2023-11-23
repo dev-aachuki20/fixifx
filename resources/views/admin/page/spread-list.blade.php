@@ -4,12 +4,122 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('custom.css') }}">
+
+<style>
+    .dataTables_scroll{
+        overflow: auto !important;
+    }
+    .dataTables_scrollHeadInner table thead th,
+    .dataTables_scrollBody table thead th,
+    .dataTables_scrollBody table tbody td{
+        width: 11.11% !important;
+        min-width: 130px;
+    }
+    .dataTables_scrollBody{
+        overflow: inherit !important;
+    }
+    
+    @media screen and (min-width: 3001px) and (max-width: 4000px){
+        .dataTables_scrollHeadInner table thead th,
+        .dataTables_scrollBody table thead th,
+        .dataTables_scrollBody table tbody td{
+            min-width: 370px;
+        }
+    }
+    @media screen and (min-width: 1921px) and (max-width: 3000px){
+        .dataTables_scrollHeadInner table thead th,
+        .dataTables_scrollBody table thead th,
+        .dataTables_scrollBody table tbody td{
+            min-width: 260px;
+        }
+    }
+    
+</style>
+
 <div class="animated fadeIn">
     <!-- ----------- Header Section ------------------- -->
     @include('admin.common.header_section')
 
     <!-- SECTION 1 -->
-    @include('admin.common.title_section')
+    {{-- @include('admin.common.title_section') --}}
+    
+    <!-- SECTION 6 -->
+    @php isset($section) ? $section6 = $section->where('section_no', 6)->first() : '' @endphp
+    <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="Sec6">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="Sec6">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_6" aria-expanded="true" aria-controls="sec_6">
+                    <i class="ri-global-line me-2"></i>{{ isset($section6) ? $section6->en_title : 'Spreads, Swaps & Commissions' }}
+                </button>
+            </h2>
+            <div id="sec_6" class="accordion-collapse collapse" aria-labelledby="Sec6" data-bs-parent="#Sec6">
+                <div class="accordion-body">
+                    <form action="{{ route('admin.save_section', ['sec_no' => 6]) }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="page_id" value="{{$page_id}}">
+
+                        @if(isset($section6))
+                        <input type="hidden" name="section_id" value="{{ $section6->id }}">
+                        @endif
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
+                                    <label for="dropdown-base-example" class="form-label text-muted">Status</label>
+                                    <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="status" {{ isset($section6) ? (($section6->status == 1) ? "checked" : "") : "checked" }}>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6 mb-3">
+                            <label for="title" class="form-label mx-2">Image</label>
+                            <div class="s-preview-img my-product-img">
+                                @if(isset($section6) && $section6->image)
+                                <input type="hidden" name="image" value="{{$section6->getRawOriginal('image')}}">
+                                @endif
+                                <input type="file" name="image" class="form-control custom_img">
+
+                                <img src="{{ isset($section6->image) ? $section6->image : '' }}" loading="lazy" class="img-fluid" id="main_image" alt="" />
+                                <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                <div class="p-upload-icon">
+                                    <i class="ri-upload-cloud-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gy-4">
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Title (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section6) ? $section6->en_title : '') }}">
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Title (Japanese)</label>
+                                    <input type="text" class="form-control" id="ja_title" name="ja_title" value="{{ old('ja_title', isset($section6) ? $section6->ja_title : '') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Description (English)</label>
+                                    <textarea name="en_desc" class="form-control" id="description" cols="30" rows="10">{{ old('en_desc', isset($section6) ? $section6->en_desc : '') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="dec" class="form-label">Description (Japanese)</label>
+                                    <textarea name="ja_desc" class="form-control" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section6) ? $section6->ja_desc : '') }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Save" class="btn btn-primary my-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SECTION 2 -->
     @php isset($section) ? $section2 = $section->where('section_no', 2)->first() : '' @endphp
@@ -132,7 +242,9 @@
                                                 <label for="dropdown-base-example" class="form-label text-muted">Status</label>
                                                 <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="sub_section[{{$i}}][status]" {{ $sub_section3 ? (($sub_section3->status == 1) ? 'checked' : '') : 'checked' }}>
                                             </div>
-                                            <div class="row gy-4 mb-2">
+                                            
+                                            
+                                          {{--  <div class="row gy-4 mb-2">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="customer-name" class="col-form-label">Icon:</label>
@@ -140,7 +252,33 @@
                                                         <small class="error">Note : Only for developer change</small>
                                                     </div>
                                                 </div>
+                                            </div> --}}
+                                            
+                                            
+                                            <!-- image -->
+                                            <div class="row">
+                                                <div class="col-xxl-6 col-md-6 mb-3">
+                                                    <label for="title" class="form-label mx-2">Image</label>
+                                                    <div class="s-preview-img my-product-img">
+                                                        @if(isset($sub_section3) && $sub_section3->image)
+                                                        <input type="hidden" name="sub_section[{{$i}}][image_old]" value="{{$sub_section3->image}}">
+                                                        @endif
+                                                        <input type="file" accept="image/svg" name="sub_section[{{$i}}][image]" class="form-control custom_img">
+                                                        <img src="{{ isset($sub_section3->image) ? $sub_section3->image : '' }}" class="img-fluid" id="main_image_{{$i}}" alt="" loading="lazy" />
+                                                        <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                                        <div class="p-upload-icon">
+                                                            <i class="ri-upload-cloud-2-fill"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
                                             <div class="row gy-4 mt-1">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
@@ -246,19 +384,32 @@
                                                 <label for="dropdown-base-example" class="form-label text-muted">Status</label>
                                                 <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="sub_section[{{$i}}][status]" {{ $sub_section4 ? (($sub_section4->status == 1) ? 'checked' : '') : 'checked' }}>
                                             </div>
-                                            <div class="row gy-4">
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <div>
-                                                        <label for="title" class="form-label">Image</label>
-                                                        <input type="file" class="form-control" id="image" name="sub_section[{{$i}}][image]">
+                                            
+                                            
+                                            
+                                            <!-- new image section -->
+                                            
+                                            <div class="row">
+                                                <div class="col-xxl-6 col-md-6 mb-3">
+                                                    <label for="title" class="form-label mx-2">Image</label>
+                                                    <div class="s-preview-img my-product-img">
+                                                        @if(isset($sub_section4) && $sub_section4->image)
+                                                        <input type="hidden" name="sub_section[{{$i}}][image_old]" value="{{$sub_section4->image}}">
+                                                        @endif
+                                                        <input type="file" name="sub_section[{{$i}}][image]" class="form-control custom_img">
+                                                        <img src="{{ isset($sub_section4->image) ? $sub_section4->image : '' }}" class="img-fluid" id="main_image_{{$i}}" alt="" loading="lazy" />
+                                                        <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                                        <div class="p-upload-icon">
+                                                            <i class="ri-upload-cloud-2-fill"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                @if(isset($sub_section4) && $sub_section4->image)
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <img src="{{ $sub_section4->image }}" alt="" loading="lazy" width="100px" height="100px">
-                                                </div>
-                                                @endif
                                             </div>
+                                                                                    <!-- new image section -->
+                                            
+                                            
+                                            
+                                            
                                             <div class="row gy-4 mt-1">
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>

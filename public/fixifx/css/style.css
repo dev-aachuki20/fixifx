@@ -6685,12 +6685,20 @@ body.darkHeader .dark-header.scrollUp .header-btns ul li .fill-btn:hover {
     }
 }
 
-.section-head .discription ul {
-    list-style: circle;
-    padding-left: 1rem;
-}
-.section-head .discription ul li {
-    list-style: circle;
+/*.section-head .discription ul {*/
+/*    list-style: circle;*/
+/*    padding-left: 1rem;*/
+/*}*/
+/*.section-head .discription ul li {*/
+/*    list-style: circle;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+.description ul{
+    padding-left: 1.5rem;
     margin-bottom: 10px;
+    list-style: inherit !important;
+}
+.description ul li{
+    list-style: inherit !important;
 }
 

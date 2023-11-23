@@ -1357,7 +1357,7 @@
     .spreadList-wrapper .tab-content .table_wrapper tbody>tr>td, 
     .spreadList-wrapper .tab-content .table_wrapper table.dataTable>thead>tr>th{
         width: 20% !important;
-        min-width: 180px;
+        min-width: 190px;
     }
     .account-type-saxo .padding-top-120{
         padding-top: 0;
@@ -1955,6 +1955,10 @@
     .space-bottom-100 {
         padding-bottom: 50px !important;
     }
+    
+    .mtop-30 {
+        margin-top: 30px !important;
+    }
 
     .ptop-30 {
         padding-top: 30px !important;
@@ -2089,6 +2093,10 @@
     .spreadList-wrapper .tab-content .table_wrapper table.dataTable>thead>tr>th{
         width: 20% !important;
         min-width: 170px;
+    }
+    .spreadList-wrapper .tab-content .table_wrapper tbody>tr>td,
+    .spreadList-wrapper .tab-content .table_wrapper tbody>tr>td .title span{
+        font-size: 14px;
     }
     .account-type-saxo .padding-top-120:first-child{
          padding-top: 60px;

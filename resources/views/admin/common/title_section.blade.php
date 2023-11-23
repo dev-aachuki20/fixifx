@@ -22,7 +22,7 @@
 
                     <div class="row">
                         <!-- image -->
-                        {{-- <div class="col-xxl-6 col-md-6 mb-3">
+                         <div class="col-xxl-6 col-md-6 mb-3">
                             <label for="title" class="form-label mx-2">Image</label>
                             <div class="s-preview-img my-product-img">
                                 @if(isset($section1->image))
@@ -36,7 +36,7 @@
                             <i class="ri-upload-cloud-2-fill"></i>
                         </div>
                     </div>
-            </div> --}}
+            </div> 
             <!-- image end -->
             <!-- video -->
             @if($slug == 'advan-trade')
