@@ -9,8 +9,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
 @include('front.layouts.partials.common_hero')
 @php $section1 = $section->where('section_no', 1)->where('status', 1)->first();
-$sectionEnLink1 = json_decode($section1->en_link);
-$sectionJaLink1 = json_decode($section1->ja_link);
+$sectionEnLink1 = $section1 ? json_decode($section1->en_link) : null;
+$sectionJaLink1 = $section1 ? json_decode($section1->ja_link) : null;
 @endphp
 @if($section1)
 <section class="bg-white side-by-side padding-tb-120 fiXiTrader_box">
@@ -28,13 +28,13 @@ $sectionJaLink1 = json_decode($section1->ja_link);
 
                     @if(config('app.locale') == 'en')
                     <div class="button-group">
-                        <a href="{{ isset($sectionEnLink1[0]) ? $sectionEnLink1[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="{{ isset($sectionEnLink1[1]) ? $sectionEnLink1[1] : '#' }}" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionEnLink1[0]) ? $sectionEnLink1[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionEnLink1[1]) ? $sectionEnLink1[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
                     </div>
                     @else
                     <div class="button-group">
-                        <a href="{{ isset($sectionJaLink1[0]) ? $sectionJaLink1[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="{{ isset($sectionJaLink1[1]) ? $sectionJaLink1[1] : '#' }}" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink1[0]) ? $sectionJaLink1[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink1[1]) ? $sectionJaLink1[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
                     </div>
                     @endif
                 </div>
@@ -50,8 +50,8 @@ $sectionJaLink1 = json_decode($section1->ja_link);
 @endif
 
 @php $section2 = $section->where('section_no', 2)->where('status', 1)->first();
-$sectionEnLink2 = json_decode($section2->en_link);
-$sectionJaLink2 = json_decode($section2->ja_link);
+$sectionEnLink2 = $section2 ? json_decode($section2->en_link) : null;
+$sectionJaLink2 = $section2 ? json_decode($section2->ja_link) : null;
 @endphp
 @if($section2)
 <section class="bg-gradient-dark side-by-side padding-tb-120 fiXiTrader_box2">
@@ -74,13 +74,13 @@ $sectionJaLink2 = json_decode($section2->ja_link);
 
                     @if(config('app.locale') == 'en')
                     <div class="button-group">
-                        <a href="{{ isset($sectionEnLink2[0]) ? $sectionEnLink2[0] : '#' }}" class="custom-btn fill-btn-1 text-white">{{__('message.learn_more_btn')}}</a>
-                        <a href="{{ isset($sectionEnLink2[1]) ? $sectionEnLink2[1] : '#' }}" class="custom-btn fill-btn text-white">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionEnLink2[0]) ? $sectionEnLink2[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionEnLink2[1]) ? $sectionEnLink2[1] : '#' }}" target="_blank" class="custom-btn fill-btn text-white">{{__('message.preview_btn')}}</a>
                     </div>
                     @else
                     <div class="button-group">
-                        <a href="{{ isset($sectionJaLink2[0]) ? $sectionJaLink2[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="{{ isset($sectionJaLink2[1]) ? $sectionJaLink2[1] : '#' }}" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink2[0]) ? $sectionJaLink2[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink2[1]) ? $sectionJaLink2[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
                     </div>
                     @endif
                 </div>
@@ -91,8 +91,8 @@ $sectionJaLink2 = json_decode($section2->ja_link);
 @endif
 
 @php $section3 = $section->where('section_no', 3)->where('status', 1)->first();
-$sectionEnLink3 = json_decode($section3->en_link);
-$sectionJaLink3 = json_decode($section3->ja_link);
+$sectionEnLink3 = $section3 ? json_decode($section3->en_link) : null;
+$sectionJaLink3 = $section3 ? json_decode($section3->ja_link) : null;
 @endphp
 @if($section3)
 <section class="bg-white side-by-side padding-tb-120 fiXiTrader_box" style="background-color: #F8F8F8 !important;">
@@ -109,13 +109,13 @@ $sectionJaLink3 = json_decode($section3->ja_link);
                     </div>
                     @if(config('app.locale') == 'en')
                     <div class="button-group">
-                        <a href="{{ isset($sectionEnLink3[0]) ? $sectionEnLink3[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="{{ isset($sectionEnLink3[1]) ? $sectionEnLink3[1] : '#' }}" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionEnLink3[0]) ? $sectionEnLink3[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionEnLink3[1]) ? $sectionEnLink3[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
                     </div>
                     @else
                     <div class="button-group">
-                        <a href="{{ isset($sectionJaLink3[0]) ? $sectionJaLink3[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="{{ isset($sectionJaLink3[1]) ? $sectionJaLink3[1] : '#' }}" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink3[0]) ? $sectionJaLink3[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink3[1]) ? $sectionJaLink3[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
                     </div>
                     @endif
                 </div>

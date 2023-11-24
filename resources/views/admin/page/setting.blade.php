@@ -453,11 +453,12 @@
                             <div class="card-body">
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="standard-tab" data-bs-toggle="pill" data-bs-target="#standard" type="button" role="tab" aria-controls="standard" aria-selected="true">STP Standard</button>
+                                        <button class="nav-link active" id="pro-tab" data-bs-toggle="pill" data-bs-target="#pro" type="button" role="tab" aria-controls="pro" aria-selected="false">ECN Standard</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="pro-tab" data-bs-toggle="pill" data-bs-target="#pro" type="button" role="tab" aria-controls="pro" aria-selected="false">ECN Standard</button>
+                                        <button class="nav-link" id="standard-tab" data-bs-toggle="pill" data-bs-target="#standard" type="button" role="tab" aria-controls="standard" aria-selected="true">STP Standard</button>
                                     </li>
+
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="ecn-tab" data-bs-toggle="pill" data-bs-target="#ecn" type="button" role="tab" aria-controls="ecn" aria-selected="false">STP Premier</button>
                                     </li>
@@ -466,7 +467,7 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="standard" role="tabpanel" aria-labelledby="standard-tab">
+                                    <div class="tab-pane fade" id="standard" role="tabpanel" aria-labelledby="standard-tab">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label text-muted">STP Standard Header (English)</label>
@@ -495,11 +496,11 @@
                                         @endfor
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="pro" role="tabpanel" aria-labelledby="pro-tab">
+                                <div class="tab-pane fade show active" id="pro" role="tabpanel" aria-labelledby="pro-tab">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="form-label text-muted">ECN Standard Header (English)</label>
-                                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[pro_header]" value="{{ getSettingValue('pro_header_en') }}">
+                                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[pro_header_en]" value="{{ getSettingValue('pro_header_en') }}">
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label text-muted">ECN Standard Header (Japanese)</label>

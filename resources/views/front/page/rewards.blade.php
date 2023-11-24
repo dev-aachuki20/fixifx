@@ -297,8 +297,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             </div>
 
             @php $section3 = $section->where('section_no', 3)->where('status', 1)->first();
-            $sectionEnLink3 = json_decode($section3->en_link);
-            $sectionJaLink3 = json_decode($section3->ja_link);
+            $sectionEnLink3 = $section3 ? json_decode($section3->en_link) : null;
+            $sectionJaLink3 = $section3 ? json_decode($section3->ja_link) : null;
             @endphp
             @if($section3)
             <div class="col-12  col-md-6 col-xl-6">
