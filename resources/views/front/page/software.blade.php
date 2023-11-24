@@ -51,7 +51,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供しているトレーデ
                                                     <h6>{{ $sec->{config('app.locale').'_title'} }}</h6>
                                                 </div>
                                                 <div class="download-btn">
-                                                    <a href="{{str_contains($sec->getRawOriginal('image'), 'http')?$sec->getRawOriginal('image'):$sec->image}}" download target="_blank" class="d-flex align-items-center">
+                                                    <a href="{{ asset(str_contains($sec->getRawOriginal('image'), 'http') ? $sec->getRawOriginal('image') : $sec->image) }}" target="_blank" class="d-flex align-items-center">
                                                         <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M20.125 6H15.3782C14.6946 6 14.125 5.42675 14.125 4.73885V0L20.125 6Z" fill="#2EEECE" />
                                                             <path d="M11.125 16.9452V21.0548C11.125 21.589 10.7377 22 10.2342 22H0.899648C0.473592 22 0.125 21.6301 0.125 21.1781V16.8219C0.125 16.3699 0.473592 16 0.899648 16H10.2729C10.7377 16 11.125 16.4521 11.125 16.9452Z" fill="#2EEECE" />
