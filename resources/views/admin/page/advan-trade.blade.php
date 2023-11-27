@@ -279,6 +279,24 @@
                             </div>
                         </div>
 
+                        <div class="row mt-1 gy-4">
+                            <!-- link  1  eng-->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Platforms Link (English)</label>
+                                    <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section4 && !is_null($section4->en_link) && is_array(json_decode($section4->en_link)) ? json_decode($section4->en_link)[0] : '' }}">
+                                </div>
+                            </div>
+                            <!-- link  1  japanese -->
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="title" class="form-label">Preview Platforms Link (Japanese)</label>
+                                    <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section4 && !is_null($section4->ja_link) && is_array(json_decode($section4->ja_link)) ? json_decode($section4->ja_link)[0] : '' }}">
+                                </div>
+                            </div>
+
+                        </div>
+
                         <!-- subsection -->
                         @for($i=1; $i<=7; $i++) @php $sub_section4=$section4->subSection[$i-1] ?? false;
                             $isSixthSubSection = $i === 7;
@@ -352,24 +370,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="row mt-1 gy-4">
-                                                <!-- link 2 english -->
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <div>
-                                                        <label for="title" class="form-label">Preview Platforms Link (English)</label>
-                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][en_link]" value="{{ $sub_section4 && !is_null($sub_section4->en_link) ? $sub_section4->en_link : '' }}">
-                                                    </div>
-                                                </div>
-                                                <!-- link 2 japanese -->
-                                                <div class="col-xxl-6 col-md-6">
-                                                    <div>
-                                                        <label for="title" class="form-label">Preview Platforms Link (Japanese)</label>
-                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][ja_link]" value="{{ $sub_section4 && !is_null($sub_section4->ja_link) ? $sub_section4->ja_link : '' }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-
 
                                         </div>
                                     </div>
