@@ -51,7 +51,7 @@ $description_jp = 'FiXi FX（フィクシー）の口座間振替、サブアカ
                                                     <h6>{{ $sec->{config('app.locale').'_title'} }}</h6>
                                                 </div>
                                                 <div class="download-btn">
-                                                    <a href="{{ asset(str_contains($sec->getRawOriginal('image'), 'http') ? $sec->getRawOriginal('image') : $sec->image) }}"  target="_blank" class="d-flex align-items-center">
+                                                    <a href="{{ asset(str_contains($sec->getRawOriginal('image'), 'http') ? $sec->getRawOriginal('image') : $sec->image) }}" target="_blank" class="d-flex align-items-center">
                                                         <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M20.125 6H15.3782C14.6946 6 14.125 5.42675 14.125 4.73885V0L20.125 6Z" fill="#2EEECE" />
                                                             <path d="M11.125 16.9452V21.0548C11.125 21.589 10.7377 22 10.2342 22H0.899648C0.473592 22 0.125 21.6301 0.125 21.1781V16.8219C0.125 16.3699 0.473592 16 0.899648 16H10.2729C10.7377 16 11.125 16.4521 11.125 16.9452Z" fill="#2EEECE" />
@@ -89,24 +89,41 @@ $description_jp = 'FiXi FX（フィクシー）の口座間振替、サブアカ
 <!-- end  -->
 
 <!-- Fixi’s OpenAPI  -->
-<section class="OpenAPI-wrapper padding-tb-120">
+@php
+$section3 = $common->where('section_no', 3)->where('status', 1)->first();
+$sectionEnLink3 = $section3 ? json_decode($section3->en_link) : null;
+$sectionJaLink3 = $section3 ? json_decode($section3->ja_link) : null;
+@endphp
+@if($section3)
+<section class="OpenAPI-wrapper padding-tb-120 mspace-bottom-100">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-sm-12">
                 <div class="section-head text-center">
-                    <h2 class="max-w-427">{{__('message.manual_fixi_openai_title')}}</h2>
+                    <h2 class="max-w-427">{{ $section3->{config('app.locale').'_title'} }}</h2>
                     <div class="discription">
-                        <p>{{__('message.manual_fixi_openai_desc')}}</p>
+                        <p>{!! $section3->{config('app.locale').'_desc'} !!}</p>
                     </div>
                     <div class="openAi-btn d-flex align-items-center justify-content-center">
-                        <a href="#" class="custom-btn fill-btn-1">{{__('message.go_to_the_developer_portal_btn')}}</a>
-                        <a href="{{ route('page', [config('app.locale'), 'contact-us']) }}" class="custom-btn fill-btn">{{__('message.talk_to_our_specialist_btn')}}</a>
+
+                        @if(config('app.locale') == 'en')
+                        <a href="{{ isset($sectionEnLink3[0]) ? $sectionEnLink3[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.go_to_the_developer_portal_btn')}}</a>
+                        @else
+                        <a href="{{ isset($sectionJaLink3[0]) ? $sectionJaLink3[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.go_to_the_developer_portal_btn')}}</a>
+                        @endif
+
+
+                        <a href="{{ route('page', [config('app.locale'), 'contact-us']) }}" target="_blank" class="custom-btn fill-btn">{{__('message.talk_to_our_specialist_btn')}}</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- @include('front.layouts.partials.explore') --}}
+
 </section>
+@endif
 <!-- end  -->
 
 <!-- Get Started  -->

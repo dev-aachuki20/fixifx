@@ -3,7 +3,7 @@ $section6 = $common->where('section_no', 1)->where('status', 1)->first();
 @endphp
 
 @if($section6)
-@php $menu_page = App\Models\MenuPage::where('menu_id', 3)->get(); @endphp
+{{-- @php $menu_page = App\Models\MenuPage::where('menu_id', 3)->get(); @endphp --}}
 
 @if(request()->route()->parameters['slug'] != 'mt5-client-desktop' && request()->route()->parameters['slug'] != 'mt5-android-trader' && request()->route()->parameters['slug'] != 'mt5-mac-os-trader' && request()->route()->parameters['slug'] != 'mt5-iphone-trader' && request()->route()->parameters['slug'] != 'ctrader-ios' && request()->route()->parameters['slug'] != 'ctrader-android' && request()->route()->parameters['slug'] != 'ctrader-web')
 <!-- Get Started Section -->
@@ -29,7 +29,9 @@ $section6 = $common->where('section_no', 1)->where('status', 1)->first();
               <div class="count-get">0{{$key+1}}</div>
               <div class="get-started-icon">
                 <span>
-                  <img src="{{ asset('fixifx/images/icons/'. ($key == 0 ? 'signup' : ($key == 1 ? 'funds' : 'trading-accounts')) . '.svg') }}" class="img-fluid" alt="{{ $key == 0 ? 'signup' : ($key == 1 ? 'funds' : 'trading-accounts') }}" loading="lazy" />
+                  <img src="{{$value->image ? $value->image : asset('fixifx/images/'. ($key == 0 ? 'signup' : ($key == 1 ? 'funds' : 'trading-accounts')) . '.svg')}}" class="img-fluid" alt="{{ $key == 0 ? 'signup' : ($key == 1 ? 'funds' : 'trading-accounts') }}" loading="lazy" />
+
+
                 </span>
               </div>
               <div class="bottom-line-icon"></div>
@@ -48,7 +50,7 @@ $section6 = $common->where('section_no', 1)->where('status', 1)->first();
 </section>
 @endif
 
-@if(request()->route()->parameters['slug'] == 'mt5-client-desktop' || request()->route()->parameters['slug'] == 'mt5-android-trader' || request()->route()->parameters['slug'] == 'mt5-mac-os-trader' || request()->route()->parameters['slug'] == 'mt5-iphone-trader' || request()->route()->parameters['slug'] == 'ctrader-ios' || request()->route()->parameters['slug'] == 'ctrader-android' || request()->route()->parameters['slug'] == 'ctrader-web')
+@if(in_array(request()->route()->parameters['slug'] , ['mt5-client-desktop', 'mt5-android-trader', 'mt5-mac-os-trader', 'mt5-iphone-trader', 'ctrader-ios', 'ctrader-android', 'ctrader-web']))
 <!-- Trading Pages Section -->
 <div class="row get-started-now-box pat-50">
   <div class="section-head text-center">
@@ -64,7 +66,7 @@ $section6 = $common->where('section_no', 1)->where('status', 1)->first();
       @foreach($section6->subSection->where('status', 1)->where('page_id', -1) as $key => $value)
       <div class="awrad-items">
         <div class="iconbox">
-          <img class="img-fluid" src="{{ asset('fixifx/images/'. ($key == 0 ? 'programmer' : ($key == 1 ? 'bank' : 'profit')) . '.svg') }}" alt="{{ $key == 0 ? 'programmer' : ($key == 1 ? 'profit' : 'bank') }}">
+          <img class="img-fluid" src="{{ $value->image ? $value->image : asset('fixifx/images/'. ($key == 0 ? 'programmer' : ($key == 1 ? 'bank' : 'profit')) . '.svg') }}" alt="{{ $key == 0 ? 'programmer' : ($key == 1 ? 'profit' : 'bank') }}">
         </div>
         <div class="title">
           <h6>

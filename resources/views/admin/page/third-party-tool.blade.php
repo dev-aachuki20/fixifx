@@ -262,11 +262,11 @@
 
 
     <!-- SECTION 3 Explore more ways to connect with Fixi’s OpenAPI-->
-    <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec3">
+    {{-- <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="sec3">
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec3">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_3" aria-expanded="true" aria-controls="sec_3">
-                    <i class="ri-global-line me-1"></i>Explore more ways to connect with Fixi’s OpenAPI
+                    <i class="ri-global-line me-1"></i>{{isset($section3) ? $section3->en_title : Explore more ways to connect with Fixi’s OpenAPI}}
                 </button>
             </h2>
             <div id="sec_3" class="accordion-collapse collapse" aria-labelledby="Sec3" data-bs-parent="#sec3">
@@ -347,7 +347,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End SECTION 3 Explore more ways to connect with Fixi’s OpenAPI-->
 
 
