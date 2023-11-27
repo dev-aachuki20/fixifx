@@ -706,12 +706,25 @@
         <!-- main description -->
         <div class="form-group row my-2">
             <div class="col-md-4">
+                <label class="form-label text-muted">Title (English)</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="setting[rewards_main_title_en]" value="{{ getSettingValue('rewards_main_title_en') }}">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label text-muted">Title (Japanese)</label>
+                <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[rewards_main_title_ja]" value="{{ getSettingValue('rewards_main_title_ja') }}">
+            </div>
+        </div>
+
+
+        <!-- main description -->
+        <div class="form-group row my-2">
+            <div class="col-md-4">
                 <label class="form-label text-muted">Main Description (English)</label>
-                <input type="text" class="form-control" placeholder="Enter title" name="setting[rewards_main_header_en]" value="{{ getSettingValue('rewards_main_header_en') }}">
+                <input type="text" class="form-control" placeholder="Enter description" name="setting[rewards_main_header_en]" value="{{ getSettingValue('rewards_main_header_en') }}">
             </div>
             <div class="col-md-4">
                 <label class="form-label text-muted">Main Description (Japanese)</label>
-                <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[rewards_main_header_ja]" value="{{ getSettingValue('rewards_main_header_ja') }}">
+                <input type="text" class="form-control" placeholder="Enter description japanease" name="setting[rewards_main_header_ja]" value="{{ getSettingValue('rewards_main_header_ja') }}">
             </div>
         </div>
 
@@ -773,18 +786,18 @@
                             </div>
                             <div class="row">
                                 @for($i=1; $i<=6; $i++) <div class="form-group row my-2">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label class="form-label text-muted">Title (English)</label>
                                         <input type="text" class="form-control" placeholder="Enter title" name="setting[classic_title_en_{{$i}}]" value="{{ getSettingValue('classic_title_en_'.$i) }}">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label class="form-label text-muted">Title (Japanese)</label>
                                         <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[classic_title_ja_{{$i}}]" value="{{ getSettingValue('classic_title_ja_'.$i) }}">
                                     </div>
-                                    <div class="col-md-4">
+                                  {{--  <div class="col-md-4">
                                         <label class="form-label text-muted">Value</label>
                                         <input type="text" class="form-control" placeholder="Enter value" name="setting[classic_value_{{$i}}]" value="{{ getSettingValue('classic_value_'.$i) }}">
-                                    </div>
+                                    </div> --}}
                             </div>
                             @endfor
                         </div>
@@ -808,7 +821,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="form-label text-muted">Advance Header (English)</label>
-                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header]" value="{{ getSettingValue('advance_header_en') }}">
+                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header_en]" value="{{ getSettingValue('advance_header_en') }}">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label text-muted">Advance Standard Header (Japanese)</label>
@@ -816,18 +829,18 @@
                             </div>
                         </div>
                         @for($i=1; $i<=6; $i++) <div class="form-group row my-2">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="form-label text-muted">Title (English)</label>
                                 <input type="text" class="form-control" placeholder="Enter title" name="setting[advance_title_en_{{$i}}]" value="{{ getSettingValue('advance_title_en_'.$i) }}">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label class="form-label text-muted">Title (Japanese)</label>
                                 <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[advance_title_ja_{{$i}}]" value="{{ getSettingValue('advance_title_ja_'.$i) }}">
                             </div>
-                            <div class="col-md-4">
+                            {{--<div class="col-md-4">
                                 <label class="form-label text-muted">Value</label>
                                 <input type="text" class="form-control" id="android" placeholder="Enter value" name="setting[advance_value_{{$i}}]" value="{{ getSettingValue('advance_value_'.$i) }}">
-                            </div>
+                            </div> --}}
                     </div>
                     @endfor
                 </div>
@@ -858,18 +871,18 @@
                         </div>
                     </div>
                     @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="form-label text-muted">Title (English)</label>
                             <input type="text" class="form-control" placeholder="Enter title" name="setting[elite_title_en_{{$i}}]" value="{{ getSettingValue('elite_title_en_'.$i) }}">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="form-label text-muted">Title (Japanese)</label>
                             <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[elite_title_ja_{{$i}}]" value="{{ getSettingValue('elite_title_ja_'.$i) }}">
                         </div>
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <label class="form-label text-muted">Value</label>
                             <input type="text" class="form-control" placeholder="Enter value" name="setting[elite_value_{{$i}}]" value="{{ getSettingValue('elite_value_'.$i) }}">
-                        </div>
+                        </div> --}}
                 </div>
                 @endfor
             </div>
@@ -900,18 +913,18 @@
                     </div>
                 </div>
                 @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label class="form-label text-muted">Title (English)</label>
                         <input type="text" class="form-control" placeholder="Enter title" name="setting[ambassador_title_en_{{$i}}]" value="{{ getSettingValue('ambassador_title_en_'.$i) }}">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <label class="form-label text-muted">Title (Japanese)</label>
                         <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[ambassador_title_ja_{{$i}}]" value="{{ getSettingValue('ambassador_title_ja_'.$i) }}">
                     </div>
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <label class="form-label text-muted">Value</label>
                         <input type="text" class="form-control" placeholder="Enter value" name="setting[ambassador_value_{{$i}}]" value="{{ getSettingValue('ambassador_value_'.$i) }}">
-                    </div>
+                    </div> --}}
             </div>
             @endfor
         </div>

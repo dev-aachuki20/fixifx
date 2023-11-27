@@ -43,6 +43,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 <div class="col-lg-6 col-sm-12">
                     <div class="section-head text-center">
                         <h2 class="max-w-427">{{__('message.more_points')}}</h2>
+                        <h2 class="max-w-427">{{ getSettingValue('rewards_main_title_'.config('app.locale')) }}</h2>
                         <div class="discription">
                             <p>{{ getSettingValue('rewards_main_header_'.config('app.locale')) }}</p>
                         </div>
