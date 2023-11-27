@@ -316,11 +316,11 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 
                     @if(config('app.locale') == 'en')
                     <div class="read-more-btn">
-                        <a href="{{ isset($sectionEnLink3[0]) ? $sectionEnLink3[0] : '#' }}" class="custom-btn fill-btn">{{__('message.See_the_full_point_catalogue')}}</a>
+                        <a href="{{ isset($sectionEnLink3[0]) ? $sectionEnLink3[0] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.See_the_full_point_catalogue')}}</a>
                     </div>
                     @else
                     <div class="read-more-btn">
-                        <a href="{{ isset($sectionJaLink3[0]) ? $sectionJaLink3[0] : '#' }}" class="custom-btn fill-btn">{{__('message.See_the_full_point_catalogue')}}</a>
+                        <a href="{{ isset($sectionJaLink3[0]) ? $sectionJaLink3[0] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.See_the_full_point_catalogue')}}</a>
                     </div>
                     @endif
 
