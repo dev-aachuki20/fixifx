@@ -23,23 +23,31 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('page', [config('app.locale'), 'mt5-mac-os-trader']) }}">
                         <img class="img-fluid" src="{{asset('fixifx/images/web.svg')}}" alt="">
                     </a>
                 </li>
             </ul>
         </div>
 
-        @if($slug == "advan-trade")
+        @php $header = $section->where('section_no', 1)->first();
+        $sectionEnLink2 = $header ? json_decode($header->en_link) : null;
+        $sectionJaLink2 = $header ? json_decode($header->ja_link) : null;
+        @endphp
         <div class="download-platform">
-            <a href="javascript:void();" class="custom-btn fill-btn">{{__('message.download_platform_guide', [], config('app.locale'))}}</a>
+            @if(config('app.locale') == 'en')
+            <a href="{{ isset($sectionEnLink2[1]) ? $sectionEnLink2[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.download_platform_guide', [], config('app.locale'))}}</a>
+            @else
+            <a href="{{ isset($sectionJaLink2[1]) ? $sectionJaLink2[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.download_platform_guide', [], config('app.locale'))}}</a>
+            @endif
         </div>
+
+
         <div class="subtext">
             <span>
                 {{__('message.support_six_screen', [], config('app.locale'))}}
             </span>
         </div>
-        @endif
     </div>
 </div>
 

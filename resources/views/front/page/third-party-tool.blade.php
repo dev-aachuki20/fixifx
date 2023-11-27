@@ -74,7 +74,11 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                             {!! $sub_sec->{config('app.locale').'_short_text'} !!}
                         </div>
                         <div class="learcmore-box">
-                            <a href="javascript:void();" class="custom-btn fill-btn">Learn More</a>
+                            @if(config('app.locale') == 'en')
+                            <a href="{{isset($sub_sec->en_link) ? $sub_sec->en_link : '#'}}" target="_blank" class="custom-btn fill-btn">{{__('message.learn_more_btn')}}</a>
+                            @else
+                            <a href="{{isset($sub_sec->ja_link) ? $sub_sec->ja_link : '#'}}" target="_blank" class="custom-btn fill-btn">{{__('message.learn_more_btn')}}</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -96,7 +100,7 @@ $sectionEnLink3 = $section3 ? json_decode($section3->en_link) : null;
 $sectionJaLink3 = $section3 ? json_decode($section3->ja_link) : null;
 @endphp
 @if($section3)
-<section class="OpenAPI-wrapper padding-tb-120 mspace-bottom-100">
+<section class="OpenAPI-wrapper padding-tb-120 mspace-bottom-100 explorecls" style="background-image: url({{$section3->image ? $section3->image : asset('fixifx/images/OpenAPI-bg.png') }});">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-sm-12">

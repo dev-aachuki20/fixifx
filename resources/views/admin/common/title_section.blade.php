@@ -22,114 +22,149 @@
 
                     <div class="row">
                         <!-- image -->
-                         <div class="col-xxl-6 col-md-6 mb-3">
+                        <div class="col-xxl-6 col-md-6 mb-3">
                             <label for="title" class="form-label mx-2">Image</label>
                             <div class="s-preview-img my-product-img">
                                 @if(isset($section1->image))
                                 <input type="hidden" name="image" value="{{$section1->getRawOriginal('image')}}">
-                        @endif
-                        <input type="file" accept="image/jpeg,image/png,image/jpg,image/svg" name="image" class="form-control custom_img">
+                                @endif
+                                <input type="file" accept="image/jpeg,image/png,image/jpg,image/svg" name="image" class="form-control custom_img">
 
-                        <img src="{{ isset($section1->image) ? $section1->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
-                        <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
-                        <div class="p-upload-icon">
-                            <i class="ri-upload-cloud-2-fill"></i>
+                                <img src="{{ isset($section1->image) ? $section1->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
+                                <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                <div class="p-upload-icon">
+                                    <i class="ri-upload-cloud-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- image end -->
+                        <!-- video -->
+                        @if($slug == 'advan-trade')
+                        <div class="col-xxl-6 col-md-6 mb-3">
+                            <label for="video" class="form-label mx-2">Video</label>
+                            <div class="s-preview-img my-product-img videoSelectInput">
+                                @if(isset($section1->video_url))
+                                <input type="hidden" name="video" value="">
+                                @endif
+                                <input type="file" accept="video/*" name="video" class="form-control">
+
+                                <video controls class="img-fluid w-100" id="video_preview">
+                                    <source src="{{ isset($section1->video_url) ? $section1->video_url : '' }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                <div class="p-upload-icon">
+                                    <i class="ri-upload-cloud-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        <!-- end video -->
+                    </div>
+
+                    <div class="row gy-4">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Title (English)</label>
+                                <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section1) ? $section1->en_title : '') }}">
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Title (Japanese)</label>
+                                <input type="text" class="form-control" id="ja_title" name="ja_title" value="{{ old('ja_title', isset($section1) ? $section1->ja_title : '') }}">
+                            </div>
                         </div>
                     </div>
-            </div> 
-            <!-- image end -->
-            <!-- video -->
-            @if($slug == 'advan-trade')
-            <div class="col-xxl-6 col-md-6 mb-3">
-                <label for="video" class="form-label mx-2">Video</label>
-                <div class="s-preview-img my-product-img videoSelectInput">
-                    @if(isset($section1->video_url))
-                    <input type="hidden" name="video" value="">
+                    <div class="row mt-4">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="dec" class="form-label">Description (English)</label>
+                                <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section1) ? $section1->en_desc : '') }}</textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="dec" class="form-label">Description (Japanese)</label>
+                                <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section1) ? $section1->ja_desc : '') }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if($slug == 'advan-trade')
+                    <div class="row mt-1 gy-4">
+                        <!-- link  1  eng-->
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Preview Platforms Link (English)</label>
+                                <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section1 && !is_null($section1->en_link) && is_array(json_decode($section1->en_link)) ? json_decode($section1->en_link)[0] : '' }}">
+                            </div>
+                        </div>
+                        <!-- link  1  japanese -->
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Preview Platforms Link (Japanese)</label>
+                                <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section1 && !is_null($section1->ja_link) && is_array(json_decode($section1->ja_link)) ? json_decode($section1->ja_link)[0] : '' }}">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row mt-1 gy-4">
+                        <!-- link  1  eng-->
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Download Platform Guide PDF Link (English)</label>
+                                <input type="text" class="form-control" id="title" name="en_link[]" value="{{ $section1 && !is_null($section1->en_link) && is_array(json_decode($section1->en_link)) ? json_decode($section1->en_link)[1] : '' }}">
+                            </div>
+                        </div>
+                        <!-- link  1  japanese -->
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Download Platform Guide PDF Link (Japanese)</label>
+                                <input type="text" class="form-control" id="title" name="ja_link[]" value="{{ $section1 && !is_null($section1->ja_link) && is_array(json_decode($section1->ja_link)) ? json_decode($section1->ja_link)[1] : '' }}">
+                            </div>
+                        </div>
+
+                    </div>
                     @endif
-                    <input type="file" accept="video/*" name="video" class="form-control">
 
-                    <video controls class="img-fluid w-100" id="video_preview">
-                        <source src="{{ isset($section1->video_url) ? $section1->video_url : '' }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
-                    <div class="p-upload-icon">
-                        <i class="ri-upload-cloud-2-fill"></i>
+
+
+                    @if(Route::current()->slug == "introducing-broker")
+                    <div class="row mt-4">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Button Text (English)</label>
+                                <input type="text" class="form-control" id="en_short_text" name="en_short_text" value="{{ old('en_short_text', isset($section1) ? $section1->en_short_text : '') }}">
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Button Text (Japanese)</label>
+                                <input type="text" class="form-control" id="ja_short_text" name="ja_short_text" value="{{ old('ja_short_text', isset($section1) ? $section1->ja_short_text : '') }}">
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            @endif
-            <!-- end video -->
-        </div>
-
-        <div class="row gy-4">
-            <div class="col-xxl-6 col-md-6">
-                <div>
-                    <label for="title" class="form-label">Title (English)</label>
-                    <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section1) ? $section1->en_title : '') }}">
-                </div>
-            </div>
-            <div class="col-xxl-6 col-md-6">
-                <div>
-                    <label for="title" class="form-label">Title (Japanese)</label>
-                    <input type="text" class="form-control" id="ja_title" name="ja_title" value="{{ old('ja_title', isset($section1) ? $section1->ja_title : '') }}">
-                </div>
-            </div>
-        </div>
-        @if($slug != 'advan-trade')
-        <div class="row mt-4">
-            <div class="col-xxl-6 col-md-6">
-                <div>
-                    <label for="dec" class="form-label">Description (English)</label>
-                    <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section1) ? $section1->en_desc : '') }}</textarea>
-                </div>
-            </div>
-            <br>
-            <div class="col-xxl-6 col-md-6">
-                <div>
-                    <label for="dec" class="form-label">Description (Japanese)</label>
-                    <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section1) ? $section1->ja_desc : '') }}</textarea>
-                </div>
-            </div>
-        </div>
-
-
-        @endif
-
-
-
-        @if(Route::current()->slug == "introducing-broker")
-        <div class="row mt-4">
-            <div class="col-xxl-6 col-md-6">
-                <div>
-                    <label for="title" class="form-label">Button Text (English)</label>
-                    <input type="text" class="form-control" id="en_short_text" name="en_short_text" value="{{ old('en_short_text', isset($section1) ? $section1->en_short_text : '') }}">
-                </div>
-            </div>
-            <div class="col-xxl-6 col-md-6">
-                <div>
-                    <label for="title" class="form-label">Button Text (Japanese)</label>
-                    <input type="text" class="form-control" id="ja_short_text" name="ja_short_text" value="{{ old('ja_short_text', isset($section1) ? $section1->ja_short_text : '') }}">
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-xxl-6 col-md-6">
-                <div>
-                    <label for="title" class="form-label">Button Link</label>
-                    <div class="input-group">
-                        <!-- <span class="input-group-text" id="basic-addon3">https://www.youtube.com/</span> -->
-                        <input type="text" class="form-control {{ $errors->has('video_url') ? 'is-invalid' : '' }}" value="{{ old('video_url', isset($section1) ? $section1->getRawOriginal('video_url') : '') }}" placeholder="Add Button Link" id="video_url" name="video_url">
+                    <div class="row mt-4">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Button Link</label>
+                                <div class="input-group">
+                                    <!-- <span class="input-group-text" id="basic-addon3">https://www.youtube.com/</span> -->
+                                    <input type="text" class="form-control {{ $errors->has('video_url') ? 'is-invalid' : '' }}" value="{{ old('video_url', isset($section1) ? $section1->getRawOriginal('video_url') : '') }}" placeholder="Add Button Link" id="video_url" name="video_url">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    @endif
+                    <input type="submit" value="Save" class="btn btn-primary my-4">
+                </form>
             </div>
         </div>
-        @endif
-        <input type="submit" value="Save" class="btn btn-primary my-4">
-        </form>
     </div>
-</div>
-</div>
 </div>
 
 @push('scripts')

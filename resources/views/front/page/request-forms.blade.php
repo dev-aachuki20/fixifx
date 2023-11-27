@@ -95,7 +95,7 @@ $sectionEnLink3 = $section3 ? json_decode($section3->en_link) : null;
 $sectionJaLink3 = $section3 ? json_decode($section3->ja_link) : null;
 @endphp
 @if($section3)
-<section class="OpenAPI-wrapper padding-tb-120 mspace-bottom-100">
+<section class="OpenAPI-wrapper padding-tb-120 mspace-bottom-100 explorecls" style="background-image: url({{$section3->image ? $section3->image : asset('fixifx/images/OpenAPI-bg.png') }});">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-sm-12">

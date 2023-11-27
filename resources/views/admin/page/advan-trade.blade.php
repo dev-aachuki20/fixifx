@@ -6,7 +6,7 @@
 
 <div class="animated fadeIn">
     <!-- ----------- Header Section ------------------- -->
-    @include('admin.common.header_section')
+    {{-- @include('admin.common.header_section') --}}
 
     <!-- SECTION 1 -->
     @include('admin.common.title_section')
@@ -352,6 +352,25 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="row mt-1 gy-4">
+                                                <!-- link 2 english -->
+                                                <div class="col-xxl-6 col-md-6">
+                                                    <div>
+                                                        <label for="title" class="form-label">Preview Platforms Link (English)</label>
+                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][en_link]" value="{{ $sub_section4 && !is_null($sub_section4->en_link) ? $sub_section4->en_link : '' }}">
+                                                    </div>
+                                                </div>
+                                                <!-- link 2 japanese -->
+                                                <div class="col-xxl-6 col-md-6">
+                                                    <div>
+                                                        <label for="title" class="form-label">Preview Platforms Link (Japanese)</label>
+                                                        <input type="text" class="form-control" id="title" name="sub_section[{{$i}}][ja_link]" value="{{ $sub_section4 && !is_null($sub_section4->ja_link) ? $sub_section4->ja_link : '' }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>

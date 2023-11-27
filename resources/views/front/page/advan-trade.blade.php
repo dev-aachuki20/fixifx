@@ -12,15 +12,24 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
     <div class="container">
         <div class="advan-trade-herobox pbottom-50">
             <div class="row align-items-center justify-content-center">
-                @php $header = $section->where('section_no', 1)->first() @endphp
+                @php $header = $section->where('section_no', 1)->first();
+                $sectionEnLink1 = $header ? json_decode($header->en_link) : null;
+                $sectionJaLink1 = $header ? json_decode($header->ja_link) : null;
+                @endphp
                 @if($header)
                 <div class="col-12 col-md-12 col-sm-12 text-center">
                     <h6>
-                        {{__('message.fiXi_advanTrade')}}
+                        {{ $header->{config('app.locale').'_title'} }}
                     </h6>
-                    <h1>{{ $header->{config('app.locale').'_title'} }}</h1>
+                    <h1>{!! $header->{config('app.locale').'_desc'} !!}</h1>
                     <div class="openAi-btn d-flex align-items-center justify-content-center">
-                        <a href="javascript:void();" class="custom-btn fill-btn-1">{{__('message.preview_platform_btn')}}</a>
+                        @if(config('app.locale') == 'en')
+                        <a href="{{ isset($sectionEnLink1[0]) ? $sectionEnLink1[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.preview_platform_btn')}}</a>
+                        @else
+                        <a href="{{ isset($sectionJaLink1[1]) ? $sectionJaLink1[1] : '#' }}" class="custom-btn fill-btn-1">{{__('message.preview_platform_btn')}}</a>
+                        @endif
+
+
                         <a href="{{ getSettingValue('live_link') }}" class="custom-btn fill-btn">{{__('message.open_account_btn')}}</a>
                     </div>
                 </div>
@@ -138,7 +147,11 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             @endif
             @endforeach
             <div class="button-group justify-content-center">
-                <a href="#" class="custom-btn fill-btn-1 text-white">{{__('message.preview_platform_btn')}}</a>
+                @if(config('app.locale') == 'en')
+                <a href="{{isset($sub_sec->en_link) ? $sub_sec->en_link : '#'}}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.preview_platform_btn')}}</a>
+                @else
+                <a href="{{isset($sub_sec->ja_link) ? $sub_sec->ja_link : '#'}}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.preview_platform_btn')}}</a>
+                @endif
                 <a href="{{ getSettingValue('live_link') }}" class="custom-btn fill-btn text-white">{{__('message.open_account_btn')}}</a>
             </div>
         </div>
