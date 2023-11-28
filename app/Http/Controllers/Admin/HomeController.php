@@ -322,6 +322,8 @@ class HomeController extends Controller
                 $section->en_short_text =  isset($value['en_short_text']) ? $value['en_short_text'] : '';
                 $section->ja_short_text =  isset($value['ja_short_text']) ? $value['ja_short_text'] : '';
                 $section->status        = isset($value['status']) ? 1 : 0;
+                $section->section_type  = isset($value['section_type']) ? $value['section_type'] : 0;
+
                 if (isset($value['type']) && $value['type'] == 2) {
                     $section->image = $value['image'];
                 } else {

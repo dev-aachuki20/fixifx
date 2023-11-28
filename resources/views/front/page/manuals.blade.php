@@ -47,7 +47,8 @@ $description_jp = 'FiXi FX（フィクシー）が提供しているトレーデ
                                     <div class="manual-listing-content-inner">
                                         <ul class="manual-download-listing">
                                             @foreach($section as $key => $sec)
-                                            @if($sec && ($key == 0 || $key == 1 || $key == 3 || $key == 12) )
+                                            {{-- @if($sec && ($key == 0 || $key == 1 || $key == 3 || $key == 12) ) --}}
+                                            @if($sec->section_type == '0')
                                             <li class="manual-download-link">
                                                 <div class="title">
                                                     <h6>{{ $sec->{config('app.locale').'_title'} }}</h6>
@@ -94,7 +95,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供しているトレーデ
                                     <div class="manual-listing-content-inner">
                                         <ul class="manual-download-listing">
                                             @foreach($section as $key => $sec)
-                                            @if($sec && ($key == 4 || $key == 5 || $key == 6 || $key == 7 || $key == 8 || $key == 9 || $key == 10 || $key == 11) )
+                                            @if($sec->section_type == '1' )
                                             <li class="manual-download-link">
                                                 <div class="title">
                                                     <h6>{{ $sec->{config('app.locale').'_title'} }}</h6>

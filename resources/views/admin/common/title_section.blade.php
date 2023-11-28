@@ -22,6 +22,7 @@
 
                     <div class="row">
                         <!-- image -->
+                        @if(request()->route()->parameters['slug'] !== 'manuals' && request()->route()->parameters['slug'] !== 'legal-documents' && request()->route()->parameters['slug'] !== 'software' && request()->route()->parameters['slug'] !== 'request-forms' && request()->route()->parameters['slug'] !== 'brochures')
                         <div class="col-xxl-6 col-md-6 mb-3">
                             <label for="title" class="form-label mx-2">Image</label>
                             <div class="s-preview-img my-product-img">
@@ -37,6 +38,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         <!-- image end -->
                         <!-- video -->
                         @if($slug == 'advan-trade')

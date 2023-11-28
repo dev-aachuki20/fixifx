@@ -27,7 +27,7 @@
         @endphp
         @php
         $section=$section->where('section_no', '!=', 1)->values();
-        
+
         @endphp
         <input type="hidden" name="getDataId" class="getDataId" value="{{isset($data)?$data:''}}">
         @for($i=1;$i<=$section->where('section_no', '!=', 1)->count();$i++)
@@ -43,7 +43,7 @@
                 </div>
                 <div class="accordion custom-accordionwithicon accordion-secondary mt-0 mb-2" id="sub_section{{$i}}">
                     <div class="accordion-item">
-                        
+
                         <h2 class="accordion-header" id="Sub_section_{{$i}}">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub_sec_{{$i}}" aria-expanded="false" aria-controls="sub_sec_{{$i}}">
                                 <i class="ri-global-line me-2"></i> <span class="acc_header">{{ isset(${'section'.($i+1)}) ? ${'section'.($i+1)}->en_title : 'Section '.$i }}</span>
@@ -70,6 +70,29 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- section type -->
+                                <div class="row gy-4 mt-1 mb-1">
+                                    <div class="my-2">
+                                        <label class="form-check-label">
+                                            Section Type
+                                        </label> <br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="section[{{$i-1}}][section_type]" value="0" {{ ${'section'.($i+1)}->getRawOriginal('section_type') == 0 ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="ctrader">
+                                                C-Trader
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="section[{{$i-1}}][section_type]" value="1" {{ ${'section'.($i+1)}->getRawOriginal('section_type') == 1 ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="fixi">
+                                                FiXi
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- type end -->
+
                                 <div class="my-2">
                                     <div class="form-check form-check-inline">
                                         <input class="file type form-check-input" type="radio" name="section[{{$i-1}}][type]" value="1" {{str_contains(${'section'.($i+1)}->getRawOriginal('image'), 'http')?'':'checked'}} dataid="{{$i}}">
@@ -99,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
