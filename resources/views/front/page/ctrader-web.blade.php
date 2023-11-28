@@ -164,23 +164,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
 <!-- end  -->
 
 <!-- Fixi’s OpenAPI Ready to get started? -->
-<section class="OpenAPI-wrapper padding-tb-120">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 col-sm-12">
-                <div class="section-head text-center">
-                    <h2 class="max-w-427">{{__('message.ready_to_get_started')}}</h2>
-                    <div class="discription">
-                        <p>{{__('message.ready_to_get_started_desc')}}</p>
-                    </div>
-                    <div class="openAi-btn d-flex align-items-center justify-content-center">
-                        <a href="{{ getSettingValue('live_link') }}" target="_blank" class="custom-btn fill-btn">{{__('message.open_account_btn')}}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('front.layouts.partials.explore_to_get_start')
 <!-- end  -->
 
 @endsection

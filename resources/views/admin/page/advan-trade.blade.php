@@ -2,7 +2,9 @@
 
 @section('title', $slug)
 
+
 @section('content')
+<link rel="stylesheet" href="{{ asset('custom.css') }}">
 
 <div class="animated fadeIn">
     <!-- ----------- Header Section ------------------- -->
@@ -478,7 +480,7 @@
                                                         @endif
                                                         <input type="file" name="sub_section[{{$i}}][image]" class="form-control custom_img">
                                                         <img src="{{ isset($sub_section5->image) ? $sub_section5->image : '' }}" class="img-fluid" id="main_image_{{$i}}" alt="" loading="lazy" />
-                                                        <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill" onclick="removeImage()"></i></a>
+                                                        <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
                                                         <div class="p-upload-icon">
                                                             <i class="ri-upload-cloud-2-fill"></i>
                                                         </div>
@@ -662,6 +664,7 @@
 @endsection
 
 @push('scripts')
+<script src="{{ asset('custom.js') }}"></script>
 <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).on('click', '.add_faq', function() {
@@ -695,42 +698,5 @@
             $('.faq_section_row').find('.ckeditor').nextAll().not($('.faq_section_row').find('.ckeditor').next()).remove();
         }, 100);
     }
-
-
-    // remove image on cross icon 
-    // function removeImage() {
-    //     alert();
-
-    //     $.ajax({
-    //         url: '/remove-image', // Replace with your backend endpoint
-    //         method: 'POST',
-    //         data: {
-    //             image_id: 123, // Replace with the actual image ID
-    //         },
-    //         success: function(response) {
-    //             // Handle success, such as updating the UI
-    //             console.log('Image removed successfully');
-    //         },
-    //         error: function(error) {
-    //             // Handle error
-    //             console.error('Error removing image', error);
-    //         }
-    //     });
-    // }
 </script>
-
-<!-- // routes/web.php
-Route::post('/remove-image', 'ImageController@removeImage');
-
-// ImageController.php
-public function removeImage(Request $request) {
-    // Retrieve the image ID from the request
-    $imageId = $request->input('image_id');
-
-    // Perform logic to remove the image from the database
-    // Example: Image::find($imageId)->delete();
-
-    return response()->json(['message' => 'Image removed successfully']);
-} -->
-
 @endpush

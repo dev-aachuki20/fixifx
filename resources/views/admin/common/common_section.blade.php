@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="{{ asset('custom.css') }}">
 
 <div class="animated fadeIn">
-    <!-- SECTION 4 -->
     <!-- get started -->
     @php isset($common) ? $section1 = $common->where('section_no', 1)->first() : '' @endphp
     <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="home1">
@@ -155,8 +154,7 @@
 </div>
 
 
-<!-- SECTION 30 -->
-<!-- Discover our other platform -->
+<!-- Discover our other platform SECTION 30 -->
 @php isset($common) ? $section30 = $common->where('section_no', 30)->first() : '' @endphp
 <div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="home30">
     <div class="accordion-item">
@@ -389,31 +387,98 @@
 </div>
 
 
+<!-- ready to get started section 4 -->
+@php isset($common) ? $section4 = $common->where('section_no', 4)->first() : '' @endphp
+<div class="accordion custom-accordionwithicon accordion-secondary mt-2" id="home4">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="HomeSection4">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#home_section_4" aria-expanded="true" aria-controls="home_section_4">
+                <i class="ri-global-line me-2"></i>{{ isset($section4) ? $section4->en_title : 'Section 4'}}
+            </button>
+        </h2>
+        <div id="home_section_4" class="accordion-collapse collapse" aria-labelledby="HomeSection1" data-bs-parent="#home4">
+            <div class="accordion-body">
+                <form action="{{ route('admin.save_section', ['sec_no' => 4]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="page_id" value="-1">
+
+                    @if(isset($section4))
+                    <input type="hidden" name="section_id" value="{{ $section4->id }}">
+                    @endif
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="form-check form-switch form-switch-md" style="padding-left: 3em;">
+                                <label for="dropdown-base-example" class="form-label text-muted">Status</label>
+                                <input class="form-check-input code-switcher" type="checkbox" id="dropdown-base-example" name="status" {{ isset($section4) ? (($section4->status == 1) ? 'checked' : '') : 'checked' }}>
+                            </div>
+                        </div>
+                    </div>
 
 
+                    <!-- image -->
+                    <div class="row">
+                        <div class="col-xxl-6 col-md-6 mb-3">
+                            <label for="title" class="form-label mx-2">Image</label>
+                            <div class="s-preview-img my-product-img">
+                                @if(isset($section4->image))
+                                <input type="hidden" name="image" value="{{$section4->getRawOriginal('image')}}">
+                                @endif
+                                <input type="file" name="image" class="form-control custom_img">
 
+                                <img src="{{ isset($section4->image) ? $section4->image : '' }}" class="img-fluid" id="main_image" alt="" loading="lazy" />
+                                <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                                <div class="p-upload-icon">
+                                    <i class="ri-upload-cloud-2-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- title -->
+                    <div class="row gy-4">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Title (English)</label>
+                                <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section4) ? $section4->en_title : '') }}">
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="title" class="form-label">Title (Japanese)</label>
+                                <input type="text" class="form-control" id="ja_title" name="ja_title" value="{{ old('ja_title', isset($section4) ? $section4->ja_title : '') }}">
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- description -->
+                    <div class="row mt-4">
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="dec" class="form-label">Description (English)</label>
+                                <textarea name="en_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('en_desc', isset($section4) ? $section4->en_desc : '') }}</textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="dec" class="form-label">Description (Japanese)</label>
+                                <textarea name="ja_desc" class="ckeditor_custom" id="description" cols="30" rows="10">{{ old('ja_desc', isset($section4) ? $section4->ja_desc : '') }}</textarea>
+                            </div>
+                        </div>
+                    </div>
 
+                    <input type="submit" value="Save" class="btn btn-primary my-4">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 @endsection
 
 @push('scripts')
-<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
-<script type="text/javascript">
-    /**
-     * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
-     * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
-     */
-
-    CKEDITOR.editorConfig = function(config) {
-        config.allowedContent = true;
-        config.removeFormatAttributes = '';
-    };
-</script>
-<script src="{{ asset('fixifx/js/custom.js') }}"> </script>
-
+<script src="{{ asset('custom.js') }}"> </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.2.0/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
     tinymce.init({
@@ -451,4 +516,14 @@
         },
     });
 </script>
+
+<script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    CKEDITOR.editorConfig = function(config) {
+        config.allowedContent = true;
+        config.removeFormatAttributes = '';
+    };
+</script>
+
+
 @endpush
