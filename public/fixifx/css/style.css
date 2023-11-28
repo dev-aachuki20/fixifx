@@ -1813,6 +1813,9 @@ footer.footer-main h5:after {
     font-size: 25px;
     margin: 0 0 18px;
 }
+.trading-tools-box .trading-tool-text .button-group{
+    margin-top: 20px;
+}
 
 .trading-tool-text>.discription {
     margin: 0 0 40px;
@@ -4972,9 +4975,11 @@ body.darkHeader .dark-header .mobile_logo {
 
 
 .get-started-new-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    display: flex;
+    justify-content: center;
+    column-gap: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .get-started-new-grid .started-items {
@@ -4982,6 +4987,7 @@ body.darkHeader .dark-header .mobile_logo {
     background: #FFF;
     padding: 42px;
     text-align: center;
+    flex: 0 0 33.33%;
 }
 
 .get-started-new-grid .started-items .count-number span {
@@ -6701,4 +6707,45 @@ body.darkHeader .dark-header.scrollUp .header-btns ul li .fill-btn:hover {
 .description ul li{
     list-style: inherit !important;
 }
+
+/*.platform-fixifx + section{*/
+/*    background-color: #F8F8F8;*/
+/*}*/
+.trading-acc-plat + section{
+    background-color: #F8F8F8;
+}
+.platform-fixifx{
+    background-color: #fff;
+}
+.reward-faqs .faqAccordion .accordion-item .accordion-button{
+    margin: 0;
+    padding: 15px 0;
+}
+.reward-faqs .faqAccordion .accordion-item .accordion-body{
+    border-bottom: 1px solid #D2E4E9;
+}
+.fixiManuals-wrapper .manual-listing .manual-listing-box-title:not(.collapsed) svg{
+    transform: rotate(180deg);
+}
+.fixiManuals-wrapper .manual-listing .manual-listing-box-title svg path{
+    stroke-width: 2px;
+}
+.fixiManuals-wrapper .manual-listing .manual-listing-box-title:not(.collapsed) svg path{
+    stroke: var(--color-aqua-marine);
+}
+.vps-server-award{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: inherit;
+}
+.vps-server-award .awrad-items{
+    flex: 0 0 25%;
+    padding: 0 15px;
+}
+
+
+
+
+
+
 

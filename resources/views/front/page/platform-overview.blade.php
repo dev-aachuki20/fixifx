@@ -79,8 +79,8 @@ $sectionJaLink2 = $section2 ? json_decode($section2->ja_link) : null;
                     </div>
                     @else
                     <div class="button-group">
-                        <a href="{{ isset($sectionJaLink2[0]) ? $sectionJaLink2[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.learn_more_btn')}}</a>
-                        <a href="{{ isset($sectionJaLink2[1]) ? $sectionJaLink2[1] : '#' }}" target="_blank" class="custom-btn fill-btn">{{__('message.preview_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink2[0]) ? $sectionJaLink2[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.learn_more_btn')}}</a>
+                        <a href="{{ isset($sectionJaLink2[1]) ? $sectionJaLink2[1] : '#' }}" target="_blank" class="custom-btn fill-btn text-white">{{__('message.preview_btn')}}</a>
                     </div>
                     @endif
                 </div>
@@ -181,17 +181,17 @@ $sectionJaLink3 = $section3 ? json_decode($section3->ja_link) : null;
 </section>
 @endif
 
-<section class="trading-acc-type trading-wrapper bg-light-gray padding-tb-120">
+<section class="trading-acc-type trading-wrapper bg-light-gray padding-b-120 trading-acc-plat">
     @include('front.layouts.partials.types_trading_accounts')
 </section>
 
 @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
 @if($section5)
-<section class="saxo-offering-sec bg-white padding-top-120 padding-bottom-240 mb-120" style="background-image:url({{asset('fixifx/images/bg-glob-1.svg')}});background-repeat: no-repeat; background-position: bottom left;">
+<section class="saxo-offering-sec bg-white padding-t-120 padding-bottom-240 mb-120 platform-fixifx" style="background-image:url({{asset('fixifx/images/bg-glob-1.svg')}});background-repeat: no-repeat; background-position: bottom left;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-12">
-                <div class="section-head text-center">
+                <div class="section-head text-center mbd-20">
                     <h2 class="max-w-427"> {{ $section5->{config('app.locale').'_title'} }}</h2>
                     <div class="discription">
                         <p>{!! $section5->{config('app.locale').'_desc'} !!}</p>

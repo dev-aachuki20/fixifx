@@ -63,7 +63,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         </div>
         <!-- end  -->
 
-        <div class="award-listing-inner pb-0">
+        <div class="award-listing-inner vps-server-award pb-0">
             @foreach($section2->subSection as $sub_sec_index => $sub_sec)
             @if($sub_sec->status == 1)
             <div class="awrad-items">
@@ -250,28 +250,28 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         $('#vps_enquiry').validate({
             errorClass: 'invalid-feedback animated fadeInDown error',
             errorElement: 'div',
-            rules: {
-                'fname': {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 20,
-                    // pattern: /^[A-Za-z\s]+$/,
-                },
-                'lname': {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 40
-                },
-                'email': {
-                    required: true,
-                    email: true,
-                },
-                'phone_number': {
-                    required: true,
-                    // minlength: 10,
-                    // maxlength: 15
-                },
-            },
+            // rules: {
+            //     'fname': {
+            //         required: true,
+            //         minlength: 3,
+            //         maxlength: 20,
+            //         // pattern: /^[A-Za-z\s]+$/,
+            //     },
+            //     'lname': {
+            //         required: true,
+            //         minlength: 3,
+            //         maxlength: 40
+            //     },
+            //     'email': {
+            //         required: true,
+            //         email: true,
+            //     },
+            //     'phone_number': {
+            //         required: true,
+            //         // minlength: 10,
+            //         // maxlength: 15
+            //     },
+            // },
             highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
                 $(element).parents("div.form-control").addClass(errorClass).removeClass(validClass);
@@ -312,7 +312,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     error: function(data) {
                         var errors = $.parseJSON(data.responseText);
                         $.each(errors.errors, function(key, value) {
-                            $('#vps_enquiry').find('input[name=' + key + ']').after('<span class="error" style="color: red;">' + value + '</span>');
+                            $('#vps_enquiry').find('input[name=' + key + ']').after('<span class="error" style="color: red;">' + value[0] + '</span>');
                         });
 
                     }

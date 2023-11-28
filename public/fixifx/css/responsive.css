@@ -711,7 +711,7 @@
     }
 
     .header-main {
-        padding: 10px 3px;
+        padding: 10px 0;
     }
 
     .header-main nav.navbar.navbar-expand-lg .navbar-collapse.show {
@@ -1371,6 +1371,19 @@
     .account-type-saxo .padding-bottom-120:last-child{
         padding-bottom: 120px;
     }
+    .award-listing-inner.vps-server-award .awrad-items:after{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 1px;
+        background-color: #3d4045;
+        right: 0;
+        content: "";
+        display: block !important;
+    }
+    .award-listing-inner.vps-server-award .awrad-items:last-child:after{
+        display: none !important;
+    }
 }
 
 @media(max-width:769px) {
@@ -1380,6 +1393,9 @@
 }
 
 @media(max-width:767px) {
+    .award-listing-inner.vps-server-award .awrad-items:after{
+        display: none !important;
+    }
 
     span.select2.select2-container.select2-container--default span.select2-selection__arrow {
         right: 2.5%;
@@ -2103,6 +2119,27 @@
     }
     .account-type-saxo .padding-bottom-120:last-child{
         padding-bottom: 60px;
+    }
+    .get-started-new-grid{
+        column-gap: 0;
+        padding-left: 0;
+        padding-right: 0;
+        flex-wrap: wrap;
+    }
+    .get-started-new-grid .started-items,
+    .vps-server-award .awrad-items{
+        flex: 0 0 100%;
+        margin-bottom: 24px;
+    }
+    .vps-server-award .awrad-items:after{
+        display: none;
+    }
+    .get-started-new-grid .started-items:last-child,
+    .vps-server-award .awrad-items{
+        margin-bottom: 0;
+    }
+    .advan-discover .frequently-row-box{
+        row-gap: 0;
     }
 }
 

@@ -103,10 +103,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- end benefits -->
 
         <!-- risk section -->
-        @php $section4 = $section->where('section_no', 4)->where('status', 1)->first();
-        $sectionEnLink4 = $section4 ? json_decode($section4->en_link) : null;
-        $sectionJaLink4 = $section4 ? json_decode($section4->ja_link) : null;
-        @endphp
+        @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
         @if($section4)
         <div class="risk-management-herobox ptb-50">
             <div class="row align-items-center justify-content-center">
@@ -151,9 +148,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             @endforeach
             <div class="button-group justify-content-center">
                 @if(config('app.locale') == 'en')
-                <a href="{{ isset($sectionEnLink4[0]) ? $sectionEnLink4[0] : '#' }}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.preview_platform_btn')}}</a>
+                <a href="{{isset($sub_sec->en_link) ? $sub_sec->en_link : '#'}}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.preview_platform_btn')}}</a>
                 @else
-                <a href="{{isset($sectionJaLink4[0]) ? $sectionJaLink4[0] : '#'}}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.preview_platform_btn')}}</a>
+                <a href="{{isset($sub_sec->ja_link) ? $sub_sec->ja_link : '#'}}" target="_blank" class="custom-btn fill-btn-1 text-white">{{__('message.preview_platform_btn')}}</a>
                 @endif
                 <a href="{{ getSettingValue('live_link') }}" class="custom-btn fill-btn text-white">{{__('message.open_account_btn')}}</a>
             </div>
@@ -166,9 +163,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
     <!-- dummy section Discover the full FixiFx offering-->
     @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
 
-    <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox advan-discover ptb-50 border-top-0 before-nonemob">
+    <div class="dummy-box-herobox risk-management-herobox fixi-features-herobox advan-discover pt-0 border-top-0 before-nonemob pbottom-50">
         @if($section5)
-        <div class="row justify-content-center">
+        <div class="row justify-content-center padding-tb-100 pb-0 pat-50">
             <div class="col-lg-8 col-sm-12">
                 <div class="section-head text-center">
                     <h2 class="max-w-427">{{ $section5->{config('app.locale').'_title'} }}</h2>
