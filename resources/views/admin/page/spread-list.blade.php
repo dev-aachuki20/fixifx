@@ -775,7 +775,7 @@
                     $('.invalid-feedback').remove();
                     var errors = $.parseJSON(data.responseText);
                     $.each(errors.errors, function(key, value) {
-                        $('#spread_form').find('input[name=' + key + '], select[name=' + key + ']').empty().after('<div id="' + key + '-error" class="invalid-feedback animated fadeInDown">' + value + '</div>');
+                        $('#spread_form').find('input[name=' + key + '], select[name=' + key + ']').after('<div id="' + key + '-error" class="invalid-feedback animated fadeInDown">' + value + '</div>');
                         $('#spread_form').find('input[name=' + key + '], select[name=' + key + ']').addClass('is-invalid');
                     });
                 }

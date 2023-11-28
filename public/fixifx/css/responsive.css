@@ -1460,6 +1460,7 @@
     .between-trade-wrapper .table-trade tr td {
         padding: 12px 15px !important;
         font-size: 11px;
+        vertical-align: middle;
     }
 
     .other-pages-banner.hero-main .row .col-12 {
@@ -2141,6 +2142,9 @@
     .advan-discover .frequently-row-box{
         row-gap: 0;
     }
+    .reward-faqs + .get-started-sec{
+        padding-top: 60px !important;
+    }
 }
 
 @media(max-width:575px) {
@@ -2187,6 +2191,10 @@
 
     .between-trade-wrapper .table-trade {
         padding: 15px 12px;
+        overflow-x: auto;
+    }
+    .between-trade-wrapper .table-trade table{
+        min-width: 320px;
     }
 
     .worth-rewarding-grid .reward-listing::after {
@@ -2570,5 +2578,8 @@
     }
     .download-social-trade .social-platform ul{
         gap: 18px;
+    }
+    .handling-vps-wrapper .download_btn .custom-btn{
+        padding: 14px;
     }
 }

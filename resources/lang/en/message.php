@@ -167,4 +167,8 @@ return [
     'trade' => 'Trade',
     'volume' => 'Volume',
     'points' => 'Points',
+    'classic' => 'Classic',
+    'advance' => 'Advance',
+    'elite' => 'Elite',
+    'ambassador' => 'Ambassador',
 ];

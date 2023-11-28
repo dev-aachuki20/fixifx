@@ -6743,6 +6743,10 @@ body.darkHeader .dark-header.scrollUp .header-btns ul li .fill-btn:hover {
     padding: 0 15px;
 }
 
+.reward-faqs + .get-started-sec{
+    padding-top: 120px !important;
+}
+
 
 
 

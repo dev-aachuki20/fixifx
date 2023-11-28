@@ -43,7 +43,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-sm-12">
                     <div class="section-head text-center">
-                        <h2 class="max-w-427">{{__('message.more_points')}}</h2>
                         <h2 class="max-w-427">{{ getSettingValue('rewards_main_title_'.config('app.locale')) }}</h2>
                         <div class="discription">
                             <p>{{ getSettingValue('rewards_main_header_'.config('app.locale')) }}</p>
@@ -64,7 +63,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 <img src="{{asset('fixifx/images/prices-icon01.svg')}}" alt="standard">
                             </div>
                             <div class="package-name">
-                                <div class="package-name-bg">Classic</div>
+                                <div class="package-name-bg">{{__('message.classic')}}</div>
                             </div>
                             <div class="showMore-wrapper textDetails showDetails-height">
                                 <div class="discription text-center">
@@ -79,7 +78,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                     </ul>
                                 </div>
                             </div>
-                            <a href="javascript:void(0)" class="showDetails-more">Show more</a>
+                            <a href="javascript:void(0)" class="showDetails-more">{{__('message.show_more')}}</a>
                         </div>
 
                         <div class="trading-acc-main">
@@ -94,7 +93,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 <img src="{{asset('fixifx/images/prices-icon03.svg')}}" alt="standard">
                             </div>
                             <div class="package-name">
-                                <div class="package-name-bg">Advance</div>
+                                <div class="package-name-bg">{{__('message.advance')}}</div>
                             </div>
                             <div class="showMore-wrapper textDetails showDetails-height">
                                 <div class="discription text-center">
@@ -109,7 +108,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                     </ul>
                                 </div>
                             </div>
-                            <a href="javascript:void(0)" class="showDetails-more">Show more</a>
+                            <a href="javascript:void(0)" class="showDetails-more">{{__('message.show_more')}}</a>
                         </div>
 
 
@@ -125,7 +124,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 <img src="{{asset('fixifx/images/prices-icon02.svg')}}" alt="standard">
                             </div>
                             <div class="package-name">
-                                <div class="package-name-bg">Elite</div>
+                                <div class="package-name-bg">{{__('message.elite')}}</div>
                             </div>
                             <div class="showMore-wrapper textDetails showDetails-height">
                                 <div class="discription text-center">
@@ -145,7 +144,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                     </span>
                                 </div>
                             </div>
-                            <a href="javascript:void(0)" class="showDetails-more">Show more</a>
+                            <a href="javascript:void(0)" class="showDetails-more">{{__('message.show_more')}}</a>
                         </div>
 
 
@@ -161,7 +160,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                                 <img src="{{asset('fixifx/images/prices-icon04.svg')}}" alt="standard">
                             </div>
                             <div class="package-name">
-                                <div class="package-name-bg">Ambassador</div>
+                                <div class="package-name-bg">{{__('message.ambassador')}}</div>
                             </div>
                             <div class="showMore-wrapper textDetails showDetails-height">
                                 <div class="discription text-center">
@@ -400,7 +399,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 <!-- Get Started  -->
 @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
 @if($section4)
-<section class="get-started-sec padding-tb-120">
+<section class="get-started-sec padding-tb-120 pt-0">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-12">

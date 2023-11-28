@@ -370,7 +370,7 @@
                             <div class="col-xxl-6 col-md-6">
                                 <div>
                                     <label for="title" class="form-label">Title (English)</label>
-                                    <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section3) ? $section1->en_title : '') }}">
+                                    <input type="text" class="form-control" id="title" name="en_title" value="{{ old('en_title', isset($section3) ? $section3->en_title : '') }}">
                                 </div>
                             </div>
                             <div class="col-xxl-6 col-md-6">
