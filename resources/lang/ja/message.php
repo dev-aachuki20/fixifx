@@ -166,10 +166,12 @@ return [
     'trade' => '貿易',
     'volume' => '音量',
     'points' => 'ポイント',
-    
+
     'classic' => 'クラシック',
     'advance' => '前進',
     'elite' => 'エリート',
     'ambassador' => '大使',
+
+    'specifications' => '仕様',
 
 ];

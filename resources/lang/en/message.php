@@ -171,4 +171,6 @@ return [
     'advance' => 'Advance',
     'elite' => 'Elite',
     'ambassador' => 'Ambassador',
+
+    'specifications' => 'specifications',
 ];

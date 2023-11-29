@@ -194,7 +194,7 @@
                     <img class="img-fluid" src="{{asset('fixifx/images/logo.svg')}}" alt="">
                     <div class="title">
                       <h5>
-                        Specifications
+                        {{__('message.specifications')}}
                       </h5>
                     </div>
                   </div>
@@ -206,7 +206,7 @@
                     </div>
                     <div class="title">
                       <h5>
-                        Standard
+                        {{__('message.Standard')}}
                       </h5>
                     </div>
                     <div class="subtext">
@@ -223,7 +223,7 @@
                     </div>
                     <div class="title">
                       <h5>
-                        Standard
+                        {{__('message.Standard')}}
                       </h5>
                     </div>
                     <div class="subtext">
@@ -240,7 +240,7 @@
                     </div>
                     <div class="title">
                       <h5>
-                        Premier
+                        {{__('message.Premier')}}
                       </h5>
                     </div>
                     <div class="subtext">
@@ -257,7 +257,7 @@
                     </div>
                     <div class="title">
                       <h5>
-                        Premier
+                        {{__('message.Premier')}}
                       </h5>
                     </div>
                     <div class="subtext">
@@ -270,262 +270,27 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              @for($i=1; $i<=8; $i++) <tr>
                 <th>
-                  Minimum Deposit (USD)
+                  {{getSettingValue('pro_title_'. config('app.locale') . '_' .$i)}}
                 </th>
                 <td>
-                  $5
+                  {{ getSettingValue('pro_value_'. $i) }}
                 </td>
                 <td>
-                  $5
+                  {{ getSettingValue('standard_value_'. $i) }}
                 </td>
                 <td>
-                  $20,000
+                  {{ getSettingValue('premium_value_'. $i) }}
                 </td>
                 <td>
-                  $20,000
+                  {{ getSettingValue('ecn_value_'. $i) }}
                 </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Maximum Leverage
-                </th>
-                <td>
-                  1:400
-                </td>
-                <td>
-                  1:400
-                </td>
-                <td>
-                  1:400
-                </td>
-                <td>
-                  1:400
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Spreads Types
-                </th>
-                <td>
-                  0.0pips~
-                </td>
-                <td>
-                  0.8 pips~
-                </td>
-                <td>
-                  0.5 pips~ or 0.0pips~
-                </td>
-                <td>
-                  0.5 pips~ or 0.0pips~
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Trading Commissions (USD)
-                </th>
-                <td>
-                  $6 (per $100,000)
-                </td>
-                <td>
-                  None
-                </td>
-                <td>
-                  None or $3.5 (per $100,000)
-                </td>
-                <td>
-                  None or $3.5 (per $100,000)
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Maximum size
-                </th>
-                <td>
-                  100 Lots
-                </td>
-                <td>
-                  100 Lots
-                </td>
-                <td>
-                  100 Lots
-                </td>
-                <td>
-                  100 Lots
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Minimum size
-                </th>
-                <td>
-                  0.01 Lots
-                </td>
-                <td>
-                  0.01 Lots
-                </td>
-                <td>
-                  0.01 Lots
-                </td>
-                <td>
-                  0.01 Lots
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Max No of open positions
-                </th>
-                <td>
-                  10,000
-                </td>
-                <td>
-                  10,000
-                </td>
-                <td>
-                  10,000
-                </td>
-                <td>
-                  10,000
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Stop-outs
-                </th>
-                <td>
-                  20％
-                </td>
-                <td>
-                  20％
-                </td>
-                <td>
-                  20％
-                </td>
-                <td>
-                  20％
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Margin call
-                </th>
-                <td>
-                  Any
-                </td>
-                <td>
-                  Any
-                </td>
-                <td>
-                  Any
-                </td>
-                <td>
-                  Any
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Trade execution type
-                </th>
-                <td>
-                  NDD
-                </td>
-                <td>
-                  NDD
-                </td>
-                <td>
-                  NDD
-                </td>
-                <td>
-                  NDD
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Copy trading tools
-                </th>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Automated trading tools
-                </th>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Trading Platforms
-                </th>
-                <td>
-                  MetaTrader 5, cTrader
-                </td>
-                <td>
-                  MetaTrader 5, cTrader
-                </td>
-                <td>
-                  MetaTrader 5, cTrader
-                </td>
-                <td>
-                  MetaTrader 5, cTrader
-                </td>
-              </tr>
-
-              <tr>
-                <th>
-                  Scalping / Heading
-                </th>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-                <td>
-                  Unlimited
-                </td>
-              </tr>
-
+                </tr>
+                @endfor
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
   </div>
