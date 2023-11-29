@@ -6747,6 +6747,22 @@ body.darkHeader .dark-header.scrollUp .header-btns ul li .fill-btn:hover {
     padding-top: 120px !important;
 }
 
+.trading-acc-list.new-trade-acc-area{
+    display: block;
+    grid-template-columns: inherit;
+    gap: inherit;
+}
+
+.new-trade-acc-area .package-list-details ul li:before{
+    transform: inherit;
+    top: 2px;
+}
+.reward-trade-acc-field .new-trade-acc-area .package-list-details ul li:before{
+    height: 14px;
+    width: 15px;
+    background-size: contain;
+}
+
 
 
 

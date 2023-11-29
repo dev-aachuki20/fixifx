@@ -12,9 +12,9 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-12">
-        <div class="trading-acc-list">
-
-          <div class="trading-acc-main">
+        <div class="trading-acc-list swiper new-trade-acc-area">
+            <div class="swiper-wrapper">
+          <div class="trading-acc-main swiper-slide">
             <div class="trading-icon light-blue">
               <img src="{{ asset('fixifx/images/icons/standard.svg') }}" alt="{{ config('app.locale') == 'ja' ? 'STP - スプレッドが狭いFX海外口座 FiXi FX（フィクシー）' : 'ECN - FiXi FX' }}">
             </div>
@@ -54,7 +54,7 @@
 
           </div>
 
-          <div class="trading-acc-main">
+          <div class="trading-acc-main swiper-slide">
             <div class="trading-icon light-blue">
               <img src="{{ asset('fixifx/images/icons/standard.svg') }}" alt="{{ config('app.locale') == 'ja' ? 'STP - スプレッドが狭いFX海外口座 FiXi FX（フィクシー）' : 'STP - FiXi FX' }}">
             </div>
@@ -91,7 +91,7 @@
             @endif
           </div>
 
-          <div class="trading-acc-main">
+          <div class="trading-acc-main swiper-slide">
             <div class="trading-icon light-yellow">
               <img src="{{ asset('fixifx/images/icons/premier.svg') }}" alt="{{ config('app.locale') == 'ja' ? 'STP - スプレッドが狭いFX海外口座 FiXi FX（フィクシー）' : 'ECN - FiXi FX' }}">
             </div>
@@ -130,7 +130,7 @@
             @endif
           </div>
 
-          <div class="trading-acc-main">
+          <div class="trading-acc-main swiper-slide">
             <div class="trading-icon light-yellow">
               <img src="{{ asset('fixifx/images/icons/premier.svg') }}" alt="{{ config('app.locale') == 'ja' ? 'STP - スプレッドが狭いFX海外口座 FiXi FX（フィクシー）' : 'STP - FiXi FX' }}">
             </div>
@@ -166,6 +166,13 @@
             </div>
             @endif
           </div>
+            
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="slider-arrows package-arrows">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
       </div>
     </div>

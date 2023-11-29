@@ -186,6 +186,38 @@ var swiper = new Swiper('.traders_slides', {
   }
   });
 
+if($(window).width() < 992){
+  var swiper = new Swiper('.new-trade-acc-area', {
+  slidesPerView: 2,
+  spaceBetween: 24,
+  loop: true,
+  speed: 500,
+//   autoplay: {
+//     delay: 2500,
+//   },
+  navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+      320: {
+          slidesPerView: 1
+      },
+      575: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+      },
+      992: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+      }
+  }
+  });
+}
 
   // dataTable 
   // var table = new DataTable('#spreadTable');

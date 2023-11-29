@@ -39,7 +39,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         <!-- end  -->
 
         <!-- Better prices  -->
-        <div class="better-prices-wrapper padding-tb-100 pb-0 ptop-50">
+        <div class="better-prices-wrapper padding-tb-100 pb-0 ptop-50 reward-trade-acc-field">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-sm-12">
                     <div class="section-head text-center">
@@ -50,8 +50,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                     </div>
                 </div>
                 <div class="col-lg-12 col-12">
-                    <div class="trading-acc-list">
-                        <div class="trading-acc-main">
+                    <div class="trading-acc-list swiper new-trade-acc-area">
+                        <div class="swiper-wrapper">
+                        <div class="trading-acc-main swiper-slide">
                             <div class="funding_box">
                                 <span>
                                     {{ getSettingValue('rewards_funding_classic_title_'.config('app.locale')) }}
@@ -81,7 +82,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                             <a href="javascript:void(0)" class="showDetails-more">{{__('message.show_more')}}</a>
                         </div>
 
-                        <div class="trading-acc-main">
+                        <div class="trading-acc-main swiper-slide">
                             <div class="funding_box">
                                 <span>
                                     {{ getSettingValue('rewards_funding_advance_title_'.config('app.locale')) }}
@@ -112,7 +113,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         </div>
 
 
-                        <div class="trading-acc-main">
+                        <div class="trading-acc-main swiper-slide">
                             <div class="funding_box">
                                 <span>
                                     {{ getSettingValue('rewards_funding_elite_title_'.config('app.locale')) }}
@@ -148,7 +149,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                         </div>
 
 
-                        <div class="trading-acc-main">
+                        <div class="trading-acc-main swiper-slide">
                             <div class="funding_box">
                                 <span>
                                     {{ getSettingValue('rewards_funding_ambassador_title_'.config('app.locale')) }}
@@ -182,7 +183,12 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                             </div>
                             <a href="javascript:void(0)" class="showDetails-more">{{__('message.show_more')}}</a>
                         </div>
-
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="slider-arrows package-arrows">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 sub-title-text">
