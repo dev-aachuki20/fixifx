@@ -31,10 +31,10 @@
                                                 </div>
                                                 <div class="uk-width-expand@s">
                                                     <span class="mb-2 fs-14 d-block"><i class="fas fa-calendar-alt mr-1"></i>{{config('app.locale')=='en' ? date('d-m-Y', strtotime($article->created_at)): $article->created_at->locale('ja_JP')->translatedFormat('Y年m月d日') }}</span>
-                                                    <h3 class="mb-2 m-0 h3-from-h4"><a class="line1" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $article->id]) }}">{{ $article->{config('app.locale').'_title'} }}</a></h3>
+                                                    <h3 class="mb-2 m-0 h3-from-h4"><a class="line1" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $article->slug_url]) }}">{{ $article->{config('app.locale').'_title'} }}</a></h3>
                                                     @if(strlen(utf8_decode($article->{config('app.locale').'_desc'})) > 150)
                                                     {!! Illuminate\Support\Str::limit($article->{config('app.locale').'_desc'}, 200) !!}</p>                                                    
-                                                    <a class="line1 read-more-link" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $article->id]) }}" aria-label="{{ $article->{config('app.locale').'_title'} }}">{{-- __('message.read_more') --}}<i class="fa fa-arrow-right ml-2"></i></a>
+                                                    <a class="line1 read-more-link" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $article->slug_url]) }}" aria-label="{{ $article->{config('app.locale').'_title'} }}">{{-- __('message.read_more') --}}<i class="fa fa-arrow-right ml-2"></i></a>
                                                     @else
                                                     {!! $article->{config('app.locale').'_desc'} !!}
                                                     @endif

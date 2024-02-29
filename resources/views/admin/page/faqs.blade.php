@@ -241,13 +241,13 @@
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (English)</label>
-                                                        <textarea name="faq[{{$k3}}][en_answer]" class="ckeditor_custom en_answer" cols="100" rows="7">{{ $faq3->en_answer }}</textarea>
+                                                        <textarea name="faq[{{$k3}}][en_answer]" class="ckeditor en_answer" cols="100" rows="7">{{ $faq3->en_answer }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (Japanese)</label>
-                                                        <textarea name="faq[{{$k3}}][ja_answer]" class="ckeditor_custom ja_answer" cols="100" rows="7">{{ $faq3->ja_answer }}</textarea>
+                                                        <textarea name="faq[{{$k3}}][ja_answer]" class="ckeditor ja_answer" cols="100" rows="7">{{ $faq3->ja_answer }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -393,13 +393,13 @@
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (English)</label>
-                                                        <textarea name="faq[{{$k4}}][en_answer]" class="form-control en_answer" cols="100" rows="7">{{ $faq4->en_answer }}</textarea>
+                                                        <textarea name="faq[{{$k4}}][en_answer]" class="ckeditor en_answer" cols="100" rows="7">{{ $faq4->en_answer }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (Japanese)</label>
-                                                        <textarea name="faq[{{$k4}}][ja_answer]" class="form-control ja_answer" cols="100" rows="7">{{ $faq4->ja_answer }}</textarea>
+                                                        <textarea name="faq[{{$k4}}][ja_answer]" class="ckeditor ja_answer" cols="100" rows="7">{{ $faq4->ja_answer }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -445,13 +445,13 @@
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Description (English)</label>
-                                                        <textarea name="faq[0][en_answer]" class="form-control en_answer" cols="100" rows="7"></textarea>
+                                                        <textarea name="faq[0][en_answer]" class="ckeditor_custom en_answer" cols="100" rows="7"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Description (Japanese)</label>
-                                                        <textarea name="faq[0][ja_answer]" class="form-control ja_answer" cols="100" rows="7"></textarea>
+                                                        <textarea name="faq[0][ja_answer]" class="ckeditor_custom ja_answer" cols="100" rows="7"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -546,13 +546,13 @@
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (English)</label>
-                                                        <textarea name="faq[{{$k5}}][en_answer]" class="form-control en_answer" cols="100" rows="7">{{ $faq5->en_answer }}</textarea>
+                                                        <textarea name="faq[{{$k5}}][en_answer]" class="ckeditor en_answer" cols="100" rows="7">{{ $faq5->en_answer }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (Japanese)</label>
-                                                        <textarea name="faq[{{$k5}}][ja_answer]" class="form-control ja_answer" cols="100" rows="7">{{ $faq5->ja_answer }}</textarea>
+                                                        <textarea name="faq[{{$k5}}][ja_answer]" class="ckeditor ja_answer" cols="100" rows="7">{{ $faq5->ja_answer }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -699,13 +699,13 @@
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (English)</label>
-                                                        <textarea name="faq[{{$k6}}][en_answer]" class="ckeditor_custom en_answer" cols="100" rows="7">{{ $faq6->en_answer }}</textarea>
+                                                        <textarea name="faq[{{$k6}}][en_answer]" class="ckeditor en_answer" cols="100" rows="7">{{ $faq6->en_answer }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Answer (Japanese)</label>
-                                                        <textarea name="faq[{{$k6}}][ja_answer]" class="ckeditor_custom ja_answer" cols="100" rows="7">{{ $faq6->ja_answer }}</textarea>
+                                                        <textarea name="faq[{{$k6}}][ja_answer]" class="ckeditor ja_answer" cols="100" rows="7">{{ $faq6->ja_answer }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -751,13 +751,13 @@
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Description (English)</label>
-                                                        <textarea name="faq[0][en_answer]" class="ckeditor_custom en_answer" cols="100" rows="7"></textarea>
+                                                        <textarea name="faq[0][en_answer]" class="ckeditor en_answer" cols="100" rows="7"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xxl-6 col-md-6">
                                                     <div>
                                                         <label for="title" class="form-label">Description (Japanese)</label>
-                                                        <textarea name="faq[0][ja_answer]" class="ckeditor_custom ja_answer" cols="100" rows="7"></textarea>
+                                                        <textarea name="faq[0][ja_answer]" class="ckeditor ja_answer" cols="100" rows="7"></textarea>
                                                     </div>
                                                 </div>
                                             </div>

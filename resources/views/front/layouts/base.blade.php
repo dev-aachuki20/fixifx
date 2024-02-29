@@ -57,9 +57,42 @@ $sitename_locale = '｜FiXi FX（フィクシー）';
     <!-- Canonical link -->
     <link rel="canonical" href="{{ 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] }}">
 
-
+    
     @include('front.layouts.partials.css')
     @yield('css')
+
+
+    <style>
+        .tardingBanner-wrap {
+            background-size: cover;
+        }
+        @media screen and (min-width: 1200px){
+            ul.navbar-nav>li:not(:last-child) {
+                margin-right: 20px;
+            }
+            html[lang="ja"] ul.navbar-nav>li.nav-item>a{
+                font-size:12px;
+            }
+        }
+
+        @media screen and (min-width: 1320px) and (max-width: 1800px) {
+            ul.navbar-nav>li:not(:last-child) {
+                margin-right: 20px;
+            }
+            
+        }
+
+        @media screen and (min-width: 1230px) and (max-width: 1319px) {
+            ul.navbar-nav>li:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+        @media screen and (min-width: 1200px) and (max-width: 1229px) {
+            ul.navbar-nav>li:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>

@@ -96,8 +96,8 @@ class HomeController extends Controller
             $currency_changes = getAllChangeCurrency();
 
             if ($article_id) {
-                $article = Article::where('id', $article_id)->where('page_id', $page->id)->first();
-
+                $article = Article::where('slug_url', $article_id)->where('page_id', $page->id)->first();
+    
                 if ($article) {
                     $totalViews = $article->views + 1;
                     $article->update(['views' => $totalViews]);
@@ -134,7 +134,18 @@ class HomeController extends Controller
                 return $rewardTable->render('front.page.' . $slug, compact('slug', 'section', 'page', 'rewards'));
             }
 
-            return view('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories', 'currency_changes'));
+            if ($slug == "privacy-policy") {
+                return view('front.page.' . $slug);
+            }
+
+            if ($slug == "terms-condition") {
+                return view('front.page.' . $slug);
+            }
+            
+            
+            $all_articles = Article::where('status', 1)->orderBy('id', 'DESC')->paginate(10);
+            
+            return view('front.page.' . $slug, compact('slug', 'section', 'page', 'menu', 'articles', 'tags', 'faqs', 'countries', 'payments', 'contacts', 'common', 'random_articles', 'author', 'categories', 'currency_changes','all_articles'));
         } else {
             abort(404);
         }
@@ -189,15 +200,15 @@ class HomeController extends Controller
         return 1;
     }
 
-    public function privacyPage()
-    {
-        return view('front.privacy');
-    }
+    // public function privacyPage()
+    // {
+    //     return view('front.privacy');
+    // }
 
-    public function termsPage()
-    {
-        return view('front.terms');
-    }
+    // public function termsPage()
+    // {
+    //     return view('front.terms');
+    // }
 
     public function refreshCaptcha()
     {

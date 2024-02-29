@@ -6,20 +6,25 @@
         <div class="sidebar-widget sidebar-menu-widget uk-card uk-card-default uk-card-body uk-border-rounded px-4 py-1 mb-4">
             <ul class="uk-accordion uk-list-divider in-faq-5" uk-accordion>
                 @foreach($menu->subMenu as $key => $sub_menu)
-                @if($sub_menu->{config('app.locale').'_name'})
-                <li class="{{ (in_array(Route::current()->parameters()['slug'], $sub_menu->menuPage->pluck('slug')->toArray()) || (($sub_menu->menuPage->pluck('sub_menu_id')->first() == 1)&&(str_contains( Route::current()->parameters()['slug'],'ctrader')))) ? 'uk-open' : '' }}">
-                    <a class="uk-accordion-title" href="#"><i class="fas {{ $sub_menu->icon }} mr-1"></i>{{ $sub_menu->{config('app.locale').'_name'} }}</a>
+                
+                    @if($sub_menu->status == 1)
+                        @if($sub_menu->{config('app.locale').'_name'})
+                        <li class="{{ (in_array(Route::current()->parameters()['slug'], $sub_menu->menuPage->pluck('slug')->toArray()) || (($sub_menu->menuPage->pluck('sub_menu_id')->first() == 1)&&(str_contains( Route::current()->parameters()['slug'],'ctrader')))) ? 'uk-open' : '' }}">
+                            <a class="uk-accordion-title" href="#"><i class="fas {{ $sub_menu->icon }} mr-1"></i>{{ $sub_menu->{config('app.locale').'_name'} }}</a>
+                            @endif
+                            <div class="uk-accordion-content">
+                                <ul class="uk-list uk-list-bullet in-list-arrow-double">
+                                    @foreach($sub_menu->menuPage as $menu_page)
+                                        @if($menu_page->status == 1)
+                                            <li class="{{ (Route::current()->parameters()['slug'] == $menu_page->slug) ? 'active' : '' }}"><a href="{{ route('page', [config('app.locale'), $menu_page->slug]) }}">{{ $menu_page->{config('app.locale').'_name'} }}</a></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                                @if(!$sub_menu->{config('app.locale').'_name'})
+                            </div>
+                        </li>
+                        @endif
                     @endif
-                    <div class="uk-accordion-content">
-                        <ul class="uk-list uk-list-bullet in-list-arrow-double">
-                            @foreach($sub_menu->menuPage as $menu_page)
-                            <li class="{{ (Route::current()->parameters()['slug'] == $menu_page->slug) ? 'active' : '' }}"><a href="{{ route('page', [config('app.locale'), $menu_page->slug]) }}">{{ $menu_page->{config('app.locale').'_name'} }}</a></li>
-                            @endforeach
-                        </ul>
-                        @if(!$sub_menu->{config('app.locale').'_name'})
-                    </div>
-                </li>
-                @endif
                 @endforeach
             </ul>
         </div>

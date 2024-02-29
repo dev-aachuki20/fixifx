@@ -33,30 +33,51 @@ return $target;
 @extends('front.layouts.base')
 
 @section('content')
+<style>
+    /*/ ========10/01/2024 css ======= /*/
+    .locationCard {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .locationCard ul {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+</style>
 
 @include('front.layouts.partials.common_hero')
 
-
+@php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
+@if($section3)
 <section class="padding-tb-120">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-12">
                 <div class="section-head text-center">
-                    <h2>{{__('message.contact_details')}}</h2>
+                    <h2>{{ $section3->{config('app.locale').'_title'} }}</h2>
                     <div class="discription">
-                        <p>{{__('message.contact_desc')}}</p>
+                        <p>{!! $section3->{config('app.locale').'_desc'} !!}</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row row-gap-24">
+            @foreach($section3->subSection as $sub_sec_index => $sub_sec)
+            @if($sub_sec->status == 1)
+
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="contact-loaction">
-                    <div class="loaction-flag">
-                        <img src="{{asset('fixifx/images/flags/ba.png')}}" alt="ba">
+                <div class="contact-loaction locationCard ">
+                    <div>
+                        <div class="loaction-flag">
+                            <img src="{{$sub_sec && $sub_sec->image ? $sub_sec->image : asset('fixifx/images/award-listing01.svg')}}" alt="ba">
+                        </div>
+                        <h6 class="text-center">{{ $sub_sec->{config('app.locale').'_title'} }}</h6>
                     </div>
-                    <h6 class="text-center">Bahamas</h6>
-                    <ul>
+                    <ul class="d-flex flex-column">
                         <li class="d-flex align-items-start">
                             <div class="icons-loaction">
                                 <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,115 +85,136 @@ return $target;
                                     <path d="M7.375 8.75C8.5486 8.75 9.5 7.7986 9.5 6.625C9.5 5.45139 8.5486 4.5 7.375 4.5C6.20139 4.5 5.25 5.45139 5.25 6.625C5.25 7.7986 6.20139 8.75 7.375 8.75Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </div>
-                            <div class="loactiop-de">Fixi BankItaliëlei 124, box 10120 00 Antwerp, Bahamas</div>
+                            <div class="loactiop-de">{!! $sub_sec->{config('app.locale').'_desc'} !!}</div>
                         </li>
-                        <li>
-                            <a href="javascript:void(0);" class="d-flex align-items-center">
+                        <li class="d-flex align-items-center">
+                            <a href="javascript:void(0);">
                                 <div class="icons-loaction">
                                     <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.41667 1H13.75C14.5292 1 15.1667 1.6375 15.1667 2.41667V10.9167C15.1667 11.6958 14.5292 12.3333 13.75 12.3333H2.41667C1.6375 12.3333 1 11.6958 1 10.9167V2.41667C1 1.6375 1.6375 1 2.41667 1Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
                                         <path d="M15.1667 2.41669L8.08333 7.37502L1 2.41669" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
-                                <div class="loactiop-de">dummy@fixibank.com</div>
+                                <a href="mailto:{{ $sub_sec->{config('app.locale').'_short_text'} }}" target="_blank" rel="noopener noreferrer">
+                                    <div class="loactiop-de">{{ $sub_sec->{config('app.locale').'_short_text'} }}</div>
+                                </a>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
+
+            @endif
+            @endforeach
+
+
+            {{--
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="contact-loaction">
-                    <div class="loaction-flag">
-                        <img src="{{asset('fixifx/images/flags/se.png')}}" alt="ba">
-                    </div>
-                    <h6 class="text-center">Seychelles</h6>
-                    <ul>
-                        <li class="d-flex align-items-start">
-                            <div class="icons-loaction">
-                                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.75 6.875C13.75 11.8333 7.375 16.0833 7.375 16.0833C7.375 16.0833 1 11.8333 1 6.875C1 5.18425 1.67165 3.56274 2.86719 2.36719C4.06274 1.17165 5.68424 0.5 7.375 0.5C9.06575 0.5 10.6873 1.17165 11.8828 2.36719C13.0783 3.56274 13.75 5.18425 13.75 6.875Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M7.375 8.75C8.5486 8.75 9.5 7.7986 9.5 6.625C9.5 5.45139 8.5486 4.5 7.375 4.5C6.20139 4.5 5.25 5.45139 5.25 6.625C5.25 7.7986 6.20139 8.75 7.375 8.75Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="loactiop-de">Fixi BankItaliëlei 124, box 10120 00 Antwerp, Bahamas</div>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="d-flex align-items-center">
-                                <div class="icons-loaction">
-                                    <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2.41667 1H13.75C14.5292 1 15.1667 1.6375 15.1667 2.41667V10.9167C15.1667 11.6958 14.5292 12.3333 13.75 12.3333H2.41667C1.6375 12.3333 1 11.6958 1 10.9167V2.41667C1 1.6375 1.6375 1 2.41667 1Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15.1667 2.41669L8.08333 7.37502L1 2.41669" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div class="loactiop-de">dummy@fixibank.com</div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <div class="contact-loaction locationCard ">
+                    <div><div class="loaction-flag">
+                        <img src="{{asset('storage/Setting/'.getSettingValue('contact_country2_img'))}}" alt="ba">
+        </div>
+        <h6 class="text-center">{{ getSettingValue('contact_country2_name_'.config('app.locale')) }}</h6>
+    </div>
+    <ul>
+        <li class="d-flex align-items-start">
+            <div class="icons-loaction">
+                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.75 6.875C13.75 11.8333 7.375 16.0833 7.375 16.0833C7.375 16.0833 1 11.8333 1 6.875C1 5.18425 1.67165 3.56274 2.86719 2.36719C4.06274 1.17165 5.68424 0.5 7.375 0.5C9.06575 0.5 10.6873 1.17165 11.8828 2.36719C13.0783 3.56274 13.75 5.18425 13.75 6.875Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.375 8.75C8.5486 8.75 9.5 7.7986 9.5 6.625C9.5 5.45139 8.5486 4.5 7.375 4.5C6.20139 4.5 5.25 5.45139 5.25 6.625C5.25 7.7986 6.20139 8.75 7.375 8.75Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="contact-loaction">
-                    <div class="loaction-flag">
-                        <img src="{{asset('fixifx/images/flags/vi.png')}}" alt="ba">
-                    </div>
-                    <h6 class="text-center">Vietnam</h6>
-                    <ul>
-                        <li class="d-flex align-items-start">
-                            <div class="icons-loaction">
-                                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.75 6.875C13.75 11.8333 7.375 16.0833 7.375 16.0833C7.375 16.0833 1 11.8333 1 6.875C1 5.18425 1.67165 3.56274 2.86719 2.36719C4.06274 1.17165 5.68424 0.5 7.375 0.5C9.06575 0.5 10.6873 1.17165 11.8828 2.36719C13.0783 3.56274 13.75 5.18425 13.75 6.875Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M7.375 8.75C8.5486 8.75 9.5 7.7986 9.5 6.625C9.5 5.45139 8.5486 4.5 7.375 4.5C6.20139 4.5 5.25 5.45139 5.25 6.625C5.25 7.7986 6.20139 8.75 7.375 8.75Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="loactiop-de">Fixi BankItaliëlei 124, box 10120 00 Antwerp, Bahamas</div>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="d-flex align-items-center">
-                                <div class="icons-loaction">
-                                    <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2.41667 1H13.75C14.5292 1 15.1667 1.6375 15.1667 2.41667V10.9167C15.1667 11.6958 14.5292 12.3333 13.75 12.3333H2.41667C1.6375 12.3333 1 11.6958 1 10.9167V2.41667C1 1.6375 1.6375 1 2.41667 1Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15.1667 2.41669L8.08333 7.37502L1 2.41669" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div class="loactiop-de">dummy@fixibank.com</div>
-                            </a>
-                        </li>
-                    </ul>
+            <div class="loactiop-de">{!! getSettingValue('contact_country2_address_'.config('app.locale')) !!}</div>
+        </li>
+        <li class="d-flex align-items-center">
+            <a href="javascript:void(0);">
+                <div class="icons-loaction">
+                    <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.41667 1H13.75C14.5292 1 15.1667 1.6375 15.1667 2.41667V10.9167C15.1667 11.6958 14.5292 12.3333 13.75 12.3333H2.41667C1.6375 12.3333 1 11.6958 1 10.9167V2.41667C1 1.6375 1.6375 1 2.41667 1Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15.1667 2.41669L8.08333 7.37502L1 2.41669" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="contact-loaction">
-                    <div class="loaction-flag">
-                        <img src="{{asset('fixifx/images/flags/can.png')}}" alt="ba">
-                    </div>
-                    <h6 class="text-center">Canada</h6>
-                    <ul>
-                        <li class="d-flex align-items-start">
-                            <div class="icons-loaction">
-                                <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.75 6.875C13.75 11.8333 7.375 16.0833 7.375 16.0833C7.375 16.0833 1 11.8333 1 6.875C1 5.18425 1.67165 3.56274 2.86719 2.36719C4.06274 1.17165 5.68424 0.5 7.375 0.5C9.06575 0.5 10.6873 1.17165 11.8828 2.36719C13.0783 3.56274 13.75 5.18425 13.75 6.875Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M7.375 8.75C8.5486 8.75 9.5 7.7986 9.5 6.625C9.5 5.45139 8.5486 4.5 7.375 4.5C6.20139 4.5 5.25 5.45139 5.25 6.625C5.25 7.7986 6.20139 8.75 7.375 8.75Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="loactiop-de">Fixi BankItaliëlei 124, box 10120 00 Antwerp, Bahamas</div>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="d-flex align-items-center">
-                                <div class="icons-loaction">
-                                    <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2.41667 1H13.75C14.5292 1 15.1667 1.6375 15.1667 2.41667V10.9167C15.1667 11.6958 14.5292 12.3333 13.75 12.3333H2.41667C1.6375 12.3333 1 11.6958 1 10.9167V2.41667C1 1.6375 1.6375 1 2.41667 1Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15.1667 2.41669L8.08333 7.37502L1 2.41669" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <div class="loactiop-de">dummy@fixibank.com</div>
-                            </a>
-                        </li>
-                    </ul>
+                <a href="mailto:{{ getSettingValue('contact_country2_email_'.config('app.locale')) }}" target="_blank" rel="noopener noreferrer">
+                    <div class="loactiop-de">{{ getSettingValue('contact_country2_email_'.config('app.locale')) }}</div>
+                </a>
+            </a>
+        </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+        <div class="contact-loaction locationCard ">
+            <div>
+                <div class="loaction-flag">
+                    <img src="{{asset('storage/Setting/'.getSettingValue('contact_country3_img'))}}" alt="ba">
                 </div>
+                <h6 class="text-center">{{ getSettingValue('contact_country3_name_'.config('app.locale')) }}</h6>
             </div>
+            <ul>
+                <li class="d-flex align-items-start">
+                    <div class="icons-loaction">
+                        <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.75 6.875C13.75 11.8333 7.375 16.0833 7.375 16.0833C7.375 16.0833 1 11.8333 1 6.875C1 5.18425 1.67165 3.56274 2.86719 2.36719C4.06274 1.17165 5.68424 0.5 7.375 0.5C9.06575 0.5 10.6873 1.17165 11.8828 2.36719C13.0783 3.56274 13.75 5.18425 13.75 6.875Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M7.375 8.75C8.5486 8.75 9.5 7.7986 9.5 6.625C9.5 5.45139 8.5486 4.5 7.375 4.5C6.20139 4.5 5.25 5.45139 5.25 6.625C5.25 7.7986 6.20139 8.75 7.375 8.75Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="loactiop-de">{!! getSettingValue('contact_country3_address_'.config('app.locale')) !!}</div>
+                </li>
+                <li class="d-flex align-items-center">
+                    <a href="javascript:void(0);">
+                        <div class="icons-loaction">
+                            <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.41667 1H13.75C14.5292 1 15.1667 1.6375 15.1667 2.41667V10.9167C15.1667 11.6958 14.5292 12.3333 13.75 12.3333H2.41667C1.6375 12.3333 1 11.6958 1 10.9167V2.41667C1 1.6375 1.6375 1 2.41667 1Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M15.1667 2.41669L8.08333 7.37502L1 2.41669" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <a href="mailto:{{ getSettingValue('contact_country3_email_'.config('app.locale')) }}" target="_blank" rel="noopener noreferrer">
+                            <div class="loactiop-de">{{ getSettingValue('contact_country3_email_'.config('app.locale')) }}</div>
+                        </a>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+        <div class="contact-loaction locationCard ">
+            <div>
+                <div class="loaction-flag">
+                    <img src="{{asset('storage/Setting/'.getSettingValue('contact_country4_img'))}}" alt="ba">
+                </div>
+                <h6 class="text-center">{{ getSettingValue('contact_country4_name_'.config('app.locale')) }}</h6>
+            </div>
+            <ul>
+                <li class="d-flex align-items-start">
+                    <div class="icons-loaction">
+                        <svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.75 6.875C13.75 11.8333 7.375 16.0833 7.375 16.0833C7.375 16.0833 1 11.8333 1 6.875C1 5.18425 1.67165 3.56274 2.86719 2.36719C4.06274 1.17165 5.68424 0.5 7.375 0.5C9.06575 0.5 10.6873 1.17165 11.8828 2.36719C13.0783 3.56274 13.75 5.18425 13.75 6.875Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M7.375 8.75C8.5486 8.75 9.5 7.7986 9.5 6.625C9.5 5.45139 8.5486 4.5 7.375 4.5C6.20139 4.5 5.25 5.45139 5.25 6.625C5.25 7.7986 6.20139 8.75 7.375 8.75Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="loactiop-de">{!! getSettingValue('contact_country4_address_'.config('app.locale')) !!}</div>
+                </li>
+                <li class="d-flex align-items-center">
+                    <a href="javascript:void(0);">
+                        <div class="icons-loaction">
+                            <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.41667 1H13.75C14.5292 1 15.1667 1.6375 15.1667 2.41667V10.9167C15.1667 11.6958 14.5292 12.3333 13.75 12.3333H2.41667C1.6375 12.3333 1 11.6958 1 10.9167V2.41667C1 1.6375 1.6375 1 2.41667 1Z" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M15.1667 2.41669L8.08333 7.37502L1 2.41669" stroke="#1E1F1F" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <a href="mailto:{{ getSettingValue('contact_country4_email_'.config('app.locale')) }}" target="_blank" rel="noopener noreferrer">
+                            <div class="loactiop-de">{{ getSettingValue('contact_country4_email_'.config('app.locale')) }}</div>
+                        </a>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div> --}}
+
+    </div>
+    </div>
 </section>
+@endif
 
 <section class="padding-tb-120 bg-snow-drift" style="background-image:url({{asset('fixifx/images/bg-glob.png')}});background-repeat: no-repeat; background-position: bottom left;">
     <div class="container">
@@ -188,7 +230,7 @@ return $target;
                                 <div class="icon-contact">
                                     <img src="{{asset('fixifx/images/icons/telephone.svg')}}" alt="telephone">
                                 </div>
-                                <div class="icon-info">
+                                <div class="icon-info fs-16">
                                     <span class="d-block">{{__('message.call_us')}}</span>
                                     {{ getSettingValue('admin_contact') }}
                                 </div>
@@ -200,7 +242,7 @@ return $target;
                                 <div class="icon-contact">
                                     <img src="{{asset('fixifx/images/icons/email.svg')}}" alt="eamil">
                                 </div>
-                                <div class="icon-info">
+                                <div class="icon-info fs-16">
                                     <span class="d-block">{{ $contact->{config('app.locale').'_title'} }}</span>
                                     {{ $contact->value }}
                                 </div>
@@ -212,9 +254,7 @@ return $target;
                 @endif
             </div>
 
-            <!-- contact form -->
             @include('front.common.talk_to_us')
-            <!-- end contact form -->
 
         </div>
     </div>
@@ -287,5 +327,31 @@ return $target;
             }
         });
     })
+
+
+    $('.from_code').select2({
+        templateResult: formatState,
+        templateSelection: formatStateSelection
+    });
+
+    function formatState(state) {
+        if (!state.id) {
+            return state.text;
+        }
+        var $state = $(
+            '<span><img src="' + $(state.element).attr('data-src') + '" class="img-flag" /> ' + state.text + '</span>'
+        );
+        return $state;
+    };
+
+    function formatStateSelection(state) {
+        if (!state.id) {
+            return state.text;
+        }
+        var $state = $(
+            '<span><img src="' + $(state.element).data('src') + '" class="img-flag" /> ' + state.text + '</span>'
+        );
+        return $state;
+    }
 </script>
 @endsection

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Response;
 */
 
 Route::get('/clear-cache', function () {
+    // Artisan::call('up');
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
     Artisan::call('config:clear');
@@ -30,8 +31,8 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'localization'], function () {
-    Route::get('privacy-policy', 'HomeController@privacyPage')->name('privacy_page');
-    Route::get('terms-condition', 'HomeController@termsPage')->name('terms_page');
+    // Route::get('privacy-policy', 'HomeController@privacyPage')->name('privacy_page');
+    // Route::get('terms-condition', 'HomeController@termsPage')->name('terms_page');
     Route::get('refresh-captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
 
     Route::get('language/front/{locale}', 'HomeController@changeLanguage')->name('language.change');
@@ -39,6 +40,11 @@ Route::group(['middleware' => 'localization'], function () {
     Route::get('sitemap', function () {
         return view('front.sitemap');
     });
+
+    // login route
+    Route::get('{locale}/login', function () {
+        return view('front.page.login');
+    })->name('login');
 
     Route::get('{locale}/{slug}', 'HomeController@page')->name('page');
 

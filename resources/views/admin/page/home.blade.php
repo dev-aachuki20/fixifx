@@ -912,6 +912,23 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <!-- banner title -->
+                                       <div class="row gy-4">
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="title" class="form-label">Banner Name (English)</label>
+                                                    <input type="text" class="form-control" id="en_short_text" name="sub_section[{{$i}}][en_short_text]" value="{{ old('en_short_text', $sub_section29 ? $sub_section29->en_short_text : '') }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="title" class="form-label">Banner Name (Japanese)</label>
+                                                    <input type="text" class="form-control" id="ja_short_text" name="sub_section[{{$i}}][ja_short_text]" value="{{ old('ja_short_text', $sub_section29 ? $sub_section29->ja_short_text : '') }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end banner title -->
 
                                         <div class="row gy-4">
                                             <div class="col-xxl-6 col-md-6">
@@ -1033,6 +1050,9 @@
         </div>
     </div>
 </div>
+
+
+
 </div>
 
 

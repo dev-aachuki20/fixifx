@@ -109,39 +109,53 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                         </div>
                                         @endif
                                     </div>
-
-                                    <div class="noteBox_wrap">
+                                    
+                                     <div class="noteBox_wrap">
+                                    @if(!is_null($article->{config('app.locale').'_note'}) && !empty($article->{config('app.locale').'_note'}))
                                         <div class="note_content">
                                             <i>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-                                                consectetur adipiscing elit.
+                                                {!! $article->{config('app.locale').'_note'} !!}
                                             </i>
                                         </div>
+                                    @endif
                                     </div>
 
-                                    <div class="tardingBanner-wrap tardingBanner-gridBox d-flex align-items-center">
-                                        <div class="broker-img">
-                                            <img class="img-fluid" src="" alt="">
+                                   {{-- <div class="noteBox_wrap">
+                                        @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
+                                        @if($section2)
+                                        <div class="note_content">
+                                            <i>
+                                                {!! $section2->{config('app.locale').'_desc'} !!}
+                                            </i>
                                         </div>
+                                        @endif
+                                    </div> --}}
+
+                                    @php $section3 = $section->where('section_no', 3)->where('status', 1)->first();
+                                    $sectionEnLink1 = $section3 ? json_decode($section3->en_link) : null;
+                                    $sectionJaLink1 = $section3 ? json_decode($section3->ja_link) : null; @endphp
+                                    @if($section3)
+                                    <div class="tardingBanner-wrap tardingBanner-gridBox d-flex align-items-center" style="background-image: url({{$section3 && $section3->image ? $section3->image : asset('fixifx/images/broker-slide2.png')}});">
+                                        <!-- <div class="broker-img">
+                                            <img class="img-fluid" src="" alt="">
+                                        </div> -->
                                         <div class="broker-content">
                                             <div class="broker-slide-title">
-                                                <h4>Forex Trading Broker Banner.</h4>
+                                                <h4> {{ $section3->{config('app.locale').'_title'} }}</h4>
                                             </div>
                                             <div class="broker-discription">
-                                                <p>
-                                                    Superior trade execution &amp; trading conditions with the
-                                                    NDD method.
-                                                </p>
+                                                {!! $section3->{config('app.locale').'_desc'} !!}
                                             </div>
                                         </div>
                                         <div class="broker-btn">
-                                            <a href="javascript:void();" class="custom-btn fill-btn-1">Open Account
-                                                Now!</a>
+                                            @if(config('app.locale') == 'en')
+                                            <a href="{{ isset($sectionEnLink1[0]) ? $sectionEnLink1[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.open_account_now_btn')}}</a>
+                                            @else
+                                            <a href="{{ isset($sectionJaLink1[0]) ? $sectionJaLink1[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.open_account_now_btn')}}</a>
+                                            @endif
                                         </div>
                                     </div>
+                                    @endif
                                     <!-- end  -->
 
 
@@ -175,7 +189,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                     <div class="authorBox-main">
                                         <div class="authorBox-wrapper">
                                             <div class="authorIcon">
-                                                <img class="img-fluid" src="" alt="">
+                                                <img class="img-fluid" src="{{$article->authors->profile ?? null}}" alt="">
                                             </div>
                                             <div class="authorContent">
                                                 <div class="title">
@@ -201,9 +215,9 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                             <!-- next and prev post -->
                             @if($article)
                             @php
-                            $prevPost = App\Models\Article::where('id', '<', $article->id)->orderBy('id', 'desc')->first();
+                            $prevPost = App\Models\Article::where('id', '<', $article->id)->where('deleted_at', Null)->orderBy('id', 'desc')->first();
 
-                                $nextPost = App\Models\Article::where('id', '>', $article->id)->orderBy('id', 'desc')->first();
+                                $nextPost = App\Models\Article::where('id', '>', $article->id)->where('deleted_at', Null)->orderBy('id', 'desc')->first();
 
                                 @endphp
                                 <div class="col-12">
@@ -217,7 +231,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                                 </svg>
                                                 {{__('message.prev_post')}}
                                             </p>
-                                            <p class="title heading-typo"><a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $prevPost->id]) }}" rel="prev">{{ $prevPost->{config('app.locale').'_title'} }}</a></p>
+                                            <p class="title heading-typo"><a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $prevPost->slug_url]) }}" rel="prev">{{ $prevPost->{config('app.locale').'_title'} }}</a></p>
                                         </div>
                                         @endif
 
@@ -230,7 +244,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                                     <path d="M9 10.5L14 5.5L9 0.5" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                             </p>
-                                            <p class="title heading-typo"><a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $nextPost->id]) }}" rel="next">{{ $nextPost->{config('app.locale').'_title'} }}</a></p>
+                                            <p class="title heading-typo"><a href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $nextPost->slug_url]) }}" rel="next">{{ $nextPost->{config('app.locale').'_title'} }}</a></p>
                                         </div>
                                         @endif
 
@@ -238,92 +252,94 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 </div>
                                 @endif
                                 <!--end next and prev post -->
-
-                                <div class="con-12">
-                                    <div class="swiper bloggird_slides blog_slider_box">
-                                        @if($slug=='prex-blogs')
-                                        <div class="bloggird_arrow d-flex align-items-center justify-content-between">
-                                            <div class="title">
-                                                <h6>
-                                                    {{ __('message.you_might_be_like_also') }}
-                                                </h6>
-                                            </div>
-                                            <div class="nextPrev-box d-flex align-items-center">
-                                                <div class="swiper-button-prev">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M3.29373 8.1745C3.29373 8.04967 3.34144 7.92472 3.43674 7.82942L8.31769 2.94846C8.50842 2.75774 8.81726 2.75774 9.00786 2.94846C9.19846 3.13919 9.19858 3.44803 9.00786 3.63863L4.47199 8.1745L9.00786 12.7104C9.19858 12.9011 9.19858 13.2099 9.00786 13.4005C8.81714 13.5911 8.50829 13.5913 8.31769 13.4005L3.43674 8.51958C3.34144 8.42428 3.29373 8.29933 3.29373 8.1745ZM7.3415 8.51958L12.2225 13.4005C12.4132 13.5913 12.722 13.5913 12.9126 13.4005C13.1032 13.2098 13.1033 12.901 12.9126 12.7104L8.37675 8.1745L12.9126 3.63863C13.1033 3.44791 13.1033 3.13906 12.9126 2.94846C12.7219 2.75786 12.4131 2.75774 12.2225 2.94846L7.3415 7.82942C7.2462 7.92472 7.19849 8.04967 7.19849 8.1745C7.19849 8.29933 7.2462 8.42428 7.3415 8.51958Z" fill="#1E1F1F" />
-                                                    </svg>
+                                @php $section6 = $section->where('section_no', 6)->where('status', 1)->first(); @endphp
+                                @if($section6)
+                                    <div class="con-12">
+                                        <div class="swiper bloggird_slides blog_slider_box">
+                                            @if($slug=='prex-blogs')
+                                            <div class="bloggird_arrow d-flex align-items-center justify-content-between">
+                                                <div class="title">
+                                                    <h6>
+                                                        {{ $section6->{config('app.locale').'_title'} }}
+                                                    </h6>
                                                 </div>
-                                                <div class="swiper-button-next">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M12.7063 8.1745C12.7063 8.04967 12.6586 7.92472 12.5633 7.82942L7.68231 2.94846C7.49158 2.75774 7.18274 2.75774 6.99214 2.94846C6.80154 3.13919 6.80142 3.44803 6.99214 3.63863L11.528 8.1745L6.99214 12.7104C6.80142 12.9011 6.80142 13.2099 6.99214 13.4005C7.18286 13.5911 7.49171 13.5913 7.68231 13.4005L12.5633 8.51958C12.6586 8.42428 12.7063 8.29933 12.7063 8.1745ZM8.6585 8.51958L3.77754 13.4005C3.58682 13.5913 3.27798 13.5913 3.08738 13.4005C2.89678 13.2098 2.89665 12.901 3.08738 12.7104L7.62325 8.1745L3.08738 3.63863C2.89666 3.44791 2.89666 3.13906 3.08738 2.94846C3.2781 2.75786 3.58694 2.75774 3.77754 2.94846L8.6585 7.82942C8.7538 7.92472 8.80151 8.04967 8.80151 8.1745C8.80151 8.29933 8.7538 8.42428 8.6585 8.51958Z" fill="#1E1F1F" />
-                                                    </svg>
+                                                <div class="nextPrev-box d-flex align-items-center">
+                                                    <div class="swiper-button-prev">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M3.29373 8.1745C3.29373 8.04967 3.34144 7.92472 3.43674 7.82942L8.31769 2.94846C8.50842 2.75774 8.81726 2.75774 9.00786 2.94846C9.19846 3.13919 9.19858 3.44803 9.00786 3.63863L4.47199 8.1745L9.00786 12.7104C9.19858 12.9011 9.19858 13.2099 9.00786 13.4005C8.81714 13.5911 8.50829 13.5913 8.31769 13.4005L3.43674 8.51958C3.34144 8.42428 3.29373 8.29933 3.29373 8.1745ZM7.3415 8.51958L12.2225 13.4005C12.4132 13.5913 12.722 13.5913 12.9126 13.4005C13.1032 13.2098 13.1033 12.901 12.9126 12.7104L8.37675 8.1745L12.9126 3.63863C13.1033 3.44791 13.1033 3.13906 12.9126 2.94846C12.7219 2.75786 12.4131 2.75774 12.2225 2.94846L7.3415 7.82942C7.2462 7.92472 7.19849 8.04967 7.19849 8.1745C7.19849 8.29933 7.2462 8.42428 7.3415 8.51958Z" fill="#1E1F1F" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="swiper-button-next">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.7063 8.1745C12.7063 8.04967 12.6586 7.92472 12.5633 7.82942L7.68231 2.94846C7.49158 2.75774 7.18274 2.75774 6.99214 2.94846C6.80154 3.13919 6.80142 3.44803 6.99214 3.63863L11.528 8.1745L6.99214 12.7104C6.80142 12.9011 6.80142 13.2099 6.99214 13.4005C7.18286 13.5911 7.49171 13.5913 7.68231 13.4005L12.5633 8.51958C12.6586 8.42428 12.7063 8.29933 12.7063 8.1745ZM8.6585 8.51958L3.77754 13.4005C3.58682 13.5913 3.27798 13.5913 3.08738 13.4005C2.89678 13.2098 2.89665 12.901 3.08738 12.7104L7.62325 8.1745L3.08738 3.63863C2.89666 3.44791 2.89666 3.13906 3.08738 2.94846C3.2781 2.75786 3.58694 2.75774 3.77754 2.94846L8.6585 7.82942C8.7538 7.92472 8.80151 8.04967 8.80151 8.1745C8.80151 8.29933 8.7538 8.42428 8.6585 8.51958Z" fill="#1E1F1F" />
+                                                        </svg>
+                                                    </div>
                                                 </div>
+    
                                             </div>
-
-                                        </div>
-
-                                        <div class="swiper-wrapper main_slides">
-                                            {{-- @foreach($articles->random()->get() as $randarticle) --}}
-                                            @foreach($random_articles as $randarticle)
-                                            <div class="swiper-slide items_grid">
-                                                <a href="{{ route('detail', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => $randarticle->id]) }}" class="blogBox-wrap">
-                                                    <div class="img-box">
-                                                        <img class="img-fluid" src="{{ $randarticle->image }}" data-src="{{ $randarticle->image }}" alt="{{ $randarticle->{config('app.locale').'_title'} }}">
-                                                    </div>
-                                                    <div class="blogTitle">
-                                                        <h6>
-                                                            {{ $randarticle->{config('app.locale').'_title'} }}
-                                                        </h6>
-                                                    </div>
-                                                    <ul class="bioData-blog">
-                                                        <li class="bioData-blog-link">
-                                                            <span>
-                                                                <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M8.33333 9.125V8.20833C8.33333 7.7221 8.14018 7.25579 7.79636 6.91197C7.45254 6.56815 6.98623 6.375 6.5 6.375H2.83333C2.3471 6.375 1.88079 6.56815 1.53697 6.91197C1.19315 7.25579 1 7.7221 1 8.20833V9.125" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                    <path d="M4.66732 4.54167C5.67984 4.54167 6.50065 3.72085 6.50065 2.70833C6.50065 1.69581 5.67984 0.875 4.66732 0.875C3.6548 0.875 2.83398 1.69581 2.83398 2.70833C2.83398 3.72085 3.6548 4.54167 4.66732 4.54167Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                </svg>
-                                                                {{ $randarticle->authors->name ?? 'Admin' }}
-                                                            </span>
-                                                        </li>
-                                                        <li class="bioData-blog-link">
-                                                            <span>
-                                                                <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M8.66683 2.33337H2.25016C1.7439 2.33337 1.3335 2.74378 1.3335 3.25004V9.66671C1.3335 10.173 1.7439 10.5834 2.25016 10.5834H8.66683C9.17309 10.5834 9.5835 10.173 9.5835 9.66671V3.25004C9.5835 2.74378 9.17309 2.33337 8.66683 2.33337Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                    <path d="M7.2915 1.41675V3.25008" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                    <path d="M3.62549 1.41675V3.25008" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                    <path d="M1.3335 5.08337H9.5835" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                </svg>
-                                                                {{ $randarticle->created_at ?(config('app.locale')=='ja'? $randarticle->created_at->locale('ja_JP')->translatedFormat('Y年m月d日'): date('M d, Y', strtotime($randarticle->created_at))) : ''}}
-                                                            </span>
-                                                        </li>
-                                                        <li class="bioData-blog-link">
-                                                            <span>
-                                                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M0.583496 5.00004C0.583496 5.00004 2.41683 1.33337 5.62516 1.33337C8.8335 1.33337 10.6668 5.00004 10.6668 5.00004C10.6668 5.00004 8.8335 8.66671 5.62516 8.66671C2.41683 8.66671 0.583496 5.00004 0.583496 5.00004Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                    <path d="M5.62549 6.375C6.38488 6.375 7.00049 5.75939 7.00049 5C7.00049 4.24061 6.38488 3.625 5.62549 3.625C4.8661 3.625 4.25049 4.24061 4.25049 5C4.25049 5.75939 4.8661 6.375 5.62549 6.375Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
-                                                                </svg>
-                                                                {{ $randarticle->views ?? 0}}
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="description">
-                                                        <p>
-                                                            @if(strlen(utf8_decode(strip_tags($randarticle->{config('app.locale').'_desc'}))) > 100)
-                                                            {!! Illuminate\Support\Str::limit(strip_tags($randarticle->{config('app.locale').'_desc'}), 150) !!}
-                                                            @else
-                                                            {!! $randarticle->{config('app.locale').'_desc'} !!}
-                                                            @endif
-                                                        </p>
-                                                    </div>
-                                                </a>
+    
+                                            <div class="swiper-wrapper main_slides">
+                                                {{-- @foreach($articles->random()->get() as $randarticle) --}}
+                                                @foreach($random_articles as $randarticle)
+                                                <div class="swiper-slide items_grid">
+                                                    <a href="{{ route('detail', ['locale' => config('app.locale'), 'slug' => $slug, 'article_id' => $randarticle->slug_url]) }}" class="blogBox-wrap">
+                                                        <div class="img-box">
+                                                            <img class="img-fluid" src="{{ $randarticle->image }}" data-src="{{ $randarticle->image }}" alt="{{ $randarticle->{config('app.locale').'_title'} }}">
+                                                        </div>
+                                                        <div class="blogTitle">
+                                                            <h6>
+                                                                {{ $randarticle->{config('app.locale').'_title'} }}
+                                                            </h6>
+                                                        </div>
+                                                        <ul class="bioData-blog">
+                                                            <li class="bioData-blog-link">
+                                                                <span>
+                                                                    <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M8.33333 9.125V8.20833C8.33333 7.7221 8.14018 7.25579 7.79636 6.91197C7.45254 6.56815 6.98623 6.375 6.5 6.375H2.83333C2.3471 6.375 1.88079 6.56815 1.53697 6.91197C1.19315 7.25579 1 7.7221 1 8.20833V9.125" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        <path d="M4.66732 4.54167C5.67984 4.54167 6.50065 3.72085 6.50065 2.70833C6.50065 1.69581 5.67984 0.875 4.66732 0.875C3.6548 0.875 2.83398 1.69581 2.83398 2.70833C2.83398 3.72085 3.6548 4.54167 4.66732 4.54167Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                    </svg>
+                                                                    {{ $randarticle->authors->name ?? 'Admin' }}
+                                                                </span>
+                                                            </li>
+                                                            <li class="bioData-blog-link">
+                                                                <span>
+                                                                    <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M8.66683 2.33337H2.25016C1.7439 2.33337 1.3335 2.74378 1.3335 3.25004V9.66671C1.3335 10.173 1.7439 10.5834 2.25016 10.5834H8.66683C9.17309 10.5834 9.5835 10.173 9.5835 9.66671V3.25004C9.5835 2.74378 9.17309 2.33337 8.66683 2.33337Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        <path d="M7.2915 1.41675V3.25008" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        <path d="M3.62549 1.41675V3.25008" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        <path d="M1.3335 5.08337H9.5835" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                    </svg>
+                                                                    {{ $randarticle->created_at ?(config('app.locale')=='ja'? $randarticle->created_at->locale('ja_JP')->translatedFormat('Y年m月d日'): date('M d, Y', strtotime($randarticle->created_at))) : ''}}
+                                                                </span>
+                                                            </li>
+                                                            <li class="bioData-blog-link">
+                                                                <span>
+                                                                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M0.583496 5.00004C0.583496 5.00004 2.41683 1.33337 5.62516 1.33337C8.8335 1.33337 10.6668 5.00004 10.6668 5.00004C10.6668 5.00004 8.8335 8.66671 5.62516 8.66671C2.41683 8.66671 0.583496 5.00004 0.583496 5.00004Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        <path d="M5.62549 6.375C6.38488 6.375 7.00049 5.75939 7.00049 5C7.00049 4.24061 6.38488 3.625 5.62549 3.625C4.8661 3.625 4.25049 4.24061 4.25049 5C4.25049 5.75939 4.8661 6.375 5.62549 6.375Z" stroke="#5B687A" stroke-linecap="round" stroke-linejoin="round" />
+                                                                    </svg>
+                                                                    {{ $randarticle->views ?? 0}}
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="description">
+                                                            <p>
+                                                                @if(strlen(utf8_decode(strip_tags($randarticle->{config('app.locale').'_desc'}))) > 100)
+                                                                {!! Illuminate\Support\Str::limit(strip_tags($randarticle->{config('app.locale').'_desc'}), 150) !!}
+                                                                @else
+                                                                {!! $randarticle->{config('app.locale').'_desc'} !!}
+                                                                @endif
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                @endforeach
                                             </div>
-                                            @endforeach
+                                            @endif
                                         </div>
-                                        @endif
                                     </div>
-                                </div>
-
+                                @endif
+                                
                                 <div class="col-12">
                                     <div class="commentBox-wrapper {{($article->comments->count() > 3) ? 'show-comment' : '' }}">
                                         <div class="commentBox-inner textDetails showDetails-height">
@@ -408,7 +424,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 </div>
                                 <div class="blogTitle">
                                     <h6>
-                                        <a class="latestBlog-gridList-box-link-tab" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->id]) }}">
+                                        <a class="latestBlog-gridList-box-link-tab" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->slug_url]) }}">
                                             {{ $random_articles[$i]->{config('app.locale').'_title'} }}
                                         </a>
                                     </h6>
@@ -450,7 +466,7 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                                 <div class="latestBlog-gridList">
                                     <ul class="latestBlog-gridList-box">
                                         @for($i=5; $i<=7; $i++) @if(isset($random_articles[$i]) && $random_articles[$i]) <li class="latestBlog-gridList-box-link">
-                                            <a class="latestBlog-gridList-box-link-tab" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->id]) }}">
+                                            <a class="latestBlog-gridList-box-link-tab" href="{{ route('detail', ['locale' => config('app.locale'),'slug' => $slug, 'article_id' => $random_articles[$i]->slug_url]) }}">
                                                 <div class="rightBox">
                                                     <div class="blogTitle">
                                                         <h6>
@@ -501,27 +517,33 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                         </div>
                     </div>
 
+                    @php $section4 = $section->where('section_no', 4)->where('status', 1)->first();
+                    $sectionEnLink4 = $section4 ? json_decode($section4->en_link) : null;
+                    $sectionJaLink4 = $section4 ? json_decode($section4->ja_link) : null; @endphp
+                    @if($section4)
                     <div class="col-12">
-                        <div class="appAdd-wrapper">
+                        <div class="appAdd-wrapper" style="{{ $section4->image ? 'background-image: url(' . $section4->image . '); background-repeat: no-repeat; background-size: cover;' : '' }}">
                             <div class="logoAdd">
                                 <img class="img-fluid" src="{{asset('fixifx/images/w-lg-logo.svg')}}" alt="">
                             </div>
                             <div class="appTitle">
                                 <h6>
-                                    Best Trading App Open Your
-                                    Account Now!
+                                    {{ $section4->{config('app.locale').'_title'} }}
                                 </h6>
                             </div>
                             <div class="appText">
-                                <p>
-                                    The online FX industry provides a platform for investors worldwide to engage in the buying and selling.
-                                </p>
+                                {!! $section4->{config('app.locale').'_desc'} !!}
                             </div>
                             <div class="appBtn">
-                                <a href="javascript:void(0);" class="custom-btn fill-btn-1">Open Account Now!</a>
+                                @if(config('app.locale') == 'en')
+                                <a href="{{ isset($sectionEnLink4[0]) ? $sectionEnLink4[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.open_account_now_btn')}}</a>
+                                @else
+                                <a href="{{ isset($sectionJaLink4[0]) ? $sectionJaLink4[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.open_account_now_btn')}}</a>
+                                @endif
                             </div>
                         </div>
                     </div>
+                    @endif
 
                     @if(count($tags))
                     <div class="col-12">
@@ -620,33 +642,39 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                         </div>
                     </div>
 
+                    @php $section5 = $section->where('section_no', 5)->where('status', 1)->first();
+                    $sectionEnLink5 = $section5 ? json_decode($section5->en_link) : null;
+                    $sectionJaLink5 = $section5 ? json_decode($section5->ja_link) : null; @endphp
+                    @if($section5)
                     <div class="col-12">
-                        <div class="appAdd-wrapper">
+                        <div class="appAdd-wrapper" style="{{ $section5->image ? 'background-image: url(' . $section5->image . '); background-repeat: no-repeat; background-size: cover;' : '' }}">
                             <div class="logoAdd">
                                 <img class="img-fluid" src="{{asset('fixifx/images/w-lg-logo.svg')}}" alt="">
                             </div>
                             <div class="appTitle">
                                 <h6>
-                                    Best Trading App Open Your
-                                    Account Now!
+                                    {{ $section5->{config('app.locale').'_title'} }}
                                 </h6>
                             </div>
                             <div class="appText">
-                                <p>
-                                    The online FX industry provides a platform for investors worldwide to engage in the buying and selling.
-                                </p>
+                                {!! $section5->{config('app.locale').'_desc'} !!}
                             </div>
                             <div class="broker-img">
                                 <img class="img-fluid" src="{{ asset('storage/Setting/'.getSettingValue('blog_bottom_banner')) }}" alt="{{ config('app.locale') == 'ja' ? 'FiXi FX（フィクシー）ブログ' : 'FiXi FX Blog' }}">
                             </div>
 
                             {{-- <div class="broker-img">
-                                    <img class="img-fluid" src="{{asset('fixifx/images/laptop.png')}}" alt="{{ config('app.locale') == 'ja' ? 'FiXi FX（フィクシー）ブログ' : 'FiXi FX Blog' }}">
+                                        <img class="img-fluid" src="{{asset('fixifx/images/laptop.png')}}" alt="{{ config('app.locale') == 'ja' ? 'FiXi FX（フィクシー）ブログ' : 'FiXi FX Blog' }}">
                         </div> --}}
                         <div class="appBtn">
-                            <a href="javascript:void(0);" class="custom-btn fill-btn-1">Open Account Now!</a>
+                            @if(config('app.locale') == 'en')
+                            <a href="{{ isset($sectionEnLink5[0]) ? $sectionEnLink5[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.open_account_now_btn')}}</a>
+                            @else
+                            <a href="{{ isset($sectionJaLink5[0]) ? $sectionJaLink5[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.open_account_now_btn')}}</a>
+                            @endif
                         </div>
                     </div>
+                    @endif
                 </div>
 
             </div>
@@ -661,6 +689,19 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
 
 @section('javascript')
 <script>
+    $(document).on('click', '.ss-btn-share', function(e) {
+        e.preventDefault();
+        if (navigator.share) {
+            navigator.share({
+                    url: this.getAttribute("data-ss-link")
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                })
+                .catch(console.error);
+        } else {
+            console.log('This brownser dont support native web share!');
+        }
+    });
     $(document).ready(function() {
         $('#reply').validate({
             errorClass: 'invalid-feedback animated fadeInDown error',
@@ -670,7 +711,6 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
                     required: true,
                     minlength: 3,
                     maxlength: 20,
-                    // pattern: /^[A-Za-z\s]+$/,
                 },
                 'lname': {
                     required: true,
@@ -735,5 +775,96 @@ $description_jp = 'FiXi FX（フィクシー）のブログ「'. $article->{conf
             },
         });
     });
+
+    // from country list
+    $('.from_code').select2({
+        templateResult: formatState,
+        templateSelection: formatStateSelection
+    });
+
+    function formatState(state) {
+        if (!state.id) {
+            return state.text;
+        }
+        var $state = $(
+            '<span><img src="' + $(state.element).attr('data-src') + '" class="img-flag" /> ' + state.text + '</span>'
+        );
+        return $state;
+    };
+
+    function formatStateSelection(state) {
+        if (!state.id) {
+            return state.text;
+        }
+
+        var $state = $(
+            '<span><img src="' + $(state.element).data('src') + '" class="img-flag" /> ' + state.text + '</span>'
+        );
+        return $state;
+    }
+
+
+    // to country list
+    $('.to_code').select2({
+        templateResult: formatStatecode,
+        templateSelection: formatStateSelectioncode
+
+
+    });
+
+    function formatStatecode(state) {
+        if (!state.id) {
+            return state.text;
+        }
+        var $state = $(
+            '<span><img src="' + $(state.element).attr('data-src') + '" class="img-flag" /> ' + state.text + '</span>'
+        );
+        return $state;
+    };
+
+    function formatStateSelectioncode(state) {
+        if (!state.id) {
+            return state.text;
+        }
+
+        var $state = $(
+            '<span><img src="' + $(state.element).data('src') + '" class="img-flag" /> ' + state.text + '</span>'
+        );
+        return $state;
+    }
+
+    // currency exchange
+    $(document).ready(function() {
+        $('#currency_amount').val('1');
+        $('#from_code').val('USD');
+        $('#to_code').val('JPY');
+
+        currency_exchange($('#currency_amount').val(), $('#from_code').val(), $('#to_code').val());
+    });
+
+    $(document).on('change keyup', '#currency_amount, #from_code, #to_code', function() {
+        var amount = $('#currency_amount').val();
+        var from_code = $('#from_code').val();
+        var to_code = $('#to_code').val();
+        currency_exchange(amount, from_code, to_code);
+    });
+
+    function currency_exchange(amount, from_code, to_code) {
+        if (amount === '0') {
+            $('#from_amt').html(amount);
+            $('#result').html('0.00');
+            return;
+        }
+        $.ajax({
+            url: 'https://api.currencylayer.com/convert?access_key=156008d1a480152fc96284714da5a892&from=' + from_code + '&to=' + to_code + '&amount=' + amount,
+            dataType: 'jsonp',
+            success: function(json) {
+                $('#from_amt').html(amount);
+                $('#from_currency').html(from_code);
+                $('#result').html(json.result);
+                $('#to_currency').html(to_code);
+            }
+        });
+    }
 </script>
 @endsection

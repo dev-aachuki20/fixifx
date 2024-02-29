@@ -38,7 +38,19 @@
                     @if($sub_sec->{config('app.locale').'_title'})
                     <div class="step_info_box">
                         <div class="step_info_count">{{ ($k + 1) }}</div>
-                        <div class="info_icon_bg ml-0 icon_sm"><img src="{{ asset('front/img/icons/page-icon/MT4-Client-Desktop/'.$sub_sec->icon) }}" class="page_icon" alt="{{$common_section_icon_alt}}" loading="lazy"></div>
+                        <div class="info_icon_bg ml-0 icon_sm">
+                            @if($k == 0)
+                            <img src="{{ asset('front/img/icons/page-icon/MT4-Client-Desktop/icn_signup.svg') }}" class="page_icon" alt="{{$common_section_icon_alt}}" loading="lazy">
+                            @endif
+
+                            @if($k == 1)
+                            <img src="{{ asset('front/img/icons/page-icon/MT4-Client-Desktop/icn_Fund your account.svg') }}" class="page_icon" alt="{{$common_section_icon_alt}}" loading="lazy">
+                            @endif
+                        
+                            @if($k == 2)
+                            <img src="{{ asset('front/img/icons/page-icon/MT4-Client-Desktop/icn_Trading Accounts.svg') }}" class="page_icon" alt="{{$common_section_icon_alt}}" loading="lazy">
+                            @endif
+                        </div>
                         <h3 class="uk-margin-top  mt-4">{{ $sub_sec->{config('app.locale').'_title'} }}</h3>
                         <p>{!! $sub_sec->{config('app.locale').'_desc'} !!}</p>
                     </div>   

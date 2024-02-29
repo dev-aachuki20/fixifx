@@ -29,7 +29,7 @@
               </div>
               <div class="package-list-details">
                 <ul>
-                  @for($i=1; $i<=8; $i++) @if(getSettingValue('pro_title_'.config('app.locale').'_'.$i)) <li> {{getSettingValue('pro_title_'.config('app.locale').'_'.$i)}} is {{getSettingValue('pro_value_'.$i) }}
+                  @for($i=1; $i<=8; $i++) @if(getSettingValue('pro_title_'.config('app.locale').'_'.$i)) <li> {{getSettingValue('pro_title_'.config('app.locale').'_'.$i)}}: {{getSettingValue('pro_value_'.$i) }}
                     </li>
                     @endif
                     @endfor
@@ -69,7 +69,7 @@
               </div>
               <div class="package-list-details">
                 <ul>
-                  @for($i=1; $i<=8; $i++) @if(getSettingValue('standard_title_'.config('app.locale').'_'.$i)) <li>{{getSettingValue('standard_title_'.config('app.locale').'_'.$i) }} is {{ getSettingValue('standard_value_'.$i) }}</li>
+                  @for($i=1; $i<=8; $i++) @if(getSettingValue('standard_title_'.config('app.locale').'_'.$i)) <li>{{getSettingValue('standard_title_'.config('app.locale').'_'.$i) }}: {{ getSettingValue('standard_value_'.$i) }}</li>
                     @endif
                     @endfor
                 </ul>
@@ -106,7 +106,7 @@
               </div>
               <div class="package-list-details">
                 <ul>
-                  @for($i=1; $i<=8; $i++) @if(getSettingValue('premium_title_'.config('app.locale').'_'.$i)) <li>{{getSettingValue('premium_title_'.config('app.locale').'_'.$i)}} is {{getSettingValue('premium_value_'.$i) }}</li>
+                  @for($i=1; $i<=8; $i++) @if(getSettingValue('premium_title_'.config('app.locale').'_'.$i)) <li>{{getSettingValue('premium_title_'.config('app.locale').'_'.$i)}}: {{getSettingValue('premium_value_'.$i) }}</li>
                     @endif
                     @endfor
                 </ul>
@@ -145,7 +145,7 @@
               </div>
               <div class="package-list-details">
                 <ul>
-                  @for($i=1; $i<=8; $i++) @if(getSettingValue('ecn_title_'.config('app.locale').'_'.$i)) <li>{{getSettingValue('ecn_title_'.config('app.locale').'_'.$i)}} is from {{getSettingValue('ecn_value_'.$i) }} pips ～</li>
+                  @for($i=1; $i<=8; $i++) @if(getSettingValue('ecn_title_'.config('app.locale').'_'.$i)) <li>{{getSettingValue('ecn_title_'.config('app.locale').'_'.$i)}}: {{getSettingValue('ecn_value_'.$i) }}</li>
                     @endif
                     @endfor
                 </ul>

@@ -22,7 +22,9 @@ class MenuPageDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function($data){
-                return '<button class="btn btn-sm btn-success edit_menu_page" data-page_id='.$data->id.' data-bs-toggle="modal" data-bs-target="#EditMenuPageModal">Edit</button>';
+                return '<button class="btn btn-sm btn-success edit_menu_page" data-page_id='.$data->id.' data-bs-toggle="modal" data-bs-target="#MenuPageModal">Edit</button>';
+
+                // return '<button class="btn btn-sm btn-success edit_menu_page" data-page_id='.$data->id.' data-bs-toggle="modal" data-bs-target="#EditMenuPageModal">Edit</button>';
             })
             ->editColumn('status',function($data) {
                 if($data->status == 0) {
@@ -32,10 +34,10 @@ class MenuPageDataTable extends DataTable
                 }
             })
             ->editColumn('menu_id', function($data){
-                return $data->menu->en_name;
+                return $data->menu->en_name ?? '';
             })
             ->editColumn('sub_menu_id', function($data){
-                return $data->subMenu->en_name;
+                return $data->subMenu->en_name ?? '';
             })
             ->addIndexColumn()
             ->rawColumns(['status', 'action']);

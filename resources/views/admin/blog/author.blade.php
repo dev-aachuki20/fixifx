@@ -134,6 +134,7 @@
             success : function (res) {
                 if(res) {
                     $('#AuthorModal').modal('hide');
+                    $('#EditAuthorModal').modal('hide');
                     window.LaravelDataTables["articleauthor-table"].draw();
                 }
             },

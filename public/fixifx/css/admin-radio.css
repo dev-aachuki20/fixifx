@@ -1,0 +1,7 @@
+.radio-error .form-check .invalid-feedback{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: max-content;
+    margin-top: 2px;
+}

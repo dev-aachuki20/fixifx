@@ -162,9 +162,5 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(web版･�
     </div>
 </section>
 <!-- end  -->
-
-<!-- Fixi’s OpenAPI Ready to get started? -->
 @include('front.layouts.partials.explore_to_get_start')
-<!-- end  -->
-
 @endsection

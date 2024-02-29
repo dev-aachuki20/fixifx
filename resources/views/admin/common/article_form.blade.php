@@ -102,12 +102,27 @@
                             <label for="title" class="form-label">Title (English)</label>
                             <input type="text" class="form-control en_title" id="title" name="en_title" value="{{ old('en_title', isset($article->en_title) ? $article->en_title : '') }}">
                         </div>
+                        @error('en_title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-xxl-6 col-md-6">
                         <div>
                             <label for="title" class="form-label">title (Japanese)</label>
                             <input type="text" class="form-control ja_title" id="ja_title" name="ja_title" value="{{ old('ja_title', isset($article->ja_title) ? $article->ja_title : '') }}">
                         </div>
+                    </div>
+                </div>
+                
+                <div class="row gy-4 mt-2">
+                    <div class="col-xxl-12 col-md-12">
+                        <div>
+                            <label for="title" class="form-label">Slug URL</label>
+                            <input type="text" required="" class="form-control en_title" id="slug_url" name="slug_url" value="{{ old('slug_url', isset($article->slug_url) ? $article->slug_url : '') }}">
+                        </div>
+                        @error('slug_url')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
@@ -155,6 +170,22 @@
                         </div>
                     </div>
                 </div>
+                @if($slug == 'prex-blogs')
+                <div class="row mt-4">
+                    <div class="col-xxl-6 col-md-6">
+                        <div>
+                            <label for="dec" class="form-label">Article Note (English)</label>
+                            <textarea name="en_note" class="ckeditor_custom" id="desc" cols="30" rows="10">{!! old('en_note', isset($article->en_note) ? $article->en_note : '') !!}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-xxl-6 col-md-6">
+                        <div>
+                            <label for="dec" class="form-label">Article Note (Japanese)</label>
+                            <textarea name="ja_note" class="ckeditor_custom" id="desc" cols="30" rows="10">{!! old('ja_note', isset($article->ja_note) ? $article->ja_note : '') !!}</textarea>
+                        </div>
+                    </div>
+                </div>
+                @endif
 
                 <input type="submit" class="btn btn-primary mt-4" value="Submit">
             </form>
@@ -250,6 +281,14 @@
         });
 
     });
+    
+    $('#title').on('input', function() {
+            var title = $(this).val();
+            var slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            $('#slug_url').val(slug);
+    });
+    
+    
 </script>
 
 <script src="{{ asset('custom.js') }}"></script>

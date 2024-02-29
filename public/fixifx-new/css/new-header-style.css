@@ -1,0 +1,9 @@
+@media screen and (max-width: 1199px){
+    .menu-dropdown-col:not(.dropdown-pf-wrap .menu-dropdown-col){
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }  
+    body.openSidebar{
+        height: 100vh;
+    }
+}

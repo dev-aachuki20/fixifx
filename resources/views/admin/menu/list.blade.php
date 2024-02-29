@@ -3,6 +3,7 @@
 @section('title', 'Menu')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('custom.css') }}">
 
 <div class="animated fadeIn">
     <div class="row">
@@ -77,11 +78,11 @@
                 <h5 class="modal-title" id="EditMenuModalLabel">Menu Edit</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" id="edit_menu_form">
+            <form method="POST" id="edit_menu_form" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
                 <input type="hidden" name="menu_id" id="menu_id" value="">
-                @if(config('app.debug') == true)
+                {{-- @if(config('app.debug') == true)
                 <div class="row">
                     <div class="col-6">
                         <label for="customer-name" class="col-form-label">Icon</label>
@@ -89,7 +90,25 @@
                         <small>Note : Only for developers</small>
                     </div>
                 </div>
-                @endif
+                @endif --}}
+                
+                <!-- image -->
+                <div class="row">
+                    <div class="col-xxl-12 col-md-12 mb-3">
+                        <label for="title" class="form-label mx-2">Image</label>
+                        <div class="s-preview-img my-product-img">
+                            <input type="file" name="icon" class="form-control custom_img">
+
+                            <img src="" class="img-fluid" id="icon" alt="" loading="lazy"/>
+                            <a href="javascript:;" class="btn btn-theme p-img-remove"><i class="ri-close-circle-fill"></i></a>
+                            <div class="p-upload-icon">
+                                <i class="ri-upload-cloud-2-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end image -->
+                    
                 <div class="row">
                     <div class="col-6">
                         <label for="customer-name" class="col-form-label">Name (English):</label>
@@ -206,20 +225,28 @@
                 modal.find('.modal-body #ja_edit_menu_name').val(res.ja_name);
                 modal.find('.modal-body #en_edit_desc').val(res.en_desc);                
                 modal.find('.modal-body #ja_edit_desc').val(res.ja_desc);                
-                modal.find('.modal-body #icon').val(res.icon);                
+                // modal.find('.modal-body #icon').val(res.icon);     
+                
+                // Set the image source
+                var imageSrc = res.icon ? '{{ asset("storage/icons") }}/' + res.icon : '{{ asset("fixifx/images/default-image.jpg") }}';
+                modal.find('.modal-body #icon').attr('src', imageSrc);
             }
         });
     });
 
     $('#edit_menu_form').on('submit', function(){
         event.preventDefault();
+        var formData = new FormData($(this)[0]);
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             url : "{{ route('admin.menu.add') }}",
             type : 'POST',
-            data : $(this).serialize(),
+            processData: false,
+            contentType: false,
+            data: formData,
+            // data : $(this).serialize(),
             success : function (res) {
                 if(res.status == true) {
                     $('#EditMenuModal').modal('hide');
@@ -230,4 +257,7 @@
     })
 
 </script>
+ <!--image script -->
+<script src="{{ asset('custom.js') }}"></script>
+<!-- end image script -->
 @endpush

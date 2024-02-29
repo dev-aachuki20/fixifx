@@ -37,6 +37,7 @@ use App\Models\Cfd;
 use App\Models\Forex;
 use App\Models\Reward;
 use App\Models\ShareCategory;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -44,7 +45,6 @@ class HomeController extends Controller
     {
         if ($slug == 'home') {
             $section = Section::where('page_id', 0)->get();
-            // dd($section);
             return $dataTable->with(['page_id' => 0, 'slug' => 'home'])->render('admin.page.home', compact('section'));
         } elseif ($slug == 'common') {
             $common = Section::where('page_id', '-1')->get();
@@ -88,6 +88,11 @@ class HomeController extends Controller
 
         if ($slug == "rewards") {
             return $rewardTable->render('admin.page.' . $slug, compact('slug', 'section', 'page', 'page_id', 'faqs'));
+        }
+
+        if ($slug == "download-platform") {
+            $common = Section::where('page_id', '-1')->get();
+            return view('admin.common.' . $slug, compact('common', 'slug', 'section', 'page', 'page_id', 'faqs', 'payments', 'contact_data'));
         }
 
         return view('admin.page.' . $slug, compact('slug', 'section', 'page', 'page_id', 'faqs', 'payments', 'contact_data'));
@@ -323,12 +328,21 @@ class HomeController extends Controller
                 $section->ja_short_text =  isset($value['ja_short_text']) ? $value['ja_short_text'] : '';
                 $section->status        = isset($value['status']) ? 1 : 0;
                 $section->section_type  = isset($value['section_type']) ? $value['section_type'] : 0;
+                $section->section_type_jp  = isset($value['section_type_jp']) ? $value['section_type_jp'] : 0;
 
                 if (isset($value['type']) && $value['type'] == 2) {
                     $section->image = $value['image'];
                 } else {
                     if (isset($value['image']) && getType($value['image']) == "object") {
                         $section->image = uploadFile($value['image'], 'Section');
+                    }
+                }
+                
+                if (isset($value['ja_type']) && $value['ja_type'] == 2) {
+                    $section->ja_image = $value['ja_image'];
+                } else {
+                    if (isset($value['ja_image']) && getType($value['ja_image']) == "object") {
+                        $section->ja_image = uploadFile($value['ja_image'], 'Section');
                     }
                 }
                 $section->save();
@@ -338,6 +352,7 @@ class HomeController extends Controller
         }
 
         if (isset($request->faq)) {
+            
             $sectionData = Section::updateOrCreate(
                 [
                     'page_id'    => $request->page_id,
@@ -350,15 +365,13 @@ class HomeController extends Controller
             );
 
             foreach ($request->faq as $key => $value) {
-
                 $faq = new Faq();
-
                 if (isset($value['faq_id']) && $value['faq_id']) {
                     $faq = Faq::where('id', $value['faq_id'])->first();
                 }
 
                 $faq->page_id       =  $request->page_id;
-                $faq->section_id    =  $sectionData->id;
+                // $faq->section_id    =  $sectionData->id;
                 $faq->section_no    =  $request->section_no;
                 $faq->en_question   =  $value['en_question'];
                 $faq->ja_question   =  $value['ja_question'];
@@ -417,21 +430,40 @@ class HomeController extends Controller
 
     public function articleSave(Request $request)
     {
+         $request->validate([
+            'en_title' => [
+                'required',
+                'unique:articles,en_title,' . $request->article_id . ',id,page_id,' . $request->page_id,
+            ],
+            'slug_url' => [
+                'required',
+                'unique:articles,slug_url,' . $request->article_id . ',id,page_id,' . $request->page_id,
+            ],
+        ], [
+            'en_title.required' => 'Title is required',
+            'en_title.unique' => 'Title should be unique',
+            'slug_url.required' => 'Slug URL is required',
+            'slug_url.unique' => 'Slug URL should be unique',
+        ]);
+        
         $article = new Article();
         if ($request->article_id) {
             $article = Article::find($request->article_id);
         }
         $article->page_id = $request->page_id;
         $article->en_title = $request->en_title;
+        $article->slug_url = Str::slug($request->en_title);
         $article->ja_title = $request->ja_title;
         $article->en_desc = $request->en_desc;
         $article->ja_desc = $request->ja_desc;
+        $article->en_note = $request->en_note;
+        $article->ja_note = $request->ja_note;
         $article->tags    = $request->tags;
         $article->event_date  = $request->event_date;
         $article->category = $request->category;
         $article->author_id = $request->author_id;
         $article->category_id = $request->category_id;
-
+        $article->slug_url = $request->slug_url;
         /* if ($request->hasFile('image')) {
             $article->image = uploadFile($request->image, 'Article');
         } else if ($request->image == null) {
@@ -481,7 +513,7 @@ class HomeController extends Controller
                     $data->key = $key;
                 }
 
-                if (($key == 'terms_header_img') || ($key == 'privacy_header_img') || ($key == 'blog_bottom_banner') || ($key == 'blog_side_banner') || (str_contains($key, 'payment_')) || (str_contains($key, 'platform_'))) {
+                if (($key == 'terms_header_img') || ($key == 'privacy_header_img') || ($key == 'blog_bottom_banner') || ($key == 'blog_side_banner') || ($key == 'contact_country1_img') || ($key == 'contact_country2_img') || ($key == 'contact_country3_img') || ($key == 'contact_country4_img') || (str_contains($key, 'payment_')) || (str_contains($key, 'platform_'))) {
                     $data->value = uploadFile($value, 'Setting');
                 } else {
                     $data->value = $value ?: NULL;

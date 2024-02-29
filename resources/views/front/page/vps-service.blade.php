@@ -250,28 +250,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
         $('#vps_enquiry').validate({
             errorClass: 'invalid-feedback animated fadeInDown error',
             errorElement: 'div',
-            // rules: {
-            //     'fname': {
-            //         required: true,
-            //         minlength: 3,
-            //         maxlength: 20,
-            //         // pattern: /^[A-Za-z\s]+$/,
-            //     },
-            //     'lname': {
-            //         required: true,
-            //         minlength: 3,
-            //         maxlength: 40
-            //     },
-            //     'email': {
-            //         required: true,
-            //         email: true,
-            //     },
-            //     'phone_number': {
-            //         required: true,
-            //         // minlength: 10,
-            //         // maxlength: 15
-            //     },
-            // },
             highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
                 $(element).parents("div.form-control").addClass(errorClass).removeClass(validClass);

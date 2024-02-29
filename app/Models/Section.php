@@ -11,7 +11,7 @@ class Section extends Model
 
     protected $guarded = [];
 
-    protected $append = ['orignal_image'];
+    protected $append = ['orignal_image','orignal_ja_image'];
     
     public function subSection()
     {
@@ -36,6 +36,11 @@ class Section extends Model
     public function getOrignalImageAttribute($value)
     {
         return $this->getRawOriginal('image');
+    }
+    
+    public function getOrignalJaImageAttribute($value)
+    {
+        return $this->getRawOriginal('ja_image');
     }
 
     public function getVideoUrlAttribute($value)

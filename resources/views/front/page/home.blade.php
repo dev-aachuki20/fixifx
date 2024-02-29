@@ -56,6 +56,35 @@
 @endsection
 
 @section('javascript')
+<style>
+      .swiper-container.mySwiper>.swiper-wrapper .swiper-slide {
+    min-height: 100% !important;
+}
+      .broker-slide-box {
+        min-height:auto !important;
+        height: 100% !important;
+    }
+@media(max-width:767px) {
+        .broker-slide-box {
+        min-height:auto !important;
+        height: 100% !important;
+    }
+
+    /* .swiper-container.mySwiper>.swiper-wrapper {
+        height: 100% !important;
+        min-height: 100% !important;
+    } */
+
+    .swiper-container.mySwiper>.swiper-wrapper .swiper-slide {
+    min-height: 100% !important;
+}
+}
+/* @media screen and (max-width: 350px){
+html[lang="ja"] .broker-slide-box {
+    min-height: 190px !important;
+} 
+} */
+</style>
 @parent
 <script>
 $(document).ready(function () {

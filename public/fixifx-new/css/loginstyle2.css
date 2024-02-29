@@ -1,0 +1,263 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.login-wrapper {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 36%;
+    height: 100%;
+}
+
+.loginRight-wrap {
+    background: radial-gradient(150.35% 65.23% at 36.75% 34.45%, #06173E 0%, #0D1017 85.15%);
+    padding: 0 70px;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.loginRight-wrap .logobox {
+    padding-bottom: 30px;
+}
+
+.loginRight-wrap .subtext {
+    padding-bottom: 80px;
+}
+
+.loginRight-wrap .subtext p {
+    color: #ffffff;
+}
+
+/* end  */
+
+.loginLeft-wrap {
+    position: relative;
+}
+
+.loginLeft-wrap .backLeft {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+}
+
+.loginLeft-wrap .backLeft .backLeft-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all .3s ease-in-out;
+}
+
+.loginLeft-wrap .backLeft .backLeft-link svg,
+.loginLeft-wrap .backLeft .backLeft-link div {
+    transition: all .1s ease-in-out;
+}
+
+.loginLeft-wrap .backLeft .backLeft-link:hover svg path {
+    stroke: #2EEECE;
+}
+
+.loginLeft-wrap .backLeft .backLeft-link:hover div {
+    color: #2EEECE;
+}
+
+.loginLeft-wrap .backLeft .backLeft-link div {
+    color: #1E1F1F;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.loginLeft-wrap .innerLeft {
+    width: calc(100% - 30px);
+    max-width: 946px;
+    margin: 0 auto;
+    padding-top: 97px;
+}
+
+.loginTrader .inner-loginTrader {
+    padding: 30px 42px;
+    background-color: #F8F8F8;
+    /* border: 1px solid #D2E4E9; */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.loginTrader .inner-loginTrader .tradeBox {
+    border-radius: 10px;
+    border: 1px solid #D2E4E9;
+    background: #FFF;
+    padding: 30px;
+    width: 100%;
+}
+
+.loginTrader .inner-loginTrader .logoDark {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.loginTrader .inner-loginTrader .logoDark::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 5px;
+    background-color: #2EEECE;
+    border-radius: 5px;
+}
+
+.loginTrader .inner-loginTrader .tradeBox p {
+    margin-bottom: 27px;
+}
+
+.loginTrader .inner-loginTrader .tradeBox .button-group {
+    margin-top: 0;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.doubleboxLink {
+    justify-content: center;
+    gap: 20px;
+}
+
+.loginTrader .inner-loginTrader .tradeBox .button-group .fill-btn-1 {
+    width: 100%;
+    max-width: 140px;
+}
+
+.footerLeft {
+    padding: 13px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #d2e4e9;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerLeft p {
+    color: #9CA3AF;
+}
+
+.footerLeft p a {
+    color: #9CA3AF;
+}
+
+.footerLeft p a:hover {
+    color: #2EEECE;
+}
+
+.custom-btn {
+    text-transform: inherit;
+}
+
+@media(max-width:1500px) {
+
+    .login-wrapper {
+        grid-template-columns: 1fr 40%;
+    }
+
+    .loginRight-wrap {
+        padding: 0 30px;
+        height: 100%;
+    }
+
+    .footerLeft {
+        position: relative;
+    }
+
+    .loginLeft-wrap .backLeft {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .doubleboxLink {
+        flex-direction: column;
+    }
+
+    .login-wrapper {
+        height: auto !important; 
+    }
+}
+
+@media(max-width:991px) {
+    .login-wrapper {
+        height: auto !important; 
+    }
+
+    .login-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .loginLeft-wrap .innerLeft {
+        padding-top: 50px;
+    }
+
+    .loginRight-wrap {
+        padding: 30px 20px 50px;
+        height: auto !important;
+    }
+
+    .loginRight-wrap .subtext {
+        padding-bottom: 40px;
+    }
+
+    .loginTrader .inner-loginTrader .tradeBox .button-group .fill-btn-1 {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .loginLeft-wrap .backLeft {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .loginLeft-wrap .backLeft .backLeft-link svg path {
+        stroke: #ffffff;
+    }
+
+    .loginLeft-wrap .backLeft .backLeft-link div {
+        color: #ffffff;
+    }
+
+    .loginLeft-wrap {
+        position: inherit;
+    }
+
+    .loginRight-wrap .logobox {
+        padding-top: 30px;
+    }
+}
+
+@media(max-width:575px) {
+
+    .login-wrapper {
+        height: auto !important; 
+    }
+
+    .loginRight-wrap .logobox img {
+        max-width: 150px;
+    }
+
+    .loginTrader .inner-loginTrader {
+        padding: 30px 20px;
+    }
+
+    .custom-btn {
+        font-size: 13px;
+    }
+}

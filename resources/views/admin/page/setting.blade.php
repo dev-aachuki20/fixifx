@@ -35,8 +35,21 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" role="tab" href="#reward_setting">Fixi Rewards Setting</a>
+                    <a class="nav-link" data-bs-toggle="tab" role="tab" href="#logintab">Login</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" role="tab" href="#reward_setting">Rewards Setting</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" role="tab" href="#trade_platform_submenu_key">Trading Platform Menu Keys</a>
+                </li>
+
+               {{-- <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" role="tab" href="#contact_country_detail">Contact Country Details</a>
+                </li> --}}
+
             </ul>
         </div>
         <div class="card-body">
@@ -136,6 +149,20 @@
 
                         <div class="card">
                             <div class="card-body">
+
+                                <!-- footer copyright -->
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Footer Copyright (English)</label>
+                                        <input type="text" class="form-control" name="setting[footer_copyright_en]" value="{{ getSettingValue('footer_copyright_en') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Footer Copyright (Japanese)</label>
+                                        <input type="text" class="form-control" name="setting[footer_copyright_ja]" value="{{ getSettingValue('footer_copyright_ja') }}">
+                                    </div>
+                                </div>
+                                <!-- footer copyright end -->
+
                                 <div class="form-group row mt-4">
                                     <div class="col-md-6">
                                         <label class="form-label text-muted">Risk Title (English)</label>
@@ -216,6 +243,99 @@
                         </div>
                     </form>
                 </div>
+
+                <!-- login1tab -->
+                <div id="logintab" class="tab-pane"><br>
+                    <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="remove_sec_ids" class="remove_sec_ids" value="">
+                        @include('common.flash')
+                        <!-- ctrade -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>cTrader Link</h5>
+                                <div class="form-group row mt-1">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Login Link (English)</label>
+                                        <input type="url" class="form-control" id="phone" placeholder="Enter link here" name="setting[login_ctrader_en]" value="{{ getSettingValue('login_ctrader_en') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Login Link (Japanese)</label>
+                                        <input type="url" class="form-control" id="email" placeholder="Enter link here" name="setting[login_ctrader_ja]" value="{{ getSettingValue('login_ctrader_ja') }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Create Account Link (English)</label>
+                                        <input type="url" class="form-control" id="phone" placeholder="Enter link here" name="setting[create_account_ctrader_en]" value="{{ getSettingValue('create_account_ctrader_en') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Create Account Link (Japanese)</label>
+                                        <input type="url" class="form-control" id="email" placeholder="Enter link here" name="setting[create_account_ctrader_ja]" value="{{ getSettingValue('create_account_ctrader_ja') }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- metatrade5 -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>MetaTrader5 Link</h5>
+                                <div class="form-group row mt-1">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Login Link (English)</label>
+                                        <input type="url" class="form-control" id="phone" placeholder="Enter link here" name="setting[login_metatrader_en]" value="{{ getSettingValue('login_metatrader_en') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Login Link (Japanese)</label>
+                                        <input type="url" class="form-control" id="email" placeholder="Enter link here" name="setting[login_metatrader_ja]" value="{{ getSettingValue('login_metatrader_ja') }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Create Account Link (English)</label>
+                                        <input type="url" class="form-control" id="phone" placeholder="Enter link here" name="setting[create_account_metatrader_en]" value="{{ getSettingValue('create_account_metatrader_en') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Create Account Link (Japanese)</label>
+                                        <input type="url" class="form-control" id="email" placeholder="Enter link here" name="setting[create_account_metatrader_ja]" value="{{ getSettingValue('create_account_metatrader_ja') }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- advan -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>AdvanTrade Link</h5>
+                                <div class="form-group row mt-1">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Login Link (English)</label>
+                                        <input type="url" class="form-control" id="phone" placeholder="Enter link here" name="setting[login_advantrade_en]" value="{{ getSettingValue('login_advantrade_en') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Login Link (Japanese)</label>
+                                        <input type="url" class="form-control" id="email" placeholder="Enter link here" name="setting[login_advantrade_ja]" value="{{ getSettingValue('login_advantrade_ja') }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Create Account Link (English)</label>
+                                        <input type="url" class="form-control" id="phone" placeholder="Enter link here" name="setting[create_account_advanTrade_en]" value="{{ getSettingValue('create_account_advanTrade_en') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Create Account Link (Japanese)</label>
+                                        <input type="url" class="form-control" id="email" placeholder="Enter link here" name="setting[create_account_advanTrade_ja]" value="{{ getSettingValue('create_account_advanTrade_ja') }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-left">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- end login1tab -->
 
                 <div id="common_setting" class="tab-pane"><br>
                     <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
@@ -392,6 +512,61 @@
                         </div>
                     </form>
                 </div>
+
+
+
+                <!-- trading platform submenu key -->
+                <div id="trade_platform_submenu_key" class="tab-pane"><br>
+                    <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Title 1 (English)</label>
+                                        <input type="text" class="form-control" name="setting[trade_platform_submenu_key1_en]" value="{{ getSettingValue('trade_platform_submenu_key1_en') }}">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Title 1 (Japanese)</label>
+                                        <input type="text" class="form-control" name="setting[trade_platform_submenu_key1_ja]" value="{{ getSettingValue('trade_platform_submenu_key1_ja') }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Title 2 (English)</label>
+                                        <input type="text" class="form-control" name="setting[trade_platform_submenu_key2_en]" value="{{ getSettingValue('trade_platform_submenu_key2_en') }}">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Title 2 (Japanese)</label>
+                                        <input type="text" class="form-control" name="setting[trade_platform_submenu_key2_ja]" value="{{ getSettingValue('trade_platform_submenu_key2_ja') }}">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Title 3 (English)</label>
+                                        <input type="text" class="form-control" name="setting[trade_platform_submenu_key3_en]" value="{{ getSettingValue('trade_platform_submenu_key3_en') }}">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Title 3 (Japanese)</label>
+                                        <input type="text" class="form-control" name="setting[trade_platform_submenu_key3_ja]" value="{{ getSettingValue('trade_platform_submenu_key3_ja') }}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-left">
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                    </form>
+                </div>
+
                 <div id="home_setting" class="tab-pane"><br>
                     <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -422,27 +597,76 @@
                             @endfor
                         </div>
 
+                        <!-- metatrade link -->
                         <div class="card mt-3">
-                            <div class="card-header">Download Platform Link</div>
+                            <div class="card-header">Download MetaTrader5 Platform Link</div>
                             <div class="card-body">
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <label class="form-label text-muted">Window</label>
-                                        <input type="text" class="form-control" id="window" placeholder="Enter download link for window" name="setting[window]" value="{{ getSettingValue('window') }}">
+                                        <input type="text" class="form-control" id="window" placeholder="Enter download link here" name="setting[window]" value="{{ getSettingValue('window') }}">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label text-muted">Apple</label>
-                                        <input type="text" class="form-control" id="apple" placeholder="Enter download link for apple" name="setting[apple]" value="{{ getSettingValue('apple') }}">
+                                        <input type="text" class="form-control" id="apple" placeholder="Enter download link here" name="setting[apple]" value="{{ getSettingValue('apple') }}">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-4">
                                     <div class="col-md-6">
                                         <label class="form-label text-muted">Ios</label>
-                                        <input type="text" class="form-control" id="ios " placeholder="Enter download link for ios" name="setting[ios]" value="{{ getSettingValue('ios') }}">
+                                        <input type="text" class="form-control" id="ios " placeholder="Enter download link here" name="setting[ios]" value="{{ getSettingValue('ios') }}">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label text-muted">Android</label>
-                                        <input type="text" class="form-control" id="android" placeholder="download link for android" name="setting[android]" value="{{ getSettingValue('android') }}">
+                                        <input type="text" class="form-control" id="android" placeholder="Enter download link here" name="setting[android]" value="{{ getSettingValue('android') }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ctrade link -->
+                        <div class="card mt-3">
+                            <div class="card-header">Download cTrader Platform Link</div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Window</label>
+                                        <input type="text" class="form-control" id="window" placeholder="Enter download link here" name="setting[cTrade_link_window]" value="{{ getSettingValue('cTrade_link_window') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Apple</label>
+                                        <input type="text" class="form-control" id="apple" placeholder="Enter download link here" name="setting[cTrader_link_apple]" value="{{ getSettingValue('cTrader_link_apple') }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Ios</label>
+                                        <input type="text" class="form-control" id="ios " placeholder="Enter download link here" name="setting[cTrader_link_ios]" value="{{ getSettingValue('cTrader_link_ios') }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Android</label>
+                                        <input type="text" class="form-control" id="android" placeholder="Enter download link here" name="setting[cTrader_link_android]" value="{{ getSettingValue('cTrader_link_android') }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- advan trade link -->
+                        <div class="card mt-3">
+                            <div class="card-header">Download Advan Trade Platform Link</div>
+                            <div class="card-body">
+                                <div class="form-group row mt-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Apple</label>
+                                        <input type="text" class="form-control" id="apple" placeholder="Enter download link here" name="setting[advanTrade_link_apple]" value="{{ getSettingValue('advanTrade_link_apple') }}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Ios</label>
+                                        <input type="text" class="form-control" id="ios " placeholder="Enter download link here" name="setting[advanTrade_link_ios]" value="{{ getSettingValue('advanTrade_link_ios') }}">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label text-muted">Android</label>
+                                        <input type="text" class="form-control" id="android" placeholder="Enter download link here" name="setting[advanTrade_link_android]" value="{{ getSettingValue('advanTrade_link_android') }}">
                                     </div>
                                 </div>
                             </div>
@@ -697,6 +921,235 @@
     {{$dataTable->table(['class' => 'table table-bordered dt-responsive nowrap','style' => 'width: 100%']) }}
 </div>
 
+{{--<div id="contact_country_detail" class="tab-pane"><br>
+    <form action="{{ route('admin.update_setting') }}" method="post" enctype="multipart/form-data">
+        @csrf
+
+        <div class="card">
+
+            <!-- title -->
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Title (English)</label>
+                    <input type="text" name="setting[contact_title_en]" class="form-control" value="{{ getSettingValue('contact_title_en') }}">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Title (Japanese)</label>
+                    <input type="text" name="setting[contact_title_ja]" class="form-control" value="{{ getSettingValue('contact_title_ja') }}">
+                </div>
+            </div>
+
+            <!-- description -->
+            <div class="form-group row mt-4">
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Description (English)</label>
+                    <textarea name="setting[contact_description_en]" class="terms ckeditor">{{ getSettingValue('contact_description_en') }}</textarea>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Description (Japanese)</label>
+                    <textarea name="setting[contact_description_ja]" class="terms ckeditor">{{ getSettingValue('contact_description_ja') }}</textarea>
+                </div>
+            </div>
+
+            <!-- country 1 -->
+            <div class="card-body">
+                <h6 class="p-3" style="background-color: #ced4da;">Country One</h6>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Image</label>
+                        <input type="file" name="setting[contact_country1_img]" class="form-control">
+                    </div>
+                    @if(getSettingValue('contact_country1_img'))
+                    <div class="col-md-6">
+                        <img src="{{ asset('storage/Setting/'.getSettingValue('contact_country1_img')) }}" loading="lazy" alt="" width="100px" height="100px">
+                    </div>
+                    @endif
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country1_name_en]" value="{{ getSettingValue('contact_country1_name_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country1_name_ja]" value="{{ getSettingValue('contact_country1_name_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country1_email_en]" value="{{ getSettingValue('contact_country1_email_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country1_email_ja]" value="{{ getSettingValue('contact_country1_email_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (English)</label>
+                        <textarea name="setting[contact_country1_address_en]" class="terms ckeditor">{{ getSettingValue('contact_country1_address_en') }}</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (Japanese)</label>
+                        <textarea name="setting[contact_country1_address_ja]" class="terms ckeditor">{{ getSettingValue('contact_country1_address_ja') }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- country 2 -->
+            <div class="card-body">
+                <h6 class="p-3" style="background-color: #ced4da;">Country Two</h6>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Image</label>
+                        <input type="file" name="setting[contact_country2_img]" class="form-control">
+                    </div>
+                    @if(getSettingValue('contact_country2_img'))
+                    <div class="col-md-6">
+                        <img src="{{ asset('storage/Setting/'.getSettingValue('contact_country2_img')) }}" loading="lazy" alt="" width="100px" height="100px">
+                    </div>
+                    @endif
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country2_name_en]" value="{{ getSettingValue('contact_country2_name_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country2_name_ja]" value="{{ getSettingValue('contact_country2_name_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country2_email_en]" value="{{ getSettingValue('contact_country2_email_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country2_email_ja]" value="{{ getSettingValue('contact_country2_email_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (English)</label>
+                        <textarea name="setting[contact_country2_address_en]" class="terms ckeditor">{{ getSettingValue('contact_country2_address_en') }}</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (Japanese)</label>
+                        <textarea name="setting[contact_country2_address_ja]" class="terms ckeditor">{{ getSettingValue('contact_country2_address_ja') }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- country 3 -->
+            <div class="card-body">
+                <h6 class="p-3" style="background-color: #ced4da;">Country Three</h6>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Image</label>
+                        <input type="file" name="setting[contact_country3_img]" class="form-control">
+                    </div>
+                    @if(getSettingValue('contact_country3_img'))
+                    <div class="col-md-6">
+                        <img src="{{ asset('storage/Setting/'.getSettingValue('contact_country3_img')) }}" loading="lazy" alt="" width="100px" height="100px">
+                    </div>
+                    @endif
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country3_name_en]" value="{{ getSettingValue('contact_country3_name_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country3_name_ja]" value="{{ getSettingValue('contact_country3_name_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country3_email_en]" value="{{ getSettingValue('contact_country3_email_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country3_email_ja]" value="{{ getSettingValue('contact_country3_email_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (English)</label>
+                        <textarea name="setting[contact_country3_address_en]" class="terms ckeditor">{{ getSettingValue('contact_country3_address_en') }}</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (Japanese)</label>
+                        <textarea name="setting[contact_country3_address_ja]" class="terms ckeditor">{{ getSettingValue('contact_country3_address_ja') }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- country 4 -->
+            <div class="card-body">
+                <h6 class="p-3" style="background-color: #ced4da;">Country Four</h6>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Image</label>
+                        <input type="file" name="setting[contact_country4_img]" class="form-control">
+                    </div>
+                    @if(getSettingValue('contact_country4_img'))
+                    <div class="col-md-6">
+                        <img src="{{ asset('storage/Setting/'.getSettingValue('contact_country4_img')) }}" loading="lazy" alt="" width="100px" height="100px">
+                    </div>
+                    @endif
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country4_name_en]" value="{{ getSettingValue('contact_country4_name_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Country Name (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country4_name_ja]" value="{{ getSettingValue('contact_country4_name_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (English)</label>
+                        <input type="text" class="form-control" name="setting[contact_country4_email_en]" value="{{ getSettingValue('contact_country4_email_en') }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Email (Japanese)</label>
+                        <input type="text" class="form-control" name="setting[contact_country4_email_ja]" value="{{ getSettingValue('contact_country4_email_ja') }}">
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (English)</label>
+                        <textarea name="setting[contact_country4_address_en]" class="terms ckeditor">{{ getSettingValue('contact_country4_address_en') }}</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Address (Japanese)</label>
+                        <textarea name="setting[contact_country4_address_ja]" class="terms ckeditor">{{ getSettingValue('contact_country4_address_ja') }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer text-left">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </form>
+</div> --}}
+
 
 <!-- reward -->
 <div id="reward_setting" class="tab-pane"><br>
@@ -794,141 +1247,141 @@
                                         <label class="form-label text-muted">Title (Japanese)</label>
                                         <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[classic_title_ja_{{$i}}]" value="{{ getSettingValue('classic_title_ja_'.$i) }}">
                                     </div>
-                                  {{--  <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <label class="form-label text-muted">Value</label>
                                         <input type="text" class="form-control" placeholder="Enter value" name="setting[classic_value_{{$i}}]" value="{{ getSettingValue('classic_value_'.$i) }}">
-                                    </div> --}}
-                            </div>
-                            @endfor
-                        </div>
-                    </div>
-                    <!-- end classic tab -->
-
-                    <!-- Advance -->
-                    <div class="tab-pane fade" id="advance" role="tabpanel" aria-labelledby="pro-tab">
-                        <!-- funding title -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="form-label text-muted">Advance Funding Title (English)</label>
-                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_advance_title_en]" value="{{ getSettingValue('rewards_funding_advance_title_en') }}">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-muted">Advance Funding Title (Japanese)</label>
-                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_advance_title_ja]" value="{{ getSettingValue('rewards_funding_advance_title_ja') }}">
-                            </div>
-                        </div>
-                        <!-- header -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="form-label text-muted">Advance Header (English)</label>
-                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header_en]" value="{{ getSettingValue('advance_header_en') }}">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-muted">Advance Standard Header (Japanese)</label>
-                                <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header_ja]" value="{{ getSettingValue('advance_header_ja') }}">
-                            </div>
-                        </div>
-                        @for($i=1; $i<=6; $i++) <div class="form-group row my-2">
-                            <div class="col-md-6">
-                                <label class="form-label text-muted">Title (English)</label>
-                                <input type="text" class="form-control" placeholder="Enter title" name="setting[advance_title_en_{{$i}}]" value="{{ getSettingValue('advance_title_en_'.$i) }}">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-muted">Title (Japanese)</label>
-                                <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[advance_title_ja_{{$i}}]" value="{{ getSettingValue('advance_title_ja_'.$i) }}">
-                            </div>
-                            {{--<div class="col-md-4">
-                                <label class="form-label text-muted">Value</label>
-                                <input type="text" class="form-control" id="android" placeholder="Enter value" name="setting[advance_value_{{$i}}]" value="{{ getSettingValue('advance_value_'.$i) }}">
                             </div> --}}
+                        </div>
+                        @endfor
                     </div>
-                    @endfor
                 </div>
-                <!-- end advance tab -->
+                <!-- end classic tab -->
 
-                <!-- elite -->
-                <div class="tab-pane fade" id="elite" role="tabpanel" aria-labelledby="ecn-tab">
+                <!-- Advance -->
+                <div class="tab-pane fade" id="advance" role="tabpanel" aria-labelledby="pro-tab">
                     <!-- funding title -->
                     <div class="row">
                         <div class="col-md-6">
-                            <label class="form-label text-muted">Elite Funding Title (English)</label>
-                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_elite_title_en]" value="{{ getSettingValue('rewards_funding_elite_title_en') }}">
+                            <label class="form-label text-muted">Advance Funding Title (English)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_advance_title_en]" value="{{ getSettingValue('rewards_funding_advance_title_en') }}">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label text-muted">Elite Funding Title (Japanese)</label>
-                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_elite_title_ja]" value="{{ getSettingValue('rewards_funding_elite_title_ja') }}">
+                            <label class="form-label text-muted">Advance Funding Title (Japanese)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_advance_title_ja]" value="{{ getSettingValue('rewards_funding_advance_title_ja') }}">
                         </div>
                     </div>
                     <!-- header -->
                     <div class="row">
                         <div class="col-md-6">
-                            <label class="form-label text-muted">Elite Header (English)</label>
-                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[elite_header_en]" value="{{ getSettingValue('elite_header_en') }}">
+                            <label class="form-label text-muted">Advance Header (English)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header_en]" value="{{ getSettingValue('advance_header_en') }}">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label text-muted">Elite Header (Japanese)</label>
-                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[elite_header_ja]" value="{{ getSettingValue('elite_header_ja') }}">
+                            <label class="form-label text-muted">Advance Standard Header (Japanese)</label>
+                            <input type="text" class="form-control" placeholder="Enter header title" name="setting[advance_header_ja]" value="{{ getSettingValue('advance_header_ja') }}">
                         </div>
                     </div>
-                    @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
+                    @for($i=1; $i<=6; $i++) <div class="form-group row my-2">
                         <div class="col-md-6">
                             <label class="form-label text-muted">Title (English)</label>
-                            <input type="text" class="form-control" placeholder="Enter title" name="setting[elite_title_en_{{$i}}]" value="{{ getSettingValue('elite_title_en_'.$i) }}">
+                            <input type="text" class="form-control" placeholder="Enter title" name="setting[advance_title_en_{{$i}}]" value="{{ getSettingValue('advance_title_en_'.$i) }}">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-muted">Title (Japanese)</label>
-                            <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[elite_title_ja_{{$i}}]" value="{{ getSettingValue('elite_title_ja_'.$i) }}">
+                            <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[advance_title_ja_{{$i}}]" value="{{ getSettingValue('advance_title_ja_'.$i) }}">
                         </div>
-                        {{-- <div class="col-md-4">
-                            <label class="form-label text-muted">Value</label>
-                            <input type="text" class="form-control" placeholder="Enter value" name="setting[elite_value_{{$i}}]" value="{{ getSettingValue('elite_value_'.$i) }}">
-                        </div> --}}
-                </div>
-                @endfor
-            </div>
-            <!-- elite end -->
-
-            <!-- Ambassador -->
-            <div class="tab-pane fade" id="ambassador" role="tabpanel" aria-labelledby="premium-tab">
-                <!-- funding title -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="form-label text-muted">Ambassador Funding Title (English)</label>
-                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_ambassador_title_en]" value="{{ getSettingValue('rewards_funding_ambassador_title_en') }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label text-muted">Ambassador Funding Title (Japanese)</label>
-                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_ambassador_title_ja]" value="{{ getSettingValue('rewards_funding_ambassador_title_ja') }}">
-                    </div>
-                </div>
-                <!-- header -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="form-label text-muted">Ambassador Header (English)</label>
-                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[ambassador_header_en]" value="{{ getSettingValue('ambassador_header_en') }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label text-muted">ECN Premier Header (Japanese)</label>
-                        <input type="text" class="form-control" placeholder="Enter header title" name="setting[ambassador_header_ja]" value="{{ getSettingValue('ambassador_header_ja') }}">
-                    </div>
-                </div>
-                @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
-                    <div class="col-md-6">
-                        <label class="form-label text-muted">Title (English)</label>
-                        <input type="text" class="form-control" placeholder="Enter title" name="setting[ambassador_title_en_{{$i}}]" value="{{ getSettingValue('ambassador_title_en_'.$i) }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label text-muted">Title (Japanese)</label>
-                        <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[ambassador_title_ja_{{$i}}]" value="{{ getSettingValue('ambassador_title_ja_'.$i) }}">
-                    </div>
-                    {{-- <div class="col-md-4">
-                        <label class="form-label text-muted">Value</label>
-                        <input type="text" class="form-control" placeholder="Enter value" name="setting[ambassador_value_{{$i}}]" value="{{ getSettingValue('ambassador_value_'.$i) }}">
-                    </div> --}}
+                        {{--<div class="col-md-4">
+                                <label class="form-label text-muted">Value</label>
+                                <input type="text" class="form-control" id="android" placeholder="Enter value" name="setting[advance_value_{{$i}}]" value="{{ getSettingValue('advance_value_'.$i) }}">
+                </div> --}}
             </div>
             @endfor
         </div>
-        <!-- end Ambassador -->
+        <!-- end advance tab -->
+
+        <!-- elite -->
+        <div class="tab-pane fade" id="elite" role="tabpanel" aria-labelledby="ecn-tab">
+            <!-- funding title -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Elite Funding Title (English)</label>
+                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_elite_title_en]" value="{{ getSettingValue('rewards_funding_elite_title_en') }}">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Elite Funding Title (Japanese)</label>
+                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_elite_title_ja]" value="{{ getSettingValue('rewards_funding_elite_title_ja') }}">
+                </div>
+            </div>
+            <!-- header -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Elite Header (English)</label>
+                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[elite_header_en]" value="{{ getSettingValue('elite_header_en') }}">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Elite Header (Japanese)</label>
+                    <input type="text" class="form-control" placeholder="Enter header title" name="setting[elite_header_ja]" value="{{ getSettingValue('elite_header_ja') }}">
+                </div>
+            </div>
+            @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Title (English)</label>
+                    <input type="text" class="form-control" placeholder="Enter title" name="setting[elite_title_en_{{$i}}]" value="{{ getSettingValue('elite_title_en_'.$i) }}">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label text-muted">Title (Japanese)</label>
+                    <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[elite_title_ja_{{$i}}]" value="{{ getSettingValue('elite_title_ja_'.$i) }}">
+                </div>
+                {{-- <div class="col-md-4">
+                            <label class="form-label text-muted">Value</label>
+                            <input type="text" class="form-control" placeholder="Enter value" name="setting[elite_value_{{$i}}]" value="{{ getSettingValue('elite_value_'.$i) }}">
+        </div> --}}
+</div>
+@endfor
+</div>
+<!-- elite end -->
+
+<!-- Ambassador -->
+<div class="tab-pane fade" id="ambassador" role="tabpanel" aria-labelledby="premium-tab">
+    <!-- funding title -->
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label text-muted">Ambassador Funding Title (English)</label>
+            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_ambassador_title_en]" value="{{ getSettingValue('rewards_funding_ambassador_title_en') }}">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label text-muted">Ambassador Funding Title (Japanese)</label>
+            <input type="text" class="form-control" placeholder="Enter header title" name="setting[rewards_funding_ambassador_title_ja]" value="{{ getSettingValue('rewards_funding_ambassador_title_ja') }}">
+        </div>
+    </div>
+    <!-- header -->
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label text-muted">Ambassador Header (English)</label>
+            <input type="text" class="form-control" placeholder="Enter header title" name="setting[ambassador_header_en]" value="{{ getSettingValue('ambassador_header_en') }}">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label text-muted">ECN Premier Header (Japanese)</label>
+            <input type="text" class="form-control" placeholder="Enter header title" name="setting[ambassador_header_ja]" value="{{ getSettingValue('ambassador_header_ja') }}">
+        </div>
+    </div>
+    @for($i=1; $i<=7; $i++) <div class="form-group row my-2">
+        <div class="col-md-6">
+            <label class="form-label text-muted">Title (English)</label>
+            <input type="text" class="form-control" placeholder="Enter title" name="setting[ambassador_title_en_{{$i}}]" value="{{ getSettingValue('ambassador_title_en_'.$i) }}">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label text-muted">Title (Japanese)</label>
+            <input type="text" class="form-control" placeholder="Enter title japanease" name="setting[ambassador_title_ja_{{$i}}]" value="{{ getSettingValue('ambassador_title_ja_'.$i) }}">
+        </div>
+        {{-- <div class="col-md-4">
+                        <label class="form-label text-muted">Value</label>
+                        <input type="text" class="form-control" placeholder="Enter value" name="setting[ambassador_value_{{$i}}]" value="{{ getSettingValue('ambassador_value_'.$i) }}">
+</div> --}}
+</div>
+@endfor
+</div>
+<!-- end Ambassador -->
 </div>
 </div>
 </div>
@@ -940,6 +1393,13 @@
 </form>
 </div>
 <!-- end reward -->
+
+
+
+
+
+
+
 </div>
 </div>
 </div>
@@ -1027,7 +1487,7 @@
         window.location.href = "{{route('admin.setting.category')}}"
     });
     setTimeout(function() {
-        $(document).find('.terms').next().find('.cke_contents').attr('style', 'height:1000px');
+        $(document).find('.terms').next().find('.cke_contents').attr('style', 'height:100px');
     }, 1000);
 
     $(document).on('click', '#addBtn', function() {

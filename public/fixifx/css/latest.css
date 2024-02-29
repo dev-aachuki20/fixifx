@@ -1,0 +1,44 @@
+.mtwindow-trade-wrapper .imgbox, .mt5-android-trade-wrapper .advan-trade-herobox .imgbox {
+    max-width: 930px;
+    margin: 0 auto;
+}
+
+.cTrader-ios-trade-herobox .system-requirements-inner .img-box{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.broker-content .broker-discription{
+        width: 100%;
+    max-width: 100%;
+}
+
+@media(min-width:1800px){
+    .dark-header .header-btns ul{
+        padding-left: 12px;
+    }
+    
+    .dark-header li.nav-item.dropdown.language-box{
+        margin: 0 13px 0 0;
+    }
+}
+
+@media(min-width:1320px) and (max-width:1800px) {
+    .dark-header .header-btns ul{
+        padding-left: 8px;
+    }
+}
+
+@media(min-width:1200px) and (max-width:1320px) {
+    
+    .dark-header .header-btns ul li .custom-btn{
+        padding: 14px 10px
+    }
+    
+    .dark-header .header-btns li.nav-item.dropdown.language-box {
+        margin: 0 9px 0 0;
+    }
+}

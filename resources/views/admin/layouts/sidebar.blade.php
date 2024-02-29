@@ -63,18 +63,21 @@ $route_param = count(Route::current()->parameters()) ? Route::current()->paramet
                                         </li>
                                         @endforeach
                                         @endif
-
                                     </ul>
                                 </div>
                             </li>
                             @endforeach
+                            <li class="nav-item">
+                                <a href="{{ route('admin.page', ['slug' => 'download-platform']) }}" class="nav-link {{ ($route_param == 'download-platform') ? 'active' : '' }}"><span>Download Platform</span></a>
+                            </li>
                         </ul>
                     </div>
                     @endif
                 </li>
                 @endforeach
+
                 <li class="nav-item">
-                    <a href="{{ route('admin.page', ['slug' => 'common']) }}" class="nav-link {{ (\Request::route()->getName() == 'admin.common_section') ? 'active' : '' }}"><i class="ri-share-line"></i> <span>Common Section</span></a>
+                    <a href="{{ route('admin.page', ['slug' => 'common']) }}" class="nav-link {{ ($route_param == 'common') ? 'active' : '' }}"><i class="ri-share-line"></i> <span>Common Section</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.news_letter') }}" class="nav-link {{ (\Request::route()->getName() == 'news_letter') ? 'active' : '' }}"><i class="ri-share-line"></i> <span>NewsLetter Users</span></a>
@@ -88,7 +91,7 @@ $route_param = count(Route::current()->parameters()) ? Route::current()->paramet
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.setting') }}" class="nav-link {{ (\Request::route()->getName() == 'setting') ? 'active' : '' }}"><i class="ri-share-line"></i> <span>Setting</span></a>
+                    <a href="{{ route('admin.setting') }}" class="nav-link {{ ($route_param == 'setting') ? 'active' : '' }}"><i class="ri-share-line"></i> <span>Setting</span></a>
                 </li>
             </ul>
         </div>

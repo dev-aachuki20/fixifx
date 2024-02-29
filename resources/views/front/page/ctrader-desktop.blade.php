@@ -4,7 +4,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 @endphp
 
 @extends('front.layouts.base')
-
 @section('content')
 
 <!-- Hero section  -->
@@ -35,15 +34,12 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                     </div>
                 </div>
                 @endif
-
-
             </div>
         </div>
         <!-- end  -->
     </div>
 </section>
 <!-- end  -->
-
 <!-- we-trade-wrapper  -->
 @php $section3 = $section->where('section_no', 3)->where('status', 1)->first() @endphp
 @if($section3)
@@ -74,9 +70,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
                 </div>
             </div>
         </div>
-        <!-- border  -->
         <div class="border-padding m-0"></div>
-        <!-- end border  -->
 
 
         @php $section4 = $section->where('section_no', 4)->where('status', 1)->first() @endphp
@@ -112,7 +106,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 @endif
 <!-- end  -->
 
-<!-- No trading limits -->
 @php $section5 = $section->where('section_no', 5)->where('status', 1)->first() @endphp
 @if($section5)
 <section class="no-trading-limits pb-0 reward-wrapper whsection-text ctrader-notrade background-ab-none">
@@ -143,16 +136,11 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
     </div>
 </section>
 @endif
-<!-- end  -->
 
 <!-- we-trade-wrapper  -->
 <section class="market-depth we-trade-wrapper bg-white bgsize-100 space-bottom-100" style="background-image:url('{{ asset('fixifx/images/bg-glob-1-right.png') }}');background-repeat: no-repeat; background-position: right 114%;">
     <div class="container">
-        <!-- border  -->
         <div class="border-padding m-0"></div>
-        <!-- end border  -->
-
-
         <!-- Level II Pricing – Market Depth -->
         @php $section6 = $section->where('section_no', 6)->where('status', 1)->first() @endphp
         @if($section6)
@@ -186,10 +174,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
         </div>
         @endif
         <!-- border  -->
-        
-        <!-- end border  -->
-
-
         <!-- Smart Stop Out -->
         @php $section7 = $section->where('section_no', 7)->where('status', 1)->first() @endphp
         @if($section7)
@@ -260,8 +244,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Windows版
 </section>
 @endif
 <!-- end  -->
-
-
 <!-- cTrader Desktop Benefits -->
 @php $section9 = $section->where('section_no', 9)->where('status', 1)->first() @endphp
 @if($section9)

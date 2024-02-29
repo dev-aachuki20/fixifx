@@ -6,11 +6,22 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
 @extends('front.layouts.base')
 
 @section('content')
+<style>
+    .advan-trade-wrapper .advan-trade-herobox{
+    max-width: 1145px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+.advan_h1 {
+    margin: 0 0 20px !important;
+}
+
+</style>
 
 <!-- Hero section  -->
-<section class="reward-wrapper advan-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center before-nonemob">
+<section class="reward-wrapper advan-trade-wrapper cTrader-web whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center before-nonemob">
     <div class="container">
-        <div class="advan-trade-herobox pbottom-50">
+        <div class="advan-trade-herobox pbottom-50 mx-100">
             <div class="row align-items-center justify-content-center">
                 @php $header = $section->where('section_no', 1)->first();
                 $sectionEnLink1 = $header ? json_decode($header->en_link) : null;
@@ -18,10 +29,12 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 @endphp
                 @if($header)
                 <div class="col-12 col-md-12 col-sm-12 text-center">
-                    <h6>
+                    <h1 class="advan_h1">
                         {{ $header->{config('app.locale').'_title'} }}
-                    </h6>
-                    <h1>{!! $header->{config('app.locale').'_desc'} !!}</h1>
+                    </h1>
+                    <div class="section-head mx-auto w-100">
+                        <div class="discription">{!! $header->{config('app.locale').'_desc'} !!}</div>
+                    </div>
                     <div class="openAi-btn d-flex align-items-center justify-content-center">
                         @if(config('app.locale') == 'en')
                         <a href="{{ isset($sectionEnLink1[0]) ? $sectionEnLink1[0] : '#' }}" class="custom-btn fill-btn-1">{{__('message.preview_platform_btn')}}</a>
@@ -36,7 +49,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
                 <div class="col-12 col-md-12 col-sm-12 text-center">
                     <div class="video-banner advan-video-area">
                         <a href="javascript:void(0);">
-                            <img class="img-fluid w-auto" src="{{$header && $header->image ? $header->image : asset('fixifx/images/advan-trade-lapp.png')}}" alt="">
+                            <img class="img-fluid" src="{{$header && $header->image ? $header->image : asset('fixifx/images/advan-trade-lapp.png')}}" alt="">
                             <span class="vplay-icon" data-bs-toggle="modal" data-bs-target="#videoplay"><img src="{{asset('fixifx/images/play-icon.svg')}}" alt=""></span>
                         </a>
                     </div>
@@ -266,7 +279,7 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(Android版
             <div class="modal-body">
                 <div class="video-container">
                     <!-- __BLOCK__ -->
-                    <video controls autoplay id="video1 modal_video">
+                    <video controls id="video1 modal_video">
                         <source src="{{$header->video_url ?? ''}}" type="video/mp4">
                     </video>
 

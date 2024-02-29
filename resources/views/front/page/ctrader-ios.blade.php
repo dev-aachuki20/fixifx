@@ -4,20 +4,14 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
 @endphp
 
 @extends('front.layouts.base')
-
 @section('content')
-
 <!-- Hero section  -->
 <section class="reward-wrapper cTrader-ios mt5-android-trade-wrapper whsection-text padding-tb-180 pb-0 d-flex flex-wrap align-items-center ctrader-top-hero top-bg-image before-nonemob">
     <div class="container">
         <div class="advan-trade-herobox cTrader-ios-trade-herobox ctrader-newtop space-bottom-100 discover-next-border">
             <div class="row align-items-center justify-content-center">
-
-                <!-- main heading and desc  -->
                 @include('front.common.sub_header')
                 @include('front.common.download_section')
-
-
                 @php $section2 = $section->where('section_no', 2)->where('status', 1)->first() @endphp
                 @if($section2)
                 <div class="col-12">
@@ -33,11 +27,9 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                                 <div class="contentbox section-head icon-position">
                                     <h4>{{ $section2->{config('app.locale').'_title'} }}</h4>
                                     {!! $section2->{config('app.locale').'_desc'} !!}
-
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 @endif
@@ -73,8 +65,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                     </div>
                     @endif
                     @endforeach
-
-
                 </div>
             </div>
         </div>
@@ -124,7 +114,6 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
                                     {!! $section5->{config('app.locale').'_desc'} !!}
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -180,8 +169,5 @@ $description_jp = 'FiXi FX（フィクシー）が提供するcTrader(iOS版･i
 </section>
 <!-- end  -->
 
-<!-- Fixi’s OpenAPI Ready to get started? -->
 @include('front.layouts.partials.explore_to_get_start')
-<!-- end  -->
-
 @endsection

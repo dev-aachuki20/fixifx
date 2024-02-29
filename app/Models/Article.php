@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Storage;
 
 class Article extends Model
 {
@@ -16,17 +17,36 @@ class Article extends Model
     
     public function getImageAttribute($value)
     {
-        return $value ? asset('storage/Article/'.$value) : NULL;
+        if(isset($value) && isset($value) && Storage::disk('public')->exists('Article/'.$value)){
+            return asset('storage/Article/'.$value);
+        }else{
+            return asset('/front/img/default.webp');
+        }
+        // return $value ? asset('storage/Article/'.$value) : NULL;
     }
 
     public function getSubImageAttribute($value)
     {
-        return $value ? asset('storage/Article/'.$value) : NULL;
+        if(isset($value) && isset($value) && Storage::disk('public')->exists('Article/'.$value)){
+            return asset('storage/Article/'.$value);
+        }
+        // else{
+        //     return asset('/front/img/default.webp');
+        // }
+        // return $value ? asset('storage/Article/'.$value) : NULL;
     }
 
-    public function getThumbImgAttribute($value)
+     public function getThumbImgAttribute($value)
     {
-        return $value ? asset('storage/ArticleThumb/'.$value) : NULL;
+        
+        if(isset($value) && isset($value) && Storage::disk('public')->exists('ArticleThumb/'.$value)){
+            return asset('storage/ArticleThumb/'.$value);
+        }else if(isset($this->attributes['image']) && Storage::disk('public')->exists('Article/'.$this->attributes['image'])){
+            return asset('storage/Article/'.$this->attributes['image']);
+        }else{
+            // return "ekse".$this->attributes['image'];
+            return asset('/front/img/default.webp');
+        }
     }
 
     public function categories()

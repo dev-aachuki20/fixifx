@@ -1,13 +1,14 @@
 @php
- $index_cfds_alt = 'Index Trading - FiXi FX';
- if(config('app.locale') == 'ja'){
-    $index_cfds_alt = '株価指数CFD（インデックス） - FiXi FX（フィクシー）';
- }
-    $keywords_jp = 'インデックスCFD,株価指数,FiXi,フィクシー';
-    $description_jp = 'FiXi FX（フィクシー）では、MT5とcTraderでインデックスCFDを取引可能。0.014秒の高速な執行速度と最大100倍のレバレッジを提供します。';
+$index_cfds_alt = 'Index Trading - FiXi FX';
+if(config('app.locale') == 'ja'){
+$index_cfds_alt = '株価指数CFD（インデックス） - FiXi FX（フィクシー）';
+}
+$keywords_jp = 'インデックスCFD,株価指数,FiXi,フィクシー';
+$description_jp = 'FiXi FX（フィクシー）では、MT5とcTraderでインデックスCFDを取引可能。0.014秒の高速な執行速度と最大100倍のレバレッジを提供します。';
 @endphp
 
 @extends('front.layouts.master')
+
 @push('css')
 <link href="{{asset('assets/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/jquery.dataTables.min.css')}}" rel="stylesheet">
@@ -65,7 +66,7 @@
                                 </div>
                             </div>
                             @endif
-                            
+
                         </div>
                     </div>
                 </div>

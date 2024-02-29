@@ -7,8 +7,9 @@ $section4 = App\Models\Section::where('id', 4)->first();
 
 @endphp
 
+
 <!-- Header  -->
-<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' || request()->route()->parameters['slug'] === 'vps-service' || request()->route()->parameters['slug'] === 'third-party-tool'  || request()->route()->parameters['slug'] === 'rewards' ? 'dark-header' : '' }}">
+<header id="header" class="header-main {{ request()->route()->parameters['slug'] === 'privacy-policy'|| request()->route()->parameters['slug'] === 'terms-condition' || request()->route()->parameters['slug'] === 'mt5-client-desktop' || request()->route()->parameters['slug'] === 'mt5-mac-os-trader' || request()->route()->parameters['slug'] === 'mt5-android-trader' || request()->route()->parameters['slug'] === 'mt5-iphone-trader' || request()->route()->parameters['slug'] === 'ctrader-ios' || request()->route()->parameters['slug'] === 'ctrader-android' || request()->route()->parameters['slug'] === 'ctrader-web' || request()->route()->parameters['slug'] === 'ctrader-desktop' || request()->route()->parameters['slug'] === 'advan-trade' || request()->route()->parameters['slug'] === 'vps-service' || request()->route()->parameters['slug'] === 'third-party-tool'  || request()->route()->parameters['slug'] === 'rewards' || request()->route()->parameters['slug'] === 'index-cfds' || request()->route()->parameters['slug'] === 'precious-metals' || request()->route()->parameters['slug'] === 'forex' || request()->route()->parameters['slug'] === 'energies' || request()->route()->parameters['slug'] === 'soft-commodities' || request()->route()->parameters['slug'] === 'crypto-currency' || request()->route()->parameters['slug'] === 'shares-bonds' || request()->route()->parameters['slug'] === 'trading-conditions' || request()->route()->parameters['slug'] === 'funding-methods' || request()->route()->parameters['slug'] === 'withdrawals' || request()->route()->parameters['slug'] === 'refer-a-friend' || request()->route()->parameters['slug'] === 'introducing-broker' || request()->route()->parameters['slug'] === 'trading-strategy' || request()->route()->parameters['slug'] === 'tutorials' || request()->route()->parameters['slug'] === 'economic-calendar' || request()->route()->parameters['slug'] === 'mt5-signal-trading' || request()->route()->parameters['slug'] === 'mt5-expert-advisors' || request()->route()->parameters['slug'] === 'copy-trading' || request()->route()->parameters['slug'] === 'automated-trading' || request()->route()->parameters['slug'] === 'market-news' || request()->route()->parameters['slug'] === 'companys-profile' || request()->route()->parameters['slug'] === 'advantages' || request()->route()->parameters['slug'] === 'safety-of-funds' || request()->route()->parameters['slug'] === 'company-news' || request()->route()->parameters['slug'] === 'event-news' || request()->route()->parameters['slug'] === 'financial-license' ? 'dark-header' : '' }}">
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="{{ route('page', [config('app.locale'), 'home']) }}">
@@ -28,13 +29,13 @@ $section4 = App\Models\Section::where('id', 4)->first();
             </li>
             <li class="nav-item dropdown language-box">
               @if(config('app.locale') == 'en')
-              <a href="javascript:void(0);" @if(config('app.locale')=='en' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}"> ENG</a>
+              <a href="javascript:void(0);" @if(config('app.locale')=='en' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}"> English</a>
               @else
-              <a href="javascript:void(0);" @if(config('app.locale')=='ja' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}"> JA</a>
+              <a href="javascript:void(0);" @if(config('app.locale')=='ja' ) class="nav-link active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}"> 日本語</a>
               @endif
               <ul>
-                <li><a href="{{ route('language.change', ['locale' => 'en']) }}" @if(config('app.locale')=='en' ) class="active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}">ENG</a></li>
-                <li><a href="{{ route('language.change', ['locale' => 'ja']) }}" @if(config('app.locale')=='ja' ) class="active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}">JA</a></li>
+                <li><a href="{{ route('language.change', ['locale' => 'en']) }}" @if(config('app.locale')=='en' ) class="active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}">English</a></li>
+                <li><a href="{{ route('language.change', ['locale' => 'ja']) }}" @if(config('app.locale')=='ja' ) class="active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}">日本語</a></li>
               </ul>
             </li>
           </ul>
@@ -52,7 +53,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
           @foreach($menu as $m)
           @if(count($m->subMenu))
           <li class="nav-item dropdown {{($m->en_name == 'Forex Trading') ? 'megalarge_link' : ''}} {{ (in_array($route_param, $m->menuPage->pluck('slug')->toArray())) ? 'active' : '' }}">
-            <a href="javascript:void();" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               {{ $m->{config('app.locale').'_name'} }}</a>
             <div class="mega-menu dropdown-menu">
               <a href="javascript:void(0);" class="back_btn">
@@ -72,7 +73,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
 
                       @if($submenu->{config('app.locale').'_name'})
                       <dl class="col-xl-6 col-lg-8 dropdown-pf-wrap mega-menu-column">
-                        <a href="javascript:void();" class="linkhead-box">
+                        <a href="javascript:void(0);" class="linkhead-box">
                           <h4>{{ $submenu->{config('app.locale').'_name'} }}</h4>
                         </a>
                         <dt class="m-0 mb-3 header-pf-name {{ ($route_param == 'platform-overview') ? 'active' : '' }}">
@@ -84,12 +85,12 @@ $section4 = App\Models\Section::where('id', 4)->first();
                             @if(count($submenu->menuPage))
                             @if($submenu->id == 1)
                             <dt class="m-0 mb-3 header-pf-name">
-                              <h3>{{ $section4->subSection[1]->{config('app.locale').'_title'} ?? __('message.c_trader') }}</h3>
+                              <h3><b>{{ getSettingValue('trade_platform_submenu_key1_'.config('app.locale')) ?: __('message.c_trader') }}</b></h3>
                             </dt>
                             @elseif($submenu->id == 2)
                             @php $configName = config('app.locale').'_name'; @endphp
                             <dt class="m-0 mb-3 header-pf-name">
-                              <h3>{{ $section4->subSection[0]->{config('app.locale').'_title'} ?? __('message.meta_trader') }}</h3>
+                              <h3><b>{{ getSettingValue('trade_platform_submenu_key2_'.config('app.locale')) ?: __('message.meta_trader') }}</b></h3>
 
                               {{-- <h3>{{ $submenu->menuPage->$configName ?? __('message.meta_trader') }}</h3> --}}
                             </dt>
@@ -109,7 +110,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
                           @if($submenu->id == 2)
                           <dl class="col-lg-4 pf-no-margin">
                             <dt class="m-0 mb-3 header-pf-name {{ ($route_param == 'advan-trade') ? 'active' : '' }}">
-                              <h3>{{ $section4->subSection[2]->{config('app.locale').'_title'} ?? __('message.advan_trade') }}</h3>
+                              <h3><b>{{ getSettingValue('trade_platform_submenu_key3_'.config('app.locale')) ?: __('message.advan_trade') }}</b></h3>
                               <a href="{{ route('page', [config('app.locale'), 'advan-trade']) }}">
                                 <h5 class="overviewtext">{{__('message.overview') }}</h5>
                               </a>
@@ -117,7 +118,7 @@ $section4 = App\Models\Section::where('id', 4)->first();
                             <dd>
                               <div class="mega-menu-outer">
                                 <div class="mega-menu-box">
-                                  <a href="javascript:void();"></a>
+                                  <a href="javascript:void(0);"></a>
                                 </div>
                               </div>
                             </dd>
@@ -149,11 +150,11 @@ $section4 = App\Models\Section::where('id', 4)->first();
                       @endforeach
                     </div>
                   </div>
-
+                  
                   <div class="col-lg-3 col-xl-3">
                     <div class="header-blog-box">
                       <div class="blogs-img">
-                        <img src="{{ asset('fixifx/images/header-blog.png') }}" alt="header-blog">
+                        <img src="{{ $m->icon ? asset('storage/icons/'. $m->icon) : asset('fixifx/images/header-blog.png') }}" alt="header-blog">
                       </div>
                       <div class="blogs-disc">
                         <h6>{{ $m->{config('app.locale').'_name'} }}</h6>
@@ -167,7 +168,6 @@ $section4 = App\Models\Section::where('id', 4)->first();
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -183,9 +183,9 @@ $section4 = App\Models\Section::where('id', 4)->first();
           @endif
           @endforeach
 
-          <li class="nav-item {{ ($route_param == 'prex-blogs') ? 'active' : '' }}">
+          {{-- <li class="nav-item {{ ($route_param == 'prex-blogs') ? 'active' : '' }}">
             <a href="{{ route('page', [config('app.locale'),'prex-blogs']) }}" class="nav-link {{($route_param == 'prex-blogs') ? 'active' : '' }}">{{__('message.fixi_blog', [], config('app.locale'))}}</a>
-          </li>
+          </li> --}}
         </ul>
         <div class="header-btns">
           <ul>
@@ -200,17 +200,21 @@ $section4 = App\Models\Section::where('id', 4)->first();
             <li class="nav-item dropdown language-box">
 
               @if(config('app.locale') == 'en')
-              <a href="javascript:void();" class="nav-link"><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}"> ENG</a>
+              <a href="javascript:void(0);" class="nav-link"><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}"> English</a>
               @else
-              <a href="javascript:void();" class="nav-link"><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}"> JA</a>
+              <a href="javascript:void(0);" class="nav-link"><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}"> 日本語</a>
               @endif
               <ul>
-                <li><a href="{{ route('language.change', ['locale' => 'en']) }}" @if(config('app.locale')=='en' ) class="active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}">ENG</a></li>
-                <li><a href="{{ route('language.change', ['locale' => 'ja']) }}" @if(config('app.locale')=='ja' ) class="active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}">JA</a></li>
+                <li><a href="{{ route('language.change', ['locale' => 'en']) }}" @if(config('app.locale')=='en' ) class="active" @endif><img src="{{ asset('fixifx/images/eng.png') }}" alt="{{ config('app.locale') == 'ja' ? '英語版FiXi FX（フィクシー）' : 'English' }}">English</a></li>
+                <li><a href="{{ route('language.change', ['locale' => 'ja']) }}" @if(config('app.locale')=='ja' ) class="active" @endif><img src="{{ asset('fixifx/images/ja.png') }}" alt="{{ config('app.locale') == 'ja' ? '日本語版FiXi FX（フィクシー）' : 'Japanese' }}">日本語</a></li>
               </ul>
             </li>
-            <li>
+            {{-- <li>
               <a href="{{ getSettingValue('member_login') }}" target="_blank" class="custom-btn fill-btn-1">{{__('message.member_login', [], config('app.locale'))}}</a>
+            </li> --}}
+
+            <li>
+            <a href="{{ route('login', [config('app.locale')]) }}" class="custom-btn fill-btn-1">{{__('message.member_login', [], config('app.locale'))}}</a>
             </li>
             <li>
               <a href="{{ getSettingValue('partner_login') }}" target="_blank" class="custom-btn fill-btn">{{__('message.partner_login', [], config('app.locale'))}}</a>
@@ -221,10 +225,11 @@ $section4 = App\Models\Section::where('id', 4)->first();
     </div>
     <div class="search-form">
       <div class="container">
-        <form class="py-4" action="javascript:void();">
+        <form id="search-all-result" class="py-4">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search here...">
+            <input type="text" id="all-search-input" class="form-control" placeholder="Search here..." oninput="showResults()">
           </div>
+          <div id="all-results"></div>
         </form>
       </div>
     </div>

@@ -21,12 +21,6 @@
     top: 0;
     z-index: 1;
 }
-.videoSelectInput > input[type="file"].form-control{
-    height: calc(100% - 110px);
-    width: calc(100% - 40px);
-    left: 20px;
-    top: 20px;
-}
 .p-img-remove{
     position: absolute;
     top: -12px;

@@ -225,7 +225,6 @@ $sectionJaLink3 = $section3 ? json_decode($section3->ja_link) : null;
 
 
 @section('javascript')
-@parent
 <script>
     $(document).ready(function() {
         $(".showDetails-more").click(function() {

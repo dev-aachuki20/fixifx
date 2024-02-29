@@ -48,7 +48,7 @@
                         <div class="broker-list">
                           <div class="broker-list-title">
                             <h6>
-                              {{ __('message.fixi_banner') }} {{ str_pad($key - 3, 2, '0', STR_PAD_LEFT) }}
+                              {{ $value->{config('app.locale').'_short_text'} }}
                             </h6>
                           </div>
                         </div>

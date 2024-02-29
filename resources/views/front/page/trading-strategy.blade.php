@@ -54,3 +54,64 @@
         </div>
     
 @endsection 
+
+@section('javascript')
+<script>
+    $('#news_form').validate({
+        errorClass: 'invalid-feedback animated fadeInDown error',
+        errorElement: 'div',
+        rules: {
+            email: {
+                required: true,
+                email: true,
+            }
+        },
+        highlight: function(element, errorClass, validClass) {
+            console.log(element);
+            $(element).addClass('is-invalid');
+            $(element).parents("div.form-control").addClass(errorClass).removeClass(validClass);
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+            $(element).parents(".error").removeClass(errorClass).addClass(validClass);
+        },
+        submitHandler: function(form) {
+            $('.error').html("");
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('newsletter') }}",
+                data: new FormData(form),
+                processData: false,
+                contentType: false,
+                success: function(data) {
+
+                    if (data) {
+                        success = msg = "";
+                        if ('{{config("app.locale")}}' == 'en') {
+                            msg = 'You have successfully subscribed to our newsletter.';
+                            success = 'Success';
+                        } else {
+                            msg = 'ニュースレターの購読に成功しました。';
+                            success = '成功';
+                        }
+                        swal(
+                            success,
+                            msg,
+                            'success'
+                        );
+                        $('#news_form').trigger("reset");
+
+                    }
+                },
+                error: function(data) {
+                    var errors = $.parseJSON(data.responseText);
+                    $.each(errors.errors, function(key, value) {
+                        $('#news_form').find('input[name=' + key + ']').after('<span class="error" style="color: red;">' + value + '</span>');
+                    });
+
+                }
+            });
+        },
+    });
+</script>
+@endsection

@@ -13,7 +13,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec1">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_1" aria-expanded="true" aria-controls="sec_1">
-                    <i class="ri-global-line me-1"></i>FiXi Forex VPS
+                    <i class="ri-global-line me-1"></i>FiXi fx VPS
                 </button>
             </h2>
             <div id="sec_1" class="accordion-collapse collapse" aria-labelledby="Sec1" data-bs-parent="#sec1">
@@ -426,7 +426,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec5">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_5" aria-expanded="true" aria-controls="sec_5">
-                    <i class="ri-global-line me-1"></i>FxPro MT5 PC
+                    <i class="ri-global-line me-1"></i>FiXi fx MT5 PC
                 </button>
             </h2>
             <div id="sec_5" class="accordion-collapse collapse" aria-labelledby="Sec5" data-bs-parent="#sec5">
@@ -496,7 +496,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header" id="Sec6">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sec_6" aria-expanded="true" aria-controls="sec_6">
-                    <i class="ri-global-line me-1"></i>How to install FxPro VPS?
+                    <i class="ri-global-line me-1"></i>How to install FiXi fx VPS?
                 </button>
             </h2>
             <div id="sec_6" class="accordion-collapse collapse" aria-labelledby="Sec6" data-bs-parent="#sec6">

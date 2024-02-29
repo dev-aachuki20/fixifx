@@ -29,7 +29,9 @@ function getYouTubeUniqueString($full_link)
 
 function uploadFile($file, $dir)
 {
-    if ($file) {
+    if (is_string($file)) {
+        return $file;
+    }
         if ($dir == "ArticleThumb") {
             $media_image = time() . '.' . $file->getClientOriginalExtension();
 
@@ -69,7 +71,6 @@ function uploadFile($file, $dir)
         } else {
             return false;
         } */
-    }
 }
 
 function getSettingValue($key)
