@@ -10,14 +10,16 @@
 
 @if($section1)
 
-<section class="other-pages-banner hero-main padding-tb-180 m-height-559 d-flex flex-wrap align-items-center" @if($subSection1 && $subSection1->image != null)  style="background-image: url({{ asset($subSection1->image) }});" @else  style="background-image: url({{ asset('fixifx/images/hero-bg.png') }});" @endif>
+<section class="other-pages-banner main-home-hero hero-main padding-tb-180 m-height-559 d-flex flex-wrap align-items-center" style="background-image: url('{{ asset('fixifx/images/home-hero-bg.jpg')}}');">
 
   <div class="container">
 
     @foreach ($section1->subSection as $sub_sec)
 
-    <div class="row justify-content-end align-items-center">
-
+    <div class="row align-items-center">
+      <div class="col-12 col-xl-6 col-lg-12 col-md-12 col-sm-12">
+        <img src="{{ asset($subSection1->image) }}" alt="hero-left-image" class="img-fluid">
+      </div>
       <div class="col-12 col-xl-6 col-lg-12 col-md-12 col-sm-12">
 
         <div class="other-banner-text hero-wrapper">

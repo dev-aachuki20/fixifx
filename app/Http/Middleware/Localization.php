@@ -19,12 +19,20 @@ class Localization
      */
     public function handle($request, Closure $next)
     {
-        if (session()->has('locale')) {
-            App::setlocale(session()->get('locale'));
-        } else {
-            App::setlocale('ja');
-        }
+        // if (session()->has('locale')) {
+        //     App::setlocale(session()->get('locale'));
+        // } else {
+        //     App::setlocale('ja');
+        // }
         
+        $languageSegment = $request->segment(1);
+
+        $supportedLanguages = ['en', 'ja'];
+        if (in_array($languageSegment, $supportedLanguages)) {
+            app()->setLocale($languageSegment);
+        } else {
+            app()->setLocale(config('app.locale'));
+        }
         return $next($request);
     }
 }

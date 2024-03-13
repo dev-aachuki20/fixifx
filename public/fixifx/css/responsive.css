@@ -2709,3 +2709,19 @@
         padding: 14px;
     }
 }
+
+@media screen and (max-width: 1199px){
+    .other-pages-banner.hero-main.main-home-hero .row .col-12:first-child{
+        padding-bottom: 30px !important;
+    }  
+  }
+  @media screen and (max-width: 767px){
+      .other-pages-banner.hero-main.main-home-hero .row .col-12 {
+          background-image: none !important;
+          padding-top: 0 !important;
+      }
+      .main-home-hero.hero-main{
+          padding-top: 40px !important;
+          background-size: cover;
+      }
+  }
